@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital · MyClinical Growth</title>
+<meta name="description" content="Reach UK healthtech founders who are actively winning NHS work and landing non-dilutive grants. Coming soon: a paid placement for investors who back UK digital health.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .soon-wrap{max-width:760px;margin:0 auto;}
+  .soon-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:38px;margin-top:36px;}
+  .soon-pill{display:inline-block;background:rgba(79,138,110,.12);color:var(--sage);font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;}
+  .soon-card h2{font-size:26px;font-weight:800;color:var(--forest);margin-bottom:10px;}
+  .soon-card p{font-size:16px;color:var(--text);margin-bottom:14px;}
+  .soon-list{margin:18px 0 4px 0;padding:0;list-style:none;}
+  .soon-list li{font-size:15.5px;color:var(--text);margin-bottom:10px;padding-left:24px;position:relative;}
+  .soon-list li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--sage);}
+  .contact-card{background:var(--ink);color:var(--white);border-radius:16px;padding:38px;margin-top:24px;}
+  .contact-card h2{font-size:24px;font-weight:800;color:var(--white);margin-bottom:8px;}
+  .contact-card p.lead{font-size:15.5px;color:#aab1aa;margin-bottom:22px;max-width:560px;}
+  .cform{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .cform .full{grid-column:1 / -1;}
+  .cform label{display:block;font-size:12.5px;font-weight:600;color:#cfd3cd;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+  .cform input,.cform textarea{width:100%;padding:13px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--white);font-size:15px;font-family:inherit;}
+  .cform input::placeholder,.cform textarea::placeholder{color:#9fb0a4;}
+  .cform textarea{min-height:120px;resize:vertical;}
+  .cform .hp{position:absolute;left:-5000px;}
+  .cform-actions{margin-top:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .cform-note{font-size:12.5px;color:#9fb0a4;}
+  @media(max-width:640px){.cform{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-page="capital">
+
+<div class="flag">Coming soon &middot; we are not yet placing investor content &middot; register your interest below and we&rsquo;ll be in touch when this opens</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">MyClinical <span>Growth</span></a>
+    <div class="nav-links">
+      <a href="opportunities.html">Procurement</a>
+      <a href="grants.html">Grants</a>
+      <a href="directory.html">Directory</a>
+      <a href="bid-writers.html">Bid Writers</a>
+      <a href="capital.html" class="active">Capital</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="index.html#signup" class="btn btn-pill">Get the daily brief</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="badge">For Investors</span>
+    <h1>Back the UK healthtech founders who are already winning.</h1>
+    <p>Our readers are UK digital health founders actively chasing NHS contracts and non-dilutive grants. They&rsquo;re past the deck stage. When they need capital, we want them to see you first.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap soon-wrap">
+    <div class="soon-card">
+      <span class="soon-pill">Coming soon</span>
+      <h2>A paid placement for investors who back UK digital health</h2>
+      <p>The third rung on the MyClinical Growth ladder: win contracts, land grants, become investable. The Capital page will host a small, curated set of investors actively writing into UK healthtech. Angels, syndicates, seed funds, healthcare-specialist funds.</p>
+      <p>Listing is paid. We&rsquo;re keeping it deliberately small so the page stays a useful shortlist, not a noticeboard.</p>
+      <ul class="soon-list">
+        <li>A dedicated profile: thesis, cheque size, stage, what you&rsquo;ve already funded</li>
+        <li>Placement alongside the grants and funding content where founders are already thinking about money</li>
+        <li>Mentions in the daily brief when relevant news drops</li>
+        <li>Flat placement fee. No carry, no commission, no introductions on our part.</li>
+      </ul>
+    </div>
+
+    <div class="contact-card">
+      <h2>Register your interest</h2>
+      <p class="lead">Tell us a bit about your firm or fund. We&rsquo;ll be in touch when the Capital page opens with placement details and pricing. No obligation, no spam, no sharing your details.</p>
+      <form name="capital-interest"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="cform">
+        <input type="hidden" name="form-name" value="capital-interest" />
+        <div class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></div>
+
+        <div>
+          <label for="cap-name">Your name</label>
+          <input id="cap-name" type="text" name="name" placeholder="Jane Smith" required />
+        </div>
+        <div>
+          <label for="cap-email">Email</label>
+          <input id="cap-email" type="email" name="email" placeholder="you@yourfirm.com" required />
+        </div>
+        <div>
+          <label for="cap-firm">Firm / fund</label>
+          <input id="cap-firm" type="text" name="firm" placeholder="Acme Capital" required />
+        </div>
+        <div>
+          <label for="cap-website">Website</label>
+          <input id="cap-website" type="url" name="website" placeholder="https://" />
+        </div>
+        <div class="full">
+          <label for="cap-cheque">Typical cheque size &amp; stage</label>
+          <input id="cap-cheque" type="text" name="cheque-size" placeholder="e.g. £250k–£1m, pre-seed to seed" />
+        </div>
+        <div class="full">
+          <label for="cap-message">Your thesis &amp; what you&rsquo;d like to know (optional)</label>
+          <textarea id="cap-message" name="message" placeholder="What you back, what you don't, any healthtech portfolio."></textarea>
+        </div>
+        <div class="full cform-actions">
+          <button type="submit" class="btn btn-primary">Register interest</button>
+          <span class="cform-note">We&rsquo;ll reply to the email above. Your details stay with MyClinical Growth.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">MyClinical <span style="color:var(--sage)">Growth</span></a>
+        <p>NHS opportunities and UK healthtech funding. Aggregated, signalled, delivered. A free resource, part of the MyClinical line.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Resource</h5>
+        <a href="opportunities.html">Procurement</a>
+        <a href="grants.html">Grants &amp; funding</a>
+        <a href="directory.html">Source directory</a>
+        <a href="index.html#signup">The daily brief</a>
+      </div>
+      <div class="foot-col">
+        <h5>Partners</h5>
+        <a href="bid-writers.html">For bid writers</a>
+        <a href="capital.html">For investors</a>
+      </div>
+      <div class="foot-col">
+        <h5>MyClinical</h5>
+        <a href="https://lukekellaway.com" target="_blank" rel="noopener">lukekellaway.com</a>
+        <a href="about.html">About this resource</a>
+        <a href="about.html#privacy">Privacy policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 MyClinical Growth. Built so UK healthtech gets a fair shot.</span>
+      <span>growth.myclinical.co.uk</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

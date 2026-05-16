@@ -2,5 +2,5 @@
   "updated": null,
   "count": 0,
   "opportunities": [],
-  "note": "Populated by scripts/poll.py once deployed — the poller needs open internet (GitHub Actions provides it)."
+  "note": "Populated by scripts/poll.py once deployed. The poller needs open internet (GitHub Actions provides it)."
 }

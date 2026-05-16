@@ -10,7 +10,7 @@
       "Geographic scope": "UK-wide",
       "What it covers": "Higher-value public contract notices, tenders, awards and pipeline/planned-procurement notices (post Procurement Act 2023).",
       "URL": "https://www.find-tender.service.gov.uk",
-      "Feed / API": "Yes – API",
+      "Feed / API": "Yes - API",
       "Update cadence": "Continuous / real-time",
       "Login to view?": "No",
       "Notes & relevance to digital health": "TIER 1 backbone. OCDS JSON API (release & record packages), v1.1.5. Dev docs at /Developer/Documentation. Fully automatable."
@@ -22,13 +22,13 @@
       "Geographic scope": "England-focused",
       "What it covers": "Lower-value contracts (£12k+ central gov), pipeline/planned procurement, some award notices.",
       "URL": "https://www.contractsfinder.service.gov.uk",
-      "Feed / API": "Yes – API",
+      "Feed / API": "Yes - API",
       "Update cadence": "Continuous",
       "Login to view?": "No (free account for saved searches)",
       "Notes & relevance to digital health": "TIER 1 backbone. OCDS API + CSV export. Dev docs at /apidocumentation. Fully automatable."
     },
     {
-      "Source": "Atamis – Health Family eCommercial System",
+      "Source": "Atamis - Health Family eCommercial System",
       "Type": "NHS portal",
       "Owner / operator": "Atamis (for NHS / DHSC)",
       "Geographic scope": "England (most NHS trusts + NHS England)",
@@ -37,19 +37,19 @@
       "Feed / API": "Alerts only",
       "Update cadence": "Continuous",
       "Login to view?": "Free supplier registration for alerts",
-      "Notes & relevance to digital health": "TIER 3 — closest thing to a single NHS portal (44k+ suppliers). No open API; free email business alerts. Monitor, do not scrape."
+      "Notes & relevance to digital health": "TIER 3, closest thing to a single NHS portal (44k+ suppliers). No open API; free email business alerts. Monitor, do not scrape."
     },
     {
       "Source": "NHS Shared Business Services (SBS)",
       "Type": "Framework operator",
       "Owner / operator": "NHS SBS (DHSC / Sopra Steria JV)",
       "Geographic scope": "England + UK-wide national frameworks",
-      "What it covers": "National framework agreements — incl. the £750m Healthcare AI Solutions framework (8 lots, closed 23 Jun 2026).",
+      "What it covers": "National framework agreements, incl. the £750m Healthcare AI Solutions framework (8 lots, closed 23 Jun 2026).",
       "URL": "https://www.sbs.nhs.uk/services/procurement",
       "Feed / API": "No",
       "Update cadence": "Periodic (framework launches)",
       "Login to view?": "No to browse",
-      "Notes & relevance to digital health": "TIER 3 — the 'stealth release' problem source. ~40% of the NHS uses SBS. Watch frameworks page + cross-check FTS. High editorial value."
+      "Notes & relevance to digital health": "TIER 3, the 'stealth release' problem source. ~40% of the NHS uses SBS. Watch frameworks page + cross-check FTS. High editorial value."
     },
     {
       "Source": "NHS Supply Chain / Spark DPS",
@@ -61,10 +61,10 @@
       "Feed / API": "Alerts only",
       "Update cadence": "Spark DPS open continuously (join anytime)",
       "Login to view?": "Free registration",
-      "Notes & relevance to digital health": "Spark DPS is the SME-friendly innovation route — strongest for devices/remote monitoring, less so for pure software."
+      "Notes & relevance to digital health": "Spark DPS is the SME-friendly innovation route, strongest for devices/remote monitoring, less so for pure software."
     },
     {
-      "Source": "Crown Commercial Service (CCS) – Health",
+      "Source": "Crown Commercial Service (CCS) - Health",
       "Type": "Framework operator",
       "Owner / operator": "Crown Commercial Service (Cabinet Office)",
       "Geographic scope": "UK-wide cross-government incl. NHS",
@@ -80,7 +80,7 @@
       "Type": "Framework (cloud/digital)",
       "Owner / operator": "Crown Commercial Service",
       "Geographic scope": "UK-wide public sector incl. NHS",
-      "What it covers": "Cloud hosting, SaaS software and digital support — the primary procurement route for software-based digital health products.",
+      "What it covers": "Cloud hosting, SaaS software and digital support, the primary procurement route for software-based digital health products.",
       "URL": "https://www.crowncommercial.gov.uk",
       "Feed / API": "No",
       "Update cadence": "Framework refreshes ~annually; buyers search continuously",
@@ -95,12 +95,12 @@
       "What it covers": "Population health management, advanced analytics, digital & service transformation suppliers.",
       "URL": "https://www.england.nhs.uk/hssf/",
       "Feed / API": "No",
-      "Update cadence": "Legacy — no new call-offs being initiated",
+      "Update cadence": "Legacy, no new call-offs being initiated",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "RE-CHECK: NHS England has stopped initiating new HSSF call-offs; existing ones continue. A refresh/successor has been signalled — watch for it."
+      "Notes & relevance to digital health": "RE-CHECK: NHS England has stopped initiating new HSSF call-offs; existing ones continue. A refresh/successor has been signalled, watch for it."
     },
     {
-      "Source": "NHS England – Procurement & Commercial",
+      "Source": "NHS England - Procurement & Commercial",
       "Type": "Information hub",
       "Owner / operator": "NHS England",
       "Geographic scope": "England",
@@ -109,7 +109,7 @@
       "Feed / API": "No",
       "Update cadence": "As updated",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "Reference/guidance layer rather than live opportunities — useful for the 'how to contract' editorial content."
+      "Notes & relevance to digital health": "Reference/guidance layer rather than live opportunities, useful for the 'how to contract' editorial content."
     },
     {
       "Source": "NOE CPC (North of England Commercial Procurement Collaborative)",
@@ -121,7 +121,7 @@
       "Feed / API": "Alerts only",
       "Update cadence": "Periodic",
       "Login to view?": "Registration for alerts",
-      "Notes & relevance to digital health": "TIER 3. Part of NHS Procurement in Partnership (NHS PiP) — members access all four hubs' framework portfolios."
+      "Notes & relevance to digital health": "TIER 3. Part of NHS Procurement in Partnership (NHS PiP), members access all four hubs' framework portfolios."
     },
     {
       "Source": "NHS London Procurement Partnership (LPP)",
@@ -153,7 +153,7 @@
       "Owner / operator": "NHS Commercial Solutions",
       "Geographic scope": "South East + national",
       "What it covers": "Collaborative NHS frameworks and procurement services.",
-      "URL": "Search 'NHS Commercial Solutions' — verify current URL",
+      "URL": "Search 'NHS Commercial Solutions', verify current URL",
       "Feed / API": "Alerts only",
       "Update cadence": "Periodic",
       "Login to view?": "Registration for alerts",
@@ -169,7 +169,7 @@
       "Feed / API": "No",
       "Update cadence": "Periodic",
       "Login to view?": "No to browse",
-      "Notes & relevance to digital health": "Private group purchasing organisation — an additional framework route alongside the NHS hubs."
+      "Notes & relevance to digital health": "Private group purchasing organisation, an additional framework route alongside the NHS hubs."
     },
     {
       "Source": "Public Contracts Scotland (PCS)",
@@ -181,7 +181,7 @@
       "Feed / API": "Alerts only",
       "Update cadence": "Continuous",
       "Login to view?": "Free registration for alerts",
-      "Notes & relevance to digital health": "CPV-code email alerts. PCS-Tender portal for bid submission. Some data feeds available — worth investigating for automation."
+      "Notes & relevance to digital health": "CPV-code email alerts. PCS-Tender portal for bid submission. Some data feeds available, worth investigating for automation."
     },
     {
       "Source": "Sell2Wales",
@@ -201,7 +201,7 @@
       "Owner / operator": "NI Central Procurement Directorate",
       "Geographic scope": "Northern Ireland (incl. HSC / BSO PaLS)",
       "What it covers": "Northern Ireland public sector tenders above thresholds, including Health & Social Care via BSO Procurement and Logistics Service.",
-      "URL": "https://etendersni.gov.uk — verify current URL",
+      "URL": "https://etendersni.gov.uk, verify current URL",
       "Feed / API": "Alerts only",
       "Update cadence": "Continuous",
       "Login to view?": "Free registration for alerts",
@@ -217,19 +217,19 @@
       "Feed / API": "No",
       "Update cadence": "As updated",
       "Login to view?": "Free account to submit an innovation",
-      "Notes & relevance to digital health": "Not a live-opportunities portal — the navigation/support layer. Useful editorial reference and a signposting partner."
+      "Notes & relevance to digital health": "Not a live-opportunities portal, the navigation/support layer. Useful editorial reference and a signposting partner."
     },
     {
-      "Source": "NICE – National HealthTech Access Programme",
+      "Source": "NICE - National HealthTech Access Programme",
       "Type": "Evaluation / adoption route",
       "Owner / operator": "NICE (with DHSC & NHS England)",
       "Geographic scope": "England",
-      "What it covers": "From April 2026 NICE expands technology appraisals to cover digital health technologies — putting digital tools on a legal par with medicines for reimbursement.",
+      "What it covers": "From April 2026 NICE expands technology appraisals to cover digital health technologies, putting digital tools on a legal par with medicines for reimbursement.",
       "URL": "https://www.nice.org.uk",
       "Feed / API": "No",
       "Update cadence": "Programme-driven",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "Major NEW route to watch — national reimbursement pathway for digital health. Track evaluation calls and guidance."
+      "Notes & relevance to digital health": "Major NEW route to watch, national reimbursement pathway for digital health. Track evaluation calls and guidance."
     },
     {
       "Source": "Health Innovation Network (15 regional networks)",
@@ -241,7 +241,7 @@
       "Feed / API": "No",
       "Update cadence": "Rolling calls",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "Regional adoption support and occasional funded programmes — overlaps with the Grants tab."
+      "Notes & relevance to digital health": "Regional adoption support and occasional funded programmes, overlaps with the Grants tab."
     },
     {
       "Source": "Accelerated Access Collaborative (AAC)",
@@ -253,7 +253,7 @@
       "Feed / API": "No",
       "Update cadence": "Programme-driven",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "Strategic signposting layer — useful for understanding which innovation programmes are live."
+      "Notes & relevance to digital health": "Strategic signposting layer, useful for understanding which innovation programmes are live."
     },
     {
       "Source": "Tech Innovation Framework / GP IT Futures (Digital Care Services)",
@@ -277,14 +277,14 @@
       "Feed / API": "No",
       "Update cadence": "Annual list updates",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "Not a portal — a route to guaranteed local funding. Eligibility: positive NICE guidance, net saving within 3 years, budget impact under £20m/year. Health Innovation Networks support adoption."
+      "Notes & relevance to digital health": "Not a portal, a route to guaranteed local funding. Eligibility: positive NICE guidance, net saving within 3 years, budget impact under £20m/year. Health Innovation Networks support adoption."
     },
     {
       "Source": "CCS technology & digital frameworks (beyond G-Cloud)",
       "Type": "Framework operator",
       "Owner / operator": "Crown Commercial Service",
       "Geographic scope": "UK-wide public sector incl. NHS",
-      "What it covers": "Cross-government technology frameworks beyond G-Cloud — e.g. Digital Specialists and Programmes, Vertical Application Solutions, software resale.",
+      "What it covers": "Cross-government technology frameworks beyond G-Cloud, e.g. Digital Specialists and Programmes, Vertical Application Solutions, software resale.",
       "URL": "https://www.crowncommercial.gov.uk",
       "Feed / API": "No",
       "Update cadence": "Framework refreshes periodically",
@@ -301,14 +301,14 @@
       "Feed / API": "No",
       "Update cadence": "Continuous",
       "Login to view?": "Free registration per platform",
-      "Notes & relevance to digital health": "TIER 3. Declining as Atamis consolidates NHS procurement, but still carries local opportunities. Hard to monitor centrally — editorial/assisted tier."
+      "Notes & relevance to digital health": "TIER 3. Declining as Atamis consolidates NHS procurement, but still carries local opportunities. Hard to monitor centrally, editorial/assisted tier."
     },
     {
       "Source": "Devolved NHS national procurement bodies (NSS, NWSSP, BSO PaLS)",
       "Type": "NHS national buyers",
       "Owner / operator": "NHS National Services Scotland; NHS Wales Shared Services Partnership; HSC Business Services Organisation",
       "Geographic scope": "Scotland / Wales / Northern Ireland",
-      "What it covers": "National procurement arms of NHS Scotland, NHS Wales and HSC Northern Ireland — run national contracts and frameworks for their nations.",
+      "What it covers": "National procurement arms of NHS Scotland, NHS Wales and HSC Northern Ireland, run national contracts and frameworks for their nations.",
       "URL": "https://www.nss.nhs.scot  ·  https://nwssp.nhs.wales  ·  https://bso.hscni.net",
       "Feed / API": "No",
       "Update cadence": "Periodic",
@@ -322,8 +322,8 @@
       "Type": "Grant programme",
       "Owner": "NHS England (delivered via Health Innovation Network)",
       "Geographic scope": "England / UK",
-      "What it funds": "Themed competitions for innovations addressing unmet NHS need — incl. digital health & AI; plus Investment Readiness support.",
-      "Typical award size": "Phase 1 £50k–£150k; Phase 2 up to £1m",
+      "What it funds": "Themed competitions for innovations addressing unmet NHS need, incl. digital health & AI; plus Investment Readiness support.",
+      "Typical award size": "Phase 1 £50k-£150k; Phase 2 up to £1m",
       "URL": "https://sbrihealthcare.co.uk",
       "Feed / alerts": "Competition announcements + newsletter",
       "Cadence": "Themed competitions in waves",
@@ -334,7 +334,7 @@
       "Type": "Grant programme",
       "Owner": "National Institute for Health and Care Research",
       "Geographic scope": "England / UK",
-      "What it funds": "Translational funding for medical devices, IVDs and digital health technologies — Product Development Awards, i4i Connect, Challenge Awards.",
+      "What it funds": "Translational funding for medical devices, IVDs and digital health technologies, Product Development Awards, i4i Connect, Challenge Awards.",
       "Typical award size": "Varies by stream; SMEs up to 100% funded",
       "URL": "https://www.nihr.ac.uk/research-funding/funding-programmes/invention-for-innovation",
       "Feed / alerts": "Funding calls page",
@@ -351,7 +351,7 @@
       "URL": "https://www.nihr.ac.uk",
       "Feed / alerts": "Funding opportunities page",
       "Cadence": "Programme-specific (some in waves)",
-      "Notes & relevance to digital health": "RE-CHECK current AI Award round status — runs in waves. HRCs offer co-development/evaluation access."
+      "Notes & relevance to digital health": "RE-CHECK current AI Award round status, runs in waves. HRCs offer co-development/evaluation access."
     },
     {
       "Source": "Innovate UK",
@@ -373,9 +373,9 @@
       "What it funds": "The portal where Innovate UK competitions are listed and applications submitted.",
       "Typical award size": "n/a (portal)",
       "URL": "https://apply-for-innovation-funding.service.gov.uk/competition/search",
-      "Feed / alerts": "Competition search — monitorable",
+      "Feed / alerts": "Competition search, monitorable",
       "Cadence": "Continuous listings",
-      "Notes & relevance to digital health": "TIER 2. Semi-automatable — competition search can be polled for new health/digital calls."
+      "Notes & relevance to digital health": "TIER 2. Semi-automatable, competition search can be polled for new health/digital calls."
     },
     {
       "Source": "UKRI / MRC",
@@ -387,22 +387,22 @@
       "URL": "https://www.ukri.org",
       "Feed / alerts": "Funding finder",
       "Cadence": "Periodic calls",
-      "Notes & relevance to digital health": "More research/evidence-generation oriented — relevant for building the clinical evidence base."
+      "Notes & relevance to digital health": "More research/evidence-generation oriented, relevant for building the clinical evidence base."
     },
     {
       "Source": "GOV.UK 'Find a grant'",
       "Type": "Aggregator",
       "Owner": "UK Government",
       "Geographic scope": "UK",
-      "What it funds": "Central cross-government grant finder — broad, not health-specific.",
+      "What it funds": "Central cross-government grant finder, broad, not health-specific.",
       "Typical award size": "Varies",
       "URL": "https://www.find-government-grants.service.gov.uk",
       "Feed / alerts": "Search + notifications",
       "Cadence": "Continuous listings",
-      "Notes & relevance to digital health": "TIER 2. Semi-automatable. Filter for health/digital relevance — high noise."
+      "Notes & relevance to digital health": "TIER 2. Semi-automatable. Filter for health/digital relevance, high noise."
     },
     {
-      "Source": "Health Innovation Networks – regional funds",
+      "Source": "Health Innovation Networks - regional funds",
       "Type": "Funding signposting / regional funds",
       "Owner": "15 Health Innovation Networks",
       "Geographic scope": "England (regional)",
@@ -411,7 +411,7 @@
       "URL": "https://thehealthinnovationnetwork.co.uk",
       "Feed / alerts": "Per-network newsletters",
       "Cadence": "Rolling regional calls",
-      "Notes & relevance to digital health": "Fragmented across 15 networks — an editorial aggregation opportunity in itself."
+      "Notes & relevance to digital health": "Fragmented across 15 networks, an editorial aggregation opportunity in itself."
     },
     {
       "Source": "NIHR HealthTech Research Centres (HRCs)",
@@ -447,7 +447,7 @@
       "URL": "https://www.scottish-enterprise.com (+ equivalents)",
       "Feed / alerts": "Per-agency listings",
       "Cadence": "Rolling",
-      "Notes & relevance to digital health": "Eligibility tied to company location — worth a dedicated 'by nation' filter on the site."
+      "Notes & relevance to digital health": "Eligibility tied to company location, worth a dedicated 'by nation' filter on the site."
     },
     {
       "Source": "Condition-specific charity funders (BHF, Cancer Research UK, etc.)",
@@ -459,7 +459,7 @@
       "URL": "Multiple (per charity)",
       "Feed / alerts": "Per-charity funding pages",
       "Cadence": "Periodic calls",
-      "Notes & relevance to digital health": "Relevant only where the product has a disease focus — a 'by condition' tag would surface these well."
+      "Notes & relevance to digital health": "Relevant only where the product has a disease focus, a 'by condition' tag would surface these well."
     },
     {
       "Source": "Digital Catapult & other Catapults",
@@ -478,15 +478,15 @@
       "Type": "NHS programme funding",
       "Owner": "NHS England (policy-driven)",
       "Geographic scope": "England",
-      "What it funds": "Episodic funding pots tied to policy — e.g. AI/diagnostic funds, 10 Year Health Plan-linked allocations.",
-      "Typical award size": "Varies — often large, time-limited",
+      "What it funds": "Episodic funding pots tied to policy, e.g. AI/diagnostic funds, 10 Year Health Plan-linked allocations.",
+      "Typical award size": "Varies, often large, time-limited",
       "URL": "https://www.england.nhs.uk",
       "Feed / alerts": "No central feed",
       "Cadence": "Episodic / policy-driven",
-      "Notes & relevance to digital health": "RE-CHECK regularly. Hardest to track and highest editorial value — exactly the 'stealth' problem from the procurement side."
+      "Notes & relevance to digital health": "RE-CHECK regularly. Hardest to track and highest editorial value, exactly the 'stealth' problem from the procurement side."
     },
     {
-      "Source": "Horizon Europe – Health Cluster (Cluster 1) & EIC Accelerator",
+      "Source": "Horizon Europe - Health Cluster (Cluster 1) & EIC Accelerator",
       "Type": "International grant programme",
       "Owner": "European Commission (UK associated)",
       "Geographic scope": "UK (associated) + EU",
@@ -502,19 +502,19 @@
       "Type": "Charitable funder",
       "Owner": "The Health Foundation",
       "Geographic scope": "UK",
-      "What it funds": "Innovation and improvement programmes — e.g. Tech for Better Care (technology-enabled care at home), plus research and improvement grants.",
+      "What it funds": "Innovation and improvement programmes, e.g. Tech for Better Care (technology-enabled care at home), plus research and improvement grants.",
       "Typical award size": "Programme-dependent (e.g. Tech for Better Care ~£2m programme)",
       "URL": "https://www.health.org.uk/funding-and-partnerships",
       "Feed / alerts": "Programme calls page",
       "Cadence": "Periodic programme calls",
-      "Notes & relevance to digital health": "Increasingly focused on technology and AI in care — good fit for digital health with a service-improvement angle."
+      "Notes & relevance to digital health": "Increasingly focused on technology and AI in care, good fit for digital health with a service-improvement angle."
     },
     {
       "Source": "LifeArc",
       "Type": "Medical research charity",
       "Owner": "LifeArc",
       "Geographic scope": "UK / global",
-      "What it funds": "Translational funding and partnerships for therapeutics, diagnostics and medtech; LifeArc Ventures provides (dilutive) seed–Series B investment.",
+      "What it funds": "Translational funding and partnerships for therapeutics, diagnostics and medtech; LifeArc Ventures provides (dilutive) seed-Series B investment.",
       "Typical award size": "Varies by call / partnership",
       "URL": "https://www.lifearc.org/work-with-us/funding-and-partnerships/",
       "Feed / alerts": "Funding & partnerships page",
@@ -526,12 +526,12 @@
       "Type": "Government funder",
       "Owner": "DHSC / DSIT (Office for Life Sciences)",
       "Geographic scope": "UK",
-      "What it funds": "Life sciences sector funds and programmes — e.g. innovative manufacturing funds and sector growth programmes.",
-      "Typical award size": "Programme-dependent — often large, time-limited",
+      "What it funds": "Life sciences sector funds and programmes, e.g. innovative manufacturing funds and sector growth programmes.",
+      "Typical award size": "Programme-dependent, often large, time-limited",
       "URL": "https://www.gov.uk/government/organisations/office-for-life-sciences",
       "Feed / alerts": "GOV.UK announcements",
       "Cadence": "Episodic / policy-driven",
-      "Notes & relevance to digital health": "RE-CHECK regularly. Policy-driven pots — high editorial value, hard to track via a feed."
+      "Notes & relevance to digital health": "RE-CHECK regularly. Policy-driven pots, high editorial value, hard to track via a feed."
     },
     {
       "Source": "Regional & Combined Authority innovation funds + UK Shared Prosperity Fund",
@@ -543,7 +543,7 @@
       "URL": "Multiple (per authority)",
       "Feed / alerts": "Per-authority listings",
       "Cadence": "Rolling / episodic",
-      "Notes & relevance to digital health": "Eligibility tied to company location / region. Fragmented — a 'by region' filter on the site would surface these."
+      "Notes & relevance to digital health": "Eligibility tied to company location / region. Fragmented, a 'by region' filter on the site would surface these."
     }
   ]
 }
