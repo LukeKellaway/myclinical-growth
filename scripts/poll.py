@@ -179,10 +179,14 @@ def _tags(title, description, deadline):
     if deadline:
         try:
             d = dt.datetime.fromisoformat(deadline.replace("Z", "+00:00"))
+            # OCDS feeds are inconsistent about timezones. Force UTC if naive
+            # so we can subtract from a tz-aware now() without a TypeError.
+            if d.tzinfo is None:
+                d = d.replace(tzinfo=dt.timezone.utc)
             days = (d - dt.datetime.now(dt.timezone.utc)).days
             if 0 <= days <= 21:
                 tags.append("Closes soon")
-        except ValueError:
+        except (ValueError, TypeError):
             pass
     return tags
 
