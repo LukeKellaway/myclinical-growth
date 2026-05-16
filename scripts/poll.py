@@ -102,7 +102,17 @@ EXCLUDE_TITLE = re.compile(
     r"\buniform(?:s)?\b|\bstationery\b|\bfurniture\b|"
     r"\bconsultant services?\b(?! for (?:digital|software|data|AI))|"
     r"\beye (?:test|screen)|\bdental (?:services|care)\b|"
-    r"\bphysiotherap|\bcounselling\b|\bdomicil",
+    r"\bphysiotherap|\bcounselling\b|\bdomicil|"
+    # More clinical-services-only contracts that aren't digital health:
+    r"\bwheelchair|\borthodontic|\borthotic|\bprosthetic|\bhearing aid|"
+    r"\bspectacle|\bspeech (?:and language|therapy)|"
+    r"\btalking therap|\bIAPT\b|\bpsychological therap|"
+    r"\bnon-custodial|\bcustodial services|"
+    r"\bgeneral practice\b|\bAPMS\b|\bprimary medical service|"
+    r"\bmedication\b|\bpharmac(?:y|euticals?)\b|"
+    r"\bradiotherap|\blinac|\blinear accelerator|"
+    r"\boncology services|\brenal services|"
+    r"\bmaternity services\b(?! system)|\bsexual health (?:service|clinic)",
     re.I,
 )
 
@@ -128,22 +138,19 @@ def is_relevant(buyer_name, title, description, cpvs):
     if not HEALTH_BUYER.search(buyer_name or ""):
         return False
     # Hard exclude: clearly non-digital NHS services (catering, transport, eye
-    # tests, dental, physio, counselling, etc.) regardless of CPV.
+    # tests, dental, physio, counselling, wheelchairs, orthodontics, etc.).
     if EXCLUDE_TITLE.search(blob):
         return False
     cpvs_str = [str(c) for c in cpvs]
     strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
-    weak_cpv = any(c.startswith(WEAK_HEALTHCARE_CPV) for c in cpvs_str)
     kw_hit = bool(KEYWORDS.search(blob))
-    # Strong digital CPV alone (e.g. software, IT services) is enough.
+    # Strong digital CPV alone (software, IT services, telecoms) is enough.
     if strong_cpv:
         return True
-    # Any keyword hit alone is enough (catches digital tenders with quirky CPVs).
+    # Otherwise we need a digital keyword in the title or description.
+    # A "health services" or "medical equipment" CPV without a digital
+    # keyword is almost always a clinical-services tender, not digital health.
     if kw_hit:
-        return True
-    # Weak healthcare CPV alone is allowed through, the hard-excludes above
-    # have already stripped the obvious non-digital clinical services.
-    if weak_cpv:
         return True
     return False
 
