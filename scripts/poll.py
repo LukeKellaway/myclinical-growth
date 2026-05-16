@@ -138,19 +138,27 @@ def is_relevant(buyer_name, title, description, cpvs):
     if not HEALTH_BUYER.search(buyer_name or ""):
         return False
     # Hard exclude: clearly non-digital NHS services (catering, transport, eye
-    # tests, dental, physio, counselling, wheelchairs, orthodontics, etc.).
+    # tests, dental, physio, counselling, wheelchairs, orthodontics, talking
+    # therapies, GP practice vacancies, etc.). The hard-exclude list is the
+    # main quality control; the CPV/keyword logic below is intentionally
+    # permissive because OCDS metadata is inconsistent for digital tenders.
     if EXCLUDE_TITLE.search(blob):
         return False
     cpvs_str = [str(c) for c in cpvs]
     strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
+    weak_cpv = any(c.startswith(WEAK_HEALTHCARE_CPV) for c in cpvs_str)
     kw_hit = bool(KEYWORDS.search(blob))
     # Strong digital CPV alone (software, IT services, telecoms) is enough.
     if strong_cpv:
         return True
-    # Otherwise we need a digital keyword in the title or description.
-    # A "health services" or "medical equipment" CPV without a digital
-    # keyword is almost always a clinical-services tender, not digital health.
+    # Any digital keyword anywhere in title or description is enough.
     if kw_hit:
+        return True
+    # Weak healthcare CPV alone is allowed through. EXCLUDE_TITLE above has
+    # already stripped the obviously non-digital clinical contracts. Edge-case
+    # items (typically system replacements without explicit digital wording)
+    # will sneak through here, which is acceptable noise.
+    if weak_cpv:
         return True
     return False
 
