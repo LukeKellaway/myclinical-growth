@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-15T11:46:13.975430Z",
-  "count": 6,
+  "updated": "2026-05-16T23:55:00.000000Z",
+  "count": 18,
   "grants": [
     {
       "id": "grant-sbri-healthcare",
@@ -109,6 +109,222 @@
       "tags": [
         "Grant",
         "International"
+      ]
+    },
+    {
+      "id": "grant-nihr-i4i-connect",
+      "title": "NIHR i4i Connect",
+      "source": "National Institute for Health and Care Research",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/invention-for-innovation/i4i-connect",
+      "type": "Grant programme",
+      "category": "Translational funding",
+      "value": "Up to £150k",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Periodic calls",
+      "summary": "Smaller, more accessible sibling to NIHR i4i Product Development Awards. Bridges earlier-stage device and digital health work towards adoption readiness.",
+      "means": "Best fit for SMEs with promising tech but pre-clinical-evidence. Cheaper to apply for than full Product Development Awards. Use it as a stepping stone to the full i4i scheme.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-nihr-pgfar",
+      "title": "NIHR Programme Grants for Applied Research",
+      "source": "National Institute for Health and Care Research",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/programme-grants-for-applied-research",
+      "type": "Grant programme",
+      "category": "Applied research",
+      "value": "Typically £1.5m-£3m over 3-5 years",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Periodic calls",
+      "summary": "Large multi-year applied research grants for programmes addressing NHS priorities. Two-stage application: outline then full bid.",
+      "means": "Big money for university partnerships. Healthtech SMEs typically join as industry partners on academic-led bids rather than leading their own. Worth knowing which research groups are bidding in your therapeutic area.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-nihr-hta",
+      "title": "NIHR Health Technology Assessment (HTA) Programme",
+      "source": "National Institute for Health and Care Research",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/health-technology-assessment",
+      "type": "Grant programme",
+      "category": "Clinical evidence",
+      "value": "Varies, often £500k-£2m+",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Themed calls",
+      "summary": "Funds research that produces the evidence base for the NHS, including clinical effectiveness, cost-effectiveness and broader impact of health technologies.",
+      "means": "The route to fund a definitive clinical trial of your digital health technology. Long timelines (years), academic-led, but produces NICE-grade evidence that unlocks reimbursement.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-innovate-uk-smart",
+      "title": "Innovate UK Smart Grants",
+      "source": "Innovate UK (UKRI)",
+      "source_url": "https://www.ukri.org/opportunity/innovate-uk-smart-grants/",
+      "type": "Grant programme",
+      "category": "R&D funding",
+      "value": "£100k-£2m, single or collaborative",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Multiple rounds per year",
+      "summary": "Open-themed grants for game-changing innovations from UK SMEs in any sector. Health and digital health applications are eligible and well-represented.",
+      "means": "The most flexible Innovate UK route. Open theme means you set the scope. Health-focused bids do well if they show clear NHS demand and commercial viability. Multiple rounds a year, predictable cycle.",
+      "tags": [
+        "Grant",
+        "R&D"
+      ]
+    },
+    {
+      "id": "grant-wellcome-innovator",
+      "title": "Wellcome Innovator Awards",
+      "source": "Wellcome Trust",
+      "source_url": "https://wellcome.org/grant-funding/schemes/innovator-awards",
+      "type": "Grant programme",
+      "category": "Translational funding",
+      "value": "Up to £750k (Lead) / up to £2m (Translational)",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Continuous, with deadlines",
+      "summary": "Funds early-to-mid-stage translation of basic research into health innovations. Open to both academics and SMEs in partnership.",
+      "means": "Strong fit if your tech is grounded in scientific discovery, not just engineering. Wellcome values the underlying research story as much as the product. Good for therapeutic AI, novel diagnostics, biosignal work.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-mrc-cic",
+      "title": "MRC Confidence in Concept",
+      "source": "Medical Research Council (UKRI)",
+      "source_url": "https://www.ukri.org/councils/mrc/guidance-for-applicants/types-of-funding/translational-research/confidence-in-concept/",
+      "type": "Grant programme",
+      "category": "Translational funding",
+      "value": "Typically £50k-£200k per project",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Block grants distributed by institutions",
+      "summary": "Block-funded scheme distributed via universities and research institutes to support early-stage translation. Funds go to internal CiC competitions at each host.",
+      "means": "Indirect route. You apply via your university or research partner, not directly to MRC. Useful for de-risking a digital health concept before chasing larger NIHR or Innovate UK funding.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-lifearc-innovation",
+      "title": "LifeArc Translational Awards",
+      "source": "LifeArc",
+      "source_url": "https://www.lifearc.org/our-impact/our-funding/",
+      "type": "Grant programme",
+      "category": "Translational funding",
+      "value": "Project-dependent, often £100k-£500k",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Open calls",
+      "summary": "Medical research charity that funds translation of academic research into patient impact. Active in diagnostics, rare disease, and digital therapeutics.",
+      "means": "Charity money with industry-style rigour. Best fit for diagnostic and therapeutic devices with a clear unmet-need narrative. Less common for general-purpose health software.",
+      "tags": [
+        "Grant",
+        "Charity"
+      ]
+    },
+    {
+      "id": "grant-health-foundation-q",
+      "title": "Health Foundation: Q Exchange",
+      "source": "The Health Foundation",
+      "source_url": "https://q.health.org.uk/q-exchange/",
+      "type": "Grant programme",
+      "category": "Quality improvement",
+      "value": "£10k-£40k typical",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Annual themed rounds",
+      "summary": "Small grants for NHS quality improvement projects from members of the Q community. Funds collaborative ideas chosen by community vote.",
+      "means": "Small money but useful pilot funding if you have an NHS partner inside Q. Builds frontline relationships and produces case studies. Not a route to scale, but a route to credibility.",
+      "tags": [
+        "Grant",
+        "Pilot"
+      ]
+    },
+    {
+      "id": "grant-bhf-translational",
+      "title": "British Heart Foundation Translational Awards",
+      "source": "British Heart Foundation",
+      "source_url": "https://www.bhf.org.uk/for-professionals/information-for-researchers/what-we-fund",
+      "type": "Grant programme",
+      "category": "Condition-specific",
+      "value": "Varies, typically £100k-£500k",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Periodic calls",
+      "summary": "Cardiovascular disease-specific funding for translational research and innovation, including device and digital health work with a cardiac focus.",
+      "means": "Only relevant if your product has a clear cardiology angle. BHF money is competitive but the disease focus narrows the field dramatically. Pairs well with NHS cardiac network engagement.",
+      "tags": [
+        "Grant",
+        "Condition-specific"
+      ]
+    },
+    {
+      "id": "grant-cruk-innovation",
+      "title": "Cancer Research UK Innovation Awards",
+      "source": "Cancer Research UK",
+      "source_url": "https://www.cancerresearchuk.org/funding-for-researchers/our-funding-schemes",
+      "type": "Grant programme",
+      "category": "Condition-specific",
+      "value": "Varies by scheme",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Multiple schemes open",
+      "summary": "Portfolio of grants for cancer research and innovation, including early detection, diagnostics, treatment and digital tools.",
+      "means": "Cancer-specific. Strong fit for AI-in-imaging, early detection biomarkers, and digital decision support in oncology. Look for the Convergence Sciences and Early Detection schemes specifically.",
+      "tags": [
+        "Grant",
+        "Condition-specific"
+      ]
+    },
+    {
+      "id": "grant-hdr-uk",
+      "title": "Health Data Research UK funding calls",
+      "source": "HDR UK",
+      "source_url": "https://www.hdruk.ac.uk/funding-opportunities/",
+      "type": "Grant programme",
+      "category": "Data infrastructure",
+      "value": "Programme-dependent",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Multiple programmes",
+      "summary": "UK-wide programme funding work on health data infrastructure, federated analytics, and trusted research environments. Periodic open calls.",
+      "means": "Niche but valuable if your work touches health data infrastructure, Trusted Research Environments, or federated analytics. Often co-funded with NIHR or industry partners.",
+      "tags": [
+        "Grant",
+        "Data"
+      ]
+    },
+    {
+      "id": "grant-dhsc-policy-pots",
+      "title": "DHSC Policy Innovation Funds (various)",
+      "source": "Department of Health and Social Care",
+      "source_url": "https://www.gov.uk/government/organisations/department-of-health-and-social-care",
+      "type": "Policy-linked funding",
+      "category": "Strategic",
+      "value": "Varies, often large and time-limited",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Episodic",
+      "summary": "Periodic policy-driven funding pots from DHSC tied to current strategy (AI diagnostic funds, 10 Year Plan allocations, workforce productivity funds). Hard to track centrally.",
+      "means": "The most opaque category. Pots appear, often announced via ministerial speeches or NHS England circulars, with short deadlines. Following DHSC press releases and NHS England announcements is the only way to spot them in time. High editorial value here.",
+      "tags": [
+        "Grant",
+        "Policy"
       ]
     }
   ]

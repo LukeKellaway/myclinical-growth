@@ -31,9 +31,11 @@ FTS_API = "https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages"
 CF_API = "https://www.contractsfinder.service.gov.uk/Published/Notices/OCDS/Search"
 
 # How far back to look on each run (GitHub Actions runs hourly; a wider
-# window gives resilience against missed runs).
-LOOKBACK_HOURS = 48
-MAX_PAGES = 20
+# window gives resilience against missed runs). Override via
+# POLL_LOOKBACK_HOURS env var (e.g. 720 = 30 days for a backfill).
+import os as _os
+LOOKBACK_HOURS = int(_os.environ.get("POLL_LOOKBACK_HOURS", "48"))
+MAX_PAGES = int(_os.environ.get("POLL_MAX_PAGES", "20"))
 
 # --- filtering -------------------------------------------------------------
 
