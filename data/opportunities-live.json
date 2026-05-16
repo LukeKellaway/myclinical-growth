@@ -1,5 +1,73 @@
 {
-  "updated": "2026-05-16T23:47:43.759729Z",
-  "count": 0,
-  "opportunities": []
+  "updated": "2026-05-16T23:52:49.396051Z",
+  "count": 3,
+  "opportunities": [
+    {
+      "id": "fts-041418-2026",
+      "title": "Oral Surgery",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-065fd5",
+      "buyer": "NHS Wales Shared Services Partnership-Procurement Services (hosted by Velindre University NHS Trust)",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 2,530,000",
+      "published": "2026-05-06T11:09:14+01:00",
+      "deadline": "2026-06-03T12:00:00+01:00",
+      "summary": "Hywel Dda University Health Board is seeking to commission a service to deliver Level 2 oral surgery services in a primary care or\ncommunity setting, for patients over 16 years of age who live in the counties of Carmarthenshire, Ceredigion and Pembrokeshire",
+      "cpv": [
+        "85130000",
+        "85130000",
+        "85130000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-038972-2026",
+      "title": "General Medical Services Practice Vacancies",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-068d92",
+      "buyer": "NHS Wales LHBs & Trusts",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-04-29T09:58:04+01:00",
+      "deadline": "2026-06-08T10:00:00+01:00",
+      "summary": "ABUHB is looking to tender for GP services. Please see tender on etenderwales for further information.",
+      "cpv": [
+        "85100000",
+        "85100000",
+        "85100000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-038548-2026",
+      "title": "General Medical Services Vacant Practice",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-068cb5",
+      "buyer": "NHS Wales LHBs & Trusts",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-04-28T13:02:19+01:00",
+      "deadline": "2026-06-08T10:00:00+01:00",
+      "summary": "ABUHB is looking to tender for GP services. Please see tender on etenderwales for further information.",
+      "cpv": [
+        "85100000",
+        "85100000",
+        "85100000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    }
+  ]
 }
