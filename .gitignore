@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+_test_render.js
+_test*.js
+.DS_Store
+.netlify/

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyClinical Growth — NHS opportunities & UK healthtech funding</title>
+<meta name="description" content="A free, open resource aggregating NHS procurement frameworks, tenders and UK digital health grants — with a plain-English read on what each one means.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="home">
+
+<div class="flag">Preview build &middot; standing frameworks &amp; grants shown are real, verified data &middot; the continuous tender feed activates on deploy</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">MyClinical <span>Growth</span></a>
+    <div class="nav-links">
+      <a href="opportunities.html">Opportunities</a>
+      <a href="grants.html">Grants</a>
+      <a href="directory.html">Directory</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="#signup" class="btn btn-pill">Get the daily brief</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge">NHS Procurement &middot; UK Healthtech Funding</span>
+      <h1>Every NHS opportunity, <em>before the window closes.</em></h1>
+      <p class="lead">MyClinical Growth aggregates every procurement framework, tender and UK digital health grant — then tells you what actually matters. Free, open, and built so UK healthtech gets a fair shot at the table.</p>
+      <div class="hero-ctas">
+        <a href="opportunities.html" class="btn btn-primary">Browse opportunities</a>
+        <a href="#signup" class="btn btn-ghost-dark">Get the daily brief</a>
+      </div>
+      <p class="hero-note">Free forever to browse. An email only buys you the alerts.</p>
+    </div>
+    <div class="preview">
+      <div class="preview-head">
+        <span class="t">Live opportunities</span>
+        <span class="live"><span class="dot"></span><span id="updated-stamp">Live feed activates on deploy</span></span>
+      </div>
+      <div class="mini">
+        <div class="tags"><span class="tag tag-proc">Framework</span><span class="tag tag-urgent">Closes soon</span></div>
+        <h4>Healthcare AI Solutions — £750m framework, 8 lots</h4>
+        <div class="meta">NHS Shared Business Services &middot; closes 23 Jun</div>
+      </div>
+      <div class="mini">
+        <div class="tags"><span class="tag tag-proc">Framework</span></div>
+        <h4>Tech Innovation Framework / GP IT Futures</h4>
+        <div class="meta">NHS England Digital &middot; primary care route</div>
+      </div>
+      <div class="mini">
+        <div class="tags"><span class="tag tag-grant">Grant</span></div>
+        <h4>SBRI Healthcare — themed competitions</h4>
+        <div class="meta">SBRI Healthcare &middot; Phase 1 up to £150k</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-label">How it works</div>
+    <h2 class="sec-head">The data is already free. It just isn't surfaced.</h2>
+    <p class="sec-sub">A £750m framework shouldn't be a stealth release. MyClinical Growth does three jobs so a founder never finds out too late.</p>
+    <div class="three">
+      <div class="card">
+        <div class="num">01</div><h3>Aggregated</h3>
+        <p>Every procurement portal, framework operator and grant funder — 45 sources and counting — pulled into one place. Find a Tender and Contracts Finder feed in automatically; the rest are tracked for you.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div><h3>Signalled</h3>
+        <p>Signal matters more than the source. Every opportunity gets a plain-English read on what it actually means — which lots matter, who it's really for, whether the deadline is realistic.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div><h3>Delivered</h3>
+        <p>A daily brief of what's new, plus an instant alert when something major drops. Browse everything free; subscribe only if you want it to come to you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="opportunities" class="band">
+  <div class="wrap">
+    <div class="sec-label">Live opportunities</div>
+    <h2 class="sec-head">What's open right now</h2>
+    <p class="sec-sub">Procurement and grants in one feed, each with the context that turns a notice into a decision.</p>
+    <div class="opp-grid" id="home-opps" style="margin-top:46px;"></div>
+    <p style="margin-top:30px;"><a href="opportunities.html" class="btn btn-primary">See all opportunities</a></p>
+  </div>
+</section>
+
+<section id="directory">
+  <div class="wrap">
+    <div class="sec-label">Source directory</div>
+    <h2 class="sec-head">Know where every opportunity lives</h2>
+    <p class="sec-sub">A complete, annotated map of NHS procurement and UK digital health funding — what each source is, what it covers, and whether it has a usable feed.</p>
+    <div class="stat-row" id="home-dir-stats" style="margin:36px 0 26px;"></div>
+    <div class="tags" style="gap:9px;">
+      <span class="filter-chip">Statutory portals</span>
+      <span class="filter-chip">NHS frameworks</span>
+      <span class="filter-chip">Regional hubs</span>
+      <span class="filter-chip">Devolved nations</span>
+      <span class="filter-chip">Innovation front doors</span>
+      <span class="filter-chip">Grant funders</span>
+      <span class="filter-chip">International</span>
+    </div>
+    <p style="margin-top:28px;"><a href="directory.html" class="btn btn-ghost">Open the full directory</a></p>
+  </div>
+</section>
+
+<section id="grants" class="band">
+  <div class="wrap">
+    <div class="sec-label">Grants &amp; funding</div>
+    <h2 class="sec-head">Non-dilutive funding, tracked on its own cycle</h2>
+    <p class="sec-sub">SBRI Healthcare, NIHR, Innovate UK, Horizon Europe and more — competition windows surfaced before they close. The first rung on the ladder: win contracts, land grants, become investable.</p>
+    <div class="opp-grid" id="home-grants" style="margin-top:46px;"></div>
+    <p style="margin-top:30px;"><a href="grants.html" class="btn btn-primary">See all grants</a></p>
+  </div>
+</section>
+
+<section id="signup" class="signup">
+  <div class="wrap signup-inner">
+    <h2>Get the daily brief</h2>
+    <p>One email a day: what's new across NHS procurement and UK healthtech funding, and what it means. Plus an instant alert when something major drops.</p>
+    <form class="form" id="subscribe" action="https://app.us20.list-manage.com/subscribe/post?u=1bcd8808cbe0feb644094ed66&amp;id=d0dd920405" method="post" target="_blank">
+      <input type="email" name="EMAIL" placeholder="you@yourhealthtech.com" aria-label="Email address" required>
+      <button type="submit" class="btn btn-primary">Join the list</button>
+      <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_1bcd8808cbe0feb644094ed66_d0dd920405" tabindex="-1" value=""></div>
+    </form>
+    <div class="form-msg" id="form-msg"></div>
+    <p class="consent">By subscribing, you consent to receive the MyClinical Growth brief. Unsubscribe in one click. We don't share the list. Ever.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">MyClinical <span style="color:var(--sage)">Growth</span></a>
+        <p>NHS opportunities &amp; UK healthtech funding — aggregated, signalled, delivered. A free resource, part of the MyClinical line.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Resource</h5>
+        <a href="opportunities.html">Live opportunities</a>
+        <a href="grants.html">Grants &amp; funding</a>
+        <a href="directory.html">Source directory</a>
+        <a href="#signup">The daily brief</a>
+      </div>
+      <div class="foot-col">
+        <h5>MyClinical</h5>
+        <a href="https://lukekellaway.com" target="_blank" rel="noopener">lukekellaway.com</a>
+        <a href="about.html">About this resource</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="about.html#privacy">Privacy policy</a>
+        <a href="about.html#data">How we use data</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 MyClinical Growth. Built so UK healthtech gets a fair shot.</span>
+      <span>growth.myclinical.[tld]</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

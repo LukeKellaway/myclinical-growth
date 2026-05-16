@@ -1,0 +1,115 @@
+{
+  "updated": "2026-05-15T11:46:13.975430Z",
+  "count": 6,
+  "grants": [
+    {
+      "id": "grant-sbri-healthcare",
+      "title": "SBRI Healthcare — themed competitions",
+      "source": "SBRI Healthcare",
+      "source_url": "https://sbrihealthcare.co.uk/competitions",
+      "type": "Grant programme",
+      "category": "NHS-aligned innovation",
+      "value": "Phase 1 £50k–£150k · Phase 2 up to £1m",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Competitions in waves",
+      "summary": "Themed competitions for innovations addressing unmet NHS need — open to digital, AI and device innovations. Includes an Investment Readiness programme.",
+      "means": "The flagship NHS-aligned non-dilutive funder. As much a credibility marker as a cash injection — an SBRI award signals NHS validation to later investors.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-nihr-i4i",
+      "title": "NIHR Invention for Innovation (i4i) — Product Development Awards",
+      "source": "National Institute for Health and Care Research",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/invention-for-innovation",
+      "type": "Grant programme",
+      "category": "Translational funding",
+      "value": "SMEs eligible for up to 100% funding",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Periodic calls",
+      "summary": "Translational funding for medical devices, IVDs and digital health technologies bridging proof-of-concept to real-world clinical adoption. Two-stage application.",
+      "means": "Best fit for a product with early clinical evidence that needs the push to adoption-readiness. The two-stage process means an outline can be tested cheaply before committing to a full bid.",
+      "tags": [
+        "Grant",
+        "Non-dilutive"
+      ]
+    },
+    {
+      "id": "grant-nihr-eme",
+      "title": "NIHR Efficacy and Mechanism Evaluation (EME) Programme",
+      "source": "National Institute for Health and Care Research",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/efficacy-and-mechanism-evaluation",
+      "type": "Grant programme",
+      "category": "Clinical evidence",
+      "value": "Varies",
+      "published": "2026-05-01",
+      "deadline": "2026-08-05",
+      "status": "Open — outline stage",
+      "summary": "Funds evaluation of efficacy and the mechanisms behind health interventions, including digital and technology-enabled interventions.",
+      "means": "Relevant where the gap is hard clinical evidence rather than product build. Outline applications close 5 August 2026.",
+      "tags": [
+        "Grant",
+        "Closes soon"
+      ]
+    },
+    {
+      "id": "grant-biomedical-catalyst",
+      "title": "Innovate UK — Biomedical Catalyst",
+      "source": "Innovate UK (UKRI)",
+      "source_url": "https://www.ukri.org/councils/innovate-uk/",
+      "type": "Grant programme",
+      "category": "R&D funding",
+      "value": "Up to ~£2m for large projects",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "Rolling competitions",
+      "summary": "Supports SMEs developing innovative solutions to health and healthcare challenges, from small projects through to large collaborative R&D.",
+      "means": "The broadest UK non-dilutive R&D funder for healthtech. Pairs well with SBRI/NIHR — different stages of the same journey.",
+      "tags": [
+        "Grant",
+        "R&D"
+      ]
+    },
+    {
+      "id": "grant-eic-accelerator",
+      "title": "EIC Accelerator",
+      "source": "Horizon Europe / European Innovation Council",
+      "source_url": "https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en",
+      "type": "International grant",
+      "category": "Deep-tech funding",
+      "value": "Up to ~€2.5m grant + equity",
+      "published": "2026-05-01",
+      "deadline": "2026-07-08",
+      "status": "Open — next cut-off",
+      "summary": "Grant plus equity for deep-tech SMEs and startups. UK organisations are eligible following association to Horizon Europe.",
+      "means": "Six fixed cut-offs a year — predictable enough to plan a submission around. Next cut-off 8 July 2026; further cut-offs 2 September and 4 November.",
+      "tags": [
+        "Grant",
+        "International",
+        "Closes soon"
+      ]
+    },
+    {
+      "id": "grant-horizon-health",
+      "title": "Horizon Europe — Health Cluster (Cluster 1)",
+      "source": "European Commission",
+      "source_url": "https://research-and-innovation.ec.europa.eu/funding/funding-opportunities/funding-programmes-and-open-calls/horizon-europe/cluster-1-health_en",
+      "type": "International grant",
+      "category": "Collaborative R&I",
+      "value": "Up to ~€90m per call",
+      "published": "2026-05-01",
+      "deadline": "",
+      "status": "2026–27 work programme open",
+      "summary": "Collaborative health research and innovation funding. UK organisations can apply as part of a consortium of at least three countries, one an EU member state.",
+      "means": "Big money, but consortium-bound — best approached as a partner in a larger bid rather than a solo route. The 2026–27 work programme is published; specific calls have fixed deadlines.",
+      "tags": [
+        "Grant",
+        "International"
+      ]
+    }
+  ]
+}

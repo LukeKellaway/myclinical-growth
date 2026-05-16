@@ -1,0 +1,83 @@
+{
+  "updated": "2026-05-15T11:46:13.975430Z",
+  "count": 4,
+  "opportunities": [
+    {
+      "id": "std-sbs-ai-solutions",
+      "title": "Healthcare AI Solutions Framework",
+      "source": "NHS Shared Business Services",
+      "source_url": "https://www.sbs.nhs.uk/services/framework-agreements/",
+      "buyer": "NHS Shared Business Services",
+      "type": "Framework",
+      "category": "AI & analytics",
+      "value": "£750,000,000",
+      "published": "2026-05-13",
+      "deadline": "2026-06-23",
+      "status": "Open",
+      "summary": "National framework for healthcare AI across eight lots — radiology and imaging, pathology and early detection, virtual and robotic health, predictive analytics, research and development, operational efficiency, advisory and specialised support, and combined solutions.",
+      "means": "The procurement route for UK healthcare AI for the next four years. Lots 6 and 7 — operational efficiency and advisory — are the quieter opportunity. The 23 June deadline is tight: clinical evidence packs and DCB0129 documentation take weeks.",
+      "tags": [
+        "Framework",
+        "AI",
+        "Closes soon"
+      ]
+    },
+    {
+      "id": "std-gp-it-futures",
+      "title": "Tech Innovation Framework / GP IT Futures",
+      "source": "NHS England Digital",
+      "source_url": "https://digital.nhs.uk/services/digital-care-services-catalogue/tech-innovation-framework",
+      "buyer": "NHS England",
+      "type": "Framework",
+      "category": "Clinical systems & EPR",
+      "value": "",
+      "published": "2026-04-01",
+      "deadline": "",
+      "status": "Rolling",
+      "summary": "Assured core GP IT systems and digital products for primary care, bought via the Digital Care Services catalogue. Tech Innovation Framework is the successor to GP IT Futures.",
+      "means": "Essential route for anything touching primary care. GP IT Futures continuity contracts run only to June 2026 — if primary care is a target market, getting onto TIF is the gating step.",
+      "tags": [
+        "Framework",
+        "Primary care"
+      ]
+    },
+    {
+      "id": "std-medtech-funding-mandate",
+      "title": "MedTech Funding Mandate",
+      "source": "NHS England / Accelerated Access Collaborative",
+      "source_url": "https://www.england.nhs.uk/aac/what-we-do/how-can-the-aac-help-me/the-medtech-funding-mandate/",
+      "buyer": "NHS England",
+      "type": "Adoption route",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-04-01",
+      "deadline": "",
+      "status": "Ongoing",
+      "summary": "Mandates NHS commissioners and providers to fund a defined list of NICE-approved cost-saving devices, diagnostics and digital products.",
+      "means": "Not a tender — a route to guaranteed local funding. Eligibility: positive NICE guidance, net saving within three years, budget impact under £20m a year. Worth understanding early if a NICE pathway is in reach.",
+      "tags": [
+        "Adoption route",
+        "NICE"
+      ]
+    },
+    {
+      "id": "std-gcloud",
+      "title": "G-Cloud — Digital Marketplace",
+      "source": "Crown Commercial Service",
+      "source_url": "https://www.crowncommercial.gov.uk/products-and-services/technology/",
+      "buyer": "Crown Commercial Service",
+      "type": "Framework",
+      "category": "Infrastructure & cloud",
+      "value": "",
+      "published": "2026-01-01",
+      "deadline": "",
+      "status": "Rolling",
+      "summary": "Cross-government framework for cloud hosting, software (SaaS) and digital support — the primary procurement route for software-based digital health products.",
+      "means": "The most relevant framework for digital health SaaS. Being listed makes a product discoverable to every NHS buyer. Application windows open periodically — worth tracking.",
+      "tags": [
+        "Framework",
+        "Cloud"
+      ]
+    }
+  ]
+}

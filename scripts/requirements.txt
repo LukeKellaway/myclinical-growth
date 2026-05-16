@@ -1,0 +1,6 @@
+# poll.py, bundle.py and build_digest.py use only the Python standard
+# library — nothing to install for the automation workflow.
+#
+# build_data.py (the one-time data builder, run locally) needs openpyxl
+# to read the source directory spreadsheet:
+openpyxl>=3.1

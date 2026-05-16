@@ -1,0 +1,20 @@
+# Netlify configuration for MyClinical Growth.
+# The site is plain static files — no build step needed. Netlify just
+# serves this folder. New data lands when the GitHub Actions poller
+# commits, which triggers an automatic redeploy.
+
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/js/data.js"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
