@@ -46,17 +46,53 @@ HEALTH_BUYER = re.compile(
     re.I,
 )
 
-# CPV prefixes worth keeping (software, IT services, medical equipment,
-# health & social work services).
-CPV_PREFIXES = ("48", "72", "302", "323", "331", "33100000", "851", "853", "799")
+# CPV prefixes split into two tiers.
+# STRONG = unambiguously digital (software, IT services, telecoms, data).
+#   A health buyer + any of these = relevant on its own.
+# WEAK = healthcare-adjacent but covers a lot of clinical-services-only
+#   contracts that have no digital component (eye testing, frailty consults,
+#   transport, catering, etc.). Only relevant when paired with a digital keyword.
+STRONG_DIGITAL_CPV = (
+    "48",        # Software packages and information systems
+    "72",        # IT services: consulting, software development, internet
+    "32",        # Radio, TV, communications, telecoms equipment
+    "30200",     # Computer equipment and supplies
+    "33196",     # Medical aids (incl. some digital devices)
+    "73",        # Research and development services (including digital R&D)
+)
+WEAK_HEALTHCARE_CPV = (
+    "85",        # Health and social work services (covers most NHS clinical contracts)
+    "331",       # Medical equipment, pharmaceuticals & personal care products (broad)
+    "33100000",  # Medical equipment (broad parent)
+    "799",       # Business services (admin, finance, marketing)
+    "302",       # Office machinery (rarely digital)
+    "323",       # Electrical apparatus (mostly hardware)
+)
 
 KEYWORDS = re.compile(
-    r"digital|software|\bAI\b|artificial intelligence|machine learning|"
+    r"\bdigital\b|software|\bAI\b|artificial intelligence|machine learning|"
     r"\bEPR\b|electronic patient record|electronic health record|telehealth|"
     r"telemedicine|remote monitoring|virtual ward|patient app|patient portal|"
-    r"\bplatform\b|analytics|interoperab|\bSaaS\b|cloud|e-health|ehealth|"
+    r"analytics|interoperab|\bSaaS\b|\bcloud\b|e-health|ehealth|"
     r"health tech|healthtech|clinical system|data platform|informatics|"
-    r"digital health|wearable|diagnostic imaging|decision support",
+    r"digital health|wearable|\bAI as a Medical Device\b|\bAIaMD\b|"
+    r"decision support|computer vision|natural language processing|"
+    r"federated learning|cyber\s*security|connected device|"
+    r"electronic prescrib|e-prescrib|electronic referral|e-referral|"
+    r"image (?:analysis|processing|recognition)",
+    re.I,
+)
+
+# Buyer-name red flags. These are health buyers but the contract is clearly
+# non-digital and should be dropped even if a generic CPV matches.
+EXCLUDE_TITLE = re.compile(
+    r"\bcatering\b|\bcleaning\b|\blaundry\b|\bwaste\b|\btransport\b|"
+    r"\bcab(?:bing)?\b|\btaxi\b|\bambulance\b(?! booking| dispatch)|"
+    r"\bsecurity guard|\bgardening\b|\bgrounds maintenance\b|"
+    r"\buniform(?:s)?\b|\bstationery\b|\bfurniture\b|"
+    r"\bconsultant services?\b(?! for (?:digital|software|data|AI))|"
+    r"\beye (?:test|screen)|\bdental (?:services|care)\b|"
+    r"\bphysiotherap|\bcounselling\b|\bdomicil",
     re.I,
 )
 
@@ -79,11 +115,26 @@ def classify(text):
 
 def is_relevant(buyer_name, title, description, cpvs):
     blob = f"{title} {description}"
-    buyer_hit = bool(HEALTH_BUYER.search(buyer_name or ""))
-    cpv_hit = any(str(c).startswith(CPV_PREFIXES) for c in cpvs)
+    if not HEALTH_BUYER.search(buyer_name or ""):
+        return False
+    # Hard exclude: clearly non-digital services (catering, transport, eye tests,
+    # dental, physio, counselling, etc.) even when they hit a generic CPV.
+    if EXCLUDE_TITLE.search(blob):
+        return False
+    cpvs_str = [str(c) for c in cpvs]
+    strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
+    weak_cpv = any(c.startswith(WEAK_HEALTHCARE_CPV) for c in cpvs_str)
     kw_hit = bool(KEYWORDS.search(blob))
-    # Require a health buyer, plus either a relevant CPV code or a keyword hit.
-    return buyer_hit and (cpv_hit or kw_hit)
+    # A strong digital CPV is enough on its own.
+    if strong_cpv:
+        return True
+    # A weak healthcare CPV must be paired with a digital keyword.
+    if weak_cpv and kw_hit:
+        return True
+    # No CPV at all but strong digital keywords in title/description.
+    if not cpvs_str and kw_hit:
+        return True
+    return False
 
 
 # --- fetching --------------------------------------------------------------
