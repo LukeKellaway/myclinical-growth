@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-16T23:55:00.000000Z",
-  "count": 18,
+  "updated": "2026-05-17T00:00:00.000000Z",
+  "count": 21,
   "grants": [
     {
       "id": "grant-sbri-healthcare",
@@ -325,6 +325,63 @@
       "tags": [
         "Grant",
         "Policy"
+      ]
+    },
+    {
+      "id": "grant-sbri-ai-2022-legacy",
+      "title": "SBRI Healthcare: AI in Health and Care themed call (2022)",
+      "source": "SBRI Healthcare",
+      "source_url": "https://sbrihealthcare.co.uk/competitions",
+      "type": "Themed grant call",
+      "category": "NHS-aligned innovation",
+      "value": "Phase 1 up to £100k; Phase 2 up to £1m",
+      "published": "2022-04-01",
+      "deadline": "2022-07-31",
+      "status": "Closed",
+      "summary": "SBRI Healthcare's themed competition focused on AI in health and care. Funded Phase 1 feasibility and Phase 2 development awards.",
+      "means": "Closed call, but a useful reference point. SBRI typically rotates themes year on year; an AI-focused round is likely again. The 2022 alumni list shows where SBRI saw maturity in AI for NHS use cases.",
+      "tags": [
+        "Grant",
+        "Closed",
+        "AI"
+      ]
+    },
+    {
+      "id": "grant-innovate-uk-bc-2024",
+      "title": "Innovate UK Biomedical Catalyst (2024 round)",
+      "source": "Innovate UK (UKRI)",
+      "source_url": "https://www.ukri.org/councils/innovate-uk/",
+      "type": "Grant programme round",
+      "category": "R&D funding",
+      "value": "Up to £4m per project",
+      "published": "2024-02-01",
+      "deadline": "2024-05-08",
+      "status": "Closed",
+      "summary": "The 2024 round of Innovate UK's Biomedical Catalyst, funding industry-led collaborative R&D in health innovation. Annual cadence.",
+      "means": "Closed for 2024, but the cycle is reliable. Use the 2024 awardee list to spot which subsectors Innovate UK is currently betting on, and plan a 2026 submission against that pattern.",
+      "tags": [
+        "Grant",
+        "Closed",
+        "R&D"
+      ]
+    },
+    {
+      "id": "grant-nhsx-ai-award-r3",
+      "title": "NHSX AI Award (Round 3)",
+      "source": "NHSX / NIHR / Accelerated Access Collaborative",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/artificial-intelligence-in-health-and-care-award",
+      "type": "Award programme",
+      "category": "NHS-aligned innovation",
+      "value": "Up to £20m total",
+      "published": "2022-01-01",
+      "deadline": "2022-04-30",
+      "status": "Closed",
+      "summary": "Round 3 of the NHSX AI in Health and Care Award. Funded translation through to real-world clinical evaluation for AI products with credible evidence.",
+      "means": "Closed. Programme is now wound into the broader NIHR pathway. The Round 3 awardee list is the most relevant snapshot of what survived NHSX's rigour.",
+      "tags": [
+        "Grant",
+        "Closed",
+        "AI"
       ]
     }
   ]

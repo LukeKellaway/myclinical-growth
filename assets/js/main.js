@@ -49,10 +49,23 @@
   }
 
   /* ---------- card builders ---------- */
+  // True when an item is past its deadline OR explicitly marked closed.
+  function isClosed(o) {
+    if (/closed|completed|awarded/i.test(o.status || "")) return true;
+    var d = daysUntil(o.deadline);
+    return d != null && d < 0;
+  }
+
   function oppCard(o) {
     var d = daysUntil(o.deadline);
+    var closed = isClosed(o);
     var deadlineHtml;
-    if (o.deadline && d != null) {
+    if (closed) {
+      var closedLabel = o.deadline
+        ? "Closed " + fmtDate(o.deadline)
+        : (o.status || "Closed");
+      deadlineHtml = '<span class="deadline closed">' + esc(closedLabel) + "</span>";
+    } else if (o.deadline && d != null) {
       var cls = d <= 21 ? "deadline" : "deadline soft";
       deadlineHtml = '<span class="' + cls + '">Closes ' + fmtDate(o.deadline) + "</span>";
     } else {
@@ -61,16 +74,19 @@
     var meansHtml = o.means
       ? '<p class="means">' + esc(o.means) + "</p>"
       : '<p class="means">' + esc(o.summary || "") + "</p>";
-    var link = o.source_url || "#";
+    // Tile click now routes to our editorial detail page, not the source.
+    // That keeps the user on-site and surfaces the "what it means" first.
+    var detailLink = "opportunity.html#" + encodeURIComponent(o.id || "");
+    var cardClass = "opp-card" + (closed ? " opp-card-closed" : "");
     return (
-      '<div class="opp-card">' +
+      '<div class="' + cardClass + '">' +
         '<div class="tags">' + tagsHtml(o.tags) + "</div>" +
-        "<h3>" + esc(o.title) + "</h3>" +
+        '<h3><a href="' + esc(detailLink) + '" class="card-title-link">' + esc(o.title) + "</a></h3>" +
         '<div class="src">' + esc(o.source) +
           (o.value ? " · " + esc(o.value) : "") + "</div>" +
         meansHtml +
         '<div class="foot">' + deadlineHtml +
-          '<a class="arrow" href="' + esc(link) + '" target="_blank" rel="noopener">Details &rarr;</a>' +
+          '<a class="arrow" href="' + esc(detailLink) + '">More &rarr;</a>' +
         "</div>" +
       "</div>"
     );
@@ -150,6 +166,7 @@
     var searchEl = document.getElementById(opts.searchId);
     var filterEl = document.getElementById(opts.filterId);
     var countEl = document.getElementById(opts.countId);
+    var closedToggleEl = document.getElementById(opts.closedToggleId || "");
     if (!listEl) return;
     var data = opts.data;
     var cats = [];
@@ -158,28 +175,51 @@
       if (c && cats.indexOf(c) === -1) cats.push(c);
     });
     cats.sort();
-    var state = { cat: "All", q: "" };
+    // Default: closed items hidden. Toggle reveals them.
+    var state = { cat: "All", q: "", showClosed: false };
+    var closedCount = opts.canClose
+      ? data.filter(function (r) { return isClosed(r); }).length
+      : 0;
     function apply() {
       var rows = data.filter(function (r) {
         var catOk = state.cat === "All" || opts.catOf(r) === state.cat;
         var qOk = !state.q || opts.textOf(r).toLowerCase().indexOf(state.q) > -1;
-        return catOk && qOk;
+        var closedOk = state.showClosed || !isClosed(r);
+        return catOk && qOk && closedOk;
       });
       listEl.innerHTML = rows.length
         ? rows.map(opts.render).join("")
         : '<div class="empty">Nothing matches that filter yet.</div>';
-      if (countEl) countEl.textContent = rows.length + " of " + data.length + " shown";
+      if (countEl) {
+        var totalForCount = state.showClosed
+          ? data.length
+          : data.filter(function (r) { return !isClosed(r); }).length;
+        countEl.textContent = rows.length + " of " + totalForCount + " shown";
+      }
     }
     if (filterEl) buildFilter(filterEl, cats, function (c) { state.cat = c; apply(); });
     if (searchEl) searchEl.addEventListener("input", function () {
       state.q = searchEl.value.trim().toLowerCase(); apply();
     });
+    if (closedToggleEl && opts.canClose) {
+      // Render the toggle inline. Count is visible in the label so the option
+      // feels worthwhile even when collapsed.
+      closedToggleEl.innerHTML = '<label class="closed-toggle">' +
+        '<input type="checkbox" id="closed-toggle-input" /> ' +
+        '<span>Show closed (' + closedCount + ')</span></label>';
+      var cb = document.getElementById("closed-toggle-input");
+      cb.addEventListener("change", function () {
+        state.showClosed = cb.checked; apply();
+      });
+    }
     apply();
   }
 
   function renderOpportunities() {
     renderListPage({
-      listId: "opp-list", searchId: "opp-search", filterId: "opp-filter", countId: "opp-count",
+      listId: "opp-list", searchId: "opp-search", filterId: "opp-filter",
+      countId: "opp-count", closedToggleId: "opp-closed-toggle",
+      canClose: true,
       data: sortByDeadline(allOpportunities()),
       catOf: function (o) { return o.category; },
       textOf: function (o) { return [o.title, o.source, o.summary, o.means, o.buyer].join(" "); },
@@ -188,13 +228,134 @@
   }
   function renderGrants() {
     renderListPage({
-      listId: "grant-list", searchId: "grant-search", filterId: "grant-filter", countId: "grant-count",
+      listId: "grant-list", searchId: "grant-search", filterId: "grant-filter",
+      countId: "grant-count", closedToggleId: "grant-closed-toggle",
+      canClose: true,
       data: sortByDeadline((D.grants && D.grants.grants) || []),
       catOf: function (g) { return g.category; },
       textOf: function (g) { return [g.title, g.source, g.summary, g.means].join(" "); },
       render: oppCard,
     });
   }
+  /* ---------- opportunity / grant detail page ---------- */
+  function findItemById(id) {
+    if (!id) return null;
+    var all = allOpportunities();
+    var grants = (D.grants && D.grants.grants) || [];
+    var pool = all.concat(grants);
+    for (var i = 0; i < pool.length; i++) {
+      if (String(pool[i].id) === String(id)) return pool[i];
+    }
+    return null;
+  }
+  function relatedItems(item) {
+    if (!item) return [];
+    var pool = allOpportunities().concat((D.grants && D.grants.grants) || []);
+    return pool
+      .filter(function (o) { return o.id !== item.id && o.category === item.category; })
+      .slice(0, 3);
+  }
+  function isGrant(item) {
+    var grants = (D.grants && D.grants.grants) || [];
+    for (var i = 0; i < grants.length; i++) {
+      if (grants[i].id === item.id) return true;
+    }
+    return false;
+  }
+  function renderOpportunityDetail() {
+    var root = document.getElementById("opp-detail");
+    if (!root) return;
+    var id = decodeURIComponent((location.hash || "").replace(/^#/, ""));
+    var item = findItemById(id);
+    if (!item) {
+      root.innerHTML = '<div class="not-found">' +
+        "<h2>We can't find that opportunity.</h2>" +
+        "<p>It may have been renamed or removed. Try the full list:</p>" +
+        '<p><a class="btn btn-primary" href="opportunities.html">Browse procurement</a> ' +
+        '&nbsp;<a class="btn btn-ghost" href="grants.html">Browse grants</a></p>' +
+        "</div>";
+      return;
+    }
+    var grant = isGrant(item);
+    var trackLabel = grant ? "Grant" : "Procurement";
+    var backLink = grant ? "grants.html" : "opportunities.html";
+    var backLabel = grant ? "All grants" : "All procurement";
+    var closed = isClosed(item);
+    var d = daysUntil(item.deadline);
+    var deadlineBadge;
+    if (closed) {
+      var closedLabel = item.deadline
+        ? "Closed " + fmtDate(item.deadline)
+        : (item.status || "Closed");
+      deadlineBadge = '<span class="detail-pill closed">' + esc(closedLabel) + "</span>";
+    } else if (item.deadline && d != null) {
+      var urg = d <= 7 ? "urgent" : (d <= 21 ? "soon" : "open");
+      deadlineBadge = '<span class="detail-pill ' + urg + '">' +
+        "Closes " + fmtDate(item.deadline) +
+        (d <= 21 ? " &middot; " + d + " day" + (d === 1 ? "" : "s") + " left" : "") +
+        "</span>";
+    } else {
+      deadlineBadge = '<span class="detail-pill open">' + esc(item.status || "Ongoing") + "</span>";
+    }
+    var meansBlock = item.means
+      ? '<div class="detail-means"><div class="detail-means-label">What it means</div>' +
+        '<p>' + esc(item.means) + "</p></div>"
+      : "";
+    var summaryBlock = item.summary
+      ? '<div class="detail-section"><h3>Summary</h3><p>' + esc(item.summary) + "</p></div>"
+      : "";
+    var meta = [];
+    if (item.source) meta.push("<strong>Source:</strong> " + esc(item.source));
+    if (item.buyer && item.buyer !== item.source) meta.push("<strong>Buyer:</strong> " + esc(item.buyer));
+    if (item.value) meta.push("<strong>Value:</strong> " + esc(item.value));
+    if (item.type) meta.push("<strong>Type:</strong> " + esc(item.type));
+    if (item.published) meta.push("<strong>Published:</strong> " + fmtDate(item.published));
+    if (item.deadline) meta.push("<strong>Deadline:</strong> " + fmtDate(item.deadline));
+    var metaBlock = meta.length
+      ? '<div class="detail-meta"><dl>' +
+        meta.map(function (m) {
+          var idx = m.indexOf(":</strong>");
+          return "<div><dt>" + m.slice(8, idx) + "</dt><dd>" + m.slice(idx + 11) + "</dd></div>";
+        }).join("") +
+        "</dl></div>"
+      : "";
+    var ctaInline = grant
+      ? '<p class="detail-inline-cta">If you are looking for an investor backing UK healthtech at this stage, the ' +
+        '<a href="capital.html">Capital page</a> is the partner-listing route. Coming soon, register interest.</p>'
+      : '<p class="detail-inline-cta">Need help writing this bid? Our ' +
+        '<a href="bid-writers.html">directory of NHS bid writers</a> opens shortly. ' +
+        'Looking ahead at the funding rung, see the ' +
+        '<a href="capital.html">Capital page</a>.</p>';
+    var sourceLink = item.source_url
+      ? '<a class="btn btn-primary" href="' + esc(item.source_url) + '" target="_blank" rel="noopener">Read the official notice &rarr;</a>'
+      : "";
+    var related = relatedItems(item);
+    var relatedBlock = related.length
+      ? '<div class="detail-section"><h3>Related ' + trackLabel.toLowerCase() + " in " + esc(item.category || "this category") + "</h3>" +
+        '<div class="opp-grid">' + related.map(oppCard).join("") + "</div></div>"
+      : "";
+    var categoryChip = item.category
+      ? '<span class="detail-category">' + esc(item.category) + "</span>"
+      : "";
+
+    root.innerHTML =
+      '<div class="detail-back"><a href="' + backLink + '">&larr; ' + esc(backLabel) + "</a></div>" +
+      '<div class="detail-head">' +
+        '<div class="detail-track">' + trackLabel + (categoryChip ? " &middot; " + categoryChip : "") + "</div>" +
+        "<h1>" + esc(item.title) + "</h1>" +
+        '<div class="detail-pills">' + deadlineBadge + "</div>" +
+      "</div>" +
+      meansBlock +
+      metaBlock +
+      summaryBlock +
+      ctaInline +
+      '<div class="detail-actions">' + sourceLink + "</div>" +
+      relatedBlock;
+
+    // Update the document title and meta description for the loaded item.
+    document.title = item.title + " · MyClinical Growth";
+  }
+
   function renderDirectory() {
     var proc = ((D.directory && D.directory.procurement) || []).map(function (r) {
       r._group = "Procurement"; return r;
@@ -278,7 +439,16 @@
     if (page === "opportunities") renderOpportunities();
     if (page === "grants") renderGrants();
     if (page === "directory") renderDirectory();
+    if (page === "opportunity") renderOpportunityDetail();
     wireSubscribe();
     stampUpdated();
+  });
+  // Detail page: re-render if the user navigates via hash (e.g. clicking
+  // a related-item link on the same page).
+  window.addEventListener("hashchange", function () {
+    if (document.body.getAttribute("data-page") === "opportunity") {
+      renderOpportunityDetail();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   });
 })();

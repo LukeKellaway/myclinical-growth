@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-16T23:55:00.000000Z",
-  "count": 16,
+  "updated": "2026-05-17T00:00:00.000000Z",
+  "count": 19,
   "opportunities": [
     {
       "id": "std-sbs-ai-solutions",
@@ -305,6 +305,66 @@
       "tags": [
         "Catalogue",
         "Primary care"
+      ]
+    },
+    {
+      "id": "std-gpsoc-legacy",
+      "title": "GP Systems of Choice (GPSoC)",
+      "source": "NHS Digital (legacy)",
+      "source_url": "https://digital.nhs.uk/services/gp-systems-of-choice",
+      "buyer": "NHS Digital",
+      "type": "Legacy framework",
+      "category": "Clinical systems & EPR",
+      "value": "",
+      "published": "2014-01-01",
+      "deadline": "2018-12-31",
+      "status": "Closed",
+      "summary": "The framework that ran GP IT systems procurement from 2014 to 2018. Superseded by GP IT Futures, which is itself transitioning to the Tech Innovation Framework.",
+      "means": "Closed, but instructive. Knowing the GPSoC, GP IT Futures, TIF lineage helps founders read where primary care procurement is heading next. The pattern: each generation widens supplier eligibility while raising the assurance bar.",
+      "tags": [
+        "Framework",
+        "Closed",
+        "Primary care"
+      ]
+    },
+    {
+      "id": "std-hssf-legacy",
+      "title": "Health Systems Support Framework (HSSF)",
+      "source": "NHS England",
+      "source_url": "https://www.england.nhs.uk/health-systems-support-framework/",
+      "buyer": "NHS England",
+      "type": "Legacy framework",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2018-10-01",
+      "deadline": "2025-12-31",
+      "status": "Closed to new call-offs",
+      "summary": "NHS England framework for population health management, digital and analytics. NHS England has stopped initiating new call-offs but existing ones continue. A successor framework has been signalled.",
+      "means": "Worth tracking the successor announcement. HSSF supported a lot of population health platform work. Whatever replaces it will set the procurement route for the next generation of population health and PHM tools.",
+      "tags": [
+        "Framework",
+        "Closed",
+        "Population health"
+      ]
+    },
+    {
+      "id": "std-nhsx-ai-award-legacy",
+      "title": "NHSX AI in Health and Care Award (legacy rounds)",
+      "source": "NHSX / NIHR / Accelerated Access Collaborative",
+      "source_url": "https://www.nihr.ac.uk/research-funding/funding-programmes/artificial-intelligence-in-health-and-care-award",
+      "buyer": "NHSX / NIHR",
+      "type": "Award programme",
+      "category": "AI & analytics",
+      "value": "£140m total across rounds",
+      "published": "2020-09-01",
+      "deadline": "2023-04-30",
+      "status": "Closed",
+      "summary": "Four-round AI award programme that funded NHS deployments of AI technologies across imaging, decision support and operational use cases. Rounds 1-4 ran 2020-2023; programme now wound into the NIHR pathway.",
+      "means": "Closed, but the awarded companies are a who's-who of UK AI healthtech. The award structure (development through to real-world evaluation) became the template for NHS-aligned AI funding. Worth knowing the alumni for partnership and patterns.",
+      "tags": [
+        "Award",
+        "Closed",
+        "AI"
       ]
     }
   ]
