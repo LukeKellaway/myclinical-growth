@@ -282,7 +282,21 @@ def main():
               file=sys.stderr)
         return 0
 
-    opps = recent(load("opportunities-live.json"))
+    # Pull procurement from BOTH live (OCDS auto-poll) and the standing/curated
+    # set. The standing items normally have older published dates and won't
+    # qualify as "new", but when one is freshly added or has its `updated`
+    # field touched, it should be included in the brief.
+    opps = recent(load("opportunities-live.json") + load("opportunities.json"))
+    # De-duplicate by id (a curated item that later appears in the OCDS feed
+    # should only show once).
+    seen = set()
+    unique_opps = []
+    for o in opps:
+        oid = o.get("id")
+        if oid and oid not in seen:
+            seen.add(oid)
+            unique_opps.append(o)
+    opps = unique_opps
     grants = recent(load("grants.json"))
     if not opps and not grants:
         print("Nothing new in the last 24h — no digest created.")
