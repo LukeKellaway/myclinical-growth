@@ -137,24 +137,52 @@ def classify(text):
     return "Other digital health"
 
 
+# Per-run funnel stats. Reset by main(). Lets us see what the filter
+# is doing on every run, instead of just "kept N".
+STATS = {
+    "fetched_fts": 0,
+    "fetched_cf": 0,
+    "nhs_buyer_match": 0,
+    "hard_excluded": 0,
+    "strong_cpv_pass": 0,
+    "keyword_pass": 0,
+    "rejected_no_signal": 0,
+    "kept": 0,
+}
+# A small bucket of borderline items (NHS buyer + no digital signal) so we
+# can see what's being filtered out. Capped to keep logs readable.
+BORDERLINE_SAMPLES = []
+BORDERLINE_CAP = 25
+
+
 def is_relevant(buyer_name, title, description, cpvs):
     blob = f"{title} {description}"
     if not HEALTH_BUYER.search(buyer_name or ""):
         return False
+    STATS["nhs_buyer_match"] += 1
     # Hard exclude: clearly non-digital NHS services.
     if EXCLUDE_TITLE.search(blob):
+        STATS["hard_excluded"] += 1
         return False
     cpvs_str = [str(c) for c in cpvs]
     strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
     kw_hit = bool(KEYWORDS.search(blob))
-    # Strong digital CPV alone (software, IT services, telecoms) is enough.
     if strong_cpv:
+        STATS["strong_cpv_pass"] += 1
+        STATS["kept"] += 1
         return True
-    # Otherwise require an explicit digital keyword in title or description.
-    # Some weeks will produce 0 live items. That is the correct behaviour
-    # when the OCDS feeds have no genuine digital-health tenders that week.
-    # Quality over noise. The 30+ curated standing items remain the backbone.
-    return kw_hit
+    if kw_hit:
+        STATS["keyword_pass"] += 1
+        STATS["kept"] += 1
+        return True
+    STATS["rejected_no_signal"] += 1
+    if len(BORDERLINE_SAMPLES) < BORDERLINE_CAP:
+        BORDERLINE_SAMPLES.append({
+            "title": (title or "")[:120],
+            "buyer": (buyer_name or "")[:80],
+            "cpvs": cpvs_str[:5],
+        })
+    return False
 
 
 # --- fetching --------------------------------------------------------------
@@ -271,7 +299,9 @@ def poll_find_a_tender(since):
         except (URLError, HTTPError) as e:
             print(f"[FTS] fetch failed: {e}", file=sys.stderr)
             break
-        for release in data.get("releases", []):
+        releases = data.get("releases", [])
+        STATS["fetched_fts"] += len(releases)
+        for release in releases:
             opp = parse_release(release, "Find a Tender", "fts")
             if opp:
                 out.append(opp)
@@ -280,7 +310,7 @@ def poll_find_a_tender(since):
             break
         url = nxt
         time.sleep(1)
-    print(f"[FTS] kept {len(out)} relevant notices")
+    print(f"[FTS] fetched {STATS['fetched_fts']} notices, kept {len(out)}")
     return out
 
 
@@ -298,6 +328,7 @@ def poll_contracts_finder(since):
         results = data.get("results") or data.get("releases") or []
         if not results:
             break
+        STATS["fetched_cf"] += len(results)
         for entry in results:
             release = entry.get("releasePackage", {}).get("releases", [entry])[0] \
                 if isinstance(entry, dict) and "releasePackage" in entry else entry
@@ -306,13 +337,13 @@ def poll_contracts_finder(since):
                 out.append(opp)
         page += 1
         time.sleep(1)
-    print(f"[CF] kept {len(out)} relevant notices")
+    print(f"[CF] fetched {STATS['fetched_cf']} notices, kept {len(out)}")
     return out
 
 
 def main():
     since = dt.datetime.utcnow() - dt.timedelta(hours=LOOKBACK_HOURS)
-    print(f"Polling for notices updated since {iso(since)}")
+    print(f"Polling for notices updated since {iso(since)} (lookback {LOOKBACK_HOURS}h)")
 
     items = []
     items += poll_find_a_tender(since)
@@ -324,6 +355,21 @@ def main():
         by_id[it["id"]] = it
     merged = sorted(by_id.values(), key=lambda x: x.get("published", ""), reverse=True)
 
+    # Funnel summary so we can SEE the pipeline is alive even on quiet days.
+    total_fetched = STATS["fetched_fts"] + STATS["fetched_cf"]
+    print("--- Funnel ---")
+    print(f"  Total notices fetched (FTS + CF): {total_fetched}")
+    print(f"    of which NHS / health-buyer match: {STATS['nhs_buyer_match']}")
+    print(f"      hard-excluded (catering, transport, etc.): {STATS['hard_excluded']}")
+    print(f"      passed via strong digital CPV: {STATS['strong_cpv_pass']}")
+    print(f"      passed via digital keyword: {STATS['keyword_pass']}")
+    print(f"      rejected (NHS but no digital signal): {STATS['rejected_no_signal']}")
+    print(f"  Kept (after dedup): {len(merged)}")
+    if BORDERLINE_SAMPLES:
+        print("--- Borderline (NHS buyer, rejected) sample ---")
+        for s in BORDERLINE_SAMPLES[:10]:
+            print(f"  - {s['title']}  |  {s['buyer']}  |  CPVs: {','.join(s['cpvs'])}")
+
     DATA.mkdir(exist_ok=True)
     payload = {
         "updated": dt.datetime.utcnow().isoformat() + "Z",
@@ -331,6 +377,16 @@ def main():
         "opportunities": merged,
     }
     LIVE_FILE.write_text(json.dumps(payload, indent=2, ensure_ascii=False))
+    # Persist the funnel stats too so the site (or a future dashboard) can
+    # surface "X NHS tenders scanned in the last 30 days" as a trust signal.
+    stats_payload = {
+        "updated": dt.datetime.utcnow().isoformat() + "Z",
+        "lookback_hours": LOOKBACK_HOURS,
+        "funnel": STATS,
+        "kept_total": len(merged),
+        "borderline_samples": BORDERLINE_SAMPLES,
+    }
+    (DATA / "poll-stats.json").write_text(json.dumps(stats_payload, indent=2, ensure_ascii=False))
     print(f"Wrote {len(merged)} live opportunities to {LIVE_FILE}")
 
 
