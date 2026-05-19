@@ -1,0 +1,148 @@
+{
+  "updated": "2026-05-19T22:50:00.014987Z",
+  "lookback_hours": 720,
+  "funnel": {
+    "fetched_fts": 155,
+    "fetched_cf": 1900,
+    "nhs_buyer_match": 59,
+    "hard_excluded": 16,
+    "strong_cpv_pass": 0,
+    "keyword_pass": 0,
+    "rejected_no_signal": 43,
+    "kept": 0
+  },
+  "kept_total": 0,
+  "borderline_samples": [
+    {
+      "title": "Provision of Low & Medium Secure Inpatient Beds",
+      "buyer": "University Hospitals Birmingham NHS Foundation Trust",
+      "cpvs": []
+    },
+    {
+      "title": "NHS SY ICB - Harold Street Medical Centre",
+      "buyer": "NHS South Yorkshire Integrated Care Board",
+      "cpvs": []
+    },
+    {
+      "title": "Planned and Reactive Lift Maintenance",
+      "buyer": "NHS Grampian",
+      "cpvs": [
+        "50750000",
+        "50750000",
+        "50750000"
+      ]
+    },
+    {
+      "title": "Provision of PET-CT Scanning Capacity",
+      "buyer": "University Hospitals Birmingham NHS Foundation Trust",
+      "cpvs": []
+    },
+    {
+      "title": "LOLER Testing and certification 2026/27",
+      "buyer": "Royal Papworth Hospital NHS Foundation Trust",
+      "cpvs": [
+        "50750000"
+      ]
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
+      "cpvs": []
+    },
+    {
+      "title": "CA17836 - R9239 - SHGH Water Main",
+      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "cpvs": []
+    }
+  ]
+}
