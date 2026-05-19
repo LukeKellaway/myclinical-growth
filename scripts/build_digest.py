@@ -33,9 +33,15 @@ DATA = ROOT / "data"
 API_KEY = os.environ.get("MAILCHIMP_API_KEY", "")
 AUDIENCE = os.environ.get("MAILCHIMP_AUDIENCE_ID", "")
 PREFIX = os.environ.get("MAILCHIMP_SERVER_PREFIX", "")
-AUTOSEND = os.environ.get("DIGEST_AUTOSEND", "").lower() == "true"
+# AUTOSEND defaults to TRUE — daily brief should arrive without manual approval.
+# Set the secret DIGEST_AUTOSEND=false to revert to draft-only mode.
+AUTOSEND = os.environ.get("DIGEST_AUTOSEND", "true").lower() != "false"
 FROM_NAME = os.environ.get("DIGEST_FROM_NAME", "MyClinical Growth")
 REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
+# Hour of the day (UTC) at which the daily brief is built and sent. The
+# workflow runs hourly; only the matching hour creates a campaign so we
+# get exactly one email per day. 07:00 UTC = 08:00 BST / 07:00 GMT.
+DIGEST_HOUR_UTC = int(os.environ.get("DIGEST_HOUR_UTC", "7"))
 
 
 def load(name):
@@ -181,32 +187,42 @@ def _section(title, subtitle, items, on_site_url, browse_label, accent):
       <tr><td>{cta_html}</td></tr>"""
 
 
-def render(opps, grants):
+def render(opps, grants, is_quiet=False):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
 
     # Summary line for the dark header
-    summary_pieces = []
-    if opps:
-        summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(opps)}</span> procurement')
-    if grants:
-        summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(grants)}</span> grant{"s" if len(grants) != 1 else ""}')
-    summary = " &middot; ".join(summary_pieces) or "Quiet day across both tracks"
-
-    # Preheader (gmail/iOS snippet)
-    preheader = f"{total} new today across NHS procurement and UK healthtech funding."
+    if is_quiet:
+        summary = "<strong>Nothing new today.</strong> Showing the items closest to deadline so they don't slip."
+        preheader = "Quiet day. Here are the live items closest to deadline."
+        proc_subtitle = "On the radar &middot; closest deadlines"
+        grants_subtitle = "On the radar &middot; closest deadlines"
+        proc_track_label = "Track 1 &middot; Procurement"
+        grants_track_label = "Track 2 &middot; Grants"
+    else:
+        summary_pieces = []
+        if opps:
+            summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(opps)}</span> procurement')
+        if grants:
+            summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(grants)}</span> grant{"s" if len(grants) != 1 else ""}')
+        summary = " &middot; ".join(summary_pieces) or "Quiet day across both tracks"
+        preheader = f"{total} new today across NHS procurement and UK healthtech funding."
+        proc_subtitle = "NHS contracts and framework routes"
+        grants_subtitle = "Non-dilutive UK healthtech funding"
+        proc_track_label = "Track 1 &middot; Procurement"
+        grants_track_label = "Track 2 &middot; Grants"
 
     proc_section = _section(
-        title="Track 1 &middot; Procurement",
-        subtitle="NHS contracts and framework routes",
+        title=proc_track_label,
+        subtitle=proc_subtitle,
         items=opps,
         on_site_url=f"{SITE_URL}/opportunities.html",
         browse_label="See all procurement",
         accent="#4f8a6e",
     )
     grants_section = _section(
-        title="Track 2 &middot; Grants",
-        subtitle="Non-dilutive UK healthtech funding",
+        title=grants_track_label,
+        subtitle=grants_subtitle,
         items=grants,
         on_site_url=f"{SITE_URL}/grants.html",
         browse_label="See all grants",
@@ -283,11 +299,50 @@ def mc(method, path, payload=None):
         return json.loads(r.read().decode())
 
 
+def _is_closed(it):
+    """True when an item is past its deadline OR marked closed."""
+    status = (it.get("status") or "").lower()
+    if any(s in status for s in ("closed", "completed", "awarded")):
+        return True
+    d = _parse_date(it.get("deadline", ""))
+    if d and (d - dt.date.today()).days < 0:
+        return True
+    return False
+
+
+def _deadline_sort_key(it):
+    """Sort key: items with closest non-past deadline first; no-deadline last."""
+    d = _parse_date(it.get("deadline", ""))
+    if not d:
+        return (1, dt.date.max)
+    days = (d - dt.date.today()).days
+    if days < 0:
+        return (2, d)  # past — push to the end (also caught by _is_closed)
+    return (0, d)
+
+
+def _fallback_items(filename, key, limit=3):
+    """Top items still live, sorted by deadline urgency."""
+    items = load(filename)
+    live = [it for it in items if not _is_closed(it)]
+    live.sort(key=_deadline_sort_key)
+    return live[:limit]
+
+
 def main():
     if not (API_KEY and AUDIENCE and PREFIX):
         print("Mailchimp env vars not set — skipping digest. "
               "Set MAILCHIMP_API_KEY, MAILCHIMP_AUDIENCE_ID, MAILCHIMP_SERVER_PREFIX.",
               file=sys.stderr)
+        return 0
+
+    # Cron runs hourly; only one of those hours is the actual send hour, so
+    # subscribers get exactly one daily brief. All other hourly runs are
+    # for polling and updating data, not for sending email.
+    current_hour = dt.datetime.utcnow().hour
+    if current_hour != DIGEST_HOUR_UTC:
+        print(f"Not the daily send hour ({DIGEST_HOUR_UTC:02d}:00 UTC, "
+              f"now {current_hour:02d}:00 UTC). Skipping digest.")
         return 0
 
     # Pull procurement from BOTH live (OCDS auto-poll) and the standing/curated
@@ -306,14 +361,23 @@ def main():
             unique_opps.append(o)
     opps = unique_opps
     grants = recent(load("grants.json"))
-    if not opps and not grants:
-        print("Nothing new in the last 24h — no digest created.")
-        return 0
 
-    html = render(opps, grants)
-    # Subject line foregrounds the procurement/grants split so subscribers
-    # can see at-a-glance which track this digest is heavier on.
-    if opps and grants:
+    # Quiet-day fallback: if nothing new in the last 24h, still send a brief.
+    # Subscribers should hear from us every day. The email makes the situation
+    # explicit ("Nothing new today") and lists the most imminent live items
+    # from each track as a reminder.
+    is_quiet = not opps and not grants
+    if is_quiet:
+        opps = _fallback_items("opportunities.json", "deadline", limit=3)
+        grants = _fallback_items("grants.json", "deadline", limit=3)
+        print(f"Quiet day: no new items in last 24h. "
+              f"Falling back to {len(opps)} procurement + {len(grants)} grants by deadline urgency.")
+
+    html = render(opps, grants, is_quiet=is_quiet)
+    today_ddmm = dt.date.today().strftime("%-d %b")
+    if is_quiet:
+        subject = f"Nothing new today | NHS procurement & UK healthtech funding ({today_ddmm})"
+    elif opps and grants:
         subject = f"{len(opps)} procurement, {len(grants)} grant{'s' if len(grants) != 1 else ''} | daily brief"
     elif opps:
         subject = f"{len(opps)} new NHS procurement {'opportunity' if len(opps)==1 else 'opportunities'}"
