@@ -97,7 +97,15 @@ def _deadline_chip(deadline_str):
 
 def _item_card(it, accent="#4f8a6e"):
     title = it.get("title", "")
-    url = it.get("source_url") or SITE_URL
+    # Email tiles link to the editorial detail page on the site (not the raw
+    # source). The detail page leads with the "what it means" note and has its
+    # own clear "Read the official notice" button at the bottom for users who
+    # want the underlying notice. Keeps subscribers on the resource.
+    item_id = it.get("id", "")
+    if item_id:
+        url = f"{SITE_URL}/opportunity.html#{item_id}"
+    else:
+        url = it.get("source_url") or SITE_URL
     source = it.get("source", "")
     category = it.get("category", "")
     value = it.get("value", "")
@@ -134,7 +142,7 @@ def _item_card(it, accent="#4f8a6e"):
               <tr>
                 <td align="left" style="vertical-align:middle;">{chip_cell}</td>
                 <td align="right" style="vertical-align:middle;">
-                  <a href="{url}" style="color:{accent};font-size:13px;font-weight:700;text-decoration:none;">Read the notice &rarr;</a>
+                  <a href="{url}" style="color:{accent};font-size:13px;font-weight:700;text-decoration:none;">Read more &rarr;</a>
                 </td>
               </tr>
             </table>
