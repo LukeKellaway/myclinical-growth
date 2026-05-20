@@ -1,0 +1,54 @@
+name: Weekly digest
+
+# Sends the Monday weekly roll-up email to subscribers on FREQUENCY=Weekly.
+# Independent of poll.yml so we never clash with the hourly daily digest.
+# build_digest.py with WEEKLY_MODE=1 handles the weekday/window/marker logic
+# internally, so this workflow is just a thin trigger.
+
+on:
+  schedule:
+    # 07:30 UTC every Monday. Window inside the script is 07-12 UTC so a
+    # 20-minute GitHub Actions delay still hits the slot.
+    - cron: "30 7 * * 1"
+  # Manual trigger for testing or recovery from a missed Monday.
+  workflow_dispatch:
+
+permissions:
+  contents: write          # needed to commit the weekly send marker
+
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the weekly digest (Mailchimp)
+        env:
+          WEEKLY_MODE: "1"
+          MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
+          MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}
+          MAILCHIMP_SERVER_PREFIX: ${{ secrets.MAILCHIMP_SERVER_PREFIX }}
+          DIGEST_REPLY_TO: ${{ secrets.DIGEST_REPLY_TO }}
+          DIGEST_AUTOSEND: ${{ secrets.DIGEST_AUTOSEND }}
+          # Off until the FREQUENCY merge field exists in the Mailchimp audience.
+          # When set, daily sends to FREQUENCY=Daily/blank, weekly to FREQUENCY=Weekly.
+          FREQUENCY_SEGMENT_ENABLED: ${{ secrets.FREQUENCY_SEGMENT_ENABLED }}
+        run: python scripts/build_digest.py
+
+      - name: Commit weekly send marker
+        run: |
+          git config user.name "growth-bot"
+          git config user.email "growth-bot@users.noreply.github.com"
+          git add data/last-weekly-digest-send.txt 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No marker change (probably skipped due to window/dedup)."
+          else
+            git commit -m "data: weekly digest send marker ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          fi

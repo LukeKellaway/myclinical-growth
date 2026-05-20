@@ -63,6 +63,9 @@ jobs:
           # Leave DIGEST_AUTOSEND unset to create drafts you review first.
           # Set it to "true" as a secret once you trust the editorial pass.
           DIGEST_AUTOSEND: ${{ secrets.DIGEST_AUTOSEND }}
+          # Off until the FREQUENCY merge field exists in the Mailchimp audience.
+          # When set, daily sends to FREQUENCY=Daily/blank, weekly to FREQUENCY=Weekly.
+          FREQUENCY_SEGMENT_ENABLED: ${{ secrets.FREQUENCY_SEGMENT_ENABLED }}
         run: python scripts/build_digest.py
         continue-on-error: true   # a digest hiccup must not block the data refresh
 

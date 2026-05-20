@@ -46,12 +46,23 @@ REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
 # skipped entirely for a given hour.
 # 07-10 UTC = 08-11 BST in summer / 07-10 GMT in winter.
 DIGEST_WINDOW_START_UTC = int(os.environ.get("DIGEST_WINDOW_START_UTC", "7"))
-# TEMPORARY: widened to 22 UTC for testing today. Revert to 10 once confirmed.
-DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "22"))
-# Marker file checked into the repo to record the last send date. Prevents
-# multiple sends in a single day if the cron fires several times in the
-# send window.
+DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "10"))
+# WEEKLY_MODE flips the script into "weekly roll-up" behaviour: 7-day lookback,
+# Monday-only send gate, different subject + header copy, separate marker file
+# so the daily marker isn't touched.
+WEEKLY_MODE = os.environ.get("WEEKLY_MODE", "").lower() in ("1", "true", "yes")
+# Weekly fires on Mondays. Window is 07-12 UTC so a delayed cron still catches.
+WEEKLY_WINDOW_START_UTC = int(os.environ.get("WEEKLY_WINDOW_START_UTC", "7"))
+WEEKLY_WINDOW_END_UTC = int(os.environ.get("WEEKLY_WINDOW_END_UTC", "12"))
+# When true, send daily to FREQUENCY=Daily (or blank), weekly to FREQUENCY=Weekly.
+# Off by default so we don't break sends until the FREQUENCY merge field
+# actually exists in the Mailchimp audience.
+FREQUENCY_SEGMENT_ENABLED = os.environ.get("FREQUENCY_SEGMENT_ENABLED", "").lower() in ("1", "true", "yes")
+# Marker files checked into the repo to record the last send date. Prevents
+# multiple sends in a single day/week if the cron fires several times in the
+# send window. Daily and weekly use separate markers so neither clobbers the other.
 SEND_MARKER = ROOT / "data" / "last-digest-send.txt"
+WEEKLY_SEND_MARKER = ROOT / "data" / "last-weekly-digest-send.txt"
 
 
 def load(name):
@@ -197,14 +208,16 @@ def _section(title, subtitle, items, on_site_url, browse_label, accent):
       <tr><td>{cta_html}</td></tr>"""
 
 
-def render(opps, grants, is_quiet=False):
+def render(opps, grants, is_quiet=False, weekly=False):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
+    period_word = "week" if weekly else "today"
+    brief_label = "The weekly brief" if weekly else "The daily brief"
 
     # Summary line for the dark header
     if is_quiet:
-        summary = "<strong>Nothing new today.</strong> Showing the items closest to deadline so they don't slip."
-        preheader = "Quiet day. Here are the live items closest to deadline."
+        summary = f"<strong>Nothing new this {period_word}.</strong> Showing the items closest to deadline so they don't slip."
+        preheader = f"Quiet {period_word}. Here are the live items closest to deadline."
         proc_subtitle = "On the radar &middot; closest deadlines"
         grants_subtitle = "On the radar &middot; closest deadlines"
         proc_track_label = "Track 1 &middot; Procurement"
@@ -215,8 +228,8 @@ def render(opps, grants, is_quiet=False):
             summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(opps)}</span> procurement')
         if grants:
             summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(grants)}</span> grant{"s" if len(grants) != 1 else ""}')
-        summary = " &middot; ".join(summary_pieces) or "Quiet day across both tracks"
-        preheader = f"{total} new today across NHS procurement and UK healthtech funding."
+        summary = " &middot; ".join(summary_pieces) or f"Quiet {period_word} across both tracks"
+        preheader = f"{total} new this {period_word} across NHS procurement and UK healthtech funding."
         proc_subtitle = "NHS contracts and framework routes"
         grants_subtitle = "Non-dilutive UK healthtech funding"
         proc_track_label = "Track 1 &middot; Procurement"
@@ -252,9 +265,9 @@ def render(opps, grants, is_quiet=False):
           <a href="{SITE_URL}" style="text-decoration:none;">
             <div style="color:#fff;font-size:22px;font-weight:900;letter-spacing:-0.025em;line-height:1;">MyClinical <span style="color:#8fcaa9;">Growth</span></div>
           </a>
-          <div style="color:#aab1aa;font-size:13.5px;margin-top:8px;letter-spacing:.01em;">The daily brief &middot; {today}</div>
+          <div style="color:#aab1aa;font-size:13.5px;margin-top:8px;letter-spacing:.01em;">{brief_label} &middot; {today}</div>
           <div style="color:#dfe4df;font-size:14px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.10);">
-            Today: {summary}.
+            {"This week" if weekly else "Today"}: {summary}.
           </div>
         </td></tr>
 
@@ -286,10 +299,12 @@ def render(opps, grants, is_quiet=False):
           <div style="margin-bottom:8px;">
             <a href="{SITE_URL}/opportunities.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Procurement</a>
             <a href="{SITE_URL}/grants.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Grants</a>
-            <a href="{SITE_URL}/directory.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Directory</a>
+            <a href="{SITE_URL}/directory.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Directory</a>
+            <a href="{SITE_URL}/submit.html?type=feedback" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Leave feedback</a>
           </div>
           You&rsquo;re receiving this because you subscribed to MyClinical Growth at <a href="{SITE_URL}" style="color:#8fcaa9;">growth.myclinical.co.uk</a>.
-          <a href="*|UNSUB|*" style="color:#8fcaa9;">Unsubscribe in one click</a>. We don&rsquo;t share the list. Ever.
+          Prefer this weekly instead of daily? <a href="*|UPDATE_PROFILE|*" style="color:#8fcaa9;">Manage your preferences</a>.
+          Or <a href="*|UNSUB|*" style="color:#8fcaa9;">unsubscribe in one click</a>. We don&rsquo;t share the list. Ever.
         </td></tr>
 
       </table>
@@ -357,30 +372,54 @@ def main():
               file=sys.stderr)
         return 0
 
-    # One email per day. The first run inside the UTC send window that
-    # hasn't already sent today will fire. Subsequent runs that day skip.
-    # The window is wider than one hour because GitHub Actions cron can be
-    # delayed by tens of minutes, or skip an hour entirely.
-    current_hour = dt.datetime.utcnow().hour
-    if current_hour < DIGEST_WINDOW_START_UTC or current_hour >= DIGEST_WINDOW_END_UTC:
-        print(f"Outside daily send window ({DIGEST_WINDOW_START_UTC:02d}-"
-              f"{DIGEST_WINDOW_END_UTC:02d} UTC, now {current_hour:02d}). Skipping digest.")
-        return 0
+    # Weekly mode adds an extra gate: weekly only fires on Mondays.
+    now = dt.datetime.utcnow()
+    current_hour = now.hour
     today_iso = dt.date.today().isoformat()
-    if SEND_MARKER.exists():
-        try:
-            last = SEND_MARKER.read_text().strip()
-            if last == today_iso:
-                print(f"Already sent today ({today_iso}). Skipping digest.")
-                return 0
-        except OSError:
-            pass
+    if WEEKLY_MODE:
+        # Weekly only on Mondays. weekday() returns 0 for Monday.
+        if now.weekday() != 0:
+            print(f"Weekly mode but today is {now.strftime('%A')}, not Monday. Skipping.")
+            return 0
+        if current_hour < WEEKLY_WINDOW_START_UTC or current_hour >= WEEKLY_WINDOW_END_UTC:
+            print(f"Outside weekly send window ({WEEKLY_WINDOW_START_UTC:02d}-"
+                  f"{WEEKLY_WINDOW_END_UTC:02d} UTC, now {current_hour:02d}). Skipping.")
+            return 0
+        # ISO week marker so we can't double-fire if a Monday run gets repeated.
+        iso_year, iso_week, _ = dt.date.today().isocalendar()
+        week_id = f"{iso_year}-W{iso_week:02d}"
+        marker = WEEKLY_SEND_MARKER
+        if marker.exists():
+            try:
+                last = marker.read_text().strip()
+                if last == week_id:
+                    print(f"Already sent this week ({week_id}). Skipping.")
+                    return 0
+            except OSError:
+                pass
+        lookback_hours = 24 * 7
+    else:
+        # Daily window gate
+        if current_hour < DIGEST_WINDOW_START_UTC or current_hour >= DIGEST_WINDOW_END_UTC:
+            print(f"Outside daily send window ({DIGEST_WINDOW_START_UTC:02d}-"
+                  f"{DIGEST_WINDOW_END_UTC:02d} UTC, now {current_hour:02d}). Skipping digest.")
+            return 0
+        marker = SEND_MARKER
+        if marker.exists():
+            try:
+                last = marker.read_text().strip()
+                if last == today_iso:
+                    print(f"Already sent today ({today_iso}). Skipping digest.")
+                    return 0
+            except OSError:
+                pass
+        lookback_hours = 24
 
     # Pull procurement from BOTH live (OCDS auto-poll) and the standing/curated
     # set. The standing items normally have older published dates and won't
     # qualify as "new", but when one is freshly added or has its `updated`
     # field touched, it should be included in the brief.
-    opps = recent(load("opportunities-live.json") + load("opportunities.json"))
+    opps = recent(load("opportunities-live.json") + load("opportunities.json"), hours=lookback_hours)
     # De-duplicate by id (a curated item that later appears in the OCDS feed
     # should only show once).
     seen = set()
@@ -391,36 +430,65 @@ def main():
             seen.add(oid)
             unique_opps.append(o)
     opps = unique_opps
-    grants = recent(load("grants.json"))
+    grants = recent(load("grants.json"), hours=lookback_hours)
 
-    # Quiet-day fallback: if nothing new in the last 24h, still send a brief.
-    # Subscribers should hear from us every day. The email makes the situation
+    # Quiet-day/week fallback: if nothing new in the window, still send a brief.
+    # Subscribers should hear from us every cycle. The email makes the situation
     # explicit ("Nothing new today") and lists the most imminent live items
     # from each track as a reminder.
     is_quiet = not opps and not grants
     if is_quiet:
         opps = _fallback_items("opportunities.json", "deadline", limit=3)
         grants = _fallback_items("grants.json", "deadline", limit=3)
-        print(f"Quiet day: no new items in last 24h. "
+        period_word = "week" if WEEKLY_MODE else "day"
+        print(f"Quiet {period_word}: no new items in last {lookback_hours}h. "
               f"Falling back to {len(opps)} procurement + {len(grants)} grants by deadline urgency.")
 
-    html = render(opps, grants, is_quiet=is_quiet)
+    html = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE)
     today_ddmm = dt.date.today().strftime("%-d %b")
+    period_word = "this week" if WEEKLY_MODE else "today"
+    brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
     if is_quiet:
-        subject = f"Nothing new today | NHS procurement & UK healthtech funding ({today_ddmm})"
+        subject = f"Quiet {'week' if WEEKLY_MODE else 'day'} | NHS procurement & UK healthtech funding ({today_ddmm})"
     elif opps and grants:
-        subject = f"{len(opps)} procurement, {len(grants)} grant{'s' if len(grants) != 1 else ''} | daily brief"
+        subject = f"{len(opps)} procurement, {len(grants)} grant{'s' if len(grants) != 1 else ''} | {brief_label}"
     elif opps:
-        subject = f"{len(opps)} new NHS procurement {'opportunity' if len(opps)==1 else 'opportunities'}"
+        subject = f"{len(opps)} new NHS procurement {'opportunity' if len(opps)==1 else 'opportunities'} {period_word}"
     else:
-        subject = f"{len(grants)} new grant {'call' if len(grants)==1 else 'calls'}"
+        subject = f"{len(grants)} new grant {'call' if len(grants)==1 else 'calls'} {period_word}"
+
+    # Build recipients block. If frequency segmenting is enabled, daily goes
+    # to FREQUENCY=Daily OR blank (preserves existing subscribers), weekly
+    # goes to FREQUENCY=Weekly. Off by default so we don't break sends
+    # until the merge field actually exists in the audience.
+    recipients = {"list_id": AUDIENCE}
+    if FREQUENCY_SEGMENT_ENABLED:
+        if WEEKLY_MODE:
+            recipients["segment_opts"] = {
+                "match": "all",
+                "conditions": [{
+                    "condition_type": "TextMerge",
+                    "field": "FREQUENCY",
+                    "op": "is",
+                    "value": "Weekly",
+                }],
+            }
+        else:
+            # Daily: catch both explicit Daily and the existing (blank) cohort
+            recipients["segment_opts"] = {
+                "match": "any",
+                "conditions": [
+                    {"condition_type": "TextMerge", "field": "FREQUENCY", "op": "is", "value": "Daily"},
+                    {"condition_type": "TextMerge", "field": "FREQUENCY", "op": "is", "value": ""},
+                ],
+            }
 
     campaign = mc("POST", "/campaigns", {
         "type": "regular",
-        "recipients": {"list_id": AUDIENCE},
+        "recipients": recipients,
         "settings": {
             "subject_line": subject,
-            "title": f"Growth daily brief {dt.date.today().isoformat()}",
+            "title": f"Growth {brief_label} {today_iso}",
             "from_name": FROM_NAME,
             "reply_to": REPLY_TO,
         },
@@ -435,12 +503,15 @@ def main():
     else:
         print("Campaign saved as DRAFT — review and send from Mailchimp.")
 
-    # Record today's date in the marker file so subsequent runs in the same
-    # window skip. The workflow's commit step pushes this file back to the
-    # repo as part of its standard data/ commit.
+    # Record marker so subsequent runs in the same cycle skip. The workflow's
+    # commit step pushes this file back to the repo as part of the data/ commit.
     try:
-        SEND_MARKER.parent.mkdir(parents=True, exist_ok=True)
-        SEND_MARKER.write_text(today_iso)
+        marker.parent.mkdir(parents=True, exist_ok=True)
+        if WEEKLY_MODE:
+            iso_year, iso_week, _ = dt.date.today().isocalendar()
+            marker.write_text(f"{iso_year}-W{iso_week:02d}")
+        else:
+            marker.write_text(today_iso)
     except OSError as e:
         print(f"Warning: could not write send marker: {e}", file=sys.stderr)
     return 0

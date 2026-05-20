@@ -160,6 +160,11 @@ section{padding:84px 0;}
 .form-msg{margin-top:14px;font-size:14px;font-weight:600;min-height:20px;}
 .form-msg.success{color:#a9e3c4;}
 .form-msg.error{color:#f0b3a3;}
+.freq-picker{display:inline-flex;gap:8px;margin-top:14px;padding:5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:999px;}
+.freq-picker label{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;font-size:13px;font-weight:600;color:#cfd3cd;cursor:pointer;border-radius:999px;user-select:none;transition:background .12s,color .12s;}
+.freq-picker input{appearance:none;width:0;height:0;margin:0;padding:0;border:0;background:transparent;}
+.freq-picker label:has(input:checked){background:var(--sage);color:var(--white);}
+.freq-picker-note{display:block;margin-top:6px;font-size:12px;color:#9fb0a4;}
 
 /* footer */
 footer{background:var(--ink);color:#9aa19a;padding:54px 0 38px;}
