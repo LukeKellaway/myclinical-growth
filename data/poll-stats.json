@@ -1,8 +1,8 @@
 {
-  "updated": "2026-05-20T10:38:46.839331Z",
+  "updated": "2026-05-20T11:30:00.310562Z",
   "lookback_hours": 720,
   "funnel": {
-    "fetched_fts": 157,
+    "fetched_fts": 155,
     "fetched_cf": 2000,
     "nhs_buyer_match": 101,
     "hard_excluded": 16,
