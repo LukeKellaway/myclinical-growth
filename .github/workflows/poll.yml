@@ -6,11 +6,10 @@ name: Poll opportunities & build digest
 
 on:
   schedule:
-    # TEMPORARY for testing: every 5 minutes (GitHub Actions minimum).
-    # The marker file in data/last-digest-send.txt prevents multiple email
-    # sends in one day even at this frequency. Revert to hourly once we've
-    # confirmed deliverability with: - cron: "0 6-21 * * *"
-    - cron: "*/5 * * * *"
+    # Hourly between 06:00 and 21:00 UTC. Every commit triggers a Netlify
+    # deploy, which burns build minutes; on free tier hitting more often
+    # than this exhausts the monthly cap in days.
+    - cron: "0 6-21 * * *"
   workflow_dispatch:
     inputs:
       lookback_hours:
