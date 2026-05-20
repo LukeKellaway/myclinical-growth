@@ -1,14 +1,14 @@
 {
-  "updated": "2026-05-19T22:50:00.014987Z",
+  "updated": "2026-05-20T08:58:31.686092Z",
   "lookback_hours": 720,
   "funnel": {
-    "fetched_fts": 155,
-    "fetched_cf": 1900,
-    "nhs_buyer_match": 59,
+    "fetched_fts": 157,
+    "fetched_cf": 2000,
+    "nhs_buyer_match": 61,
     "hard_excluded": 16,
     "strong_cpv_pass": 0,
     "keyword_pass": 0,
-    "rejected_no_signal": 43,
+    "rejected_no_signal": 45,
     "kept": 0
   },
   "kept_total": 0,
