@@ -305,8 +305,19 @@ def mc(method, path, payload=None):
         "Authorization": f"Bearer {API_KEY}",
         "Content-Type": "application/json",
     })
-    with urlopen(req, timeout=30) as r:
-        return json.loads(r.read().decode())
+    try:
+        with urlopen(req, timeout=30) as r:
+            body = r.read().decode()
+            return json.loads(body) if body else {}
+    except HTTPError as e:
+        # Surface Mailchimp's error body so the logs tell us WHY (their 4xx
+        # responses always include a JSON body with title/detail).
+        try:
+            err_body = e.read().decode("utf-8", errors="replace")
+        except Exception:
+            err_body = "<no body>"
+        print(f"Mailchimp {method} {path} -> {e.code}: {err_body}", file=sys.stderr)
+        raise
 
 
 def _is_closed(it):
