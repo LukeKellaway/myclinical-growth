@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# last manual trigger: 2026-05-20T11:28Z (retry send after audience subscriber added)
 """
 MyClinical Growth — Tier 1 procurement poller.
 
