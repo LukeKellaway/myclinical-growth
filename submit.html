@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Submit an opportunity &middot; MyClinical Growth</title>
-<meta name="description" content="Spotted an NHS tender, framework, or UK digital health grant we should be tracking? Send us a tip and we'll add it to the resource.">
+<title>Submit a tip or feedback &middot; MyClinical Growth</title>
+<meta name="description" content="Send us a tip about an NHS tender or grant we should be tracking, or just leave feedback. Goes straight to the editor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -34,12 +34,21 @@
   .thanks{display:none;background:rgba(79,138,110,.18);border:1px solid rgba(79,138,110,.4);color:var(--white);padding:18px 22px;border-radius:12px;font-size:15.5px;}
   body.submitted .thanks{display:block;}
   body.submitted form.cform{display:none;}
+  /* type-picker pills at top of the form */
+  .type-picker{display:flex;gap:10px;flex-wrap:wrap;}
+  .type-pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.04);font-size:14px;color:#e9eee9;cursor:pointer;user-select:none;font-weight:500;letter-spacing:0;text-transform:none;}
+  .type-pill input{appearance:none;width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(255,255,255,.45);background:transparent;margin:0;padding:0;cursor:pointer;flex:0 0 auto;}
+  .type-pill input:checked{background:var(--sage);border-color:var(--sage);box-shadow:inset 0 0 0 2px var(--ink);}
+  .type-pill:has(input:checked){background:rgba(79,138,110,.22);border-color:rgba(79,138,110,.55);color:#fff;}
+  /* opportunity-only field block, hidden when not an opportunity tip */
+  body[data-submit-type="feedback"] .opp-only,
+  body[data-submit-type="bug"] .opp-only{display:none;}
   @media(max-width:640px){.cform{grid-template-columns:1fr;}}
 </style>
 </head>
 <body data-page="submit">
 
-<div class="flag">Open &middot; reader-submitted tips go straight to the editor &middot; we read every one</div>
+<div class="flag">Open &middot; tips and feedback go straight to the editor &middot; we read every one</div>
 
 <nav>
   <div class="wrap nav-inner">
@@ -59,9 +68,9 @@
 
 <header class="page-head">
   <div class="wrap">
-    <span class="badge">Tip us off</span>
-    <h1>Spotted a tender we missed? Send it our way.</h1>
-    <p>The pipelines pull from Find a Tender and Contracts Finder, but plenty of NHS digital health opportunities live elsewhere: framework operators, regional hubs, devolved-nation portals, grant funders that don't list on a feed. If you've seen something we should be tracking, drop the link below and we&rsquo;ll add it.</p>
+    <span class="badge">Tip us off &middot; or just tell us what you think</span>
+    <h1>Send a tip, leave feedback, or flag something broken.</h1>
+    <p>The pipelines pull from Find a Tender and Contracts Finder, but plenty of NHS digital health opportunities live elsewhere. Send those over. Or just tell us what you&rsquo;d like to see, what isn&rsquo;t working, or what could be better. Pick the type below; the form adapts.</p>
   </div>
 </header>
 
@@ -69,21 +78,20 @@
   <div class="wrap submit-wrap">
     <div class="submit-intro">
       <span class="submit-pill">What goes here</span>
-      <h2>Procurement notices, frameworks, grant calls, anything in between.</h2>
-      <p>Send us anything you think should be in the resource. We&rsquo;ll review it, write the plain-English read, and add it if it fits the brief. You don&rsquo;t need to fill in every field; a title and a link is enough.</p>
+      <h2>Opportunity tips, general feedback, or bug reports.</h2>
+      <p>Three things land here. Tips are anything we should be tracking but aren&rsquo;t. Feedback is anything that would make the resource more useful for you. Bug reports are when something on the site or in the brief is wrong or broken. All of it goes to the editor and we read every one.</p>
       <ul class="submit-list">
-        <li>NHS or wider UK public-sector tenders with a digital health angle</li>
-        <li>Frameworks or DPS routes that we&rsquo;re not already listing</li>
-        <li>Grant or innovation funding calls for UK healthtech</li>
-        <li>Regional or devolved-nation opportunities easy to miss centrally</li>
+        <li><strong>Tip:</strong> NHS or wider UK public-sector tenders, frameworks, DPS routes, or grant calls easy to miss</li>
+        <li><strong>Feedback:</strong> a feature you want, a category we&rsquo;re ignoring, a tone that grates, a brief that&rsquo;s too long</li>
+        <li><strong>Bug:</strong> broken links, mis-classified items, stale deadlines, anything the daily brief got wrong</li>
       </ul>
     </div>
 
     <div class="contact-card">
-      <h2>Send a tip</h2>
-      <p class="lead">Tips go straight to the editor. Nothing appears publicly until we&rsquo;ve read it, added the context, and decided it fits. We won&rsquo;t share your details and we won&rsquo;t add you to any list.</p>
+      <h2 id="form-heading">Send a tip</h2>
+      <p class="lead" id="form-lead">Tips go straight to the editor. Nothing appears publicly until we&rsquo;ve read it, added the context, and decided it fits. We won&rsquo;t share your details and we won&rsquo;t add you to any list.</p>
 
-      <div class="thanks">Thanks for the tip. We&rsquo;ve got it and we&rsquo;ll take a look. If you left an email and we have a question, we&rsquo;ll be in touch.</div>
+      <div class="thanks" id="thanks-msg">Thanks. We&rsquo;ve got it and we&rsquo;ll take a look. If you left an email and we have a question, we&rsquo;ll be in touch.</div>
 
       <form name="opportunity-tip"
             method="POST"
@@ -95,10 +103,20 @@
         <div class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></div>
 
         <div class="full">
-          <label for="tip-title">Title of the opportunity</label>
+          <label>What&rsquo;s this about?</label>
+          <div class="type-picker" role="radiogroup" aria-label="Submission type">
+            <label class="type-pill"><input type="radio" name="submission_type" value="opportunity-tip" checked> Tip about an opportunity</label>
+            <label class="type-pill"><input type="radio" name="submission_type" value="feedback"> General feedback</label>
+            <label class="type-pill"><input type="radio" name="submission_type" value="bug"> Something&rsquo;s broken</label>
+          </div>
+        </div>
+
+        <div class="full">
+          <label for="tip-title" id="lbl-title">Title of the opportunity</label>
           <input id="tip-title" type="text" name="title" placeholder="e.g. NHS England AI in Imaging framework" required />
         </div>
-        <div>
+
+        <div class="opp-only">
           <label for="tip-track">Track</label>
           <select id="tip-track" name="track">
             <option value="unsure">Not sure</option>
@@ -106,26 +124,28 @@
             <option value="grant">Grant / non-dilutive funding</option>
           </select>
         </div>
-        <div>
+        <div class="opp-only">
           <label for="tip-buyer">Buyer or funder (if known)</label>
           <input id="tip-buyer" type="text" name="buyer" placeholder="e.g. NHS Shared Business Services" />
         </div>
-        <div class="full">
+        <div class="full opp-only">
           <label for="tip-link">Link to the official notice</label>
           <input id="tip-link" type="url" name="link" placeholder="https://" />
         </div>
-        <div>
+        <div class="opp-only">
           <label for="tip-deadline">Closing date (if known)</label>
           <input id="tip-deadline" type="text" name="deadline" placeholder="e.g. 23 June 2026" />
         </div>
-        <div>
+        <div class="opp-only">
           <label for="tip-value">Headline value (if known)</label>
           <input id="tip-value" type="text" name="value" placeholder="e.g. £750m / Up to £150k" />
         </div>
+
         <div class="full">
-          <label for="tip-notes">Why it matters / anything we should know</label>
+          <label for="tip-notes" id="lbl-notes">Why it matters / anything we should know</label>
           <textarea id="tip-notes" name="notes" placeholder="What lots, who it's really for, anything weird in the small print."></textarea>
         </div>
+
         <div>
           <label for="tip-name">Your name (optional)</label>
           <input id="tip-name" type="text" name="name" placeholder="So we can credit you if you'd like" />
@@ -135,8 +155,8 @@
           <input id="tip-email" type="email" name="email" placeholder="If we have a follow-up question" />
         </div>
         <div class="full cform-actions">
-          <button type="submit" class="btn btn-primary">Send the tip</button>
-          <span class="cform-note">Nothing about you is added to any mailing list. The tip goes to the editor and that&rsquo;s it.</span>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Send the tip</button>
+          <span class="cform-note">Nothing about you is added to any mailing list. The submission goes to the editor and that&rsquo;s it.</span>
         </div>
       </form>
     </div>
@@ -185,6 +205,73 @@
   if (location.search.indexOf("sent=1") > -1) {
     document.body.classList.add("submitted");
   }
+
+  // Type-picker: swap labels, heading, button copy, and the opportunity-only
+  // field block when the reader switches between tip / feedback / bug. The
+  // CSS handles the show/hide of .opp-only via the body data attribute; this
+  // JS handles the copy that changes alongside it.
+  (function () {
+    var COPY = {
+      "opportunity-tip": {
+        heading: "Send a tip",
+        lead: "Tips go straight to the editor. Nothing appears publicly until we’ve read it, added the context, and decided it fits. We won’t share your details and we won’t add you to any list.",
+        titleLabel: "Title of the opportunity",
+        titlePlaceholder: "e.g. NHS England AI in Imaging framework",
+        notesLabel: "Why it matters / anything we should know",
+        notesPlaceholder: "What lots, who it's really for, anything weird in the small print.",
+        button: "Send the tip",
+        thanks: "Thanks for the tip. We’ve got it and we’ll take a look. If you left an email and we have a question, we’ll be in touch."
+      },
+      "feedback": {
+        heading: "Leave feedback",
+        lead: "Tell us what would make MyClinical Growth more useful for you. Features you want, categories we’re ignoring, copy that grates, brief that’s too long. We read every note.",
+        titleLabel: "What’s on your mind? (a short summary)",
+        titlePlaceholder: "e.g. The daily brief is too long for me",
+        notesLabel: "Your feedback",
+        notesPlaceholder: "What you'd change, what's working, anything you'd like us to add.",
+        button: "Send feedback",
+        thanks: "Thanks for the feedback. We’ve got it and it goes into the next planning pass. If you left an email and we have a follow-up question, we’ll be in touch."
+      },
+      "bug": {
+        heading: "Report something broken",
+        lead: "Wrong deadline, broken link, mis-classified item, daily brief mis-fired. The more specific the better; ideally a URL or item title so we can find it fast.",
+        titleLabel: "Short summary of what’s broken",
+        titlePlaceholder: "e.g. NHS SBS framework deadline shows wrong date",
+        notesLabel: "What happened, and where",
+        notesPlaceholder: "URL of the page or item if you can. What you expected vs what you saw.",
+        button: "Send the bug report",
+        thanks: "Thanks for flagging it. We’ve got the report and we’ll look. If you left an email, we’ll let you know when it’s fixed."
+      }
+    };
+
+    function apply(t) {
+      var c = COPY[t] || COPY["opportunity-tip"];
+      document.body.dataset.submitType = t;
+      document.getElementById("form-heading").textContent = c.heading;
+      document.getElementById("form-lead").textContent = c.lead;
+      document.getElementById("lbl-title").textContent = c.titleLabel;
+      document.getElementById("tip-title").placeholder = c.titlePlaceholder;
+      document.getElementById("lbl-notes").textContent = c.notesLabel;
+      document.getElementById("tip-notes").placeholder = c.notesPlaceholder;
+      document.getElementById("submit-btn").textContent = c.button;
+      document.getElementById("thanks-msg").textContent = c.thanks;
+    }
+
+    document.querySelectorAll('input[name="submission_type"]').forEach(function (r) {
+      r.addEventListener("change", function () { if (r.checked) apply(r.value); });
+    });
+
+    // Initial: honour ?type=feedback / ?type=bug deep links so anchor links
+    // from elsewhere on the site can drop the reader on the right preset.
+    var qsType = new URLSearchParams(location.search).get("type");
+    if (qsType && COPY[qsType]) {
+      var radio = document.querySelector('input[name="submission_type"][value="' + qsType + '"]');
+      if (radio) radio.checked = true;
+      apply(qsType);
+    } else {
+      apply("opportunity-tip");
+    }
+  })();
 </script>
 
 </body>
