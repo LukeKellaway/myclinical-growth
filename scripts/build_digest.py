@@ -38,10 +38,19 @@ PREFIX = os.environ.get("MAILCHIMP_SERVER_PREFIX", "")
 AUTOSEND = os.environ.get("DIGEST_AUTOSEND", "true").lower() != "false"
 FROM_NAME = os.environ.get("DIGEST_FROM_NAME", "MyClinical Growth")
 REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
-# Hour of the day (UTC) at which the daily brief is built and sent. The
-# workflow runs hourly; only the matching hour creates a campaign so we
-# get exactly one email per day. 07:00 UTC = 08:00 BST / 07:00 GMT.
-DIGEST_HOUR_UTC = int(os.environ.get("DIGEST_HOUR_UTC", "7"))
+# UTC window in which the daily brief is allowed to fire. The workflow runs
+# hourly. The FIRST run inside this window that hasn't already sent today
+# will send; subsequent runs that day check the marker file and skip.
+# Window is intentionally wider than a single hour because GitHub Actions
+# scheduled crons can be delayed by tens of minutes under load, or even
+# skipped entirely for a given hour.
+# 07-10 UTC = 08-11 BST in summer / 07-10 GMT in winter.
+DIGEST_WINDOW_START_UTC = int(os.environ.get("DIGEST_WINDOW_START_UTC", "7"))
+DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "10"))
+# Marker file checked into the repo to record the last send date. Prevents
+# multiple sends in a single day if the cron fires several times in the
+# send window.
+SEND_MARKER = ROOT / "data" / "last-digest-send.txt"
 
 
 def load(name):
@@ -336,14 +345,24 @@ def main():
               file=sys.stderr)
         return 0
 
-    # Cron runs hourly; only one of those hours is the actual send hour, so
-    # subscribers get exactly one daily brief. All other hourly runs are
-    # for polling and updating data, not for sending email.
+    # One email per day. The first run inside the UTC send window that
+    # hasn't already sent today will fire. Subsequent runs that day skip.
+    # The window is wider than one hour because GitHub Actions cron can be
+    # delayed by tens of minutes, or skip an hour entirely.
     current_hour = dt.datetime.utcnow().hour
-    if current_hour != DIGEST_HOUR_UTC:
-        print(f"Not the daily send hour ({DIGEST_HOUR_UTC:02d}:00 UTC, "
-              f"now {current_hour:02d}:00 UTC). Skipping digest.")
+    if current_hour < DIGEST_WINDOW_START_UTC or current_hour >= DIGEST_WINDOW_END_UTC:
+        print(f"Outside daily send window ({DIGEST_WINDOW_START_UTC:02d}-"
+              f"{DIGEST_WINDOW_END_UTC:02d} UTC, now {current_hour:02d}). Skipping digest.")
         return 0
+    today_iso = dt.date.today().isoformat()
+    if SEND_MARKER.exists():
+        try:
+            last = SEND_MARKER.read_text().strip()
+            if last == today_iso:
+                print(f"Already sent today ({today_iso}). Skipping digest.")
+                return 0
+        except OSError:
+            pass
 
     # Pull procurement from BOTH live (OCDS auto-poll) and the standing/curated
     # set. The standing items normally have older published dates and won't
@@ -403,6 +422,15 @@ def main():
         print("Campaign sent.")
     else:
         print("Campaign saved as DRAFT — review and send from Mailchimp.")
+
+    # Record today's date in the marker file so subsequent runs in the same
+    # window skip. The workflow's commit step pushes this file back to the
+    # repo as part of its standard data/ commit.
+    try:
+        SEND_MARKER.parent.mkdir(parents=True, exist_ok=True)
+        SEND_MARKER.write_text(today_iso)
+    except OSError as e:
+        print(f"Warning: could not write send marker: {e}", file=sys.stderr)
     return 0
 
 
