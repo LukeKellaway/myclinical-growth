@@ -1,14 +1,14 @@
 {
-  "updated": "2026-05-20T08:58:31.686092Z",
+  "updated": "2026-05-20T10:35:17.193309Z",
   "lookback_hours": 720,
   "funnel": {
-    "fetched_fts": 157,
+    "fetched_fts": 156,
     "fetched_cf": 2000,
-    "nhs_buyer_match": 61,
+    "nhs_buyer_match": 101,
     "hard_excluded": 16,
     "strong_cpv_pass": 0,
     "keyword_pass": 0,
-    "rejected_no_signal": 45,
+    "rejected_no_signal": 85,
     "kept": 0
   },
   "kept_total": 0,
@@ -50,8 +50,8 @@
       "cpvs": []
     },
     {
-      "title": "CA17836 - R9239 - SHGH Water Main",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
       "cpvs": []
     },
     {
@@ -70,8 +70,8 @@
       "cpvs": []
     },
     {
-      "title": "CA17836 - R9239 - SHGH Water Main",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
       "cpvs": []
     },
     {
@@ -90,8 +90,8 @@
       "cpvs": []
     },
     {
-      "title": "CA17836 - R9239 - SHGH Water Main",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
       "cpvs": []
     },
     {
@@ -110,8 +110,8 @@
       "cpvs": []
     },
     {
-      "title": "CA17836 - R9239 - SHGH Water Main",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
       "cpvs": []
     },
     {
@@ -130,8 +130,8 @@
       "cpvs": []
     },
     {
-      "title": "CA17836 - R9239 - SHGH Water Main",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
+      "title": "Transitional Care Beds - Lincolnshire",
+      "buyer": "Lincolnshire Community Health Services NHS Trust",
       "cpvs": []
     },
     {
