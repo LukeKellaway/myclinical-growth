@@ -356,6 +356,112 @@
     document.title = item.title + " · MyClinical Growth";
   }
 
+  /* ---------- unified search page ---------- */
+  // Searches across standing procurement, live procurement, and grants.
+  // Each item is tagged with its track so the user can see at-a-glance which
+  // pool a hit came from, and filter via the tab chips.
+  function renderSearch() {
+    var listEl = document.getElementById("search-list");
+    var inputEl = document.getElementById("search-input");
+    var tabsEl = document.getElementById("search-tabs");
+    var countEl = document.getElementById("search-count");
+    if (!listEl || !inputEl) return;
+
+    var standing = ((D.opportunities && D.opportunities.opportunities) || [])
+      .map(function (o) { return Object.assign({}, o, { _track: "Frameworks" }); });
+    var live = ((D.opportunitiesLive && D.opportunitiesLive.opportunities) || [])
+      .map(function (o) { return Object.assign({}, o, { _track: "Live tenders" }); });
+    var grants = ((D.grants && D.grants.grants) || [])
+      .map(function (g) { return Object.assign({}, g, { _track: "Grants" }); });
+    var pool = standing.concat(live).concat(grants);
+
+    function textOf(o) {
+      return [o.title, o.source, o.buyer, o.summary, o.means, o.category,
+              (o.tags || []).join(" ")].join(" ").toLowerCase();
+    }
+
+    function trackCard(o) {
+      var html = oppCard(o);
+      // Inject the track label inside the tags row so it sits with the others.
+      var label = '<span class="search-track-label">' + esc(o._track) + "</span>";
+      return html.replace('<div class="tags">', '<div class="tags">' + label);
+    }
+
+    var state = { q: "", tab: "All" };
+    function counts() {
+      var q = state.q;
+      function n(t) {
+        return pool.filter(function (o) {
+          var trackOk = t === "All" || o._track === t;
+          var qOk = !q || textOf(o).indexOf(q) > -1;
+          return trackOk && qOk;
+        }).length;
+      }
+      return { All: n("All"), Frameworks: n("Frameworks"),
+               "Live tenders": n("Live tenders"), Grants: n("Grants") };
+    }
+    function paintTabs() {
+      var c = counts();
+      tabsEl.innerHTML = ["All", "Frameworks", "Live tenders", "Grants"].map(function (t) {
+        var cls = "search-tab" + (state.tab === t ? " active" : "");
+        return '<span class="' + cls + '" data-tab="' + esc(t) + '">' +
+               esc(t) + '<span class="n">' + c[t] + "</span></span>";
+      }).join("");
+    }
+    function apply() {
+      var rows = pool.filter(function (o) {
+        var trackOk = state.tab === "All" || o._track === state.tab;
+        var qOk = !state.q || textOf(o).indexOf(state.q) > -1;
+        return trackOk && qOk;
+      });
+      // Sort: open first by deadline ascending, then closed at the bottom.
+      rows.sort(function (a, b) {
+        var ac = isClosed(a) ? 1 : 0, bc = isClosed(b) ? 1 : 0;
+        if (ac !== bc) return ac - bc;
+        var da = daysUntil(a.deadline), db = daysUntil(b.deadline);
+        if (da == null && db == null) return 0;
+        if (da == null) return 1;
+        if (db == null) return -1;
+        return da - db;
+      });
+      if (!state.q && state.tab === "All") {
+        listEl.innerHTML = "";
+        countEl.textContent = "";
+        return;
+      }
+      listEl.innerHTML = rows.length
+        ? rows.map(trackCard).join("")
+        : '<div class="search-empty">Nothing matches that yet. Try a broader keyword, or <a href="submit.html">tip us off</a> if we should be tracking it.</div>';
+      countEl.textContent = rows.length + " result" + (rows.length === 1 ? "" : "s");
+      paintTabs();
+    }
+
+    inputEl.addEventListener("input", function () {
+      state.q = inputEl.value.trim().toLowerCase();
+      // Reflect the query in the URL so it's shareable / bookmarkable.
+      var url = new URL(location.href);
+      if (state.q) url.searchParams.set("q", inputEl.value.trim());
+      else url.searchParams.delete("q");
+      history.replaceState(null, "", url.toString());
+      apply();
+    });
+    tabsEl.addEventListener("click", function (e) {
+      var t = e.target.closest(".search-tab");
+      if (!t) return;
+      state.tab = t.dataset.tab;
+      apply();
+    });
+
+    // Honour ?q= in the URL on initial load.
+    var initial = new URL(location.href).searchParams.get("q");
+    if (initial) {
+      inputEl.value = initial;
+      state.q = initial.toLowerCase();
+    }
+    paintTabs();
+    apply();
+  }
+
   function renderDirectory() {
     var proc = ((D.directory && D.directory.procurement) || []).map(function (r) {
       r._group = "Procurement"; return r;
@@ -440,6 +546,7 @@
     if (page === "grants") renderGrants();
     if (page === "directory") renderDirectory();
     if (page === "opportunity") renderOpportunityDetail();
+    if (page === "search") renderSearch();
     wireSubscribe();
     stampUpdated();
   });

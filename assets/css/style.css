@@ -39,7 +39,7 @@ nav{position:sticky;top:0;z-index:50;background:rgba(246,246,243,.92);backdrop-f
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;}
 .logo{font-weight:900;font-size:21px;letter-spacing:-0.03em;color:var(--ink);}
 .logo span{color:var(--sage);}
-.nav-links{display:flex;gap:32px;}
+.nav-links{display:flex;gap:24px;}
 .nav-links a{font-weight:500;font-size:15px;color:var(--text-mute);transition:color .15s;}
 .nav-links a:hover,.nav-links a.active{color:var(--ink);}
 .btn{display:inline-block;font-weight:700;font-size:15px;border-radius:9px;padding:13px 24px;cursor:pointer;border:none;transition:all .15s;font-family:inherit;}

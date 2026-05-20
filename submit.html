@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit an opportunity &middot; MyClinical Growth</title>
+<meta name="description" content="Spotted an NHS tender, framework, or UK digital health grant we should be tracking? Send us a tip and we'll add it to the resource.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .submit-wrap{max-width:760px;margin:0 auto;}
+  .submit-intro{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:34px;margin-top:36px;}
+  .submit-pill{display:inline-block;background:rgba(79,138,110,.12);color:var(--sage);font-weight:700;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px;margin-bottom:18px;}
+  .submit-intro h2{font-size:26px;font-weight:800;color:var(--forest);margin-bottom:10px;}
+  .submit-intro p{font-size:16px;color:var(--text);margin-bottom:14px;}
+  .submit-list{margin:18px 0 4px 0;padding:0;list-style:none;}
+  .submit-list li{font-size:15.5px;color:var(--text);margin-bottom:10px;padding-left:24px;position:relative;}
+  .submit-list li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--sage);}
+  .contact-card{background:var(--ink);color:var(--white);border-radius:16px;padding:38px;margin-top:24px;}
+  .contact-card h2{font-size:24px;font-weight:800;color:var(--white);margin-bottom:8px;}
+  .contact-card p.lead{font-size:15.5px;color:#aab1aa;margin-bottom:22px;max-width:560px;}
+  .cform{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .cform .full{grid-column:1 / -1;}
+  .cform label{display:block;font-size:12.5px;font-weight:600;color:#cfd3cd;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
+  .cform input,.cform textarea,.cform select{width:100%;padding:13px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--white);font-size:15px;font-family:inherit;}
+  .cform input::placeholder,.cform textarea::placeholder{color:#9fb0a4;}
+  .cform select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#9fb0a4 50%),linear-gradient(135deg,#9fb0a4 50%,transparent 50%);background-position:calc(100% - 18px) center,calc(100% - 13px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
+  .cform textarea{min-height:120px;resize:vertical;}
+  .cform .hp{position:absolute;left:-5000px;}
+  .cform-actions{margin-top:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .cform-note{font-size:12.5px;color:#9fb0a4;}
+  .thanks{display:none;background:rgba(79,138,110,.18);border:1px solid rgba(79,138,110,.4);color:var(--white);padding:18px 22px;border-radius:12px;font-size:15.5px;}
+  body.submitted .thanks{display:block;}
+  body.submitted form.cform{display:none;}
+  @media(max-width:640px){.cform{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-page="submit">
+
+<div class="flag">Open &middot; reader-submitted tips go straight to the editor &middot; we read every one</div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">MyClinical <span>Growth</span></a>
+    <div class="nav-links">
+      <a href="opportunities.html">Procurement</a>
+      <a href="grants.html">Grants</a>
+      <a href="directory.html">Directory</a>
+      <a href="bid-writers.html">Bid Writers</a>
+      <a href="capital.html">Capital</a>
+      <a href="submit.html" class="active">Submit</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="index.html#signup" class="btn btn-pill">Get the daily brief</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <span class="badge">Tip us off</span>
+    <h1>Spotted a tender we missed? Send it our way.</h1>
+    <p>The pipelines pull from Find a Tender and Contracts Finder, but plenty of NHS digital health opportunities live elsewhere: framework operators, regional hubs, devolved-nation portals, grant funders that don't list on a feed. If you've seen something we should be tracking, drop the link below and we&rsquo;ll add it.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap submit-wrap">
+    <div class="submit-intro">
+      <span class="submit-pill">What goes here</span>
+      <h2>Procurement notices, frameworks, grant calls, anything in between.</h2>
+      <p>Send us anything you think should be in the resource. We&rsquo;ll review it, write the plain-English read, and add it if it fits the brief. You don&rsquo;t need to fill in every field; a title and a link is enough.</p>
+      <ul class="submit-list">
+        <li>NHS or wider UK public-sector tenders with a digital health angle</li>
+        <li>Frameworks or DPS routes that we&rsquo;re not already listing</li>
+        <li>Grant or innovation funding calls for UK healthtech</li>
+        <li>Regional or devolved-nation opportunities easy to miss centrally</li>
+      </ul>
+    </div>
+
+    <div class="contact-card">
+      <h2>Send a tip</h2>
+      <p class="lead">Tips go straight to the editor. Nothing appears publicly until we&rsquo;ve read it, added the context, and decided it fits. We won&rsquo;t share your details and we won&rsquo;t add you to any list.</p>
+
+      <div class="thanks">Thanks for the tip. We&rsquo;ve got it and we&rsquo;ll take a look. If you left an email and we have a question, we&rsquo;ll be in touch.</div>
+
+      <form name="opportunity-tip"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="cform"
+            action="/submit.html?sent=1">
+        <input type="hidden" name="form-name" value="opportunity-tip" />
+        <div class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></div>
+
+        <div class="full">
+          <label for="tip-title">Title of the opportunity</label>
+          <input id="tip-title" type="text" name="title" placeholder="e.g. NHS England AI in Imaging framework" required />
+        </div>
+        <div>
+          <label for="tip-track">Track</label>
+          <select id="tip-track" name="track">
+            <option value="unsure">Not sure</option>
+            <option value="procurement">Procurement / framework / tender</option>
+            <option value="grant">Grant / non-dilutive funding</option>
+          </select>
+        </div>
+        <div>
+          <label for="tip-buyer">Buyer or funder (if known)</label>
+          <input id="tip-buyer" type="text" name="buyer" placeholder="e.g. NHS Shared Business Services" />
+        </div>
+        <div class="full">
+          <label for="tip-link">Link to the official notice</label>
+          <input id="tip-link" type="url" name="link" placeholder="https://" />
+        </div>
+        <div>
+          <label for="tip-deadline">Closing date (if known)</label>
+          <input id="tip-deadline" type="text" name="deadline" placeholder="e.g. 23 June 2026" />
+        </div>
+        <div>
+          <label for="tip-value">Headline value (if known)</label>
+          <input id="tip-value" type="text" name="value" placeholder="e.g. £750m / Up to £150k" />
+        </div>
+        <div class="full">
+          <label for="tip-notes">Why it matters / anything we should know</label>
+          <textarea id="tip-notes" name="notes" placeholder="What lots, who it's really for, anything weird in the small print."></textarea>
+        </div>
+        <div>
+          <label for="tip-name">Your name (optional)</label>
+          <input id="tip-name" type="text" name="name" placeholder="So we can credit you if you'd like" />
+        </div>
+        <div>
+          <label for="tip-email">Your email (optional)</label>
+          <input id="tip-email" type="email" name="email" placeholder="If we have a follow-up question" />
+        </div>
+        <div class="full cform-actions">
+          <button type="submit" class="btn btn-primary">Send the tip</button>
+          <span class="cform-note">Nothing about you is added to any mailing list. The tip goes to the editor and that&rsquo;s it.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">MyClinical <span style="color:var(--sage)">Growth</span></a>
+        <p>NHS opportunities and UK healthtech funding. Aggregated, signalled, delivered. A free resource, part of the MyClinical line.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Resource</h5>
+        <a href="opportunities.html">Procurement</a>
+        <a href="grants.html">Grants &amp; funding</a>
+        <a href="directory.html">Source directory</a>
+        <a href="search.html">Search everything</a>
+        <a href="submit.html">Submit a tip</a>
+        <a href="index.html#signup">The daily brief</a>
+      </div>
+      <div class="foot-col">
+        <h5>Partners</h5>
+        <a href="bid-writers.html">For bid writers</a>
+        <a href="capital.html">For investors</a>
+      </div>
+      <div class="foot-col">
+        <h5>MyClinical</h5>
+        <a href="https://lukekellaway.com" target="_blank" rel="noopener">lukekellaway.com</a>
+        <a href="about.html">About this resource</a>
+        <a href="about.html#privacy">Privacy policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 MyClinical Growth. Built so UK healthtech gets a fair shot.</span>
+      <span>growth.myclinical.co.uk</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // After a successful Netlify submission Netlify redirects to action URL +
+  // ?sent=1. Reveal the thank-you panel and hide the form on this same page
+  // so the reader doesn't bounce out.
+  if (location.search.indexOf("sent=1") > -1) {
+    document.body.classList.add("submitted");
+  }
+</script>
+
+</body>
+</html>
