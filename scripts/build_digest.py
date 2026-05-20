@@ -46,7 +46,8 @@ REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
 # skipped entirely for a given hour.
 # 07-10 UTC = 08-11 BST in summer / 07-10 GMT in winter.
 DIGEST_WINDOW_START_UTC = int(os.environ.get("DIGEST_WINDOW_START_UTC", "7"))
-DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "10"))
+# TEMPORARY: widened to 22 UTC for testing today. Revert to 10 once confirmed.
+DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "22"))
 # Marker file checked into the repo to record the last send date. Prevents
 # multiple sends in a single day if the cron fires several times in the
 # send window.

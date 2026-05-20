@@ -6,9 +6,11 @@ name: Poll opportunities & build digest
 
 on:
   schedule:
-    # Hourly between 06:00 and 21:00 UTC (covers the UK working day).
-    # GitHub may delay scheduled runs under load. Treat as near-real-time.
-    - cron: "0 6-21 * * *"
+    # TEMPORARY for testing: every 5 minutes (GitHub Actions minimum).
+    # The marker file in data/last-digest-send.txt prevents multiple email
+    # sends in one day even at this frequency. Revert to hourly once we've
+    # confirmed deliverability with: - cron: "0 6-21 * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
     inputs:
       lookback_hours:
@@ -23,6 +25,7 @@ on:
     branches: [main]
     paths:
       - "scripts/poll.py"
+      - "scripts/build_digest.py"
       - ".github/workflows/poll.yml"
 
 permissions:
