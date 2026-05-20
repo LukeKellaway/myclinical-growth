@@ -67,13 +67,22 @@ jobs:
         continue-on-error: true   # a digest hiccup must not block the data refresh
 
       - name: Commit refreshed data
+        # Only commit data files that actually affect what subscribers see on
+        # the site or in the brief. Specifically EXCLUDE poll-stats.json
+        # because its timestamp changes on every run — committing it would
+        # trigger a Netlify deploy every hour even when nothing real changed,
+        # exhausting build credits. Stats are still in the run logs.
         run: |
           git config user.name "growth-bot"
           git config user.email "growth-bot@users.noreply.github.com"
-          git add data/ assets/js/data.js
+          git add data/opportunities-live.json data/last-digest-send.txt assets/js/data.js 2>/dev/null || true
+          # Stage curated files only if they exist (don't error on first run)
+          [ -f data/opportunities.json ] && git add data/opportunities.json || true
+          [ -f data/grants.json ] && git add data/grants.json || true
+          [ -f data/directory.json ] && git add data/directory.json || true
           if git diff --staged --quiet; then
-            echo "No data changes."
+            echo "No meaningful data changes — skipping commit (saves Netlify build credits)."
           else
-            git commit -m "data: refresh live opportunities ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git commit -m "data: refresh ($(date -u +%Y-%m-%dT%H:%MZ))"
             git push
           fi
