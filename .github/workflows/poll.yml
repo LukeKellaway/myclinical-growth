@@ -6,10 +6,13 @@ name: Poll opportunities & build digest
 
 on:
   schedule:
-    # Hourly between 06:00 and 21:00 UTC. Every commit triggers a Netlify
-    # deploy, which burns build minutes; on free tier hitting more often
-    # than this exhausts the monthly cap in days.
-    - cron: "0 6-21 * * *"
+    # Hourly between 02:00 and 21:00 UTC. Starts at 02 UTC so the daily
+    # digest can fire inside its 03-05 UTC send window (= 04-06 BST in
+    # summer / 03-05 GMT in winter), landing in subscribers' inboxes
+    # before the morning commute. poll-stats.json is excluded from the
+    # commit so the extra early-morning ticks don't burn Netlify minutes
+    # unless something real has actually been published.
+    - cron: "0 2-21 * * *"
   workflow_dispatch:
     inputs:
       lookback_hours:

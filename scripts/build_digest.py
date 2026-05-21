@@ -44,9 +44,10 @@ REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
 # Window is intentionally wider than a single hour because GitHub Actions
 # scheduled crons can be delayed by tens of minutes under load, or even
 # skipped entirely for a given hour.
-# 07-10 UTC = 08-11 BST in summer / 07-10 GMT in winter.
-DIGEST_WINDOW_START_UTC = int(os.environ.get("DIGEST_WINDOW_START_UTC", "7"))
-DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "10"))
+# Target: land in subscribers' inboxes 4-6am UK so they can read on commute.
+# 03-05 UTC = 04-06 BST in summer / 03-05 GMT in winter.
+DIGEST_WINDOW_START_UTC = int(os.environ.get("DIGEST_WINDOW_START_UTC", "3"))
+DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "5"))
 # WEEKLY_MODE flips the script into "weekly roll-up" behaviour: 7-day lookback,
 # Monday-only send gate, different subject + header copy, separate marker file
 # so the daily marker isn't touched.
