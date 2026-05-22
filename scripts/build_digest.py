@@ -45,9 +45,13 @@ REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
 # scheduled crons can be delayed by tens of minutes under load, or even
 # skipped entirely for a given hour.
 # Target: land in subscribers' inboxes 4-6am UK so they can read on commute.
-# 03-05 UTC = 04-06 BST in summer / 03-05 GMT in winter.
+# 03-08 UTC window. Workflow fires every 15 min from 02-05 UTC to maximise
+# the chance of catching an early send (= 4-5am BST on a good day). Window
+# extends to 08 UTC as a fallback because GitHub's free-tier scheduled cron
+# regularly skips the low-load early-morning ticks; the send marker still
+# guarantees only one send per day.
 DIGEST_WINDOW_START_UTC = int(os.environ.get("DIGEST_WINDOW_START_UTC", "3"))
-DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "5"))
+DIGEST_WINDOW_END_UTC = int(os.environ.get("DIGEST_WINDOW_END_UTC", "8"))
 # WEEKLY_MODE flips the script into "weekly roll-up" behaviour: 7-day lookback,
 # Monday-only send gate, different subject + header copy, separate marker file
 # so the daily marker isn't touched.

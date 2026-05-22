@@ -6,13 +6,18 @@ name: Poll opportunities & build digest
 
 on:
   schedule:
-    # Hourly between 02:00 and 21:00 UTC. Starts at 02 UTC so the daily
-    # digest can fire inside its 03-05 UTC send window (= 04-06 BST in
-    # summer / 03-05 GMT in winter), landing in subscribers' inboxes
-    # before the morning commute. poll-stats.json is excluded from the
-    # commit so the extra early-morning ticks don't burn Netlify minutes
-    # unless something real has actually been published.
-    - cron: "0 2-21 * * *"
+    # GitHub Actions free-tier cron is unreliable in low-load periods
+    # (early UTC hours) and frequently skips ticks entirely. To improve
+    # odds of catching the morning send window, fire every 15 minutes
+    # between 02:00 and 06:00 UTC, then hourly the rest of the day.
+    # Send window in build_digest.py is widened to 03-08 UTC so any
+    # morning tick that DOES land sends the digest. On a good day the
+    # brief arrives 4-5am BST; on a bad day 7-9am BST. The send marker
+    # ensures only one send per day no matter how many ticks fire.
+    # poll-stats.json is excluded from the commit so the extra early
+    # ticks don't burn Netlify minutes unless real data changed.
+    - cron: "*/15 2-5 * * *"
+    - cron: "0 6-21 * * *"
   workflow_dispatch:
     inputs:
       lookback_hours:
