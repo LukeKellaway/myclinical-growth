@@ -47,6 +47,23 @@ HEALTH_BUYER = re.compile(
     re.I,
 )
 
+# Central digital authorities. These buyers basically don't publish non-digital
+# procurement, so if a notice is from one of them and isn't hard-excluded,
+# auto-pass it without requiring a CPV or keyword hit. Catches soft-launched
+# pots that don't use procurement language in the title.
+CENTRAL_DIGITAL_BUYER = re.compile(
+    r"NHS England\b|NHS Digital|\bNHSX\b|NHS Transformation Directorate|"
+    r"Department of Health and Social Care|\bDHSC\b|"
+    r"NHS Shared Business Services|\bNHS\s*SBS\b|"
+    r"Health Education England|Genomics England|"
+    r"NHS Business Services Authority|\bNHSBSA\b|"
+    r"NHS Arden|NHS Midlands and Lancashire|NHS South[, ]?Central[, ]?and West|"
+    r"NHS North of England Commercial Procurement Collaborative|\bNOE CPC\b|"
+    r"London Procurement Partnership|\bNHS LPP\b|"
+    r"East of England NHS Collaborative",
+    re.I,
+)
+
 # CPV prefixes split into two tiers.
 # STRONG = unambiguously digital (software, IT services, telecoms, data).
 #   A health buyer + any of these = relevant on its own.
@@ -90,7 +107,27 @@ KEYWORDS = re.compile(
     r"referral management|outcome management system|order communications|"
     r"results reporting|clinical correspondence|secure messaging|"
     r"electronic forms?|\bIT\s+(?:system|infrastructure|services)|"
-    r"\bICT\b|technology refresh|system replacement|system upgrade",
+    r"\bICT\b|technology refresh|system replacement|system upgrade|"
+    # 2025-26 NHS digital vocabulary that the original list missed
+    r"ambient voice|ambient scribe|\bscribe\b|\bcopilot\b|"
+    r"\bdictation\b|transcrib|voice recognition|speech recognition|"
+    r"\bchatbot\b|conversational (?:AI|agent)|large language model|\bLLM\b|"
+    r"generative AI|\bGenAI\b|foundation model|"
+    r"\bRPA\b|robotic process automation|workflow automation|"
+    r"\bGP Connect\b|\bBaRS\b|\be-?RS\b|Wayfinder|"
+    r"\bFHIR\b|\bHL7\b|\bSNOMED\b|terminology server|"
+    r"integration engine|interface engine|\bESB\b|\bAPI\b|"
+    r"\bSSO\b|single sign[- ]?on|identity (?:management|provider)|smart\s*card|"
+    r"dashboard|visualisation|visualization|business intelligence|\bBI\b|"
+    r"data warehouse|data lake|data lakehouse|data mesh|trusted research environment|\bTRE\b|"
+    r"\bDSPT\b|data security (?:and )?protection|ISO\s*27001|"
+    r"\bSaMD\b|software as a medical device|"
+    r"online consultation|video consultation|virtual triage|virtual consult|"
+    r"web portal|mobile app|patient-facing app|tech-enabled|"
+    r"shared care record|\bShCR\b|integrated care record|\bICR\b|"
+    r"population health management|\bPHM\b|risk stratification|"
+    r"managed (?:IT|service|hosting)|hosting platform|"
+    r"network infrastructure|connectivity|telephony|unified comms",
     re.I,
 )
 
@@ -109,11 +146,17 @@ EXCLUDE_TITLE = re.compile(
     r"\bspectacle|\bspeech (?:and language|therapy)|"
     r"\btalking therap|\bIAPT\b|\bpsychological therap|"
     r"\bnon-custodial|\bcustodial services|"
-    r"\bgeneral practice\b|\bAPMS\b|\bprimary medical service|"
-    r"\bmedication\b|\bpharmac(?:y|euticals?)\b|"
+    # NOTE: removed bare "general practice", "pharmacy", "medication", "maternity services"
+    # excludes — they were dropping digital medicines, pharmacy stock systems, GP IT
+    # call-offs, maternity information systems. Now guarded so only the
+    # clearly-clinical variants are excluded.
+    r"\bAPMS\b|\bprimary medical service|"
+    r"\bpharmac(?:y|euticals?)\b(?! (?:system|software|automation|stock|management|app|platform|module|portal|informatic|robot))|"
+    r"\bmedication (?:review|reconciliation service|administration service)\b|"
+    r"\bgeneral practice (?:provision|services|vacanc)|"
     r"\bradiotherap|\blinac|\blinear accelerator|"
     r"\boncology services|\brenal services|"
-    r"\bmaternity services\b(?! system)|\bsexual health (?:service|clinic)|"
+    r"\bmaternity services\b(?! system| software| platform)|\bsexual health (?:service|clinic)|"
     r"\boral surgery\b|\boral and maxillofacial\b|"
     r"\bgeneral medical services?\b|\bpractice vacanc|\bvacant practice|"
     r"\bGP locum|\blocum (?:gp|consultant|cover)|"
@@ -145,6 +188,7 @@ STATS = {
     "fetched_cf": 0,
     "nhs_buyer_match": 0,
     "hard_excluded": 0,
+    "central_buyer_pass": 0,
     "strong_cpv_pass": 0,
     "keyword_pass": 0,
     "rejected_no_signal": 0,
@@ -158,7 +202,10 @@ BORDERLINE_CAP = 25
 
 def is_relevant(buyer_name, title, description, cpvs):
     blob = f"{title} {description}"
-    if not HEALTH_BUYER.search(buyer_name or ""):
+    is_central = bool(CENTRAL_DIGITAL_BUYER.search(buyer_name or ""))
+    # Allow central digital authorities (NHSBSA, NHS Digital, NOE CPC, etc.)
+    # through even if they don't match the broader HEALTH_BUYER pattern.
+    if not is_central and not HEALTH_BUYER.search(buyer_name or ""):
         return False
     STATS["nhs_buyer_match"] += 1
     # Hard exclude: clearly non-digital NHS services.
@@ -166,6 +213,15 @@ def is_relevant(buyer_name, title, description, cpvs):
         STATS["hard_excluded"] += 1
         return False
     cpvs_str = [str(c) for c in cpvs]
+    # Central digital authorities don't publish non-digital procurement at any
+    # meaningful volume. If the buyer is one of these and the notice survived
+    # the hard-exclude, pass it through without requiring CPV or keyword.
+    # This catches the soft-launched NHS England pots that describe themselves
+    # in policy / programme language rather than procurement language.
+    if is_central:
+        STATS["central_buyer_pass"] += 1
+        STATS["kept"] += 1
+        return True
     strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
     kw_hit = bool(KEYWORDS.search(blob))
     if strong_cpv:
@@ -362,6 +418,7 @@ def main():
     print(f"  Total notices fetched (FTS + CF): {total_fetched}")
     print(f"    of which NHS / health-buyer match: {STATS['nhs_buyer_match']}")
     print(f"      hard-excluded (catering, transport, etc.): {STATS['hard_excluded']}")
+    print(f"      passed via central digital buyer: {STATS['central_buyer_pass']}")
     print(f"      passed via strong digital CPV: {STATS['strong_cpv_pass']}")
     print(f"      passed via digital keyword: {STATS['keyword_pass']}")
     print(f"      rejected (NHS but no digital signal): {STATS['rejected_no_signal']}")
