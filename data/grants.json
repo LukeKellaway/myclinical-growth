@@ -1,7 +1,26 @@
 {
-  "updated": "2026-05-17T00:00:00.000000Z",
-  "count": 21,
+  "updated": "2026-05-23T12:00:00.000000Z",
+  "count": 22,
   "grants": [
+    {
+      "id": "grant-wellcome-mental-health-prize-2026",
+      "title": "Wellcome Prize for Mental Health Science (with Nature)",
+      "source": "Wellcome Trust",
+      "source_url": "https://wellcome.org/insights/articles/wellcome-announces-global-prize-accelerate-new-mental-health-interventions",
+      "type": "International prize",
+      "category": "Condition-specific",
+      "value": "$1m winner, three finalists at $250k each",
+      "published": "2026-05-23T12:00:00Z",
+      "deadline": "2026-09-18",
+      "status": "Open",
+      "summary": "Global prize from Wellcome in partnership with Springer Nature for research that improves outcomes for anxiety, depression, and psychosis. Open to teams worldwide. Shortlisting April 2027, winner announced June 2027.",
+      "means": "Prize, not a grant. Recognition plus cash for work that's already advanced enough to show measured outcomes. Wellcome and Nature together is an unusually clean credibility signal for a UK digital therapeutic in mental health, particularly anything with peer-reviewed evidence. The Nature association means judging will lean academic. Pure product entries without a research backbone won't shortlist. Worth a submission if you have a published outcomes paper or active RCT data in anxiety, depression, or psychosis. Skip if pre-evidence.",
+      "tags": [
+        "Prize",
+        "International",
+        "Mental health"
+      ]
+    },
     {
       "id": "grant-sbri-healthcare",
       "title": "SBRI Healthcare: themed competitions",
@@ -28,11 +47,11 @@
       "type": "Grant programme",
       "category": "Translational funding",
       "value": "SMEs eligible for up to 100% funding",
-      "published": "2026-05-19",
+      "published": "2026-05-23T12:00:00Z",
       "deadline": "",
-      "status": "Periodic calls",
-      "summary": "Translational funding for medical devices, IVDs and digital health technologies bridging proof-of-concept to real-world clinical adoption. Two-stage application.",
-      "means": "Best fit for a product with early clinical evidence that needs the push to adoption-readiness. The two-stage process means an outline can be tested cheaply before committing to a full bid.",
+      "status": "Next round opens 27 May",
+      "summary": "Translational funding for medical devices, IVDs and digital health technologies bridging proof-of-concept to real-world clinical adoption. Two-stage application: outline first, full bid on invitation.",
+      "means": "Best fit for a product with early clinical evidence that needs the push to adoption-readiness. The two-stage process is the leverage point: an outline can be tested cheaply before committing to a full bid. Next call opens 27 May, which is four working days to finalise the outline draft. If you are not already in conversation with an NHS clinical co-applicant, that is the blocker to fix this week, not the outline itself.",
       "tags": [
         "Grant",
         "Non-dilutive"
@@ -155,11 +174,11 @@
       "type": "Grant programme",
       "category": "Clinical evidence",
       "value": "Varies, often £500k-£2m+",
-      "published": "2026-05-01",
-      "deadline": "",
-      "status": "Themed calls",
-      "summary": "Funds research that produces the evidence base for the NHS, including clinical effectiveness, cost-effectiveness and broader impact of health technologies.",
-      "means": "The route to fund a definitive clinical trial of your digital health technology. Long timelines (years), academic-led, but produces NICE-grade evidence that unlocks reimbursement.",
+      "published": "2026-05-23T12:00:00Z",
+      "deadline": "2026-09-02",
+      "status": "Open commissioned call",
+      "summary": "Funds research producing the evidence base for the NHS: clinical effectiveness, cost-effectiveness, and broader impact of health technologies including digital tools.",
+      "means": "A commissioned call is open now (closes 2 September) for applications addressing James Lind Alliance priority areas, NICE-flagged research gaps, and themes not well covered in the existing HTA portfolio. The route to fund a definitive clinical trial of your digital health technology. Long timelines (years), academic-led, but produces NICE-grade evidence that unlocks reimbursement. If your near-term need is product evidence, look at i4i Connect or Innovate UK first; HTA is the multi-year play.",
       "tags": [
         "Grant",
         "Non-dilutive"

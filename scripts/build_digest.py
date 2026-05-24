@@ -63,6 +63,11 @@ WEEKLY_WINDOW_END_UTC = int(os.environ.get("WEEKLY_WINDOW_END_UTC", "12"))
 # Off by default so we don't break sends until the FREQUENCY merge field
 # actually exists in the Mailchimp audience.
 FREQUENCY_SEGMENT_ENABLED = os.environ.get("FREQUENCY_SEGMENT_ENABLED", "").lower() in ("1", "true", "yes")
+# FORCE_SEND bypasses BOTH the time-of-day window AND the daily/weekly send
+# marker. Used by the workflow_dispatch "force_send" input so we can fire a
+# digest mid-day when an editorial change merits it. Still respects the
+# Mailchimp credential check at the top of main() — no creds, no send.
+FORCE_SEND = os.environ.get("FORCE_SEND", "").lower() in ("1", "true", "yes")
 # Marker files checked into the repo to record the last send date. Prevents
 # multiple sends in a single day/week if the cron fires several times in the
 # send window. Daily and weekly use separate markers so neither clobbers the other.
@@ -383,10 +388,12 @@ def main():
     today_iso = dt.date.today().isoformat()
     if WEEKLY_MODE:
         # Weekly only on Mondays. weekday() returns 0 for Monday.
-        if now.weekday() != 0:
+        # FORCE_SEND bypasses the Monday-only and window checks but still
+        # uses the weekly marker so we don't accidentally send twice.
+        if not FORCE_SEND and now.weekday() != 0:
             print(f"Weekly mode but today is {now.strftime('%A')}, not Monday. Skipping.")
             return 0
-        if current_hour < WEEKLY_WINDOW_START_UTC or current_hour >= WEEKLY_WINDOW_END_UTC:
+        if not FORCE_SEND and (current_hour < WEEKLY_WINDOW_START_UTC or current_hour >= WEEKLY_WINDOW_END_UTC):
             print(f"Outside weekly send window ({WEEKLY_WINDOW_START_UTC:02d}-"
                   f"{WEEKLY_WINDOW_END_UTC:02d} UTC, now {current_hour:02d}). Skipping.")
             return 0
@@ -394,7 +401,7 @@ def main():
         iso_year, iso_week, _ = dt.date.today().isocalendar()
         week_id = f"{iso_year}-W{iso_week:02d}"
         marker = WEEKLY_SEND_MARKER
-        if marker.exists():
+        if not FORCE_SEND and marker.exists():
             try:
                 last = marker.read_text().strip()
                 if last == week_id:
@@ -404,13 +411,14 @@ def main():
                 pass
         lookback_hours = 24 * 7
     else:
-        # Daily window gate
-        if current_hour < DIGEST_WINDOW_START_UTC or current_hour >= DIGEST_WINDOW_END_UTC:
+        # Daily window gate. FORCE_SEND skips it (and the marker check) so a
+        # manual workflow_dispatch can fire a digest mid-day.
+        if not FORCE_SEND and (current_hour < DIGEST_WINDOW_START_UTC or current_hour >= DIGEST_WINDOW_END_UTC):
             print(f"Outside daily send window ({DIGEST_WINDOW_START_UTC:02d}-"
                   f"{DIGEST_WINDOW_END_UTC:02d} UTC, now {current_hour:02d}). Skipping digest.")
             return 0
         marker = SEND_MARKER
-        if marker.exists():
+        if not FORCE_SEND and marker.exists():
             try:
                 last = marker.read_text().strip()
                 if last == today_iso:
@@ -418,6 +426,8 @@ def main():
                     return 0
             except OSError:
                 pass
+        if FORCE_SEND:
+            print(f"FORCE_SEND=true — bypassing window and marker. now={current_hour:02d}Z, marker last sent={SEND_MARKER.read_text().strip() if SEND_MARKER.exists() else 'never'}")
         lookback_hours = 24
 
     # Pull procurement from BOTH live (OCDS auto-poll) and the standing/curated

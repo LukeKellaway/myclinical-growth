@@ -1,7 +1,47 @@
 {
-  "updated": "2026-05-17T00:00:00.000000Z",
-  "count": 19,
+  "updated": "2026-05-23T12:00:00.000000Z",
+  "count": 21,
   "opportunities": [
+    {
+      "id": "opp-referrals-appointments-2026",
+      "title": "Referrals & Appointments national funding",
+      "source": "NHS England",
+      "source_url": "https://htn.co.uk/2026/05/15/up-to-20-million-national-funding-for-referrals-and-appointments-opens/",
+      "buyer": "NHS England",
+      "type": "Funding offer",
+      "category": "Patient-facing",
+      "value": "£15m to £20m",
+      "published": "2026-05-23T12:00:00Z",
+      "deadline": "2026-05-31",
+      "status": "Open",
+      "summary": "National funding for NHS providers to scale the Booking and Referral Standard (BaRS), the e-Referral Service (e-RS), and the NHS App Wayfinder in 2026/27. Covers PIFU rollout, notifications, GIRFT pathway redesign, and Innovation Lead roles spanning divisions or whole systems.",
+      "means": "Not a tender. A trust-facing pot from NHS England to fund adoption of existing national platforms (BaRS, e-RS, NHS App). Deadline is 8 days away. The trusts that win these are the ones who already have a supplier lined up and a delivery plan signed by a clinical SRO. If you supply into any of these stacks, your trust customers should already know whether they're bidding. Call them this week. If you don't have those relationships, the window is too short for new ones.",
+      "tags": [
+        "Funding offer",
+        "Patient-facing",
+        "Closes soon"
+      ]
+    },
+    {
+      "id": "opp-digital-medicines-mgmt-2026",
+      "title": "Digital Medicines Management national funding",
+      "source": "NHS England",
+      "source_url": "https://htn.co.uk/2026/05/22/national-funding-opportunity-to-open-for-digital-medicines-management/",
+      "buyer": "NHS England",
+      "type": "Funding offer",
+      "category": "Clinical systems & EPR",
+      "value": "Not disclosed",
+      "published": "2026-05-23T12:00:00Z",
+      "deadline": "2026-07-17",
+      "status": "Opens early June",
+      "summary": "National revenue pot for NHS trusts to extend EPR and ePMA capability across two themes: medicines on admission (consuming structured GP medicines via GP Connect) and closed-loop medicines management (end-to-end interoperability across EPR, ePMA, automated dispensing cabinets and pharmacy stock control).",
+      "means": "Follow-on to the digital medicines first-of-type schemes. Trust-facing on paper, supplier-dependent in practice. Applications expect evidence of supplier commitment, the commercial approach, and partnership with other trusts on the same stack. That last point is the tell: NHS England wants supplier-anchored consortia, not lone trusts. EPMA, GP Connect specialists, and dispensing-automation vendors should be the ones starting these conversations, not the trusts. Applications open early June and close 17 July at 5pm. If you supply EPMA or closed-loop stack, get three or more trust customers aligned in the next two weeks.",
+      "tags": [
+        "Funding offer",
+        "EPMA",
+        "GP Connect"
+      ]
+    },
     {
       "id": "std-sbs-ai-solutions",
       "title": "Healthcare AI Solutions Framework",
@@ -10,15 +50,16 @@
       "buyer": "NHS Shared Business Services",
       "type": "Framework",
       "category": "AI & analytics",
-      "value": "£750,000,000",
-      "published": "2026-05-19",
+      "value": "£900,000,000",
+      "published": "2026-05-23T12:00:00Z",
       "deadline": "2026-06-23",
       "status": "Open",
       "summary": "National framework for healthcare AI across eight lots: radiology and imaging, pathology and early detection, virtual and robotic health, predictive analytics, research and development, operational efficiency, advisory and specialised support, and combined solutions.",
-      "means": "The procurement route for UK healthcare AI for the next four years. Lots 6 and 7 (operational efficiency and advisory) are the quieter opportunity. The 23 June deadline is tight: clinical evidence packs and DCB0129 documentation take weeks.",
+      "means": "Updated 23 May: value lifted to £900m incl VAT, up from the original £150m estimate and the £750m figure carried earlier. A six-fold jump after supplier engagement that signals NHS SBS is expecting heavy lot-level competition. The procurement route for UK healthcare AI for the next four years. Lots 6 and 7 (operational efficiency, advisory) remain the quieter opportunity. Enquiry deadline 29 May, tender deadline 23 June. Tight: clinical evidence packs and DCB0129 documentation take weeks.",
       "tags": [
         "Framework",
         "AI",
+        "Updated",
         "Closes soon"
       ]
     },

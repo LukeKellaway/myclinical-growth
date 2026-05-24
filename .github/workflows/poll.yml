@@ -24,6 +24,11 @@ on:
         description: "How far back to look (hours). 720 = 30 days."
         required: false
         default: "720"
+      force_send:
+        description: "Force the digest to send even outside the 03-08 UTC window / even if already sent today"
+        required: false
+        type: boolean
+        default: false
   # Auto-run when the poller or workflow itself changes, so a code update
   # immediately refreshes data without waiting for the next cron tick.
   # Safe from infinite loops: the in-job commit uses GITHUB_TOKEN which
@@ -74,6 +79,10 @@ jobs:
           # Off until the FREQUENCY merge field exists in the Mailchimp audience.
           # When set, daily sends to FREQUENCY=Daily/blank, weekly to FREQUENCY=Weekly.
           FREQUENCY_SEGMENT_ENABLED: ${{ secrets.FREQUENCY_SEGMENT_ENABLED }}
+          # When triggered manually with force_send=true, bypass the send-window
+          # and same-day-marker checks so the digest can fire mid-day after an
+          # editorial change.
+          FORCE_SEND: ${{ inputs.force_send }}
         run: python scripts/build_digest.py
         continue-on-error: true   # a digest hiccup must not block the data refresh
 
