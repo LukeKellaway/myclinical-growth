@@ -589,59 +589,40 @@
     });
   }
 
-  /* ---------- Mailchimp subscribe (JSONP, mirrors lukekellaway.com) ---------- */
+  /* ---------- Subscribe form ----------
+     Form POSTs natively to /.netlify/functions/subscribe (server-side
+     Mailchimp API call). The function 302-redirects to /signing-up.html on
+     success or /signup-error.html on failure. We intercept only to:
+       1. Normalise the two-checkbox frequency picker into DAILY and WEEKLY
+          hidden inputs so they POST as Mailchimp merge fields.
+       2. Spam-guard the honeypot. */
   function wireSubscribe() {
     var form = document.getElementById("subscribe");
     if (!form) return;
     form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var msg = document.getElementById("form-msg");
       var btn = form.querySelector("button");
-      var action = form.getAttribute("action") || "";
-      if (action.indexOf("YOUR_MAILCHIMP") > -1 || !action) {
-        msg.className = "form-msg error";
-        msg.textContent = "Mailchimp not connected yet. See the deploy guide (README).";
-        return;
-      }
+      // Honeypot: bots fill hidden inputs. Block the submit silently.
       var hp = form.querySelector('input[name^="b_"]');
-      if (hp && hp.value) return;
-      msg.className = "form-msg"; msg.textContent = "";
-      var orig = btn.textContent; btn.textContent = "Sending…";
-      var cb = "mc_cb_" + Date.now();
-      var url = action.replace("/post?", "/post-json?");
-      var params = new URLSearchParams(new FormData(form));
-      // Normalise the two-checkbox frequency picker into the DAILY and WEEKLY
-      // merge fields Mailchimp expects. Either or both can be Yes. Defaults
-      // to both Yes if the picker is absent (older form variants).
+      if (hp && hp.value) { e.preventDefault(); return; }
+      // Normalise DAILY and WEEKLY checkboxes into hidden inputs so they
+      // POST as merge fields, not as checkbox name attributes. Unchecked
+      // boxes still send "No" so the server knows the user actively declined.
+      function ensureHidden(name, value) {
+        var existing = form.querySelector('input[type="hidden"][name="' + name + '"]');
+        if (existing) { existing.value = value; return; }
+        var inp = document.createElement("input");
+        inp.type = "hidden"; inp.name = name; inp.value = value;
+        form.appendChild(inp);
+      }
       var dailyBox = form.querySelector('input[data-freq="DAILY"]');
       var weeklyBox = form.querySelector('input[data-freq="WEEKLY"]');
       if (dailyBox || weeklyBox) {
-        params.set("DAILY", dailyBox && dailyBox.checked ? "Yes" : "No");
-        params.set("WEEKLY", weeklyBox && weeklyBox.checked ? "Yes" : "No");
+        ensureHidden("DAILY", dailyBox && dailyBox.checked ? "Yes" : "No");
+        ensureHidden("WEEKLY", weeklyBox && weeklyBox.checked ? "Yes" : "No");
       }
-      // Drop the legacy single-value field if present, so it cannot overwrite.
-      params.delete("FREQUENCY");
-      window[cb] = function (res) {
-        delete window[cb];
-        document.head.removeChild(script);
-        btn.textContent = orig;
-        if (res && res.result === "success") {
-          msg.className = "form-msg success";
-          msg.textContent = "You're in. Your first brief lands tomorrow morning.";
-          form.reset();
-        } else {
-          msg.className = "form-msg error";
-          msg.textContent = (res && res.msg ? res.msg : "Something went wrong. Try again.")
-            .replace(/<[^>]*>/g, "");
-        }
-      };
-      var script = document.createElement("script");
-      script.src = url + "&" + params.toString() + "&c=" + cb;
-      script.onerror = function () {
-        delete window[cb]; btn.textContent = orig;
-        msg.className = "form-msg error"; msg.textContent = "Network error. Try again.";
-      };
-      document.head.appendChild(script);
+      // Visual feedback while the redirect lands.
+      if (btn) { btn.textContent = "Joining…"; btn.disabled = true; }
+      // Do NOT preventDefault: let the form POST natively to the function.
     });
   }
 

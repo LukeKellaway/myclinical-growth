@@ -18,3 +18,10 @@
   for = "/assets/js/data.js"
   [headers.values]
     Cache-Control = "public, max-age=300"
+
+[functions]
+  # Serverless functions live in netlify/functions/. Used by the signup
+  # form to call Mailchimp's API server-side so subscribers never see a
+  # Mailchimp-hosted page.
+  directory = "netlify/functions"
+  node_bundler = "esbuild"

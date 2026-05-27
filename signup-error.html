@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Something went wrong · MyClinical Growth</title>
+<meta name="description" content="The signup did not go through. Please try again.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  .err-wrap{max-width:640px;margin:60px auto 80px;text-align:center;}
+  .err-icon{width:64px;height:64px;border-radius:50%;background:rgba(163,73,47,.14);color:#a3492f;display:inline-flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;margin-bottom:22px;}
+  .err-wrap h1{font-size:36px;font-weight:800;color:var(--forest);margin-bottom:14px;line-height:1.2;}
+  .err-wrap p.lead{font-size:17px;color:var(--text);margin-bottom:24px;line-height:1.55;}
+  .err-reason{font-size:13.5px;color:var(--text-mute);font-family:'SFMono-Regular',Menlo,Monaco,Consolas,monospace;background:#f6f5ee;padding:8px 14px;border-radius:6px;display:inline-block;margin:8px 0 18px;}
+  .err-actions{margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+</style>
+</head>
+<body data-page="signup-error">
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">MyClinical <span>Growth</span></a>
+    <div class="nav-links">
+      <a href="opportunities.html">Procurement</a>
+      <a href="grants.html">Grants</a>
+      <a href="directory.html">Directory</a>
+      <a href="bid-writers.html">Bid Writers</a>
+      <a href="capital.html">Capital</a>
+      <a href="submit.html">Submit</a>
+      <a href="about.html">About</a>
+    </div>
+    <a href="index.html" class="btn btn-pill">Back to home</a>
+  </div>
+</nav>
+
+<section>
+  <div class="wrap err-wrap">
+    <div class="err-icon">!</div>
+    <h1>That didn't go through.</h1>
+    <p class="lead">Something tripped up the signup. Sorry about that. Try again, or email us and we'll add you manually.</p>
+
+    <p class="err-reason" id="reason-line">Reason: unknown</p>
+
+    <div class="err-actions">
+      <a href="index.html#signup" class="btn btn-primary">Try again</a>
+      <a href="mailto:growth@myclinical.co.uk?subject=Signup%20issue" class="btn btn-ghost">Email us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="logo">MyClinical <span style="color:var(--sage)">Growth</span></a>
+        <p>NHS opportunities and UK healthtech funding. Aggregated, signalled, delivered. A free resource, part of the MyClinical line.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Resource</h5>
+        <a href="opportunities.html">Procurement</a>
+        <a href="grants.html">Grants &amp; funding</a>
+        <a href="directory.html">Source directory</a>
+        <a href="search.html">Search everything</a>
+        <a href="submit.html">Submit a tip</a>
+        <a href="index.html#signup">The brief</a>
+      </div>
+      <div class="foot-col">
+        <h5>Partners</h5>
+        <a href="bid-writers.html">For bid writers</a>
+        <a href="capital.html">For investors</a>
+      </div>
+      <div class="foot-col">
+        <h5>MyClinical</h5>
+        <a href="https://lukekellaway.com" target="_blank" rel="noopener">lukekellaway.com</a>
+        <a href="about.html">About this resource</a>
+        <a href="about.html#privacy">Privacy policy</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 MyClinical Growth. Built so UK healthtech gets a fair shot.</span>
+      <span>growth.myclinical.co.uk</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Surface the reason from the query string so the user knows what to mention if they email.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var reason = params.get("reason") || "unknown";
+    var status = params.get("status");
+    var display = reason + (status ? " (status " + status + ")" : "");
+    var el = document.getElementById("reason-line");
+    if (el) el.textContent = "Reason: " + display;
+  })();
+</script>
+</body>
+</html>
