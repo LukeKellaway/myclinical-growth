@@ -22,6 +22,8 @@
   .thx-card .step strong{color:var(--forest);}
   .thx-actions{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .thx-note{font-size:13px;color:var(--text-mute);margin-top:18px;}
+  .spam-alert{background:#fff7e6;border:1px solid #f0c870;border-left:4px solid #d99b1f;border-radius:10px;padding:14px 18px;margin:18px 0 6px;text-align:left;font-size:14.5px;color:#5a4310;line-height:1.5;}
+  .spam-alert strong{color:#3d2d08;}
 </style>
 </head>
 <body data-page="signing-up">
@@ -48,13 +50,17 @@
     <h1>Almost there. Check your inbox.</h1>
     <p class="lead">We've sent a confirmation email. Click the link inside to start receiving the brief.</p>
 
+    <div class="spam-alert">
+      <strong>Check your spam or promotions folder.</strong> First-time emails from our domain often land there. Move it to the inbox so future briefs arrive properly.
+    </div>
+
     <div class="thx-card">
-      <div class="step"><span class="step-num">1</span><div class="step-body">Open your inbox. The email comes from <strong>growth@myclinical.co.uk</strong> and the subject starts with "Confirm".</div></div>
+      <div class="step"><span class="step-num">1</span><div class="step-body">Open your inbox (and check spam/promotions). The email comes from <strong>growth@myclinical.co.uk</strong> and the subject starts with "Confirm".</div></div>
       <div class="step"><span class="step-num">2</span><div class="step-body">Click the confirmation link inside. One click is enough.</div></div>
       <div class="step"><span class="step-num">3</span><div class="step-body">You'll get the welcome note straight after, and your first brief lands the next morning.</div></div>
     </div>
 
-    <p class="thx-note">Not in the inbox after a few minutes? Check spam or promotions. Still nothing, email <a href="mailto:growth@myclinical.co.uk" style="color:var(--sage);">growth@myclinical.co.uk</a> and we'll sort it.</p>
+    <p class="thx-note">Still no email after a few minutes? Email <a href="mailto:growth@myclinical.co.uk" style="color:var(--sage);">growth@myclinical.co.uk</a> and we'll sort it.</p>
 
     <div class="thx-actions">
       <a href="opportunities.html" class="btn btn-primary">Browse procurement</a>
