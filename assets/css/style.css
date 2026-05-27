@@ -230,6 +230,36 @@ footer{background:var(--ink);color:#9aa19a;padding:54px 0 38px;}
 .not-found h2{font-size:28px;color:var(--forest);margin-bottom:12px;}
 .not-found p{font-size:16px;color:var(--text-mute);margin-bottom:14px;}
 
+/* ---------- per-portal "how to apply" guides ---------- */
+.portal-guide{margin-top:16px;border-top:1px solid var(--line);padding-top:14px;}
+.portal-guide .guide-summary{font-size:13px;font-weight:700;color:var(--sage);cursor:pointer;list-style:none;padding:4px 0;}
+.portal-guide .guide-summary::-webkit-details-marker{display:none;}
+.portal-guide .guide-summary::before{content:"+ ";font-weight:800;}
+.portal-guide[open] .guide-summary::before{content:"- ";}
+.portal-guide .guide-body{padding-top:10px;}
+.portal-guide .guide-intro{font-size:14px;color:var(--text);margin-bottom:14px;}
+.portal-guide .guide-block{margin-bottom:14px;}
+.portal-guide .guide-block-label{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--forest);margin-bottom:6px;}
+.portal-guide .guide-block ul,.portal-guide .guide-block ol{padding-left:20px;font-size:14px;color:var(--text);line-height:1.55;}
+.portal-guide .guide-block li{margin-bottom:6px;}
+.portal-guide .guide-gotchas{font-size:13.5px;color:var(--text);background:#f6f5ee;border-left:3px solid var(--sage);padding:10px 14px;border-radius:4px;margin-top:6px;}
+
+/* "First time applying here?" callout on the opportunity detail page */
+.portal-callout{background:#f6f5ee;border:1px solid var(--line);border-left:3px solid var(--sage);border-radius:6px;padding:14px 18px;margin:18px 0;}
+.portal-callout-label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:var(--forest);margin-bottom:4px;}
+.portal-callout p{font-size:14px;color:var(--text);line-height:1.5;margin:0;}
+.portal-callout a{color:var(--sage);font-weight:700;}
+
+.detail-meta a.source-link{color:var(--sage);font-weight:600;text-decoration:underline;text-decoration-color:rgba(79,138,110,.4);}
+.detail-meta a.source-link:hover{text-decoration-color:var(--sage);}
+
+/* Two-checkbox frequency picker. Replaces the older radio-pill picker. */
+.freq-checks{display:flex;flex-direction:column;gap:8px;margin-top:14px;padding:12px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:10px;}
+.freq-checks .freq-label{font-size:12px;font-weight:700;color:#cfd3cd;text-transform:uppercase;letter-spacing:0.06em;}
+.freq-checks label{display:inline-flex;align-items:flex-start;gap:9px;font-size:13.5px;color:#e8ece6;cursor:pointer;line-height:1.4;}
+.freq-checks label input[type=checkbox]{margin-top:3px;width:14px;height:14px;accent-color:#4f8a6e;cursor:pointer;}
+.freq-checks .freq-sub{font-size:12px;color:#9fb0a4;display:block;}
+
 @media(max-width:900px){
   .hero-grid{grid-template-columns:1fr;gap:40px;}
   .three,.opp-grid,.opp-grid.two{grid-template-columns:1fr;}

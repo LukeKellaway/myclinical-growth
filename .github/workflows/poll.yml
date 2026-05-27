@@ -76,8 +76,8 @@ jobs:
           # Leave DIGEST_AUTOSEND unset to create drafts you review first.
           # Set it to "true" as a secret once you trust the editorial pass.
           DIGEST_AUTOSEND: ${{ secrets.DIGEST_AUTOSEND }}
-          # Off until the FREQUENCY merge field exists in the Mailchimp audience.
-          # When set, daily sends to FREQUENCY=Daily/blank, weekly to FREQUENCY=Weekly.
+          # Off until the DAILY/WEEKLY merge fields exist in the Mailchimp audience.
+          # When set: daily sends to DAILY=Yes (or blank), weekly to WEEKLY=Yes.
           FREQUENCY_SEGMENT_ENABLED: ${{ secrets.FREQUENCY_SEGMENT_ENABLED }}
           # When triggered manually with force_send=true, bypass the send-window
           # and same-day-marker checks so the digest can fire mid-day after an
@@ -85,6 +85,23 @@ jobs:
           FORCE_SEND: ${{ inputs.force_send }}
         run: python scripts/build_digest.py
         continue-on-error: true   # a digest hiccup must not block the data refresh
+
+      - name: Build the weekly digest (Mailchimp)
+        # Same script, WEEKLY_MODE=true. The script's own gates (Monday-only,
+        # 07-12 UTC window, weekly marker) decide whether to actually send.
+        # On Tue-Sun this is a no-op. We still run every cron tick on Mondays
+        # so a missed early tick can be picked up by a later one.
+        env:
+          MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
+          MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}
+          MAILCHIMP_SERVER_PREFIX: ${{ secrets.MAILCHIMP_SERVER_PREFIX }}
+          DIGEST_REPLY_TO: ${{ secrets.DIGEST_REPLY_TO }}
+          DIGEST_AUTOSEND: ${{ secrets.DIGEST_AUTOSEND }}
+          FREQUENCY_SEGMENT_ENABLED: ${{ secrets.FREQUENCY_SEGMENT_ENABLED }}
+          FORCE_SEND: ${{ inputs.force_send }}
+          WEEKLY_MODE: "true"
+        run: python scripts/build_digest.py
+        continue-on-error: true
 
       - name: Commit refreshed data
         # Only commit data files that actually affect what subscribers see on
@@ -100,6 +117,8 @@ jobs:
           [ -f data/opportunities.json ] && git add data/opportunities.json || true
           [ -f data/grants.json ] && git add data/grants.json || true
           [ -f data/directory.json ] && git add data/directory.json || true
+          [ -f data/portal-guides.json ] && git add data/portal-guides.json || true
+          [ -f data/last-weekly-digest-send.txt ] && git add data/last-weekly-digest-send.txt || true
           if git diff --staged --quiet; then
             echo "No meaningful data changes — skipping commit (saves Netlify build credits)."
           else

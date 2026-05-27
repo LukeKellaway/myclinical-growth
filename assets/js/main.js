@@ -3,6 +3,73 @@
   "use strict";
   var D = window.GROWTH_DATA || {};
 
+  /* ---------- portal guides (how-to-apply per source) ---------- */
+  // Build two indexes from D.portalGuides:
+  //   PORTAL_BY_SLUG: slug -> guide object
+  //   ALIAS_TO_SLUG: lowercased alias OR name -> slug
+  // Then portalSlugForSource(name) returns the best slug match for a given
+  // opportunity's source string. Tries exact alias first, then a substring
+  // pass (longer aliases preferred so "Atamis - Health Family" beats "Atamis"
+  // only if both match the input).
+  var PORTAL_BY_SLUG = {};
+  var ALIAS_TO_SLUG = {};
+  (function buildPortalIndex() {
+    var pg = (D.portalGuides && D.portalGuides.portals) || {};
+    Object.keys(pg).forEach(function (slug) {
+      var p = pg[slug] || {};
+      p.slug = slug;
+      PORTAL_BY_SLUG[slug] = p;
+      var aliases = (p.aliases || []).slice();
+      if (p.name) aliases.push(p.name);
+      aliases.forEach(function (a) {
+        if (a) ALIAS_TO_SLUG[String(a).toLowerCase().trim()] = slug;
+      });
+    });
+  })();
+
+  function portalSlugForSource(source) {
+    if (!source) return null;
+    var s = String(source).toLowerCase().trim();
+    if (ALIAS_TO_SLUG[s]) return ALIAS_TO_SLUG[s];
+    // Substring match. Prefer the longest alias that fits to avoid
+    // "NHS England" eating "NHS England Digital" or similar.
+    var best = null, bestLen = 0;
+    Object.keys(PORTAL_BY_SLUG).forEach(function (slug) {
+      var p = PORTAL_BY_SLUG[slug];
+      var aliases = (p.aliases || []).slice();
+      if (p.name) aliases.push(p.name);
+      aliases.forEach(function (a) {
+        if (!a) return;
+        var al = String(a).toLowerCase();
+        if (s.indexOf(al) > -1 && al.length > bestLen) {
+          best = slug; bestLen = al.length;
+        }
+      });
+    });
+    return best;
+  }
+
+  function portalGuideBlockHtml(slug) {
+    var p = PORTAL_BY_SLUG[slug];
+    if (!p) return "";
+    var hoops = (p.hoops || []).map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("");
+    var steps = (p.steps || []).map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("");
+    var gotchas = p.gotchas
+      ? '<div class="guide-gotchas"><strong>Watch out for: </strong>' + esc(p.gotchas) + "</div>"
+      : "";
+    return (
+      '<details class="portal-guide">' +
+        '<summary class="guide-summary">How to apply on this portal</summary>' +
+        '<div class="guide-body">' +
+          (p.intro ? '<p class="guide-intro">' + esc(p.intro) + "</p>" : "") +
+          (hoops ? '<div class="guide-block"><div class="guide-block-label">Hoops to qualify</div><ul>' + hoops + "</ul></div>" : "") +
+          (steps ? '<div class="guide-block"><div class="guide-block-label">How to apply, step by step</div><ol>' + steps + "</ol></div>" : "") +
+          gotchas +
+        "</div>" +
+      "</details>"
+    );
+  }
+
   /* ---------- helpers ---------- */
   function esc(s) {
     return String(s == null ? "" : s)
@@ -98,9 +165,21 @@
     if (v.indexOf("alert") > -1) return '<span class="feed feed-alert">Alerts</span>';
     return '<span class="feed feed-no">Tracked</span>';
   }
+  // Fallback slug from a source name, used when there is no matching
+  // portal guide. Keeps directory anchors stable across renders.
+  function slugify(s) {
+    return String(s || "").toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .slice(0, 60);
+  }
+
   function dirItem(r) {
+    var slug = portalSlugForSource(r["Source"]) || slugify(r["Source"]);
+    var guide = portalGuideBlockHtml(slug);
     return (
-      '<div class="dir-item">' +
+      '<div class="dir-item" id="portal-' + esc(slug) + '">' +
         '<div class="dir-item-top">' +
           "<div><h3>" + esc(r["Source"]) + "</h3>" +
             '<div class="kind">' + esc(r["Type"]) + " &middot; " + esc(r["Geographic scope"]) + "</div></div>" +
@@ -115,6 +194,7 @@
             ? '<a class="visit" href="' + esc(r["URL"]) + '" target="_blank" rel="noopener">Visit &rarr;</a>'
             : '<span class="kind">' + esc(r["URL"] || "") + "</span>") +
         "</div>" +
+        (guide || "") +
       "</div>"
     );
   }
@@ -305,7 +385,15 @@
       ? '<div class="detail-section"><h3>Summary</h3><p>' + esc(item.summary) + "</p></div>"
       : "";
     var meta = [];
-    if (item.source) meta.push("<strong>Source:</strong> " + esc(item.source));
+    // Resolve the source string to a portal slug so "Source:" becomes a link
+    // through to the matching how-to-apply guide on the directory page.
+    var srcSlug = portalSlugForSource(item.source);
+    if (item.source) {
+      var srcHtml = srcSlug
+        ? '<a class="source-link" href="directory.html#portal-' + esc(srcSlug) + '">' + esc(item.source) + "</a>"
+        : esc(item.source);
+      meta.push("<strong>Source:</strong> " + srcHtml);
+    }
     if (item.buyer && item.buyer !== item.source) meta.push("<strong>Buyer:</strong> " + esc(item.buyer));
     if (item.value) meta.push("<strong>Value:</strong> " + esc(item.value));
     if (item.type) meta.push("<strong>Type:</strong> " + esc(item.type));
@@ -326,6 +414,19 @@
         '<a href="bid-writers.html">directory of NHS bid writers</a> opens shortly. ' +
         'Looking ahead at the funding rung, see the ' +
         '<a href="capital.html">Capital page</a>.</p>';
+    // "First time applying here?" callout. Only renders when we have a
+    // matching portal guide for this opportunity's source.
+    var portalCallout = "";
+    if (srcSlug && PORTAL_BY_SLUG[srcSlug]) {
+      var p = PORTAL_BY_SLUG[srcSlug];
+      portalCallout =
+        '<div class="portal-callout">' +
+          '<div class="portal-callout-label">Before you click through</div>' +
+          '<p>First time applying via <strong>' + esc(p.name) + '</strong>? ' +
+          'The portal has its own registration, qualification questionnaires and gotchas. ' +
+          '<a href="directory.html#portal-' + esc(srcSlug) + '">Read the how-to-apply guide &rarr;</a></p>' +
+        "</div>";
+    }
     var sourceLink = item.source_url
       ? '<a class="btn btn-primary" href="' + esc(item.source_url) + '" target="_blank" rel="noopener">Read the official notice &rarr;</a>'
       : "";
@@ -348,6 +449,7 @@
       meansBlock +
       metaBlock +
       summaryBlock +
+      portalCallout +
       ctaInline +
       '<div class="detail-actions">' + sourceLink + "</div>" +
       relatedBlock;
@@ -492,7 +594,7 @@
       var action = form.getAttribute("action") || "";
       if (action.indexOf("YOUR_MAILCHIMP") > -1 || !action) {
         msg.className = "form-msg error";
-        msg.textContent = "Mailchimp not connected yet — see the deploy guide (README).";
+        msg.textContent = "Mailchimp not connected yet. See the deploy guide (README).";
         return;
       }
       var hp = form.querySelector('input[name^="b_"]');
@@ -502,6 +604,17 @@
       var cb = "mc_cb_" + Date.now();
       var url = action.replace("/post?", "/post-json?");
       var params = new URLSearchParams(new FormData(form));
+      // Normalise the two-checkbox frequency picker into the DAILY and WEEKLY
+      // merge fields Mailchimp expects. Either or both can be Yes. Defaults
+      // to both Yes if the picker is absent (older form variants).
+      var dailyBox = form.querySelector('input[data-freq="DAILY"]');
+      var weeklyBox = form.querySelector('input[data-freq="WEEKLY"]');
+      if (dailyBox || weeklyBox) {
+        params.set("DAILY", dailyBox && dailyBox.checked ? "Yes" : "No");
+        params.set("WEEKLY", weeklyBox && weeklyBox.checked ? "Yes" : "No");
+      }
+      // Drop the legacy single-value field if present, so it cannot overwrite.
+      params.delete("FREQUENCY");
       window[cb] = function (res) {
         delete window[cb];
         document.head.removeChild(script);
@@ -512,7 +625,7 @@
           form.reset();
         } else {
           msg.className = "form-msg error";
-          msg.textContent = (res && res.msg ? res.msg : "Something went wrong — try again.")
+          msg.textContent = (res && res.msg ? res.msg : "Something went wrong. Try again.")
             .replace(/<[^>]*>/g, "");
         }
       };
@@ -520,7 +633,7 @@
       script.src = url + "&" + params.toString() + "&c=" + cb;
       script.onerror = function () {
         delete window[cb]; btn.textContent = orig;
-        msg.className = "form-msg error"; msg.textContent = "Network error — try again.";
+        msg.className = "form-msg error"; msg.textContent = "Network error. Try again.";
       };
       document.head.appendChild(script);
     });

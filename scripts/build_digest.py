@@ -59,9 +59,11 @@ WEEKLY_MODE = os.environ.get("WEEKLY_MODE", "").lower() in ("1", "true", "yes")
 # Weekly fires on Mondays. Window is 07-12 UTC so a delayed cron still catches.
 WEEKLY_WINDOW_START_UTC = int(os.environ.get("WEEKLY_WINDOW_START_UTC", "7"))
 WEEKLY_WINDOW_END_UTC = int(os.environ.get("WEEKLY_WINDOW_END_UTC", "12"))
-# When true, send daily to FREQUENCY=Daily (or blank), weekly to FREQUENCY=Weekly.
-# Off by default so we don't break sends until the FREQUENCY merge field
-# actually exists in the Mailchimp audience.
+# When true, segment sends by the per-subscriber preference merge fields.
+# Daily sends to DAILY=Yes (or blank, to preserve existing subscribers from
+# before the merge field existed). Weekly sends to WEEKLY=Yes.
+# Off by default so we don't break sends until the DAILY/WEEKLY merge fields
+# actually exist in the Mailchimp audience.
 FREQUENCY_SEGMENT_ENABLED = os.environ.get("FREQUENCY_SEGMENT_ENABLED", "").lower() in ("1", "true", "yes")
 # FORCE_SEND bypasses BOTH the time-of-day window AND the daily/weekly send
 # marker. Used by the workflow_dispatch "force_send" input so we can fire a
@@ -473,9 +475,11 @@ def main():
         subject = f"{len(grants)} new grant {'call' if len(grants)==1 else 'calls'} {period_word}"
 
     # Build recipients block. If frequency segmenting is enabled, daily goes
-    # to FREQUENCY=Daily OR blank (preserves existing subscribers), weekly
-    # goes to FREQUENCY=Weekly. Off by default so we don't break sends
-    # until the merge field actually exists in the audience.
+    # to anyone with DAILY=Yes OR blank (the blank rule preserves subscribers
+    # from before the merge field existed). Weekly goes to WEEKLY=Yes only,
+    # so legacy subscribers are not opted in by accident.
+    # Off by default so we don't break sends until the DAILY/WEEKLY merge
+    # fields actually exist in the audience.
     recipients = {"list_id": AUDIENCE}
     if FREQUENCY_SEGMENT_ENABLED:
         if WEEKLY_MODE:
@@ -483,18 +487,19 @@ def main():
                 "match": "all",
                 "conditions": [{
                     "condition_type": "TextMerge",
-                    "field": "FREQUENCY",
+                    "field": "WEEKLY",
                     "op": "is",
-                    "value": "Weekly",
+                    "value": "Yes",
                 }],
             }
         else:
-            # Daily: catch both explicit Daily and the existing (blank) cohort
+            # Daily: include explicit DAILY=Yes plus the existing (blank) cohort
+            # who signed up before the merge field was introduced.
             recipients["segment_opts"] = {
                 "match": "any",
                 "conditions": [
-                    {"condition_type": "TextMerge", "field": "FREQUENCY", "op": "is", "value": "Daily"},
-                    {"condition_type": "TextMerge", "field": "FREQUENCY", "op": "is", "value": ""},
+                    {"condition_type": "TextMerge", "field": "DAILY", "op": "is", "value": "Yes"},
+                    {"condition_type": "TextMerge", "field": "DAILY", "op": "is", "value": ""},
                 ],
             }
 

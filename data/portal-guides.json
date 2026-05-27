@@ -1,0 +1,441 @@
+{
+  "updated": "2026-05-27T00:00:00Z",
+  "note": "Per-portal how-to-apply guides. Keyed by slug. `aliases` lets the opportunity source string match back to the right portal even when wording differs slightly. Author/edit freely — this file is loaded by bundle.py into data.js and rendered on directory.html and opportunity.html.",
+  "portals": {
+    "fts": {
+      "name": "Find a Tender Service (FTS)",
+      "aliases": ["Find a Tender Service", "Find a Tender", "FTS"],
+      "intro": "Find a Tender is the UK government's statutory notice service. Every higher-value public contract (NHS included) is published here once the new Procurement Act 2023 rules apply. It is a notice board, not a portal you bid through. The bid itself usually happens on a separate e-sourcing platform that the notice points to.",
+      "hoops": [
+        "No registration needed to browse or set up keyword alerts.",
+        "When a notice catches your eye, click through to the buyer's named e-sourcing system (Atamis, ProContract, In-tend, Jaggaer, etc.). That is where you actually register and submit.",
+        "Have a basic supplier pack ready before you start: company info, two or three reference clients, insurance certificates, ISO 27001 or equivalent if you handle data, DCB0129/DCB0160 evidence if you are a clinical safety case."
+      ],
+      "steps": [
+        "Create a saved search with CPV codes for digital health (72000000 IT services, 85100000 health services, 33000000 medical devices) and the keywords you care about.",
+        "Read the notice in full, especially the contract value, lot structure and any pre-qualification requirements.",
+        "Follow the 'How to access this opportunity' link to register on the buyer's e-sourcing portal.",
+        "Download the SQ and ITT documents the moment they are available. Deadlines are short."
+      ],
+      "gotchas": "FTS only carries notices above the threshold (currently around £214k for services). Anything smaller goes to Contracts Finder. If a buyer has not yet migrated to Procurement Act notices, you may still see legacy Contracts Finder / OJEU style entries."
+    },
+
+    "contracts-finder": {
+      "name": "Contracts Finder",
+      "aliases": ["Contracts Finder"],
+      "intro": "Contracts Finder lists lower-value central government and NHS England contracts (roughly £12k upwards) plus pipelines and award notices. Same model as FTS: a notice service that points you at the buyer's actual e-sourcing platform.",
+      "hoops": [
+        "A free account lets you save searches and get email alerts. You do not need one to browse.",
+        "You will still need to register on whatever portal the notice links to (Atamis, ProContract, In-tend, etc.) to actually bid."
+      ],
+      "steps": [
+        "Set up a Contracts Finder account and save searches on CPV codes plus 'NHS', 'digital', 'AI', 'analytics', 'patient record'.",
+        "When a relevant notice lands, read the contract value and contract type. A 'Pipeline' notice is early warning, not a live tender.",
+        "Click the buyer's link, register on their portal, download the documents.",
+        "Mark the deadline in your calendar and work back: SQ first, then ITT, then clarifications window."
+      ],
+      "gotchas": "Some NHS trusts under-publish to Contracts Finder and only post on their own e-sourcing system. The MyClinical Growth daily brief picks up both."
+    },
+
+    "atamis": {
+      "name": "Atamis (Health Family eCommercial System)",
+      "aliases": ["Atamis", "Atamis - Health Family eCommercial System", "Atamis Health Family"],
+      "intro": "Atamis is the closest thing the NHS has to a single procurement portal. Most NHS trusts and NHS England use it to post tenders and run sourcing exercises. There is no public API. You browse via the supplier portal or you set up alerts.",
+      "hoops": [
+        "Free supplier registration is required to see most opportunity detail and to bid.",
+        "Registration asks for company information, financial details, certifications and a self-assessment of categories you supply.",
+        "Pick category codes carefully. The alerts you get are based on these. Tick too few and you miss opportunities; tick everything and your inbox is unreadable."
+      ],
+      "steps": [
+        "Register a supplier account at the Atamis Health Family supplier portal.",
+        "Complete your supplier profile fully. Buyers see this when shortlisting.",
+        "Set category alerts. The relevant ones for digital health usually live under IT services, clinical software, medical devices and consultancy.",
+        "When a notice lands, express interest in the system to receive the SQ/ITT documents.",
+        "Use the in-portal clarifications tab. Questions asked there are answered to all bidders, which can shape your response."
+      ],
+      "gotchas": "Atamis category coverage is uneven across trusts. A digital health tender at one trust may sit under 'IT consultancy', at another under 'Clinical systems'. Set multiple alerts."
+    },
+
+    "sbs": {
+      "name": "NHS Shared Business Services (SBS)",
+      "aliases": ["NHS Shared Business Services", "NHS SBS", "SBS", "Shared Business Services"],
+      "intro": "NHS SBS is a DHSC / Sopra Steria joint venture that runs national framework agreements used by around 40% of the NHS. They are the operator of the £900m Healthcare AI Solutions framework. SBS is the source most likely to release a major framework with almost no public noise. The 'stealth release' problem.",
+      "hoops": [
+        "You bid via the SBS supplier portal, which is separate from Atamis and Find a Tender.",
+        "Register a free supplier account with company details and category interests.",
+        "For most clinical or data frameworks you will need: ISO 27001 (or a credible roadmap), Cyber Essentials Plus, DCB0129 clinical safety case if your product affects clinical decisions, DTAC self-assessment, GDPR/DPIA documentation.",
+        "Framework competitions usually have a formal Selection Questionnaire (SQ) gate before you even get to write the technical response. Fail the SQ and you do not see the ITT."
+      ],
+      "steps": [
+        "Subscribe to the SBS framework news feed and the MyClinical Growth daily brief so you do not miss a launch.",
+        "Register on the SBS supplier portal and complete the profile.",
+        "When a framework opens, download the OJEU/FTS notice plus the SBS-specific framework documents. The lot structure is often the most important thing to read first.",
+        "Decide which lots you are realistically credible in. Bidding for too many lots dilutes the response and looks unfocused.",
+        "Build the SQ response against the actual scoring criteria, not against what you wish was being asked. Then write the ITT.",
+        "Submit at least 24 hours before the deadline. Portal upload failures in the final hour are common."
+      ],
+      "gotchas": "SBS frameworks often run for four years. Missing one means a four-year wait. The clinical safety and DTAC paperwork takes weeks, not days, so start it the moment you see a planned procurement notice (not the day the ITT drops)."
+    },
+
+    "nhs-supply-chain": {
+      "name": "NHS Supply Chain (Spark DPS and frameworks)",
+      "aliases": ["NHS Supply Chain", "NHS Supply Chain / Spark DPS", "Supply Chain Coordination Ltd", "Spark DPS"],
+      "intro": "NHS Supply Chain (Supply Chain Coordination Ltd) is the main route for products and consumables into the NHS. For digital health the most useful bit is Spark DPS, a dynamic purchasing system for innovative medtech and remote monitoring. Unlike a framework, Spark DPS is always open to new suppliers.",
+      "hoops": [
+        "Free registration on the Supply Chain supplier portal.",
+        "Spark DPS application asks for product description, evidence (clinical, regulatory, real-world), and answers to a structured questionnaire.",
+        "You need CE/UKCA marking for any medical device. For software-as-medical-device, that includes a current technical file."
+      ],
+      "steps": [
+        "Identify which Spark DPS category your product fits. Categories are narrow on purpose. The wrong category will get you rejected on a technicality.",
+        "Apply via the Spark DPS portal. Turnaround is usually weeks rather than months.",
+        "Once accepted, you sit on the DPS and respond to mini-competitions when NHS organisations call off.",
+        "Keep your DPS profile up to date. Buyers filter on it."
+      ],
+      "gotchas": "Spark DPS is strongest for devices and connected hardware. Pure software (e.g. SaaS clinical decision support) is a weaker fit and is better served by G-Cloud or the NHS Innovation Service."
+    },
+
+    "ccs-health": {
+      "name": "Crown Commercial Service (CCS) - Health",
+      "aliases": ["Crown Commercial Service", "Crown Commercial Service (CCS) - Health", "CCS", "CCS Health"],
+      "intro": "CCS runs cross-government frameworks. Several are health-relevant and the NHS uses them widely, including G-Cloud and digital agreements. To bid you go via the framework you care about, not via CCS as a single portal.",
+      "hoops": [
+        "Each CCS framework has its own qualification rules and its own bid window. Frameworks refresh on different cycles.",
+        "All CCS frameworks require Cyber Essentials at minimum. Most digital frameworks expect Cyber Essentials Plus.",
+        "Financial standing tests are typical. Two years of audited accounts and a turnover threshold relative to the contract value."
+      ],
+      "steps": [
+        "Use the CCS pipeline page to see which frameworks are open, in market, or coming.",
+        "Pick the one or two you are realistic for. Resist the urge to apply to everything.",
+        "Watch the planned-procurement notice on FTS for the precise SQ/ITT release date.",
+        "Apply within the window. Out-of-window applications cannot be considered (it is not negotiable)."
+      ],
+      "gotchas": "Frameworks have hard application windows. Miss them and you wait until the next refresh, which can be two to four years away."
+    },
+
+    "g-cloud": {
+      "name": "G-Cloud / Digital Marketplace",
+      "aliases": ["G-Cloud", "G-Cloud / Digital Marketplace", "Digital Marketplace", "GCloud"],
+      "intro": "G-Cloud is the main route for cloud and SaaS software into the public sector, including the NHS. If you sell software-as-a-service to clinicians or administrators, being on G-Cloud is the difference between being findable and not.",
+      "hoops": [
+        "Application windows open roughly annually. You can only apply when CCS opens a new iteration (G-Cloud 14, 15, etc.).",
+        "Cyber Essentials Plus is required.",
+        "You publish a service description, pricing card and terms. These are public and searchable. Buyers compare on them.",
+        "Pricing must be SFIA-aligned for any consultancy element, and per-user or per-instance for software."
+      ],
+      "steps": [
+        "Watch for the next G-Cloud application window opening on the Digital Marketplace site or in the daily brief.",
+        "Prepare your service descriptions in advance. Each service is a separate listing and needs its own description and pricing.",
+        "Submit during the window. Late submissions are not accepted.",
+        "Once listed, NHS buyers find you via search. The way you write your service title and description determines whether you appear."
+      ],
+      "gotchas": "Being on G-Cloud does not generate sales by itself. NHS buyers still need to find you and run a call-off mini-competition. Treat your G-Cloud listing as SEO: keywords matter."
+    },
+
+    "hssf": {
+      "name": "Health Systems Support Framework (HSSF)",
+      "aliases": ["Health Systems Support Framework", "HSSF"],
+      "intro": "HSSF is NHS England's framework for population health management, advanced analytics, and digital and service transformation suppliers. Status: legacy. NHS England has stopped initiating new call-offs and a successor has been signalled but not yet launched.",
+      "hoops": [
+        "If you are on it, existing call-offs continue.",
+        "New suppliers cannot currently get on. Wait for the successor framework announcement."
+      ],
+      "steps": [
+        "Track NHS England digital transformation pipeline announcements.",
+        "Subscribe to the daily brief so you see the successor framework launch the day it goes live."
+      ],
+      "gotchas": "Do not invest effort in trying to get onto HSSF now. The energy is better spent on G-Cloud, SBS frameworks, or NHS Innovation Service."
+    },
+
+    "nhs-england-procurement": {
+      "name": "NHS England Procurement & Commercial",
+      "aliases": ["NHS England", "NHS England - Procurement & Commercial", "NHS England Procurement", "NHS England Digital", "NHS Digital", "NHS Digital (legacy)", "NHSX"],
+      "intro": "NHS England runs its own central procurements for national programmes (e.g. the Federated Data Platform, national digital programmes). These tend to be very large, very visible, and often go via Atamis or directly via Find a Tender.",
+      "hoops": [
+        "NHS England programmes typically demand: ISO 27001, Cyber Essentials Plus, DCB0129/DCB0160, DTAC, GDPR-compliant DPIA, NHS Data Security and Protection Toolkit submission.",
+        "Past performance with the NHS is heavily weighted. First-time NHS suppliers should expect to partner with an established prime."
+      ],
+      "steps": [
+        "Track the NHS England procurement pipeline page and FTS notices labelled 'NHS England'.",
+        "For large programmes, decide early whether you are bidding as prime or sub. Then build the consortium accordingly.",
+        "Engage in the pre-market engagement events. They are not just for show. The questions you ask shape the final specification."
+      ],
+      "gotchas": "These are not SME-friendly procurements. If you are pre-revenue, the realistic route is to partner with a prime rather than to bid as lead."
+    },
+
+    "noe-cpc": {
+      "name": "NOE CPC (North of England Commercial Procurement Collaborative)",
+      "aliases": ["NOE CPC", "NOE CPC (NHS North of England Commercial Procurement Collaborative)", "NHS North of England Commercial Procurement Collaborative"],
+      "intro": "NOE CPC is a hosted procurement service that runs frameworks for trusts in the North of England (and beyond). They run several digital and clinical frameworks each year.",
+      "hoops": [
+        "Bid via the NOE CPC e-sourcing portal (currently In-tend).",
+        "Free supplier registration.",
+        "Standard NHS supplier requirements apply: insurance, financial standing, relevant certifications for the category."
+      ],
+      "steps": [
+        "Register on the In-tend portal NOE CPC uses.",
+        "Express interest in any tender you want to receive.",
+        "Submit within deadline. NOE CPC are strict on portal-only submission."
+      ],
+      "gotchas": "Their framework cycle is published in a yearly pipeline. Read it in January. Many launches happen Q2 and Q3."
+    },
+
+    "lpp": {
+      "name": "NHS London Procurement Partnership (LPP)",
+      "aliases": ["NHS LPP", "London Procurement Partnership", "NHS London Procurement Partnership (LPP)", "London Procurement Partnership (NHS LPP)"],
+      "intro": "LPP runs collaborative frameworks for NHS organisations in London and beyond. Digital and clinical frameworks come up regularly. Bidding goes via LPP's e-sourcing platform.",
+      "hoops": [
+        "Free supplier registration on the LPP portal.",
+        "Standard SQ process. Many LPP frameworks favour suppliers with existing London NHS deployments."
+      ],
+      "steps": [
+        "Register on the LPP portal.",
+        "Set alerts on the categories that match.",
+        "Express interest in tenders you want to receive."
+      ],
+      "gotchas": "London trusts tend to value clinical safety case maturity highly. Have your DCB0129 evidence ready to cite, not assemble."
+    },
+
+    "ee-collab": {
+      "name": "East of England NHS Collaborative Procurement Hub",
+      "aliases": ["East of England NHS Collaborative", "East of England NHS Collaborative Procurement Hub", "EE Collab"],
+      "intro": "Regional collaborative procurement hub. Runs frameworks and call-offs for East of England trusts. Smaller volume than NOE CPC or LPP, but the wins matter for regional credibility.",
+      "hoops": [
+        "Bid via the e-sourcing portal they specify in each notice (varies)."
+      ],
+      "steps": [
+        "Monitor their tender pipeline.",
+        "Register on whichever portal the live notice points to."
+      ],
+      "gotchas": "Smaller hub, less predictable cadence. Worth setting an alert on Atamis under 'East of England' rather than checking the hub site directly."
+    },
+
+    "nhs-commercial-solutions": {
+      "name": "NHS Commercial Solutions",
+      "aliases": ["NHS Commercial Solutions"],
+      "intro": "Hosted procurement service mainly serving trusts in the South East. Runs collaborative frameworks across clinical and corporate categories.",
+      "hoops": [
+        "Bid via the e-sourcing portal the notice points to.",
+        "Standard NHS supplier requirements apply."
+      ],
+      "steps": [
+        "Register on the relevant portal.",
+        "Express interest in tenders that match."
+      ],
+      "gotchas": "Coverage overlaps with LPP for some London-fringe trusts. The notice itself will tell you which hub is running it."
+    },
+
+    "healthtrust-europe": {
+      "name": "HealthTrust Europe",
+      "aliases": ["HealthTrust Europe", "HTE"],
+      "intro": "Private group purchasing organisation that sells contracts to NHS trusts. Less common for pure digital health, more common for medtech, devices and outsourced clinical services. Worth knowing about if your product crosses into medtech.",
+      "hoops": [
+        "Supplier registration on the HTE supplier portal.",
+        "Strong commercial terms expected. HTE is a buying group, not a charity."
+      ],
+      "steps": [
+        "Register if your product fits one of the HTE categories.",
+        "Engage with their commercial team before responding to a tender. The unwritten rules are real here."
+      ],
+      "gotchas": "Some trusts use HTE in parallel with NHS Supply Chain. Check whether the buyer is HTE-affiliated before pitching commercials."
+    },
+
+    "pcs": {
+      "name": "Public Contracts Scotland (PCS)",
+      "aliases": ["Public Contracts Scotland", "PCS"],
+      "intro": "Statutory notice service for Scotland. Equivalent of Find a Tender for English NHS buyers. NHS Scotland uses PCS to publish notices, and PCS-Tender is the linked e-sourcing platform.",
+      "hoops": [
+        "Free registration on PCS gives you alerts.",
+        "PCS-Tender (separate) is where you actually submit bids."
+      ],
+      "steps": [
+        "Register on PCS, set CPV and keyword alerts.",
+        "When a notice lands, follow through to PCS-Tender and register a bid account.",
+        "Submit before deadline. Late submissions are rejected automatically by the system."
+      ],
+      "gotchas": "NHS Scotland has its own DTAC equivalent (Digital Health & Care Innovation requirements). Do not assume the English DTAC counts."
+    },
+
+    "sell2wales": {
+      "name": "Sell2Wales",
+      "aliases": ["Sell2Wales"],
+      "intro": "Welsh equivalent of Find a Tender. NHS Wales (via NHS Wales Shared Services Partnership, NWSSP) publishes contracts here.",
+      "hoops": [
+        "Free registration for alerts.",
+        "Bids go via etenderwales or the platform the notice specifies."
+      ],
+      "steps": [
+        "Register on Sell2Wales.",
+        "Set alerts on NHS Wales and health-related CPV codes.",
+        "Follow through to the named platform to bid."
+      ],
+      "gotchas": "Welsh-language considerations apply for patient-facing services. Check the specification."
+    },
+
+    "etendersni": {
+      "name": "eTendersNI",
+      "aliases": ["eTendersNI", "eSourcingNI"],
+      "intro": "Northern Ireland's e-tendering platform. NI Health and Social Care procurement (BSO PaLS) uses this.",
+      "hoops": [
+        "Free registration.",
+        "NI HSC has a distinct procurement architecture. Trusts buy via BSO PaLS for most goods and services."
+      ],
+      "steps": [
+        "Register on eTendersNI.",
+        "Set alerts for HSC NI categories."
+      ],
+      "gotchas": "Lower volume than England, Scotland or Wales. Worth tracking if you want UK-wide coverage."
+    },
+
+    "nhs-innovation-service": {
+      "name": "NHS Innovation Service",
+      "aliases": ["NHS Innovation Service"],
+      "intro": "Not a tender portal. A national front door for innovators to get free, structured support from NHS England, the Health Innovation Networks, NICE and others. The right starting point if you are pre-procurement and want the NHS to actually take you seriously.",
+      "hoops": [
+        "Free to join.",
+        "You submit your innovation through a structured form. NHS Innovation Service assigns you support based on your maturity (idea, evidence-gathering, scaling).",
+        "It is not a sales route. Treat it as a 6-12 month readiness programme."
+      ],
+      "steps": [
+        "Register and submit your innovation at the NHS Innovation Service site.",
+        "Be honest about your evidence base. Overclaiming gets you assigned to the wrong support tier.",
+        "Engage with the assigned advisors. The introductions they make are the actual value."
+      ],
+      "gotchas": "Do not expect contracts to drop out of this. Expect a clearer evidence pathway, the right people in your network, and a stronger story by the time you go to procurement."
+    },
+
+    "nice-htap": {
+      "name": "NICE - National HealthTech Access Programme",
+      "aliases": ["NICE", "NICE - National HealthTech Access Programme", "NICE HealthTech"],
+      "intro": "NICE's access programme for digital health and medtech. Gets your product through evidence assessment and into a position where NHS commissioners can fund it (often via MTFM).",
+      "hoops": [
+        "Eligible products are typically digital health technologies and medtech with a credible cost-saving or outcomes case.",
+        "You submit an evidence package against the NICE Evidence Standards Framework (ESF).",
+        "Expect months, not weeks. This is the real route to system-wide adoption."
+      ],
+      "steps": [
+        "Read the NICE ESF carefully and self-assess your evidence tier.",
+        "If you are at Tier B or C with real-world evidence, apply via the NICE digital health team.",
+        "Build the evidence dossier they ask for. Independent evaluation is heavily weighted."
+      ],
+      "gotchas": "If your evidence is only Tier A (claims, no comparative data), invest in a real-world evaluation before applying. The committee will not approve on assertions."
+    },
+
+    "hin": {
+      "name": "Health Innovation Networks (15 regional)",
+      "aliases": ["Health Innovation Network", "Health Innovation Network (15 regional networks)", "HIN", "AHSN"],
+      "intro": "Formerly the Academic Health Science Networks. 15 regional bodies whose job is to help innovators get adopted by the NHS in their region. Free support, real networks, occasional small contracts.",
+      "hoops": [
+        "Free to engage. You pitch your innovation to the regional HIN.",
+        "Each HIN has its own focus areas. Check before you approach."
+      ],
+      "steps": [
+        "Identify the HIN(s) whose region and priorities match your product.",
+        "Use their innovator support form to introduce yourself.",
+        "Ask for introductions to specific trusts, ICBs or clinical leads. That is the real value."
+      ],
+      "gotchas": "HINs are not procurement bodies. They open doors. The actual contract still goes through a normal NHS procurement route."
+    },
+
+    "aac": {
+      "name": "Accelerated Access Collaborative (AAC)",
+      "aliases": ["Accelerated Access Collaborative", "AAC", "NHS England / Accelerated Access Collaborative", "NHSX / NIHR / Accelerated Access Collaborative"],
+      "intro": "AAC sits inside NHS England and exists to fast-track proven innovations into use. Their flagship lever is the MedTech Funding Mandate. They also run the Innovation for Healthcare Inequalities Programme (InHIP) and the Innovation Accelerator.",
+      "hoops": [
+        "AAC programmes are application-based and competitive. They want evidence, not pitches.",
+        "Most AAC routes require NICE guidance or equivalent independent endorsement of cost-effectiveness."
+      ],
+      "steps": [
+        "Identify the right AAC programme for your product (Innovation Accelerator if you are scaling, InHIP if your product addresses health inequalities, MTFM if NICE has approved you).",
+        "Apply during the open window. Windows are usually annual.",
+        "Lean on your HIN to support the application."
+      ],
+      "gotchas": "AAC programmes are signalling, not direct procurement. Selection means NHS England visibly endorses you, which makes ICB conversations easier."
+    },
+
+    "gp-it-futures": {
+      "name": "Tech Innovation Framework / GP IT Futures",
+      "aliases": ["GP IT Futures", "Tech Innovation Framework", "Tech Innovation Framework / GP IT Futures (Digital Care Services)", "TIF", "Digital Care Services"],
+      "intro": "TIF is the successor to GP IT Futures. The route for software bought via the Digital Care Services catalogue for primary care. If you sell anything that touches primary care, this is the gating step.",
+      "hoops": [
+        "Assurance against the NHS England Digital Care Services Capabilities and Standards. This is detailed and prescriptive.",
+        "DTAC, DCB0129, GDPR, NHS Data Security and Protection Toolkit submission.",
+        "Catalogue approval is staged. Expect months."
+      ],
+      "steps": [
+        "Read the relevant catalogue capability specification.",
+        "Self-assess against it honestly. Gaps mean rejection.",
+        "Apply via the Digital Care Services route. Buyer mini-competitions follow.",
+        "Once on, GP practices and PCNs can call you off the catalogue."
+      ],
+      "gotchas": "GP IT Futures continuity runs only to mid-2026. Anyone serious about primary care needs to be on TIF before then."
+    },
+
+    "mtfm": {
+      "name": "MedTech Funding Mandate (MTFM)",
+      "aliases": ["MedTech Funding Mandate", "MTFM"],
+      "intro": "MTFM mandates that NHS commissioners and providers fund a defined list of NICE-approved cost-saving technologies. Getting on the list means the NHS must pay for your product. It is the strongest commercial signal in the system.",
+      "hoops": [
+        "You need positive NICE guidance (Medical Technologies, Diagnostics, or HealthTech Assessment route) with a cost-saving conclusion.",
+        "The product must be ready to scale, not a pilot."
+      ],
+      "steps": [
+        "Get NICE evaluation first. Without it, MTFM is not available to you.",
+        "Once approved by NICE on cost-saving terms, AAC notifies you of eligibility for MTFM listing.",
+        "Listing brings active commissioner engagement and ICB rollout support."
+      ],
+      "gotchas": "MTFM is small (typically 5-10 products at a time). Getting on is a multi-year journey. Plan investment accordingly."
+    },
+
+    "ccs-tech": {
+      "name": "CCS technology & digital frameworks (beyond G-Cloud)",
+      "aliases": ["CCS technology", "CCS technology & digital frameworks (beyond G-Cloud)", "CCS digital"],
+      "intro": "CCS runs many digital frameworks beyond G-Cloud. Big Data and Analytics, Cyber Security Services, Network Services, Vertical Application Solutions, Digital Outcomes. NHS bodies use several of these.",
+      "hoops": [
+        "Each framework has its own application window and SQ rules.",
+        "Cyber Essentials Plus across the board. Often ISO 27001 too.",
+        "Sub-contractor disclosure is required. Plan your supply chain early."
+      ],
+      "steps": [
+        "Use the CCS pipeline page to plan your applications 6-12 months ahead.",
+        "Apply within the window for each framework that matches.",
+        "Once on, monitor the framework's call-off competitions for NHS buyers."
+      ],
+      "gotchas": "Application windows close. Set calendar reminders before each framework's expected refresh date. The cost of missing one is 2-4 years of exclusion."
+    },
+
+    "trust-esourcing": {
+      "name": "Trust / ICB e-sourcing platforms",
+      "aliases": ["Trust e-sourcing", "Trust / ICB e-sourcing platforms (ProContract, In-tend, Delta eSourcing, Jaggaer)", "ProContract", "In-tend", "Delta eSourcing", "Jaggaer"],
+      "intro": "Many NHS trusts and ICBs run their own procurements on commercial e-sourcing platforms (ProContract, In-tend, Delta eSourcing, Jaggaer). When you click through from a Contracts Finder or FTS notice, this is often where you end up.",
+      "hoops": [
+        "Each platform needs its own free supplier account.",
+        "Platforms are buyer-agnostic. The same login lets you bid on every trust that uses that platform."
+      ],
+      "steps": [
+        "Create accounts on at least: ProContract, In-tend, Delta eSourcing and Jaggaer. Free, takes 10 minutes each.",
+        "Set alerts where the platform allows it.",
+        "Always express interest in a notice via the buyer's chosen platform. That is the only way to receive the documents."
+      ],
+      "gotchas": "Some trusts run procurements only via their local platform, never via Atamis or Find a Tender. The MyClinical Growth daily brief catches what it can but trust portals are the long tail of NHS procurement."
+    },
+
+    "devolved": {
+      "name": "Devolved NHS national procurement bodies (NSS, NWSSP, BSO PaLS)",
+      "aliases": ["NSS", "NWSSP", "BSO PaLS", "Devolved NHS national procurement bodies (NSS, NWSSP, BSO PaLS)"],
+      "intro": "NHS Scotland (NSS National Procurement), NHS Wales (NWSSP) and Health and Social Care NI (BSO PaLS) each run their own national procurement bodies. Same idea as NHS Supply Chain in England but with different rules, portals and clinical safety regimes.",
+      "hoops": [
+        "Each devolved nation has its own supplier registration.",
+        "Scotland: NHS Scotland Information Governance and Cyber Security requirements (different from English DSP Toolkit).",
+        "Wales: NHS Wales Informatics Service requirements.",
+        "NI: BSO PaLS supplier portal."
+      ],
+      "steps": [
+        "Register on each devolved body's supplier portal if you intend to sell into that nation.",
+        "Map your English certifications to their equivalents. Some translate, some do not.",
+        "Plan for separate procurement cycles. The devolved nations do not follow NHS England's calendar."
+      ],
+      "gotchas": "DTAC is England-only. Scotland, Wales and NI each have their own digital health assessment regime. Confirm which one applies before promising compliance."
+    }
+  }
+}

@@ -135,11 +135,18 @@
       <input type="email" name="EMAIL" placeholder="you@yourhealthtech.com" aria-label="Email address" required>
       <button type="submit" class="btn btn-primary">Join the list</button>
       <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_1bcd8808cbe0feb644094ed66_d0dd920405" tabindex="-1" value=""></div>
-      <div class="freq-picker" role="radiogroup" aria-label="How often?">
-        <label><input type="radio" name="FREQUENCY" value="Daily" checked>Daily</label>
-        <label><input type="radio" name="FREQUENCY" value="Weekly">Weekly</label>
+      <div class="freq-checks" role="group" aria-label="How often?">
+        <span class="freq-label">How often?</span>
+        <label>
+          <input type="checkbox" data-freq="DAILY" checked>
+          <span><strong>Daily brief.</strong> Every new opportunity, with the signal, each morning. <span class="freq-sub">Best if you want to move on tenders the day they drop.</span></span>
+        </label>
+        <label>
+          <input type="checkbox" data-freq="WEEKLY" checked>
+          <span><strong>Weekly roundup.</strong> A Monday digest of the week's biggest moves. <span class="freq-sub">Lighter touch. Tick both if you want both.</span></span>
+        </label>
+        <span class="freq-sub">Change either any time from a link in every email.</span>
       </div>
-      <span class="freq-picker-note">Change this any time from a link in every email.</span>
     </form>
     <div class="form-msg" id="form-msg"></div>
     <p class="consent">By subscribing, you consent to receive the MyClinical Growth brief. Unsubscribe in one click. We don't share the list. Ever.</p>
