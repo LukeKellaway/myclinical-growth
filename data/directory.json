@@ -44,7 +44,7 @@
       "Type": "Framework operator",
       "Owner / operator": "NHS SBS (DHSC / Sopra Steria JV)",
       "Geographic scope": "England + UK-wide national frameworks",
-      "What it covers": "National framework agreements, incl. the £750m Healthcare AI Solutions framework (8 lots, closed 23 Jun 2026).",
+      "What it covers": "National framework agreements, incl. the £900m (inc VAT) Healthcare AI Solutions framework SBS10523 (8 lots, submissions close 23 Jun 2026, runs via SAP Ariba).",
       "URL": "https://www.sbs.nhs.uk/services/procurement",
       "Feed / API": "No",
       "Update cadence": "Periodic (framework launches)",
@@ -97,7 +97,7 @@
       "Feed / API": "No",
       "Update cadence": "Legacy, no new call-offs being initiated",
       "Login to view?": "No",
-      "Notes & relevance to digital health": "RE-CHECK: NHS England has stopped initiating new HSSF call-offs; existing ones continue. A refresh/successor has been signalled, watch for it."
+      "Notes & relevance to digital health": "NHS England has stopped initiating new HSSF call-offs; existing ones continue. A refresh/successor has been signalled, watch for it."
     },
     {
       "Source": "NHS England - Procurement & Commercial",
@@ -157,7 +157,7 @@
       "Feed / API": "Alerts only",
       "Update cadence": "Periodic",
       "Login to view?": "Registration for alerts",
-      "Notes & relevance to digital health": "RE-CHECK URL. TIER 3. Fourth member of NHS PiP."
+      "Notes & relevance to digital health": "Fourth member of NHS Procurement in Partnership (PiP)."
     },
     {
       "Source": "HealthTrust Europe",
@@ -205,7 +205,7 @@
       "Feed / API": "Alerts only",
       "Update cadence": "Continuous",
       "Login to view?": "Free registration for alerts",
-      "Notes & relevance to digital health": "RE-CHECK URL. CPV-code alerts."
+      "Notes & relevance to digital health": "CPV-code alerts."
     },
     {
       "Source": "NHS Innovation Service",
@@ -351,7 +351,7 @@
       "URL": "https://www.nihr.ac.uk",
       "Feed / alerts": "Funding opportunities page",
       "Cadence": "Programme-specific (some in waves)",
-      "Notes & relevance to digital health": "RE-CHECK current AI Award round status, runs in waves. HRCs offer co-development/evaluation access."
+      "Notes & relevance to digital health": "AI Award rounds run in waves; check current status. HRCs offer co-development/evaluation access."
     },
     {
       "Source": "Innovate UK",
@@ -483,7 +483,7 @@
       "URL": "https://www.england.nhs.uk",
       "Feed / alerts": "No central feed",
       "Cadence": "Episodic / policy-driven",
-      "Notes & relevance to digital health": "RE-CHECK regularly. Hardest to track and highest editorial value, exactly the 'stealth' problem from the procurement side."
+      "Notes & relevance to digital health": "Hardest to track and highest editorial value, exactly the 'stealth' problem from the procurement side."
     },
     {
       "Source": "Horizon Europe - Health Cluster (Cluster 1) & EIC Accelerator",
@@ -531,7 +531,7 @@
       "URL": "https://www.gov.uk/government/organisations/office-for-life-sciences",
       "Feed / alerts": "GOV.UK announcements",
       "Cadence": "Episodic / policy-driven",
-      "Notes & relevance to digital health": "RE-CHECK regularly. Policy-driven pots, high editorial value, hard to track via a feed."
+      "Notes & relevance to digital health": "Policy-driven pots, high editorial value, hard to track via a feed."
     },
     {
       "Source": "Regional & Combined Authority innovation funds + UK Shared Prosperity Fund",

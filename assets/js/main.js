@@ -176,8 +176,14 @@
   }
 
   function dirItem(r) {
-    var slug = portalSlugForSource(r["Source"]) || slugify(r["Source"]);
-    var guide = portalGuideBlockHtml(slug);
+    // Only resolve to a portal guide slug for procurement-group entries.
+    // Grant-group entries share the namespace but must not collide with
+    // procurement portals via the fuzzy alias match (e.g. "Health Innovation
+    // Networks - regional funds" must not pick up the HIN portal slug).
+    var isProc = r._group === "Procurement";
+    var portalSlug = isProc ? portalSlugForSource(r["Source"]) : null;
+    var slug = portalSlug || (isProc ? slugify(r["Source"]) : "grant-" + slugify(r["Source"]));
+    var guide = portalSlug ? portalGuideBlockHtml(portalSlug) : "";
     return (
       '<div class="dir-item" id="portal-' + esc(slug) + '">' +
         '<div class="dir-item-top">' +
