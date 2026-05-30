@@ -1,6 +1,6 @@
 {
-  "updated": "2026-05-30T22:04:33.764174Z",
-  "count": 3,
+  "updated": "2026-05-30T23:13:17.405079Z",
+  "count": 2,
   "opportunities": [
     {
       "id": "fts-050965-2026",
@@ -13,7 +13,7 @@
       "value": "GBP 12,000,000",
       "published": "2026-05-29T15:53:40+01:00",
       "deadline": "2026-06-29T10:00:00+01:00",
-      "summary": "Royal Free London NHS Foundation Trust is conducting a procurement for an Enhanced Virtual Care programme using the Competitive Process under the Health Care Services (Provider Selection Regime) Regulations 2023.<br/><br/>The Service provides digitally enabled proactive care for …",
+      "summary": "Royal Free London NHS Foundation Trust is conducting a procurement for an Enhanced Virtual Care programme using the Competitive Process under the Health Care Services (Provider Selection Regime) Regulations 2023. The Service provides digitally enabled proactive care for people wi…",
       "cpv": [
         "85323000"
       ],
@@ -38,28 +38,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-044475-2026",
-      "title": "Medication to Manage Problematic Sexual Arousal (MMPSA) Service for the South-West, North-West and North-East regions (initial pilot service)",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-069900",
-      "buyer": "NHS England",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 12,050,000",
-      "published": "2026-05-14T15:27:31+01:00",
-      "deadline": "2026-06-25T12:00:00+01:00",
-      "summary": "NHS Arden and Greater East Midlands Commissioning Support Unit (AGCSU), on behalf of NHS England (referred to as the Authority), is inviting suitably qualified and<br/>experienced providers to respond to this Competitive Process for the provision of a Medication to Manage Problem…",
-      "cpv": [
-        "85100000",
-        "85100000",
-        "85100000"
-      ],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
