@@ -15,8 +15,8 @@
 
 const crypto = require("crypto");
 
-const SUCCESS_URL = "/signing-up.html";
-const ERROR_URL   = "/signup-error.html";
+const SUCCESS_URL = "/signing-up";
+const ERROR_URL   = "/signup-error";
 
 exports.handler = async function (event) {
   if (event.httpMethod !== "POST") {

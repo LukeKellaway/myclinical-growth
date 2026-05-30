@@ -13,10 +13,13 @@ from build_digest import render
 
 opps = json.loads((ROOT / "data" / "opportunities.json").read_text())["opportunities"]
 grants = json.loads((ROOT / "data" / "grants.json").read_text())["grants"]
-html = render(opps, grants)
+# render() now returns (html, preheader); the preheader is what Mailchimp
+# sets as preview_text in the campaign settings. We only need the HTML here.
+html, preheader = render(opps, grants)
 
 out = ROOT / "preview_digest.html"
 out.write_text(html)
 print(f"Wrote: {out}")
 print(f"Items: {len(opps)} opportunities, {len(grants)} grants")
 print(f"Size: {len(html):,} chars")
+print(f"Preheader: {preheader}")

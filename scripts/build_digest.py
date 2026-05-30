@@ -88,16 +88,31 @@ def load(name):
 
 
 def recent(items, hours=24):
-    cutoff = dt.datetime.utcnow() - dt.timedelta(hours=hours)
+    """Return items published within the last `hours` UTC.
+
+    Timestamps from OCDS feeds and editorial files are a mix of UTC ("Z"),
+    BST (+01:00), and naive. The previous implementation just stripped the
+    timezone before parsing, which meant a notice published at 22:00 BST
+    yesterday (= 21:00 UTC) was treated as 22:00 UTC and could fall outside
+    the 24h window once the digest ran the next morning. Result: real new
+    items got filtered out and the digest fell back to "Quiet day" by
+    mistake. Now we parse with timezone awareness and compare in UTC.
+    """
+    cutoff = dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=hours)
     out = []
     for it in items:
         stamp = it.get("published") or it.get("updated") or ""
-        try:
-            d = dt.datetime.fromisoformat(stamp.replace("Z", "").split("+")[0])
-            if d >= cutoff:
-                out.append(it)
-        except (ValueError, AttributeError):
+        if not stamp:
             continue
+        try:
+            d = dt.datetime.fromisoformat(str(stamp).replace("Z", "+00:00"))
+        except (ValueError, TypeError):
+            continue
+        # Treat naive timestamps as UTC (matches how the poller writes them).
+        if d.tzinfo is None:
+            d = d.replace(tzinfo=dt.timezone.utc)
+        if d >= cutoff:
+            out.append(it)
     return out
 
 
@@ -142,7 +157,7 @@ def _item_card(it, accent="#4f8a6e"):
     # want the underlying notice. Keeps subscribers on the resource.
     item_id = it.get("id", "")
     if item_id:
-        url = f"{SITE_URL}/opportunity.html#{item_id}"
+        url = f"{SITE_URL}/opportunity#{item_id}"
     else:
         url = it.get("source_url") or SITE_URL
     source = it.get("source", "")
@@ -241,7 +256,10 @@ def render(opps, grants, is_quiet=False, weekly=False):
         if grants:
             summary_pieces.append(f'<span style="color:#8fcaa9;font-weight:800;">{len(grants)}</span> grant{"s" if len(grants) != 1 else ""}')
         summary = " &middot; ".join(summary_pieces) or f"Quiet {period_word} across both tracks"
-        preheader = f"{total} new this {period_word} across NHS procurement and UK healthtech funding."
+        # "today" reads oddly with "this" ("1 new this today") so only the
+        # weekly variant gets the "this" prefix.
+        preheader_period = "this week" if weekly else "today"
+        preheader = f"{total} new {preheader_period} across NHS procurement and UK healthtech funding."
         proc_subtitle = "NHS contracts and framework routes"
         grants_subtitle = "Non-dilutive UK healthtech funding"
         proc_track_label = "Track 1 &middot; Procurement"
@@ -251,7 +269,7 @@ def render(opps, grants, is_quiet=False, weekly=False):
         title=proc_track_label,
         subtitle=proc_subtitle,
         items=opps,
-        on_site_url=f"{SITE_URL}/opportunities.html",
+        on_site_url=f"{SITE_URL}/opportunities",
         browse_label="See all procurement",
         accent="#4f8a6e",
     )
@@ -259,12 +277,12 @@ def render(opps, grants, is_quiet=False, weekly=False):
         title=grants_track_label,
         subtitle=grants_subtitle,
         items=grants,
-        on_site_url=f"{SITE_URL}/grants.html",
+        on_site_url=f"{SITE_URL}/grants",
         browse_label="See all grants",
         accent="#1f3d2d",
     )
 
-    return f"""<!DOCTYPE html>
+    html = f"""<!DOCTYPE html>
 <html><head><meta charset="UTF-8"><title>MyClinical Growth daily brief</title></head>
 <body style="margin:0;padding:0;background:#eceae4;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#222823;">
   <div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#eceae4;opacity:0;">{preheader}</div>
@@ -298,9 +316,9 @@ def render(opps, grants, is_quiet=False, weekly=False):
             <tr><td style="background:#f8f7f2;border-radius:12px;padding:18px 20px;font-size:13.5px;color:#3a403a;line-height:1.6;">
               <div style="font-size:10.5px;color:#5f655f;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;">New</div>
               We&rsquo;re opening a small, paid placement for
-              <a href="{SITE_URL}/bid-writers.html" style="color:#4f8a6e;font-weight:700;text-decoration:none;">NHS bid writers</a>
+              <a href="{SITE_URL}/bid-writers" style="color:#4f8a6e;font-weight:700;text-decoration:none;">NHS bid writers</a>
               and
-              <a href="{SITE_URL}/capital.html" style="color:#4f8a6e;font-weight:700;text-decoration:none;">healthtech investors</a>.
+              <a href="{SITE_URL}/capital" style="color:#4f8a6e;font-weight:700;text-decoration:none;">healthtech investors</a>.
               Register your interest if you&rsquo;d like to be considered.
             </td></tr>
           </table>
@@ -309,10 +327,10 @@ def render(opps, grants, is_quiet=False, weekly=False):
         <!-- Footer -->
         <tr><td style="background:#0e1410;color:#aab1aa;padding:22px 32px;border-radius:0 0 14px 14px;font-size:12px;line-height:1.65;">
           <div style="margin-bottom:8px;">
-            <a href="{SITE_URL}/opportunities.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Procurement</a>
-            <a href="{SITE_URL}/grants.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Grants</a>
-            <a href="{SITE_URL}/directory.html" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Directory</a>
-            <a href="{SITE_URL}/submit.html?type=feedback" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Leave feedback</a>
+            <a href="{SITE_URL}/opportunities" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Procurement</a>
+            <a href="{SITE_URL}/grants" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Grants</a>
+            <a href="{SITE_URL}/directory" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Directory</a>
+            <a href="{SITE_URL}/submit?type=feedback" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Leave feedback</a>
           </div>
           You&rsquo;re receiving this because you subscribed to MyClinical Growth at <a href="{SITE_URL}" style="color:#8fcaa9;">growth.myclinical.co.uk</a>.
           Prefer this weekly instead of daily? <a href="*|UPDATE_PROFILE|*" style="color:#8fcaa9;">Manage your preferences</a>.
@@ -323,6 +341,11 @@ def render(opps, grants, is_quiet=False, weekly=False):
     </td></tr>
   </table>
 </body></html>"""
+    # Return both: render() now hands back the body HTML plus the plain-text
+    # preheader so main() can set Mailchimp's `preview_text` campaign field.
+    # Without that field Gmail and Apple Mail fall back to scraping the first
+    # visible line of body copy, which can pick up alt text or button labels.
+    return html, preheader
 
 
 def mc(method, path, payload=None):
@@ -461,7 +484,7 @@ def main():
         print(f"Quiet {period_word}: no new items in last {lookback_hours}h. "
               f"Falling back to {len(opps)} procurement + {len(grants)} grants by deadline urgency.")
 
-    html = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE)
+    html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE)
     today_ddmm = dt.date.today().strftime("%-d %b")
     period_word = "this week" if WEEKLY_MODE else "today"
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
@@ -503,11 +526,18 @@ def main():
                 ],
             }
 
+    # Mailchimp's preview_text is what Gmail and Apple Mail show beside the
+    # subject line in the inbox list. Strip the period_word HTML the
+    # preheader already includes; the API accepts plain text only.
+    import re as _re
+    preview_text = _re.sub(r"<[^>]+>", "", preheader)[:140]
+
     campaign = mc("POST", "/campaigns", {
         "type": "regular",
         "recipients": recipients,
         "settings": {
             "subject_line": subject,
+            "preview_text": preview_text,
             "title": f"Growth {brief_label} {today_iso}",
             "from_name": FROM_NAME,
             "reply_to": REPLY_TO,

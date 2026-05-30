@@ -143,7 +143,7 @@
       : '<p class="means">' + esc(o.summary || "") + "</p>";
     // Tile click now routes to our editorial detail page, not the source.
     // That keeps the user on-site and surfaces the "what it means" first.
-    var detailLink = "opportunity.html#" + encodeURIComponent(o.id || "");
+    var detailLink = "/opportunity#" + encodeURIComponent(o.id || "");
     var cardClass = "opp-card" + (closed ? " opp-card-closed" : "");
     return (
       '<div class="' + cardClass + '">' +
@@ -357,14 +357,14 @@
       root.innerHTML = '<div class="not-found">' +
         "<h2>We can't find that opportunity.</h2>" +
         "<p>It may have been renamed or removed. Try the full list:</p>" +
-        '<p><a class="btn btn-primary" href="opportunities.html">Browse procurement</a> ' +
-        '&nbsp;<a class="btn btn-ghost" href="grants.html">Browse grants</a></p>' +
+        '<p><a class="btn btn-primary" href="/opportunities">Browse procurement</a> ' +
+        '&nbsp;<a class="btn btn-ghost" href="/grants">Browse grants</a></p>' +
         "</div>";
       return;
     }
     var grant = isGrant(item);
     var trackLabel = grant ? "Grant" : "Procurement";
-    var backLink = grant ? "grants.html" : "opportunities.html";
+    var backLink = grant ? "/grants" : "/opportunities";
     var backLabel = grant ? "All grants" : "All procurement";
     var closed = isClosed(item);
     var d = daysUntil(item.deadline);
@@ -396,7 +396,7 @@
     var srcSlug = portalSlugForSource(item.source);
     if (item.source) {
       var srcHtml = srcSlug
-        ? '<a class="source-link" href="directory.html#portal-' + esc(srcSlug) + '">' + esc(item.source) + "</a>"
+        ? '<a class="source-link" href="/directory#portal-' + esc(srcSlug) + '">' + esc(item.source) + "</a>"
         : esc(item.source);
       meta.push("<strong>Source:</strong> " + srcHtml);
     }
@@ -415,11 +415,11 @@
       : "";
     var ctaInline = grant
       ? '<p class="detail-inline-cta">If you are looking for an investor backing UK healthtech at this stage, the ' +
-        '<a href="capital.html">Capital page</a> is the partner-listing route. Coming soon, register interest.</p>'
+        '<a href="/capital">Capital page</a> is the partner-listing route. Coming soon, register interest.</p>'
       : '<p class="detail-inline-cta">Need help writing this bid? Our ' +
-        '<a href="bid-writers.html">directory of NHS bid writers</a> opens shortly. ' +
+        '<a href="/bid-writers">directory of NHS bid writers</a> opens shortly. ' +
         'Looking ahead at the funding rung, see the ' +
-        '<a href="capital.html">Capital page</a>.</p>';
+        '<a href="/capital">Capital page</a>.</p>';
     // "First time applying here?" callout. Only renders when we have a
     // matching portal guide for this opportunity's source.
     var portalCallout = "";
@@ -430,7 +430,7 @@
           '<div class="portal-callout-label">Before you click through</div>' +
           '<p>First time applying via <strong>' + esc(p.name) + '</strong>? ' +
           'The portal has its own registration, qualification questionnaires and gotchas. ' +
-          '<a href="directory.html#portal-' + esc(srcSlug) + '">Read the how-to-apply guide &rarr;</a></p>' +
+          '<a href="/directory#portal-' + esc(srcSlug) + '">Read the how-to-apply guide &rarr;</a></p>' +
         "</div>";
     }
     var sourceLink = item.source_url
@@ -539,7 +539,7 @@
       }
       listEl.innerHTML = rows.length
         ? rows.map(trackCard).join("")
-        : '<div class="search-empty">Nothing matches that yet. Try a broader keyword, or <a href="submit.html">tip us off</a> if we should be tracking it.</div>';
+        : '<div class="search-empty">Nothing matches that yet. Try a broader keyword, or <a href="/submit">tip us off</a> if we should be tracking it.</div>';
       countEl.textContent = rows.length + " result" + (rows.length === 1 ? "" : "s");
       paintTabs();
     }
@@ -638,6 +638,36 @@
     }
   }
 
+  /* ---------- flag-banner live counts ----------
+     The flag banner at the top of opportunities, grants and directory
+     used to hard-code numbers ("18 grant programmes tracked") that drifted
+     as we added items. These three spans are now filled at runtime from
+     window.GROWTH_DATA so the banner is always honest. "Open" means
+     deadline in the future and status not Closed/Completed/Awarded. */
+  function fillFlagCounts() {
+    var procEl = document.getElementById("flag-count-procurement");
+    if (procEl) {
+      procEl.textContent = String(allOpportunities()
+        .filter(function (o) { return !isClosed(o); }).length);
+    }
+    var grantsEl = document.getElementById("flag-count-grants");
+    if (grantsEl) {
+      var g = (D.grants && D.grants.grants) || [];
+      grantsEl.textContent = String(g
+        .filter(function (x) { return !isClosed(x); }).length);
+    }
+    var dirEl = document.getElementById("flag-count-directory");
+    if (dirEl) {
+      var dir = D.directory || {};
+      var n = (dir.procurement_count || 0) + (dir.grant_count || 0);
+      // Fall back to the raw arrays if the count fields are missing.
+      if (!n) {
+        n = ((dir.procurement || []).length + (dir.grants || []).length);
+      }
+      dirEl.textContent = String(n);
+    }
+  }
+
   /* ---------- dispatch ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     var page = document.body.getAttribute("data-page");
@@ -649,6 +679,7 @@
     if (page === "search") renderSearch();
     wireSubscribe();
     stampUpdated();
+    fillFlagCounts();
   });
   // Detail page: re-render if the user navigates via hash (e.g. clicking
   // a related-item link on the same page).

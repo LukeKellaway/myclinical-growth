@@ -47,20 +47,41 @@ HEALTH_BUYER = re.compile(
     re.I,
 )
 
-# Central digital authorities. These buyers basically don't publish non-digital
-# procurement, so if a notice is from one of them and isn't hard-excluded,
-# auto-pass it without requiring a CPV or keyword hit. Catches soft-launched
-# pots that don't use procurement language in the title.
-CENTRAL_DIGITAL_BUYER = re.compile(
-    r"NHS England\b|NHS Digital|\bNHSX\b|NHS Transformation Directorate|"
-    r"Department of Health and Social Care|\bDHSC\b|"
-    r"NHS Shared Business Services|\bNHS\s*SBS\b|"
-    r"Health Education England|Genomics England|"
+# Buyers split into two tiers based on how digital their procurement is.
+#
+# STRONG_CENTRAL_BUYER: dedicated digital / technology / informatics shops.
+# These buyers genuinely don't publish non-digital procurement at meaningful
+# volume, so a notice from one of them that survives the hard-exclude is
+# auto-passed even without a CPV or keyword hit. Catches the policy-language
+# "stealth releases" that don't use procurement terminology.
+#
+# WEAK_CENTRAL_BUYER: large national / regional commissioners that BUY a lot
+# of digital but also commission ordinary clinical services (e.g. NHS England
+# commissions both NHSX-style platforms AND clinical pathway services like the
+# MMPSA medication service). Notices from these buyers must STILL show a CPV
+# or keyword signal to be kept, so a clinical-services contract from
+# NHS England no longer auto-passes the filter.
+STRONG_CENTRAL_BUYER = re.compile(
+    r"NHS Digital\b|\bNHSX\b|NHS Transformation Directorate|"
     r"NHS Business Services Authority|\bNHSBSA\b|"
-    r"NHS Arden|NHS Midlands and Lancashire|NHS South[, ]?Central[, ]?and West|"
+    r"Genomics England|"
+    r"NHS Shared Business Services|\bNHS\s*SBS\b|"
     r"NHS North of England Commercial Procurement Collaborative|\bNOE CPC\b|"
-    r"London Procurement Partnership|\bNHS LPP\b|"
+    r"London Procurement Partnership|\bNHS LPP\b",
+    re.I,
+)
+WEAK_CENTRAL_BUYER = re.compile(
+    r"\bNHS England\b|"
+    r"Department of Health and Social Care|\bDHSC\b|"
+    r"Health Education England|"
+    r"NHS Arden|NHS Midlands and Lancashire|NHS South[, ]?Central[, ]?and West|"
     r"East of England NHS Collaborative",
+    re.I,
+)
+# Back-compat alias used elsewhere in the file. Matches any central buyer of
+# either tier; the is_relevant logic now decides what to do per-tier.
+CENTRAL_DIGITAL_BUYER = re.compile(
+    STRONG_CENTRAL_BUYER.pattern + "|" + WEAK_CENTRAL_BUYER.pattern,
     re.I,
 )
 
@@ -88,9 +109,11 @@ WEAK_HEALTHCARE_CPV = (
 )
 
 KEYWORDS = re.compile(
-    r"\bdigital\b|software|\bAI\b|artificial intelligence|machine learning|"
+    # \bdigital matches "digital" AND "digitally" / "digitalisation"; same trick
+    # on \bvirtual\b ... \bcare\b so "virtual care", "virtual ward" both hit.
+    r"\bdigital|software|\bAI\b|artificial intelligence|machine learning|"
     r"\bEPR\b|electronic patient record|electronic health record|telehealth|"
-    r"telemedicine|remote monitoring|virtual ward|patient app|patient portal|"
+    r"telemedicine|remote monitoring|virtual ward|virtual care|patient app|patient portal|"
     r"analytics|interoperab|\bSaaS\b|\bcloud\b|e-health|ehealth|"
     r"health tech|healthtech|clinical system|data platform|informatics|"
     r"digital health|wearable|\bAI as a Medical Device\b|\bAIaMD\b|"
@@ -202,9 +225,11 @@ BORDERLINE_CAP = 25
 
 def is_relevant(buyer_name, title, description, cpvs):
     blob = f"{title} {description}"
-    is_central = bool(CENTRAL_DIGITAL_BUYER.search(buyer_name or ""))
-    # Allow central digital authorities (NHSBSA, NHS Digital, NOE CPC, etc.)
-    # through even if they don't match the broader HEALTH_BUYER pattern.
+    is_strong_central = bool(STRONG_CENTRAL_BUYER.search(buyer_name or ""))
+    is_weak_central = bool(WEAK_CENTRAL_BUYER.search(buyer_name or ""))
+    is_central = is_strong_central or is_weak_central
+    # Allow central authorities through even if they don't match the broader
+    # HEALTH_BUYER pattern (e.g. "Genomics England" doesn't contain "NHS").
     if not is_central and not HEALTH_BUYER.search(buyer_name or ""):
         return False
     STATS["nhs_buyer_match"] += 1
@@ -213,17 +238,24 @@ def is_relevant(buyer_name, title, description, cpvs):
         STATS["hard_excluded"] += 1
         return False
     cpvs_str = [str(c) for c in cpvs]
-    # Central digital authorities don't publish non-digital procurement at any
-    # meaningful volume. If the buyer is one of these and the notice survived
-    # the hard-exclude, pass it through without requiring CPV or keyword.
-    # This catches the soft-launched NHS England pots that describe themselves
-    # in policy / programme language rather than procurement language.
-    if is_central:
+    strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
+    kw_hit = bool(KEYWORDS.search(blob))
+
+    # Dedicated digital buyers (NHS Digital, NHSX, NHS Transformation
+    # Directorate, NHSBSA, NOE CPC, Genomics England, NHS SBS, LPP) basically
+    # never publish non-digital procurement. Auto-pass — this catches the
+    # policy-language stealth drops that don't use procurement terminology.
+    if is_strong_central:
         STATS["central_buyer_pass"] += 1
         STATS["kept"] += 1
         return True
-    strong_cpv = any(c.startswith(STRONG_DIGITAL_CPV) for c in cpvs_str)
-    kw_hit = bool(KEYWORDS.search(blob))
+
+    # Weak central buyers (NHS England, DHSC, HEE, regional CSUs) DO procure
+    # plenty of non-digital things — clinical pathway services, medication
+    # programmes, workforce contracts. They must still show a digital signal,
+    # same gate as a regular trust. Closes the loophole that previously let
+    # the MMPSA medication-service notice through just because the buyer was
+    # NHS England.
     if strong_cpv:
         STATS["strong_cpv_pass"] += 1
         STATS["kept"] += 1
@@ -257,6 +289,30 @@ def iso(ts):
     return ts.strftime("%Y-%m-%dT%H:%M:%S")
 
 
+_HTML_TAG_RE = re.compile(r"<[^>]+>")
+_HTML_ENTITY_RE = re.compile(r"&(?:nbsp|amp|lt|gt|quot|apos|#\d+|#x[0-9a-fA-F]+);")
+_HTML_ENTITY_MAP = {
+    "&nbsp;": " ", "&amp;": "&", "&lt;": "<", "&gt;": ">",
+    "&quot;": '"', "&apos;": "'",
+}
+
+
+def _strip_html(text):
+    """OCDS descriptions from Find a Tender often contain literal HTML
+    (most commonly `<br/>`, `<p>`, `<strong>`, numeric entities). We render
+    these as plain text on the site, so leaving the tags in means subscribers
+    see `<br/><br/>` in their inbox and on opportunity detail pages. Strip
+    tags, decode common entities, and collapse whitespace."""
+    if not text:
+        return ""
+    out = _HTML_TAG_RE.sub(" ", str(text))
+    # Decode known entities cheaply; anything else stays as-is.
+    out = _HTML_ENTITY_RE.sub(lambda m: _HTML_ENTITY_MAP.get(m.group(0), " "), out)
+    # Collapse repeated whitespace (br/br left double spaces, etc.).
+    out = re.sub(r"\s+", " ", out).strip()
+    return out
+
+
 def parse_release(release, source, source_base):
     """Turn one OCDS release into our opportunity shape, or None if not relevant."""
     tender = release.get("tender") or {}
@@ -268,8 +324,8 @@ def parse_release(release, source, source_base):
             if "buyer" in (p.get("roles") or []):
                 buyer_name = p.get("name") or buyer_name
 
-    title = tender.get("title") or release.get("title") or ""
-    description = tender.get("description") or ""
+    title = _strip_html(tender.get("title") or release.get("title") or "")
+    description = _strip_html(tender.get("description") or "")
     items = tender.get("items") or []
     cpvs = []
     for it in items:
