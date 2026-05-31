@@ -409,7 +409,10 @@ def poll_find_a_tender(since):
     for _ in range(MAX_PAGES):
         try:
             data = fetch_json(url)
-        except (URLError, HTTPError) as e:
+        except (URLError, HTTPError, TimeoutError) as e:
+            # TimeoutError covers socket read timeouts that escape urlopen
+            # un-wrapped. Without this, the whole job dies on a transient
+            # API hiccup. Falling through to break keeps what we already have.
             print(f"[FTS] fetch failed: {e}", file=sys.stderr)
             break
         releases = data.get("releases", [])
@@ -435,7 +438,8 @@ def poll_contracts_finder(since):
                f"&publishedFrom={iso(since)}")
         try:
             data = fetch_json(url)
-        except (URLError, HTTPError) as e:
+        except (URLError, HTTPError, TimeoutError) as e:
+            # See note in poll_find_a_tender.
             print(f"[CF] fetch failed: {e}", file=sys.stderr)
             break
         results = data.get("results") or data.get("releases") or []
