@@ -1,45 +1,5 @@
 {
-  "updated": "2026-06-03T23:07:58.949366Z",
-  "count": 2,
-  "opportunities": [
-    {
-      "id": "fts-050965-2026",
-      "title": "The Provision of Enhanced Virtual Care Project",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06a933",
-      "buyer": "Royal Free London NHS Foundation Trust",
-      "type": "Tender",
-      "category": "Remote monitoring",
-      "value": "GBP 12,000,000",
-      "published": "2026-05-29T15:53:40+01:00",
-      "deadline": "2026-06-29T10:00:00+01:00",
-      "summary": "Royal Free London NHS Foundation Trust is conducting a procurement for an Enhanced Virtual Care programme using the Competitive Process under the Health Care Services (Provider Selection Regime) Regulations 2023. The Service provides digitally enabled proactive care for people wi…",
-      "cpv": [
-        "85323000"
-      ],
-      "tags": [
-        "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-049462-2026",
-      "title": "Fertility EPR System",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06a595",
-      "buyer": "Barts Health NHS Trust",
-      "type": "Tender",
-      "category": "Clinical systems & EPR",
-      "value": "GBP 350,000",
-      "published": "2026-05-27T10:45:10+01:00",
-      "deadline": "2026-06-15T12:00:00+01:00",
-      "summary": "For the Provision of a Fertility EPR System",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
-      ],
-      "means": ""
-    }
-  ]
+  "updated": "2026-06-04T03:00:41.395843Z",
+  "count": 0,
+  "opportunities": []
 }
