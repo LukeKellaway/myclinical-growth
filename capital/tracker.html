@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capital Tracker · MyClinical Growth</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz@1,6..72&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f9f7;--bg2:#ffffff;--card:#ffffff;--card2:#f1f5f2;--line:#e5ebe6;--line2:#d3ddd6;
+  --ink:#16211b;--mut:#5d6c63;--mut2:#8a988f;--accent:#179a5a;--accent2:#0f8049;--accentink:#ffffff;
+  --A:#179a5a;--Abg:rgba(23,154,90,.10);--B:#b07d12;--Bbg:rgba(214,160,38,.14);--C:#c0584c;--Cbg:rgba(192,88,76,.12);
+  --radius:14px;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}.serif{font-family:Newsreader,Georgia,serif;font-style:italic}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.ticker{font-size:12px;color:#9fb3a8;background:#0a120d;border-bottom:1px solid rgba(255,255,255,.06);padding:7px 0;text-align:center}
+.ticker b{color:#46d98a;font-weight:600}
+nav{position:sticky;top:0;z-index:50;background:rgba(14,22,18,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.07)}
+.navin{display:flex;align-items:center;gap:26px;height:62px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;color:#eef4f0}
+.logo .dot{width:10px;height:10px;border-radius:3px;background:#46d98a;box-shadow:0 0 14px rgba(70,217,138,.6)}
+.navlinks{display:flex;gap:20px;margin-left:8px;font-size:14px;color:#9fb3a8}
+.navlinks a:hover{color:#fff}.navlinks a.active{color:#fff;font-weight:600}
+.navcta{margin-left:auto;font-size:13px;font-weight:600;background:#46d98a;color:#06281a;padding:9px 15px;border-radius:9px}
+@media(max-width:860px){.navlinks{display:none}}
+.hero{padding:50px 0 30px;background:#0e1612;color:#eef4f0;background-image:radial-gradient(820px 360px at 84% -20%,rgba(70,217,138,.16),transparent 60%)}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:#46d98a}
+h1{font-size:clamp(28px,4.4vw,48px);line-height:1.05;letter-spacing:-1px;font-weight:800;margin:14px 0 12px;max-width:20ch;color:#fff}
+.lede{font-size:16.5px;color:#b9cabf;max-width:64ch}.lede b{color:#fff;font-weight:600}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 16px;min-width:130px}
+.stat b{display:block;font-size:22px;font-weight:800;color:#fff;font-family:Newsreader,serif;font-style:normal}
+.stat span{font-size:12px;color:#8aa092}
+.stat.warn b{color:#ff9b8e}
+.tool{padding:0 0 10px;margin-top:-26px;position:relative;z-index:2}
+.bar{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 16px 40px rgba(14,22,18,.12);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:13px;padding:7px 13px;border-radius:999px;border:1px solid var(--line2);background:var(--bg2);color:var(--mut);cursor:pointer;user-select:none}
+.chip:hover{border-color:var(--accent2);color:var(--ink)}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+.search{margin-left:auto;flex:1;min-width:160px}
+.search input{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--ink);border-radius:9px;padding:9px 11px;font-size:13px;font-family:inherit;outline:none}
+.search input:focus{border-color:var(--accent2)}
+.caveat{margin:14px 2px 0;font-size:12.5px;color:var(--mut2);font-style:italic;background:#fff;border:1px solid var(--line);border-left:3px solid var(--B);border-radius:8px;padding:10px 13px}
+.rmeta{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:18px 0 12px;flex-wrap:wrap}
+.rmeta .count{font-size:14px;color:var(--mut)}.rmeta .count b{color:var(--ink);font-size:20px;font-weight:800;font-family:Newsreader,serif;font-style:normal}
+.feed{display:flex;flex-direction:column;gap:11px}
+.d{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px;display:flex;gap:16px;flex-wrap:wrap;transition:.14s}
+.d:hover{border-color:var(--line2);box-shadow:0 8px 22px rgba(22,33,27,.07)}
+.d .main{flex:1;min-width:240px}
+.d .top{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.d h3{margin:0;font-size:16px;letter-spacing:-.2px}
+.typ{font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.4px}
+.typ.equity{color:#1666c0;background:rgba(22,102,192,.1)}
+.typ.debt{color:#7a5cc0;background:rgba(122,92,192,.12)}
+.typ.grant{color:var(--A);background:var(--Abg)}
+.typ.exit{color:var(--C);background:var(--Cbg)}
+.d .what{font-size:13px;color:var(--mut);margin:4px 0 8px}
+.inv{font-size:13px;color:var(--ink)}
+.inv .m{color:var(--accent);font-weight:600}
+.inv .m::before{content:"\2713 ";font-weight:700}
+.d .right{text-align:right;min-width:120px}
+.amt{font-size:20px;font-weight:800;font-family:Newsreader,serif;font-style:normal;color:var(--ink)}
+.dt{font-size:12px;color:var(--mut2)}
+.tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;margin-top:8px}
+.tg{font-size:10.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+.tg.uk{color:var(--A);background:var(--Abg);border-color:rgba(23,154,90,.3)}
+.tg.over{color:var(--C);background:var(--Cbg);border-color:rgba(192,88,76,.3)}
+.tg.unconf{color:var(--B);background:var(--Bbg);border-color:rgba(214,160,38,.3)}
+.src{font-size:12px;color:var(--accent);font-weight:600;display:block;margin-top:8px}
+.src:hover{text-decoration:underline}
+.empty{text-align:center;padding:40px;color:var(--mut)}
+footer{border-top:1px solid var(--line);margin-top:34px;padding:28px 0 50px;color:var(--mut2);font-size:13px}
+.fnote{font-size:12px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:18px}
+.mock{position:fixed;bottom:14px;right:14px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:6px 11px;border-radius:999px;z-index:60;box-shadow:0 6px 20px rgba(0,0,0,.4)}
+</style>
+</head>
+<body>
+
+<!-- ===== PRIVATE PREVIEW GATE (remove this block to make public) ===== -->
+<div id="cap-gate" style="position:fixed;inset:0;z-index:99999;background:#0e1612;display:flex;align-items:center;justify-content:center;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+  <div style="width:min(380px,90vw);background:#142019;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:30px 28px;box-shadow:0 24px 60px rgba(0,0,0,.5)">
+    <div style="display:flex;align-items:center;gap:9px;margin-bottom:18px">
+      <span style="width:10px;height:10px;border-radius:3px;background:#46d98a;box-shadow:0 0 14px rgba(70,217,138,.6)"></span>
+      <span style="font-weight:700;color:#eef4f0;font-size:15px">MyClinical Growth</span>
+    </div>
+    <div style="font-size:13px;color:#9fb3a8;margin-bottom:16px;line-height:1.5">Private preview. Enter the password to view the Capital section.</div>
+    <input id="cap-pw" type="password" placeholder="Password" autocomplete="off"
+      style="width:100%;background:#0e1612;border:1px solid rgba(255,255,255,.18);color:#eef4f0;border-radius:9px;padding:11px 13px;font-size:14px;font-family:inherit;outline:none;margin-bottom:10px">
+    <div id="cap-err" style="display:none;font-size:12.5px;color:#ff9b8e;margin-bottom:10px">Wrong password.</div>
+    <button id="cap-go" style="width:100%;background:#46d98a;color:#06281a;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer">View preview</button>
+  </div>
+</div>
+<script>
+(function(){
+  var H="4027b669f229c75b282baa715d82fb0b27690a534b4f22311b162f867c9076f3";
+  var gate=document.getElementById("cap-gate");
+  async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join("");}
+  function unlock(){gate.parentNode.removeChild(gate);}
+  if(sessionStorage.getItem("cap_ok")==="1"){unlock();return;}
+  document.body.style.overflow="hidden";
+  async function go(){
+    var v=document.getElementById("cap-pw").value;
+    if(await sha(v)===H){sessionStorage.setItem("cap_ok","1");document.body.style.overflow="";unlock();}
+    else{document.getElementById("cap-err").style.display="block";}
+  }
+  document.getElementById("cap-go").addEventListener("click",go);
+  document.getElementById("cap-pw").addEventListener("keydown",function(e){if(e.key==="Enter")go();});
+  document.getElementById("cap-pw").focus();
+})();
+</script>
+<!-- ===== END PRIVATE PREVIEW GATE ===== -->
+
+<div class="ticker">Concept mockup · <b>Capital Tracker</b> · updated daily from public announcements · the live companion to the Capital Finder directory</div>
+<nav><div class="wrap navin">
+  <div class="logo"><span class="dot"></span>MyClinical&nbsp;Growth</div>
+  <div class="navlinks"><a>Procurement</a><a>Grants</a><a>Directory</a><a>Bid Writers</a><a class="active">Capital</a><a>Submit</a><a>About</a></div>
+  <a class="navcta">Get the brief</a>
+</div></nav>
+<header class="hero"><div class="wrap">
+  <div class="eyebrow">Capital · Live deal tracker</div>
+  <h1>Who is actually <span class="serif">backing UK healthtech.</span></h1>
+  <p class="lede">A daily feed of the funding rounds, grants and exits moving through UK healthtech, with the investors named and matched to our <b>Capital Finder directory</b>, and every exit flagged for whether it stayed UK-owned or went overseas.</p>
+  <div class="stats">
+    <div class="stat"><b id="s-deals">0</b><span>deals tracked</span></div>
+    <div class="stat"><b id="s-cap">0</b><span>disclosed capital</span></div>
+    <div class="stat"><b id="s-match">0</b><span>name a directory firm</span></div>
+    <div class="stat warn"><b id="s-over">0</b><span>exit value gone overseas</span></div>
+  </div>
+</div></header>
+<section class="tool"><div class="wrap">
+  <div class="bar">
+    <div class="seg" id="typeChips"></div>
+    <div class="search"><input id="q" type="text" placeholder="search company or investor..."></div>
+  </div>
+  <p class="caveat">This feed is assembled automatically from public announcements, so it is fast but not infallible, and now and then it gets a name, a number or a deal wrong. If you spot something off, <a href="#" style="color:var(--accent);font-weight:600">tell us</a> and we will fix it.</p>
+  <div class="rmeta"><div class="count"><b id="cnt">0</b> deals <span id="sel"></span></div></div>
+  <div class="feed" id="feed"></div>
+</div></section>
+<footer><div class="wrap">
+  <div class="fnote"><b>Information only.</b> This tracker is commentary and journalism, not financial, investment or regulatory advice, and not a financial promotion. It reports publicly announced deals; inclusion is not an endorsement. Figures are indicative and, where converted from other currencies, approximate.</div>
+  <p>© 2026 MyClinical Growth. Built so UK healthtech gets a fair shot, owned and banked in the UK.</p>
+</div></footer>
+<div class="mock">MOCKUP</div>
+<script>
+const DEALS = [{"key": "isomorphic-labs-series-b-2025-04", "company": "Isomorphic Labs", "what": "DeepMind spinout building an AI drug-design engine", "type": "equity", "round": "Series B", "amount_gbp": 1600000000, "date": "2025-04-01", "investors": ["Thrive Capital", "Alphabet", "GV", "UK Sovereign AI Fund"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.isomorphiclabs.com/articles/isomorphic-labs-announces-series-b-investment-round", "confidence": "high", "status": "published"}, {"key": "verdiva-bio-series-a-2025-01", "company": "Verdiva Bio", "what": "Oral GLP-1/amylin drugs for obesity", "type": "equity", "round": "Series A", "amount_gbp": 327000000, "date": "2025-01-10", "investors": ["Forbion", "General Atlantic", "RA Capital", "OrbiMed"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://tech.eu/2025/01/10/verdiva-bio-launches-with-411m-series-a-raise-for/", "confidence": "high", "status": "published"}, {"key": "maxion-therapeutics-series-a-2025-03", "company": "Maxion Therapeutics", "what": "Antibody KnotBody drugs for ion-channel and GPCR diseases", "type": "equity", "round": "Series A", "amount_gbp": 58000000, "date": "2025-03-06", "investors": ["General Catalyst", "British Patient Capital", "BGF", "LifeArc Ventures", "Eli Lilly"], "directory_matches": ["British Patient Capital", "BGF (Business Growth Fund)", "LifeArc"], "acquirer_origin": null, "source_url": "https://www.british-business-bank.co.uk/news-and-events/news/british-patient-capital-announces-ps10m-investment-maxion-therapeutics-part-72", "confidence": "high", "status": "published"}, {"key": "beacon-therapeutics-series-c-2026-01", "company": "Beacon Therapeutics", "what": "AAV gene therapy for blinding retinal diseases", "type": "equity", "round": "Series C", "amount_gbp": 59000000, "date": "2026-01-15", "investors": ["Goldman Sachs Alternatives", "Syncona", "Oxford Science Enterprises", "Forbion", "Advent Life Sciences"], "directory_matches": ["Syncona", "Oxford Science Enterprises (OSE)"], "acquirer_origin": null, "source_url": "https://forbion.com/news-insights/news/beacon-therapeutics-announces-closing-of-oversubscribed-series-c-financing-for-over-75-million/", "confidence": "high", "status": "published"}, {"key": "latent-labs-series-a-2025-02", "company": "Latent Labs", "what": "AI foundation models for programmable biology and protein design", "type": "equity", "round": "Series A", "amount_gbp": 39000000, "date": "2025-02-12", "investors": ["Radical Ventures", "Sofinnova Partners", "8VC", "Kindred Capital"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://techcrunch.com/2025/02/12/founded-by-deepmind-alumnus-latent-labs-launches-with-50m-to-make-biology-programmable/", "confidence": "high", "status": "published"}, {"key": "trimtech-therapeutics-seed-2025-03", "company": "TRIMTECH Therapeutics", "what": "Targeted protein degradation for neurodegenerative disease", "type": "equity", "round": "Seed", "amount_gbp": 25000000, "date": "2025-03-06", "investors": ["Cambridge Innovation Capital", "SV Health Investors (Dementia Discovery Fund)", "Pfizer Ventures", "Eli Lilly", "Cambridge Enterprise Ventures"], "directory_matches": ["Cambridge Innovation Capital (CIC)", "SV Health Investors"], "acquirer_origin": null, "source_url": "https://www.uktech.news/biotech/cambridge-innovation-capital-co-leads-25m-seed-round-for-trimtech-therapeutics-20250306", "confidence": "high", "status": "published"}, {"key": "cmr-surgical-debt-equity-2025-04", "company": "CMR Surgical", "what": "Versius soft-tissue surgical robot", "type": "debt", "round": "Debt + equity", "amount_gbp": 154000000, "date": "2025-04-02", "investors": ["Trinity Capital"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.uktechnews.info/2025/04/02/cmr-surgical-secures-more-than-154-million-debt-and-equity-investment-from-investors-including-trinity-capital/", "confidence": "high", "status": "published"}, {"key": "cera-series-c-2025-01", "company": "Cera", "what": "AI-led digital-first home healthcare", "type": "equity", "round": "Series C", "amount_gbp": 123000000, "date": "2025-01-12", "investors": ["BDT & MSD Partners", "Schroders Capital"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.digitalhealth.net/2025/01/cera-secures-more-than-123m-to-roll-out-ai-led-home-healthcare/", "confidence": "high", "status": "published"}, {"key": "cyted-health-series-b-2025-09", "company": "Cyted Health", "what": "Non-invasive early oesophageal cancer diagnostics", "type": "equity", "round": "Series B", "amount_gbp": 33000000, "date": "2025-09-01", "investors": ["EQT Life Sciences", "Advent Life Sciences", "British Business Bank", "Morningside", "BGF"], "directory_matches": ["British Business Bank (equity programmes)", "Morningside Ventures", "BGF (Business Growth Fund)"], "acquirer_origin": null, "source_url": "https://www.finsmes.com/2025/09/cyted-health-raises-usd44m-in-series-b-funding.html", "confidence": "high", "status": "published"}, {"key": "skin-analytics-series-b-2025-04", "company": "Skin Analytics", "what": "AI autonomous skin-cancer detection device (DERM)", "type": "equity", "round": "Series B", "amount_gbp": 15000000, "date": "2025-04-25", "investors": ["Intrepid Growth Partners", "Hoxton Ventures", "Nesta"], "directory_matches": ["Hoxton Ventures"], "acquirer_origin": null, "source_url": "https://www.digitalhealth.net/2025/04/skin-analytics-raises-15m-to-expand-ai-skin-cancer-detection-tech/", "confidence": "high", "status": "published"}, {"key": "brainomix-series-c-2025-03", "company": "Brainomix", "what": "Oxford spinout; AI imaging for stroke and lung fibrosis", "type": "equity", "round": "Series C", "amount_gbp": 14000000, "date": "2025-03-18", "investors": ["Parkwalk Advisors", "Boehringer Ingelheim Venture Fund", "IP Group", "LifeSci Capital"], "directory_matches": ["Parkwalk Advisors", "Boehringer Ingelheim Venture Fund"], "acquirer_origin": null, "source_url": "https://www.prnewswire.com/news-releases/brainomix-completes-14m-18m-series-c-round-to-advance-its-transformative-ai-imaging-technology-in-healthcare-302406210.html", "confidence": "high", "status": "published"}, {"key": "sava-technologies-series-a-2025-07", "company": "Sava Technologies", "what": "Wearable microsensor biosensor (glucose and beyond)", "type": "equity", "round": "Series A", "amount_gbp": 14000000, "date": "2025-07-01", "investors": ["Balderton Capital", "Pentland Ventures"], "directory_matches": ["Balderton Capital"], "acquirer_origin": null, "source_url": "https://www.eu-startups.com/2025/07/glucose-is-only-the-beginning-london-based-sava-technologies-raises-e16-6-million-for-its-wearable-microsensor-technology/", "confidence": "high", "status": "published"}, {"key": "lindus-health-series-b-2025-01", "company": "Lindus Health", "what": "AI-enabled clinical trials platform (Citrus)", "type": "equity", "round": "Series B", "amount_gbp": 44000000, "date": "2025-01-20", "investors": ["Balderton Capital", "Visionaries Club", "Creandum", "Firstminute", "Seedcamp"], "directory_matches": ["Balderton Capital", "Seedcamp"], "acquirer_origin": null, "source_url": "https://www.balderton.com/news/lindus-health-raises-55m-to-transform-the-clinical-trial-landscape/", "confidence": "high", "status": "published"}, {"key": "numan-series-b-2025-07", "company": "Numan", "what": "Preventative digital health: obesity, men's health, diagnostics", "type": "debt", "round": "Series B + debt", "amount_gbp": 45000000, "date": "2025-07-18", "investors": ["Big Pi Ventures", "White Star Capital", "Novator Partners", "HSBC Innovation Banking"], "directory_matches": ["HSBC Innovation Banking (UK)"], "acquirer_origin": null, "source_url": "https://htn.co.uk/2025/07/18/numan-raises-45-million-in-series-b-funding/", "confidence": "high", "status": "published"}, {"key": "evaro-series-a-2026-01", "company": "Evaro", "what": "NHS-licensed white-label digital pharmacy and clinical platform", "type": "equity", "round": "Series A", "amount_gbp": 18300000, "date": "2026-01-27", "investors": ["AlbionVC", "Simplyhealth Ventures", "Exceptional Ventures", "Cornerstone VC"], "directory_matches": ["AlbionVC", "Simplyhealth Ventures"], "acquirer_origin": null, "source_url": "https://www.uktechnews.info/2026/01/27/evaro-secures-18-3-million-series-a-investment-led-by-albionvc/", "confidence": "high", "status": "published"}, {"key": "myway-digital-health-equity-2025-09", "company": "MyWay Digital Health", "what": "AI diabetes self-management, NHS-deployed", "type": "equity", "round": "Equity", "amount_gbp": 3000000, "date": "2025-09-02", "investors": ["Foresight Group"], "directory_matches": ["Foresight Group"], "acquirer_origin": null, "source_url": "https://htn.co.uk/2025/09/02/myway-digital-health-sees-3-million-investment/", "confidence": "high", "status": "published"}, {"key": "pocdoc-pre-a-2024-12", "company": "PocDoc", "what": "Smartphone point-of-care diagnostics (Healthy Heart Check)", "type": "equity", "round": "Pre-A", "amount_gbp": 5000000, "date": "2024-12-01", "investors": ["MMC Ventures", "Molten Ventures", "Simplyhealth Ventures", "KHP Ventures"], "directory_matches": ["MMC Ventures", "Molten Ventures", "Simplyhealth Ventures"], "acquirer_origin": null, "source_url": "https://pocdoc.co/articles/uk-digital-diagnostics-startup-secures-largest-pre-a-funding-round-for-over-5-million", "confidence": "high", "status": "published"}, {"key": "healthera-series-a-ext-2025-04", "company": "Healthera", "what": "Digital pharmacy and NHS prescription platform", "type": "equity", "round": "Series A extension", "amount_gbp": 2000000, "date": "2025-04-01", "investors": ["Committed Capital", "Cambridge Enterprise", "Innovate UK"], "directory_matches": ["Committed Capital", "Innovate UK (UKRI)"], "acquirer_origin": null, "source_url": "https://committedcapital.co.uk/healthera-2m-investment-round/", "confidence": "high", "status": "published"}, {"key": "hormona-seed-2025-05", "company": "Hormona", "what": "At-home AI hormone testing for women's health", "type": "equity", "round": "Seed", "amount_gbp": 6600000, "date": "2025-05-01", "investors": ["Voima Ventures", "SuperNode Global", "DLF Ventures", "Techstars"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.eu-startups.com/2025/05/hormona-a-healthtech-startup-enabling-women-to-track-understand-and-optimise-their-hormones-raises-e7-8-million/", "confidence": "high", "status": "published"}, {"key": "emm-seed-2025-11", "company": "Emm", "what": "Smart connected menstrual cup and cycle-tracking app", "type": "equity", "round": "Seed", "amount_gbp": 6800000, "date": "2025-11-19", "investors": ["Lunar Ventures", "Labcorp Venture Fund", "Tiny VC", "BlueLion Global"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.uktechnews.info/2025/11/19/emm-secures-6-8-million-seed-investment-led-by-lunar-ventures/", "confidence": "high", "status": "published"}, {"key": "shemed-series-a-2025-10", "company": "SheMed", "what": "Women's GLP-1 weight-management platform", "type": "equity", "round": "Series A", "amount_gbp": 37300000, "date": "2025-10-01", "investors": ["Undisclosed"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.digitalhealth.net/2025/10/female-founded-uk-healthtech-startup-reaches-unicorn-status/", "confidence": "medium", "status": "published"}, {"key": "matresa-pre-seed-2026-02", "company": "Matresa", "what": "AI preventative maternal-health screening", "type": "equity", "round": "Pre-seed", "amount_gbp": 315000, "date": "2026-02-17", "investors": ["SFC Capital"], "directory_matches": ["SFC Capital"], "acquirer_origin": null, "source_url": "https://www.uktechnews.info/2026/02/17/matresa-secures-315k-pre-seed-investment-led-by-sfc-capital/", "confidence": "high", "status": "published"}, {"key": "kneu-health-seed-2025-10", "company": "Kneu Health", "what": "Precision neurology platform; Oxford spinout", "type": "equity", "round": "Seed", "amount_gbp": 4200000, "date": "2025-10-09", "investors": ["Oxford Science Enterprises", "Cedars-Sinai", "JIMCO"], "directory_matches": ["Oxford Science Enterprises (OSE)"], "acquirer_origin": null, "source_url": "https://www.uktechnews.info/2025/10/09/kneu-health-secures-4-2-million-seed-investment-co-led-by-oxford-science-enterprises-and-cedars-sinai/", "confidence": "high", "status": "published"}, {"key": "camgene-therapeutics-seed-2025-11", "company": "CamGene Therapeutics", "what": "RNA therapeutics for hearing loss; Cambridge spinout", "type": "equity", "round": "Seed", "amount_gbp": null, "date": "2025-11-01", "investors": ["UK Innovation & Science Seed Fund", "Eos Advisory", "Parkwalk Advisors", "Cambridge Enterprise Ventures"], "directory_matches": ["Eos Advisory", "Parkwalk Advisors"], "acquirer_origin": null, "source_url": "https://www.enterprise.cam.ac.uk/news/camgene-therapeutics-announces-seed-round-to-advance-rna-therapeutics-for-hearing-loss/", "confidence": "high", "status": "published"}, {"key": "glycanage-round-2025-12", "company": "GlycanAge", "what": "Glycan-based ageing and inflammation diagnostics", "type": "equity", "round": "Funding round", "amount_gbp": 6300000, "date": "2025-12-01", "investors": ["Fifth Quarter Ventures", "Guinness Ventures", "BrightCap Ventures"], "directory_matches": ["Guinness Ventures"], "acquirer_origin": null, "source_url": "https://www.eu-startups.com/2025/12/uk-longevity-startup-glycanage-raises-e7-4-million-to-bring-glycan-based-ageing-diagnostics-into-mainstream-healthcare/", "confidence": "high", "status": "published"}, {"key": "strolll-series-a-2025-03", "company": "Strolll", "what": "AR glasses for neuro-rehab (Parkinson's, stroke, MS)", "type": "equity", "round": "Series A", "amount_gbp": 10350000, "date": "2025-03-11", "investors": ["IW Capital"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.uktechnews.info/2025/03/11/strolll-secures-10-35-million-series-a-investment-led-by-iw-capital/", "confidence": "high", "status": "published"}, {"key": "medishout-series-a-2025-07", "company": "MediShout", "what": "Centralised digital ops platform for hospital staff", "type": "equity", "round": "Series A", "amount_gbp": 6600000, "date": "2025-07-01", "investors": ["Heal Capital", "Nickleby Capital", "Meridian Health Ventures"], "directory_matches": [], "acquirer_origin": null, "source_url": "https://www.digitalhealth.net/2025/07/pitchfest-finalist-medishout-secures-6-6m-series-a-funding/", "confidence": "high", "status": "published"}, {"key": "lateral-seed-2026-02", "company": "Lateral", "what": "Health and financial-wellbeing plan for over-60s", "type": "equity", "round": "Seed", "amount_gbp": 2500000, "date": "2026-02-01", "investors": ["Augmentum Fintech", "Triple Point", "Tiny VC"], "directory_matches": ["Triple Point Ventures"], "acquirer_origin": null, "source_url": "https://techfundingnews.com/lateral-lands-2-5m-from-augmentum-for-active-seniors-insurance/", "confidence": "medium", "status": "published"}, {"key": "sbri-cancer-programme-2025-07", "company": "NHS Cancer Programme cohort (7 companies)", "what": "Late-stage early cancer detection and diagnosis", "type": "grant", "round": "Grant (SBRI)", "amount_gbp": 14400000, "date": "2025-07-10", "investors": ["SBRI Healthcare"], "directory_matches": ["SBRI Healthcare (NHS England)"], "acquirer_origin": null, "source_url": "https://htn.co.uk/2025/07/10/14-4-million-awarded-to-tech-and-innovation-projects-under-nhs-cancer-programme/", "confidence": "high", "status": "published"}, {"key": "sbri-womens-health-2025-02", "company": "Women's health cohort (14 innovations)", "what": "Gynae, hormonal and maternal-health innovations", "type": "grant", "round": "Grant (SBRI)", "amount_gbp": 1300000, "date": "2025-02-20", "investors": ["SBRI Healthcare"], "directory_matches": ["SBRI Healthcare (NHS England)"], "acquirer_origin": null, "source_url": "https://htn.co.uk/2025/02/20/sbri-healthcare-awards-1-3-million-in-funding-for-14-innovations-supporting-womens-health/", "confidence": "high", "status": "published"}, {"key": "innovate-uk-biomedical-catalyst-2025", "company": "Biomedical Catalyst cohort (67 companies)", "what": "Feasibility-stage health innovation grants", "type": "grant", "round": "Grant (Innovate UK)", "amount_gbp": 6600000, "date": "2025-06-01", "investors": ["Innovate UK"], "directory_matches": ["Innovate UK (UKRI)", "Biomedical Catalyst (Innovate UK + MRC)"], "acquirer_origin": null, "source_url": "https://healthinnovationnetwork.com/news/innovate-uk-launches-5-new-biomedical-catalyst-accelerators/", "confidence": "high", "status": "published"}, {"key": "nihr-i4i-fast4-2025-07", "company": "NIHR i4i FAST round 4 (35 projects)", "what": "Early medtech innovations incl. brain injury", "type": "grant", "round": "Grant (NIHR i4i)", "amount_gbp": 3000000, "date": "2025-07-01", "investors": ["NIHR i4i"], "directory_matches": ["NIHR i4i FAST"], "acquirer_origin": null, "source_url": "https://www.digitalhealth.net/2025/07/two-technologies-tackling-brain-injury-awarded-3m-nihr-funding/", "confidence": "high", "status": "published"}, {"key": "cardmedic-innovate-uk-2025-07", "company": "CardMedic", "what": "AI-enabled clinical communication and translation", "type": "grant", "round": "Grant (Innovate UK SMART)", "amount_gbp": 411000, "date": "2025-07-01", "investors": ["Innovate UK"], "directory_matches": ["Innovate UK (UKRI)"], "acquirer_origin": null, "source_url": "https://www.htworld.co.uk/news/digital-health/cardmedic-secures-411000-innovate-uk-grant-to-transform-healthcare-communication-barriers-sb25/", "confidence": "high", "status": "published"}, {"key": "organox-terumo-2025-08", "company": "OrganOx", "what": "Automated normothermic organ-preservation device", "type": "exit", "round": "Acquisition", "amount_gbp": 1110000000, "date": "2025-08-26", "investors": ["Terumo Corporation"], "directory_matches": [], "acquirer_origin": "overseas:Japan", "source_url": "https://www.uktech.news/medtech/japans-terumo-acquires-oxford-health-tech-in-1-5bn-deal-20250826", "confidence": "high", "status": "published"}, {"key": "owen-mumford-embecta-2025", "company": "Owen Mumford", "what": "Drug-delivery and self-injection medical devices", "type": "exit", "round": "Acquisition", "amount_gbp": 150000000, "date": "2025-09-01", "investors": ["Embecta Corp"], "directory_matches": [], "acquirer_origin": "overseas:US", "source_url": "https://www.insidermedia.com/news/midlandssouth-east/medical-device-manufacturer-sold-to-us-listed-firm-in-150m-deal-forvis-mazars-advises", "confidence": "high", "status": "published"}, {"key": "congenica-seqone-2025-09", "company": "Congenica", "what": "AI-powered genomic analysis; Sanger spinout", "type": "exit", "round": "Acquisition", "amount_gbp": null, "date": "2025-09-01", "investors": ["SeqOne Genomics"], "directory_matches": [], "acquirer_origin": "overseas:France", "source_url": "https://www.eu-startups.com/2025/09/montpellier-based-seqone-acquires-cambridge-based-congenica-to-create-a-global-leader-in-ai-powered-genomic-medicine/", "confidence": "high", "status": "published"}, {"key": "medicus-doctolib-2026-05", "company": "Medicus", "what": "NHS GP electronic patient record / GP IT", "type": "exit", "round": "Acquisition", "amount_gbp": null, "date": "2026-05-06", "investors": ["Doctolib"], "directory_matches": [], "acquirer_origin": "overseas:France", "source_url": "https://htn.co.uk/2026/05/06/doctolib-plans-for-100m-uk-investment-into-digital-primary-care-acquiring-medicus/", "confidence": "high", "status": "published"}, {"key": "care-at-home-cera-2025", "company": "Care at Home Services", "what": "Home care provider (acquired by Cera)", "type": "exit", "round": "Acquisition", "amount_gbp": null, "date": "2025-09-01", "investors": ["Cera"], "directory_matches": [], "acquirer_origin": "UK", "source_url": "https://www.homecareinsight.co.uk/cera-acquires-care-at-home-services/", "confidence": "high", "status": "published"}];
+const TYPES=[["all","All"],["equity","Equity"],["debt","Debt"],["grant","Grants"],["exit","Exits"]];
+const state={type:"all",q:""};
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+function fmt(n){if(n==null)return null;if(n>=1e9)return '£'+(n/1e9).toFixed(n%1e9?1:0)+'bn';if(n>=1e6)return '£'+(n/1e6).toFixed(n%1e6?1:0)+'m';if(n>=1e3)return '£'+Math.round(n/1e3)+'k';return '£'+n;}
+const tc=document.getElementById('typeChips');
+TYPES.forEach(([k,l])=>{const c=el('div','chip'+(k=='all'?' on':''),l);c.onclick=()=>{state.type=k;[...tc.children].forEach(x=>x.classList.remove('on'));c.classList.add('on');render();};tc.appendChild(c);});
+document.getElementById('q').oninput=e=>{state.q=e.target.value.toLowerCase().trim();render();};
+// header stats (whole feed)
+document.getElementById('s-deals').textContent=DEALS.length;
+const totCap=DEALS.filter(d=>d.type!=='exit').reduce((a,d)=>a+(d.amount_gbp||0),0);
+document.getElementById('s-cap').textContent=fmt(totCap);
+document.getElementById('s-match').textContent=DEALS.filter(d=>d.directory_matches&&d.directory_matches.length).length;
+const over=DEALS.filter(d=>d.type==='exit'&&d.acquirer_origin&&d.acquirer_origin.startsWith('overseas')).reduce((a,d)=>a+(d.amount_gbp||0),0);
+document.getElementById('s-over').textContent=fmt(over);
+function render(){
+  let out=DEALS.filter(d=>{
+    if(state.type!=='all'&&d.type!==state.type)return false;
+    if(state.q){const blob=(d.company+' '+d.what+' '+(d.investors||[]).join(' ')).toLowerCase();if(!blob.includes(state.q))return false;}
+    return true;
+  });
+  out.sort((a,b)=>b.date.localeCompare(a.date));
+  document.getElementById('cnt').textContent=out.length;
+  document.getElementById('sel').textContent=state.type==='all'?'· newest first':('· '+TYPES.find(t=>t[0]===state.type)[1].toLowerCase());
+  const f=document.getElementById('feed');f.innerHTML='';
+  if(!out.length){f.appendChild(el('div','empty','Nothing matches that filter. Try All, or clear the search.'));return;}
+  out.forEach(d=>{
+    const row=el('div','d');
+    const main=el('div','main');
+    const top=el('div','top');
+    top.appendChild(el('h3',null,d.company));
+    top.appendChild(el('span','typ '+d.type,d.type==='exit'?'Exit':d.type));
+    main.appendChild(top);
+    main.appendChild(el('div','what',d.what));
+    const inv=el('div','inv');
+    const parts=(d.investors||[]).map(i=>{const isM=(d.directory_matches||[]).some(m=>m.toLowerCase().includes(i.toLowerCase())||i.toLowerCase().includes(m.split(' (')[0].toLowerCase()));return isM?'<span class="m">'+i+'</span>':i;});
+    inv.innerHTML=(d.type==='exit'?'Acquirer: ':'Backers: ')+(parts.join(', ')||'undisclosed');
+    main.appendChild(inv);
+    const a=el('a','src','Source ↗');a.href=d.source_url;a.target='_blank';main.appendChild(a);
+    const right=el('div','right');
+    right.appendChild(el('div','amt',fmt(d.amount_gbp)||'undisclosed'));
+    right.appendChild(el('div','dt',d.round+' · '+d.date.slice(0,7)));
+    const tags=el('div','tags');
+    if(d.type==='exit'&&d.acquirer_origin){const o=d.acquirer_origin.startsWith('overseas');tags.appendChild(el('span','tg '+(o?'over':'uk'),o?('overseas · '+d.acquirer_origin.split(':')[1]):'UK-owned'));}
+    if(d.directory_matches&&d.directory_matches.length)tags.appendChild(el('span','tg',d.directory_matches.length+' in directory'));
+    if(d.confidence&&d.confidence!=='high')tags.appendChild(el('span','tg unconf','unconfirmed'));
+    right.appendChild(tags);
+    row.appendChild(main);row.appendChild(right);
+    f.appendChild(row);
+  });
+}
+render();
+</script>
+</body>
+</html>
