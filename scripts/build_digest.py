@@ -235,7 +235,176 @@ def _section(title, subtitle, items, on_site_url, browse_label, accent):
       <tr><td>{cta_html}</td></tr>"""
 
 
-def render(opps, grants, is_quiet=False, weekly=False):
+# --- capital markets news section ------------------------------------------
+# Single source of truth: data/capital-deals.json, the same file that powers
+# capital/tracker.html. Each deal: company, what, type (equity/debt/grant/
+# exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches,
+# acquirer_origin, source_url, confidence, status. The rolling 12-month
+# disclosed-capital figure below mirrors the tracker page's own calculation
+# (last 365 days vs the 365 before, non-exit deals only) so the email and the
+# page never disagree.
+CAPITAL_ACCENT = "#b07d12"  # amber — distinct from procurement sage / grants forest
+
+
+def load_capital_deals():
+    p = DATA / "capital-deals.json"
+    if not p.exists():
+        return []
+    try:
+        blob = json.loads(p.read_text())
+    except (ValueError, OSError):
+        return []
+    if isinstance(blob, dict):
+        return blob.get("deals") or blob.get("items") or []
+    return blob if isinstance(blob, list) else []
+
+
+def _fmt_gbp(n):
+    """Mirror the tracker page's fmt(): £1.6bn / £40m / £870k / £315."""
+    if n is None:
+        return None
+    if n >= 1_000_000_000:
+        v = n / 1_000_000_000
+        return f"£{v:.1f}bn" if n % 1_000_000_000 else f"£{int(v)}bn"
+    if n >= 1_000_000:
+        v = n / 1_000_000
+        return f"£{v:.1f}m" if n % 1_000_000 else f"£{int(v)}m"
+    if n >= 1_000:
+        return f"£{round(n / 1_000)}k"
+    return f"£{n}"
+
+
+def _capital_tracker(deals):
+    """Rolling 12mo disclosed capital (non-exit) and YoY delta vs prior 12mo."""
+    today = dt.date.today()
+    fund = [d for d in deals if (d.get("type") != "exit")]
+
+    def agg(lo, hi):
+        rows = [d for d in fund if (pd := _parse_date(d.get("date"))) and lo <= pd < hi]
+        cap = sum(d.get("amount_gbp") or 0 for d in rows)
+        return len(rows), cap
+
+    n_now, cap_now = agg(today - dt.timedelta(days=365), today + dt.timedelta(days=1))
+    n_prev, cap_prev = agg(today - dt.timedelta(days=730), today - dt.timedelta(days=365))
+    delta = round((cap_now - cap_prev) / cap_prev * 100) if cap_prev > 0 else None
+    return {"n_now": n_now, "cap_now": cap_now, "n_prev": n_prev, "cap_prev": cap_prev, "delta": delta}
+
+
+def _capital_card(d):
+    company = d.get("company", "")
+    what = d.get("what", "")
+    dtype = (d.get("type") or "").lower()
+    round_ = d.get("round", "")
+    amount = _fmt_gbp(d.get("amount_gbp")) or "Undisclosed"
+    date_s = (d.get("date") or "")[:10]
+    investors = d.get("investors") or []
+    source_url = d.get("source_url") or ""
+    label = "Acquirer" if dtype == "exit" else "Backers"
+    backers = ", ".join(investors) if investors else "undisclosed"
+    type_label = {"equity": "Equity", "debt": "Debt", "grant": "Grant", "exit": "Exit"}.get(dtype, dtype.title())
+    source_html = (
+        f'<a href="{source_url}" style="color:{CAPITAL_ACCENT};font-size:12px;font-weight:700;text-decoration:none;">Source &rarr;</a>'
+        if source_url else ""
+    )
+    return f"""
+      <tr><td style="padding:7px 0;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e8e6dd;border-radius:11px;">
+          <tr><td style="padding:16px 18px;border-left:3px solid {CAPITAL_ACCENT};border-top-left-radius:11px;border-bottom-left-radius:11px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="vertical-align:top;">
+                  <span style="font-size:16px;font-weight:800;color:#0e1410;letter-spacing:-0.01em;">{company}</span>
+                  <span style="display:inline-block;margin-left:8px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:{CAPITAL_ACCENT};background:rgba(176,125,18,.12);padding:2px 8px;border-radius:999px;vertical-align:middle;">{type_label}</span>
+                </td>
+                <td align="right" style="vertical-align:top;white-space:nowrap;">
+                  <span style="font-size:16px;font-weight:800;color:#0e1410;">{amount}</span>
+                </td>
+              </tr>
+            </table>
+            <div style="font-size:13px;color:#3a403a;line-height:1.5;margin-top:6px;">{what}</div>
+            <div style="font-size:12px;color:#5f655f;margin-top:8px;">{round_} &middot; {date_s} &middot; {label}: {backers}</div>
+            <div style="margin-top:8px;">{source_html}</div>
+          </td></tr>
+        </table>
+      </td></tr>"""
+
+
+def build_capital_section(weekly=False):
+    """Bottom-of-email capital markets block. Returns "" when no data file."""
+    deals = load_capital_deals()
+    if not deals:
+        return ""
+
+    today = dt.date.today()
+    dated = [d for d in deals if _parse_date(d.get("date"))]
+    dated.sort(key=lambda d: _parse_date(d.get("date")), reverse=True)
+
+    # Window: prior day for daily, prior 7 days for the Monday roll-up.
+    window_days = 7 if weekly else 1
+    cutoff = today - dt.timedelta(days=window_days)
+    in_window = [d for d in dated if _parse_date(d.get("date")) >= cutoff]
+
+    max_cards = 4 if weekly else 3
+    if in_window:
+        cards_data = in_window[:max_cards]
+        period = "this week" if weekly else "yesterday"
+        intro = f"{len(in_window)} deal{'s' if len(in_window) != 1 else ''} {period}"
+    else:
+        # Sparse days: show the latest deals regardless so the section never
+        # looks dead (Luke's call). Make the recency explicit.
+        cards_data = dated[:max_cards]
+        period = "this week" if weekly else "in the last day"
+        intro = f"Nothing new {period} &middot; latest deals"
+
+    cards = "".join(_capital_card(d) for d in cards_data)
+
+    # Rolling 12-month tracker line.
+    t = _capital_tracker(deals)
+    cap_now = _fmt_gbp(t["cap_now"]) or "£0"
+    # Lead with the round-count change: it is robust. Capital totals swing on a
+    # single mega-round (one £1.6bn raise can read as a fake "market crash"), so
+    # we do NOT headline the capital percentage.
+    if t["n_prev"] > 0:
+        rdelta = round((t["n_now"] - t["n_prev"]) / t["n_prev"] * 100)
+        up = rdelta >= 0
+        arrow = "&uarr;" if up else "&darr;"
+        colour = "#2f7d4f" if up else "#a3492f"
+        delta_html = (
+            f'<span style="color:{colour};font-weight:800;">{arrow} {abs(rdelta)}%</span>'
+            f'<span style="color:#8a918a;font-weight:600;"> deal count vs prior 12 months ({t["n_prev"]} &rarr; {t["n_now"]})</span>'
+        )
+    else:
+        delta_html = '<span style="color:#8a918a;font-weight:700;">vs prior year: building baseline</span>'
+
+    tracker_html = f"""
+      <tr><td style="padding:4px 0 14px;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#0e1410;border-radius:12px;">
+          <tr><td style="padding:18px 20px;">
+            <div style="font-size:10.5px;color:#d6b66a;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Rolling 12-month tracker</div>
+            <div style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-0.02em;margin-top:6px;">{cap_now}</div>
+            <div style="font-size:13px;color:#aab1aa;margin-top:2px;">disclosed capital into UK healthtech &middot; {t['n_now']} rounds, last 12 months</div>
+            <div style="font-size:13px;margin-top:8px;">{delta_html}</div>
+            <div style="font-size:11px;color:#7c837c;margin-top:8px;line-height:1.45;">Totals swing on a single large round, so deal count is the steadier signal. Covers only publicly disclosed deals on our system.</div>
+          </td></tr>
+        </table>
+      </td></tr>"""
+
+    return f"""
+        <tr><td style="background:#fff;padding:8px 32px 30px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="padding:18px 0 4px;"><div style="height:1px;background:#e8e6dd;"></div></td></tr>
+            <tr><td style="padding:6px 0 14px;">
+              <div style="background:{CAPITAL_ACCENT};color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:inline-block;padding:6px 13px;border-radius:999px;">Capital markets</div>
+              <div style="font-size:22px;font-weight:800;color:#0e1410;margin-top:12px;letter-spacing:-0.015em;line-height:1.25;">Who&rsquo;s backing UK healthtech</div>
+              <div style="font-size:13px;color:#5f655f;margin-top:3px;font-weight:600;">{intro}</div>
+            </td></tr>
+            {tracker_html}
+            <tr><td><table width="100%" cellpadding="0" cellspacing="0">{cards}</table></td></tr>
+          </table>
+        </td></tr>"""
+
+
+def render(opps, grants, is_quiet=False, weekly=False, capital_html=""):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
     period_word = "week" if weekly else "today"
@@ -323,6 +492,7 @@ def render(opps, grants, is_quiet=False, weekly=False):
             </td></tr>
           </table>
         </td></tr>
+        {capital_html}
 
         <!-- Footer -->
         <tr><td style="background:#0e1410;color:#aab1aa;padding:22px 32px;border-radius:0 0 14px 14px;font-size:12px;line-height:1.65;">
@@ -436,6 +606,15 @@ def main():
                 pass
         lookback_hours = 24 * 7
     else:
+        # Weekday gate: the daily brief only goes out Monday-Friday. NHS
+        # procurement and healthtech funding desks are quiet at weekends, so
+        # a Saturday/Sunday send is low-value and hurts open rates. weekday()
+        # returns 0=Mon ... 5=Sat, 6=Sun. The Monday weekly roll-up is a
+        # separate code path (WEEKLY_MODE) and is unaffected. FORCE_SEND still
+        # bypasses this so a manual mid-weekend dispatch can fire if needed.
+        if not FORCE_SEND and now.weekday() >= 5:
+            print(f"Daily brief is Mon-Fri only; today is {now.strftime('%A')}. Skipping.")
+            return 0
         # Daily window gate. FORCE_SEND skips it (and the marker check) so a
         # manual workflow_dispatch can fire a digest mid-day.
         if not FORCE_SEND and (current_hour < DIGEST_WINDOW_START_UTC or current_hour >= DIGEST_WINDOW_END_UTC):
@@ -484,7 +663,8 @@ def main():
         print(f"Quiet {period_word}: no new items in last {lookback_hours}h. "
               f"Falling back to {len(opps)} procurement + {len(grants)} grants by deadline urgency.")
 
-    html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE)
+    capital_html = build_capital_section(weekly=WEEKLY_MODE)
+    html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE, capital_html=capital_html)
     today_ddmm = dt.date.today().strftime("%-d %b")
     period_word = "this week" if WEEKLY_MODE else "today"
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"

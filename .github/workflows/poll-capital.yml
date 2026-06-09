@@ -1,0 +1,71 @@
+name: Poll capital deals
+
+# Finds new UK healthtech funding rounds, grants and exits once a day and
+# updates data/capital-deals.json — the single source of truth that both the
+# tracker page (capital/tracker.html) and the weekly email read.
+#
+# Deliberately SEPARATE from poll.yml: funding news has no structured feed, so
+# this job uses the Anthropic API (needs the ANTHROPIC_API_KEY secret) and an
+# API outage or a bad parse here must never break the grants/tenders pipeline.
+# Runs on GitHub's infrastructure — it does NOT need anyone's computer on.
+
+on:
+  schedule:
+    # Once a day, mid-morning UTC (more reliable than the dead 02-06 window).
+    # The script's 4-day lookback + dedupe means a skipped day self-heals on
+    # the next run, so one tick is enough and keeps API spend to one call/day.
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+    inputs:
+      lookback_days:
+        description: "How many days back to search."
+        required: false
+        default: "4"
+      force:
+        description: "Run even if it already ran today."
+        required: false
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths:
+      - "scripts/poll_capital.py"
+      - ".github/workflows/poll-capital.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  poll-capital:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find new capital deals
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CAPITAL_LOOKBACK_DAYS: ${{ inputs.lookback_days || '4' }}
+          CAPITAL_FORCE: ${{ inputs.force || '' }}
+        run: python scripts/poll_capital.py
+
+      - name: Commit updated deals
+        # Commit ONLY when the deals file or an alert actually changed, so an
+        # ordinary "nothing new today" run triggers no Netlify deploy.
+        run: |
+          git config user.name "growth-bot"
+          git config user.email "growth-bot@users.noreply.github.com"
+          git add data/capital-deals.json 2>/dev/null || true
+          [ -f data/capital-poll-alerts.json ] && git add data/capital-poll-alerts.json || true
+          [ -f data/capital-poll-review.json ] && git add data/capital-poll-review.json || true
+          if git diff --staged --quiet; then
+            echo "No new capital deals — skipping commit."
+          else
+            git commit -m "capital: auto-refresh ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          fi
