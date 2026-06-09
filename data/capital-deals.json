@@ -1,8 +1,32 @@
 {
   "updated": "2026-06-09",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 59,
+  "count": 60,
   "deals": [
+    {
+      "key": "joyvi-health-equity-2026-06",
+      "company": "Joyvi\u00e9 Health",
+      "what": "Pre-seed round (angel equity + Innovate UK grant) to develop reusable patent-pending continence underwear for faecal incontinence; funds clinical pilots and DTC launch",
+      "type": "equity",
+      "round": "Pre-Seed",
+      "amount_gbp": 771000,
+      "date": "2026-06-05",
+      "investors": [
+        "HERmesa Angels",
+        "SyndicateRoom",
+        "Lavender Ventures",
+        "Innovate UK (grant component)",
+        "individual angel investors"
+      ],
+      "directory_matches": [
+        "Innovate UK (UKRI)",
+        "SyndicateRoom (Access EIS)"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.eu-startups.com/2026/06/founded-after-personal-loss-joyvie-health-raises-e897k-to-rethink-continence-underwear/",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "semble-series-c-2026-06",
       "company": "Semble",
