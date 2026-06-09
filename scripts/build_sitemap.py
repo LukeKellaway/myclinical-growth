@@ -30,6 +30,8 @@ STATIC = [
     ("/submit",        0.5, "monthly"),
     ("/bid-writers",   0.5, "monthly"),
     ("/capital",       0.5, "monthly"),
+    ("/capital/tracker", 0.7, "daily"),
+    ("/capital/finder",  0.6, "weekly"),
     ("/about",         0.5, "monthly"),
 ]
 

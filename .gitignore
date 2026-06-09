@@ -4,3 +4,4 @@ _test_render.js
 _test*.js
 .DS_Store
 .netlify/
+node_modules/

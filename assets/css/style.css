@@ -274,3 +274,10 @@ footer{background:var(--ink);color:#9aa19a;padding:54px 0 38px;}
   .nav-links{display:none;}
   .dir-item-top{flex-direction:column;}
 }
+
+/* capital dropdown */
+.nav-drop{position:relative;}
+.nav-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:186px;background:var(--white);border:1px solid var(--line);border-radius:11px;box-shadow:0 14px 34px rgba(14,20,16,.14);padding:6px;flex-direction:column;gap:2px;display:none;z-index:60;}
+.nav-drop:hover .nav-menu,.nav-drop:focus-within .nav-menu{display:flex;}
+.nav-menu a{padding:9px 12px;border-radius:7px;font-size:14px;color:var(--text-mute);white-space:nowrap;}
+.nav-menu a:hover{background:var(--paper-2);color:var(--ink);}

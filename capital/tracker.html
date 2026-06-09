@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta name="robots" content="noindex,nofollow,noarchive">
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,45 +83,12 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding:28px 0 50px;colo
 </head>
 <body>
 
-<!-- ===== PRIVATE PREVIEW GATE (remove this block to make public) ===== -->
-<div id="cap-gate" style="position:fixed;inset:0;z-index:99999;background:#0e1612;display:flex;align-items:center;justify-content:center;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
-  <div style="width:min(380px,90vw);background:#142019;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:30px 28px;box-shadow:0 24px 60px rgba(0,0,0,.5)">
-    <div style="display:flex;align-items:center;gap:9px;margin-bottom:18px">
-      <span style="width:10px;height:10px;border-radius:3px;background:#46d98a;box-shadow:0 0 14px rgba(70,217,138,.6)"></span>
-      <span style="font-weight:700;color:#eef4f0;font-size:15px">MyClinical Growth</span>
-    </div>
-    <div style="font-size:13px;color:#9fb3a8;margin-bottom:16px;line-height:1.5">Private preview. Enter the password to view the Capital section.</div>
-    <input id="cap-pw" type="password" placeholder="Password" autocomplete="off"
-      style="width:100%;background:#0e1612;border:1px solid rgba(255,255,255,.18);color:#eef4f0;border-radius:9px;padding:11px 13px;font-size:14px;font-family:inherit;outline:none;margin-bottom:10px">
-    <div id="cap-err" style="display:none;font-size:12.5px;color:#ff9b8e;margin-bottom:10px">Wrong password.</div>
-    <button id="cap-go" style="width:100%;background:#46d98a;color:#06281a;border:none;border-radius:9px;padding:11px;font-size:14px;font-weight:700;font-family:inherit;cursor:pointer">View preview</button>
-  </div>
-</div>
-<script>
-(function(){
-  var H="4027b669f229c75b282baa715d82fb0b27690a534b4f22311b162f867c9076f3";
-  var gate=document.getElementById("cap-gate");
-  async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,"0")).join("");}
-  function unlock(){gate.parentNode.removeChild(gate);}
-  if(sessionStorage.getItem("cap_ok")==="1"){unlock();return;}
-  document.body.style.overflow="hidden";
-  async function go(){
-    var v=document.getElementById("cap-pw").value;
-    if(await sha(v)===H){sessionStorage.setItem("cap_ok","1");document.body.style.overflow="";unlock();}
-    else{document.getElementById("cap-err").style.display="block";}
-  }
-  document.getElementById("cap-go").addEventListener("click",go);
-  document.getElementById("cap-pw").addEventListener("keydown",function(e){if(e.key==="Enter")go();});
-  document.getElementById("cap-pw").focus();
-})();
-</script>
-<!-- ===== END PRIVATE PREVIEW GATE ===== -->
 
-<div class="ticker">Concept mockup · <b>Capital Tracker</b> · updated daily from public announcements · the live companion to the Capital Finder directory</div>
+<div class="ticker"><b>Capital Tracker</b> · updated daily from public announcements · the live companion to the Capital Finder directory</div>
 <nav><div class="wrap navin">
-  <div class="logo"><span class="dot"></span>MyClinical&nbsp;Growth</div>
-  <div class="navlinks"><a>Procurement</a><a>Grants</a><a>Directory</a><a>Bid Writers</a><a class="active">Capital</a><a>Submit</a><a>About</a></div>
-  <a class="navcta">Get the brief</a>
+  <a class="logo" href="/"><span class="dot"></span>MyClinical&nbsp;Growth</a>
+  <div class="navlinks"><a href="/opportunities">Procurement</a><a href="/grants">Grants</a><a href="/directory">Directory</a><a href="/bid-writers">Bid Writers</a><a href="/capital/tracker" class="active">Tracker</a><a href="/capital/finder">Finder</a><a href="/submit">Submit</a><a href="/about">About</a></div>
+  <a class="navcta" href="/#signup">Get the brief</a>
 </div></nav>
 <header class="hero"><div class="wrap">
   <div class="eyebrow">Capital · Live deal tracker</div>
@@ -190,7 +156,6 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding:28px 0 50px;colo
   <div class="fnote"><b>Information only.</b> This tracker is commentary and journalism, not financial, investment or regulatory advice, and not a financial promotion. It reports publicly announced deals; inclusion is not an endorsement. Figures are indicative and, where converted from other currencies, approximate.</div>
   <p>© 2026 MyClinical Growth. Built so UK healthtech gets a fair shot, owned and banked in the UK.</p>
 </div></footer>
-<div class="mock">MOCKUP</div>
 <script>
 let DEALS = [];
 const TYPES=[["all","All"],["equity","Equity"],["debt","Debt"],["grant","Grants"],["exit","Exits"]];
