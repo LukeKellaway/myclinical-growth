@@ -35,6 +35,14 @@ nav{position:sticky;top:0;z-index:50;background:rgba(14,22,18,.9);backdrop-filte
 .navdrop:hover .navmenu,.navdrop:focus-within .navmenu{display:flex}
 .navmenu a{padding:9px 12px;border-radius:7px;font-size:13.5px;color:#9fb3a8;white-space:nowrap}
 .navmenu a:hover{background:rgba(255,255,255,.06);color:#fff}
+.mnav-cb{display:none}.mnav-burger{display:none}
+@media(max-width:860px){
+  .mnav-burger{display:block;font-size:24px;line-height:1;cursor:pointer;color:#eef4f0;user-select:none;margin-left:auto}
+  .navcta{display:none}
+  #mnav:checked ~ .navlinks{display:flex;flex-direction:column;gap:14px;position:absolute;top:62px;left:0;right:0;background:#0e1612;border-bottom:1px solid rgba(255,255,255,.08);padding:18px 22px;z-index:55}
+  #mnav:checked ~ .navlinks .navmenu{display:flex;position:static;box-shadow:none;border:none;background:transparent;padding:4px 0 4px 14px;min-width:0}
+  .navdrop::after{display:none}
+}
 .hero{padding:50px 0 30px;background:#0e1612;color:#eef4f0;background-image:radial-gradient(820px 360px at 84% -20%,rgba(70,217,138,.16),transparent 60%)}
 .eyebrow{font-size:12px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:#46d98a}
 h1{font-size:clamp(28px,4.4vw,48px);line-height:1.05;letter-spacing:-1px;font-weight:800;margin:14px 0 12px;max-width:20ch;color:#fff}
@@ -93,7 +101,7 @@ footer{border-top:1px solid var(--line);margin-top:34px;padding:28px 0 50px;colo
 <div class="ticker"><b>Capital Tracker</b> · updated daily from public announcements · the live companion to the Capital Finder directory</div>
 <nav><div class="wrap navin">
   <a class="logo" href="/"><span class="dot"></span>MyClinical&nbsp;Growth</a>
-  <div class="navlinks"><a href="/opportunities">Procurement</a><a href="/grants">Grants</a><a href="/directory">Directory</a><a href="/bid-writers">Bid Writers</a><span class="navdrop"><a href="/capital/tracker" class="active">Capital</a><div class="navmenu"><a href="/capital/tracker">Capital Tracker</a><a href="/capital/finder">Capital Finder</a><a href="/capital">Sponsor us</a></div></span><a href="/submit">Submit</a><a href="/about">About</a></div>
+  <input type="checkbox" id="mnav" class="mnav-cb"><label for="mnav" class="mnav-burger" aria-label="Menu">&#9776;</label><div class="navlinks"><a href="/opportunities">Procurement</a><a href="/grants">Grants</a><a href="/directory">Directory</a><a href="/bid-writers">Bid Writers</a><span class="navdrop"><a href="/capital/tracker" class="active">Capital</a><div class="navmenu"><a href="/capital/tracker">Capital Tracker</a><a href="/capital/finder">Capital Finder</a><a href="/capital">Sponsor us</a></div></span><a href="/submit">Submit</a><a href="/about">About</a></div>
   <a class="navcta" href="/#signup">Get the brief</a>
 </div></nav>
 <header class="hero"><div class="wrap">

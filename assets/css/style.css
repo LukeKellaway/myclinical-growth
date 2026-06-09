@@ -282,3 +282,16 @@ footer{background:var(--ink);color:#9aa19a;padding:54px 0 38px;}
 .nav-drop:hover .nav-menu,.nav-drop:focus-within .nav-menu{display:flex;}
 .nav-menu a{padding:9px 12px;border-radius:7px;font-size:14px;color:var(--text-mute);white-space:nowrap;}
 .nav-menu a:hover{background:var(--paper-2);color:var(--ink);}
+
+/* mobile menu */
+.mnav-cb{display:none;}
+.mnav-burger{display:none;}
+@media(max-width:900px){
+  .mnav-burger{display:block;font-size:26px;line-height:1;cursor:pointer;color:var(--ink);user-select:none;order:5;margin-left:14px;}
+  .nav-inner{justify-content:flex-start;}
+  .nav-inner .logo{margin-right:auto;}
+  .btn-pill{order:4;}
+  #mnav:checked ~ .nav-links{display:flex;flex-direction:column;gap:14px;position:absolute;top:74px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:18px 32px;z-index:55;}
+  #mnav:checked ~ .nav-links .nav-menu{display:flex;position:static;box-shadow:none;border:none;background:transparent;padding:4px 0 4px 14px;min-width:0;}
+  .nav-drop::after{display:none;}
+}
