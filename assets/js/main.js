@@ -743,6 +743,55 @@
     }
   }
 
+  /* ---------- inline newsletter strip ---------- */
+  // Drop a slim "get the brief" banner into the listing grid, just after the
+  // first row of cards, so people meet the newsletter while they're engaged
+  // rather than only at the foot of the page. The button jumps to the signup
+  // form (the page's own #signup if it has one, else the home page's).
+  var STRIP_GRIDS = {
+    home: "home-opps",
+    opportunities: "opp-list",
+    grants: "grant-list",
+    events: "event-list",
+    directory: "dir-list"
+  };
+  function buildStrip() {
+    var target = document.getElementById("signup") ? "#signup" : "/#signup";
+    var strip = document.createElement("div");
+    strip.className = "nl-strip";
+    strip.innerHTML =
+      '<div class="nl-strip-copy">' +
+        "<strong>Get NHS tenders &amp; grants in your inbox each morning.</strong>" +
+        "<span>One daily brief and a weekly roundup. Free, and unsubscribe in a click.</span>" +
+      "</div>" +
+      '<a href="' + target + '" class="btn btn-primary">Get the brief &rarr;</a>';
+    return strip;
+  }
+  function placeStrip(grid) {
+    if (!grid || grid.querySelector(".nl-strip")) return;
+    // Count real cards (the strip, if any, was already ruled out above).
+    if (grid.children.length < 1) return;
+    var strip = buildStrip();
+    // After the first full row (3 cards) when there's more below; otherwise
+    // tuck it on the end so it never splits a short list awkwardly.
+    if (grid.children.length >= 4) grid.insertBefore(strip, grid.children[3]);
+    else grid.appendChild(strip);
+  }
+  function insertNewsletterStrip(page) {
+    var id = STRIP_GRIDS[page];
+    if (!id) return;
+    var grid = document.getElementById(id);
+    if (!grid) return;
+    placeStrip(grid);
+    // Filtering / searching rebuilds the grid, which drops the strip. Watch
+    // for that and put it back. Inserting the strip is itself a mutation, but
+    // placeStrip is a no-op once the strip is present, so this can't loop.
+    if (typeof MutationObserver === "function") {
+      new MutationObserver(function () { placeStrip(grid); })
+        .observe(grid, { childList: true });
+    }
+  }
+
   /* ---------- dispatch ---------- */
   document.addEventListener("DOMContentLoaded", function () {
     var page = document.body.getAttribute("data-page");
@@ -753,6 +802,7 @@
     if (page === "directory") renderDirectory();
     if (page === "opportunity") renderOpportunityDetail();
     if (page === "search") renderSearch();
+    insertNewsletterStrip(page);
     wireSubscribe();
     stampUpdated();
     fillFlagCounts();

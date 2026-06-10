@@ -103,6 +103,14 @@ section{padding:84px 0;}
 .tag-urgent{background:var(--urgent-bg);color:var(--urgent);}
 .tag-neutral{background:#ecebe5;color:#5f655f;}
 
+/* inline newsletter strip (injected after the first row of cards) */
+.nl-strip{grid-column:1 / -1;background:var(--forest);border-radius:var(--radius);padding:18px 24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:2px 0;}
+.nl-strip-copy{flex:1;min-width:230px;color:var(--white);}
+.nl-strip-copy strong{display:block;font-size:16px;font-weight:800;}
+.nl-strip-copy span{font-size:13.5px;color:#aecbbb;}
+.nl-strip .btn{white-space:nowrap;}
+@media(max-width:560px){.nl-strip{padding:16px 18px;}}
+
 /* opportunity cards */
 .opp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .opp-grid.two{grid-template-columns:repeat(2,1fr);}
