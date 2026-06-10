@@ -8,16 +8,22 @@ on:
   schedule:
     # GitHub Actions free-tier cron is unreliable in low-load periods
     # (early UTC hours) and frequently skips ticks entirely. To improve
-    # odds of catching the morning send window, fire every 15 minutes
-    # between 02:00 and 06:00 UTC, then hourly the rest of the day.
+    # odds of catching the morning send window, fire every 30 minutes
+    # between 02:00 and 06:00 UTC, then every 3 hours the rest of the day.
     # Send window in build_digest.py is widened to 03-08 UTC so any
     # morning tick that DOES land sends the digest. On a good day the
     # brief arrives 4-5am BST; on a bad day 7-9am BST. The send marker
     # ensures only one send per day no matter how many ticks fire.
-    # poll-stats.json is excluded from the commit so the extra early
-    # ticks don't burn Netlify minutes unless real data changed.
-    - cron: "*/15 2-5 * * *"
-    - cron: "0 6-21 * * *"
+    #
+    # Daytime cadence is every 3 hours (06,09,12,15,18,21 UTC) rather than
+    # hourly: each tick that finds new tender data commits a "data: refresh"
+    # and pushes, which triggers a Netlify production deploy. Hourly polling
+    # produced ~6-10 deploys/day and burned through the monthly credit
+    # allowance. Every 3 hours still auto-publishes anything new, just
+    # batched into far fewer deploys. poll-stats.json is excluded from the
+    # commit so ticks with no real change never deploy.
+    - cron: "*/30 2-5 * * *"
+    - cron: "0 6-21/3 * * *"
   workflow_dispatch:
     inputs:
       lookback_hours:
