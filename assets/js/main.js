@@ -159,6 +159,59 @@
     );
   }
 
+  /* ---------- events ---------- */
+  // Human date label for an event: "29-30 Sep 2026", "30 Jun 2026",
+  // or "26 Aug - 28 Aug 2026" when a range straddles months.
+  function eventDateLabel(ev) {
+    var s = ev.start_date, e = ev.end_date;
+    if (!s) return esc(ev.status || "");
+    var sd = new Date(s), ed = e ? new Date(e) : null;
+    if (isNaN(sd)) return esc(s);
+    var dmy = { day: "numeric", month: "short", year: "numeric" };
+    var dm = { day: "numeric", month: "short" };
+    if (!ed || isNaN(ed) || e === s) return sd.toLocaleDateString("en-GB", dmy);
+    var sameMonth = sd.getMonth() === ed.getMonth() && sd.getFullYear() === ed.getFullYear();
+    if (sameMonth) return sd.getDate() + "-" + ed.toLocaleDateString("en-GB", dmy);
+    return sd.toLocaleDateString("en-GB", dm) + " - " + ed.toLocaleDateString("en-GB", dmy);
+  }
+  function eventIsPast(ev) {
+    var d = daysUntil(ev.end_date || ev.start_date);
+    return d != null && d < 0;
+  }
+  function sortByStart(list) {
+    return list.slice().sort(function (a, b) {
+      return String(a.start_date || "").localeCompare(String(b.start_date || ""));
+    });
+  }
+  function eventCard(ev) {
+    var past = eventIsPast(ev);
+    var dleft = daysUntil(ev.start_date);
+    var label = eventDateLabel(ev);
+    var when;
+    if (past) {
+      when = '<span class="deadline closed">Ended ' + esc(label) + "</span>";
+    } else if (dleft != null && dleft <= 30) {
+      when = '<span class="deadline">' + esc(label) + "</span>";
+    } else {
+      when = '<span class="deadline soft">' + esc(label) + "</span>";
+    }
+    var meta = [ev.location, ev.format].filter(Boolean).join(" · ");
+    var link = ev.source_url || "#";
+    var cardClass = "opp-card" + (past ? " opp-card-closed" : "");
+    return (
+      '<div class="' + cardClass + '">' +
+        '<div class="tags">' + tagsHtml(ev.tags) + "</div>" +
+        '<h3><a href="' + esc(link) + '" target="_blank" rel="noopener" class="card-title-link">' + esc(ev.title) + "</a></h3>" +
+        '<div class="src">' + esc(ev.organiser || "") + (meta ? " · " + esc(meta) : "") + "</div>" +
+        '<p class="means">' + esc(ev.means || ev.summary || "") + "</p>" +
+        (ev.cost ? '<div class="src" style="margin-top:2px;opacity:.85;">' + esc(ev.cost) + "</div>" : "") +
+        '<div class="foot">' + when +
+          '<a class="arrow" href="' + esc(link) + '" target="_blank" rel="noopener">Details &rarr;</a>' +
+        "</div>" +
+      "</div>"
+    );
+  }
+
   function feedBadge(val) {
     var v = (val || "").toLowerCase();
     if (v.indexOf("api") > -1) return '<span class="feed feed-api">API</span>';
@@ -255,6 +308,9 @@
     var closedToggleEl = document.getElementById(opts.closedToggleId || "");
     if (!listEl) return;
     var data = opts.data;
+    // Allow a page to define its own "past/closed" rule (events use end_date,
+    // opportunities/grants use deadline). Defaults to the deadline-based one.
+    var closedFn = opts.closedOf || isClosed;
     var cats = [];
     data.forEach(function (r) {
       var c = opts.catOf(r);
@@ -264,13 +320,13 @@
     // Default: closed items hidden. Toggle reveals them.
     var state = { cat: "All", q: "", showClosed: false };
     var closedCount = opts.canClose
-      ? data.filter(function (r) { return isClosed(r); }).length
+      ? data.filter(function (r) { return closedFn(r); }).length
       : 0;
     function apply() {
       var rows = data.filter(function (r) {
         var catOk = state.cat === "All" || opts.catOf(r) === state.cat;
         var qOk = !state.q || opts.textOf(r).toLowerCase().indexOf(state.q) > -1;
-        var closedOk = state.showClosed || !isClosed(r);
+        var closedOk = state.showClosed || !closedFn(r);
         return catOk && qOk && closedOk;
       });
       listEl.innerHTML = rows.length
@@ -279,7 +335,7 @@
       if (countEl) {
         var totalForCount = state.showClosed
           ? data.length
-          : data.filter(function (r) { return !isClosed(r); }).length;
+          : data.filter(function (r) { return !closedFn(r); }).length;
         countEl.textContent = rows.length + " of " + totalForCount + " shown";
       }
     }
@@ -292,7 +348,7 @@
       // feels worthwhile even when collapsed.
       closedToggleEl.innerHTML = '<label class="closed-toggle">' +
         '<input type="checkbox" id="closed-toggle-input" /> ' +
-        '<span>Show closed (' + closedCount + ')</span></label>';
+        '<span>' + esc(opts.closedLabel || "Show closed") + ' (' + closedCount + ')</span></label>';
       var cb = document.getElementById("closed-toggle-input");
       cb.addEventListener("change", function () {
         state.showClosed = cb.checked; apply();
@@ -321,6 +377,19 @@
       catOf: function (g) { return g.category; },
       textOf: function (g) { return [g.title, g.source, g.summary, g.means].join(" "); },
       render: oppCard,
+    });
+  }
+  function renderEvents() {
+    renderListPage({
+      listId: "event-list", searchId: "event-search", filterId: "event-filter",
+      countId: "event-count", closedToggleId: "event-closed-toggle",
+      canClose: true,
+      closedOf: eventIsPast,
+      closedLabel: "Show past",
+      data: sortByStart((D.events && D.events.events) || []),
+      catOf: function (e) { return e.category; },
+      textOf: function (e) { return [e.title, e.organiser, e.summary, e.means, e.location].join(" "); },
+      render: eventCard,
     });
   }
   /* ---------- opportunity / grant detail page ---------- */
@@ -656,6 +725,12 @@
       grantsEl.textContent = String(g
         .filter(function (x) { return !isClosed(x); }).length);
     }
+    var eventsEl = document.getElementById("flag-count-events");
+    if (eventsEl) {
+      var ev = (D.events && D.events.events) || [];
+      eventsEl.textContent = String(ev
+        .filter(function (x) { return !eventIsPast(x); }).length);
+    }
     var dirEl = document.getElementById("flag-count-directory");
     if (dirEl) {
       var dir = D.directory || {};
@@ -674,6 +749,7 @@
     if (page === "home") renderHome();
     if (page === "opportunities") renderOpportunities();
     if (page === "grants") renderGrants();
+    if (page === "events") renderEvents();
     if (page === "directory") renderDirectory();
     if (page === "opportunity") renderOpportunityDetail();
     if (page === "search") renderSearch();

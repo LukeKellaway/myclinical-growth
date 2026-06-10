@@ -25,6 +25,7 @@ STATIC = [
     ("/",              1.0, "daily"),
     ("/opportunities", 0.9, "hourly"),
     ("/grants",        0.9, "daily"),
+    ("/events",        0.7, "weekly"),
     ("/directory",     0.7, "weekly"),
     ("/search",        0.6, "weekly"),
     ("/submit",        0.5, "monthly"),

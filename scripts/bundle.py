@@ -33,6 +33,7 @@ def main():
         "opportunities": load("opportunities.json", {"opportunities": []}),
         "opportunitiesLive": load("opportunities-live.json", {"opportunities": []}),
         "grants": load("grants.json", {"grants": []}),
+        "events": load("events.json", {"events": []}),
         "directory": load("directory.json", {"procurement": [], "grants": []}),
         "portalGuides": load("portal-guides.json", {"portals": {}}),
     }
@@ -41,8 +42,9 @@ def main():
     o = len(bundle["opportunities"].get("opportunities", []))
     lv = len(bundle["opportunitiesLive"].get("opportunities", []))
     g = len(bundle["grants"].get("grants", []))
+    ev = len(bundle["events"].get("events", []))
     pg = len((bundle.get("portalGuides", {}) or {}).get("portals", {}))
-    print(f"data.js written: {o} standing + {lv} live opportunities, {g} grants, {pg} portal guides")
+    print(f"data.js written: {o} standing + {lv} live opportunities, {g} grants, {ev} events, {pg} portal guides")
 
 
 if __name__ == "__main__":

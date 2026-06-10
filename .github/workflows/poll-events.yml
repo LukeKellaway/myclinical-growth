@@ -1,0 +1,79 @@
+name: Poll events
+
+# Finds upcoming UK healthtech / NHS events once a WEEK, prunes events that have
+# already passed, and updates data/events.json, the single source of truth that
+# both the events page (events.html) and the digest read. Then rebuilds the
+# bundle and sitemap so the site reflects the change.
+#
+# Deliberately SEPARATE from poll.yml: event listings have no structured feed,
+# so this job uses the Anthropic API (needs the ANTHROPIC_API_KEY secret) and an
+# API outage or bad parse here must never break the grants/tenders pipeline.
+# Runs on GitHub's infrastructure, it does NOT need anyone's computer on.
+
+on:
+  schedule:
+    # Once a week, Monday mid-morning UTC. A skipped week self-heals: the next
+    # run re-scans the whole horizon and dedupes. The script's own 6-day guard
+    # means extra ticks never double-spend the API.
+    - cron: "37 9 * * 1"
+  workflow_dispatch:
+    inputs:
+      horizon_days:
+        description: "How far ahead to search (days)."
+        required: false
+        default: "455"
+      force:
+        description: "Run even if it already ran today."
+        required: false
+        type: boolean
+        default: true
+  push:
+    branches: [main]
+    paths:
+      - "scripts/poll_events.py"
+      - ".github/workflows/poll-events.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  poll-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find new events
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          EVENTS_HORIZON_DAYS: ${{ inputs.horizon_days || '455' }}
+          EVENTS_FORCE: ${{ inputs.force || '' }}
+        run: python scripts/poll_events.py
+
+      - name: Bundle data for the site
+        run: python scripts/bundle.py
+
+      - name: Rebuild sitemap.xml
+        run: python scripts/build_sitemap.py
+
+      - name: Commit updated events
+        # Commit only when something actually changed so an ordinary
+        # "nothing new today" run triggers no Netlify deploy.
+        run: |
+          git config user.name "growth-bot"
+          git config user.email "growth-bot@users.noreply.github.com"
+          git add data/events.json assets/js/data.js sitemap.xml 2>/dev/null || true
+          [ -f data/events-poll-alerts.json ] && git add data/events-poll-alerts.json || true
+          [ -f data/events-poll-review.json ] && git add data/events-poll-review.json || true
+          [ -f data/events-poll-state.json ] && git add data/events-poll-state.json || true
+          if git diff --staged --quiet; then
+            echo "No event changes, skipping commit."
+          else
+            git commit -m "events: auto-refresh ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          fi

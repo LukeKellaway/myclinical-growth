@@ -16,7 +16,7 @@ Required environment variables (set as GitHub Actions secrets):
 Optional:
   DIGEST_AUTOSEND          "true" to send automatically (default: draft only)
   DIGEST_FROM_NAME         default "MyClinical Growth"
-  DIGEST_REPLY_TO          default "hello@myclinical..."  <-- set this
+  DIGEST_REPLY_TO          default "info@myclinical.co.uk"
 """
 
 import os
@@ -37,7 +37,7 @@ PREFIX = os.environ.get("MAILCHIMP_SERVER_PREFIX", "")
 # Set the secret DIGEST_AUTOSEND=false to revert to draft-only mode.
 AUTOSEND = os.environ.get("DIGEST_AUTOSEND", "true").lower() != "false"
 FROM_NAME = os.environ.get("DIGEST_FROM_NAME", "MyClinical Growth")
-REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "hello@myclinical.example")
+REPLY_TO = os.environ.get("DIGEST_REPLY_TO", "info@myclinical.co.uk")
 # UTC window in which the daily brief is allowed to fire. The workflow runs
 # hourly. The FIRST run inside this window that hasn't already sent today
 # will send; subsequent runs that day check the marker file and skip.
@@ -404,7 +404,113 @@ def build_capital_section(weekly=False):
         </td></tr>"""
 
 
-def render(opps, grants, is_quiet=False, weekly=False, capital_html=""):
+# --- upcoming events section -----------------------------------------------
+# Single source of truth: data/events.json, the same file that powers
+# events.html. Each event: id, title, organiser, source_url, type, category,
+# location, format, start_date, end_date, cost, summary, means, tags, status.
+# This block lists the next few UPCOMING events so the brief flags the dates
+# worth planning around. No em-dashes anywhere, per house style.
+EVENTS_ACCENT = "#3f7c91"  # teal — distinct from procurement sage / grants forest / capital amber
+
+
+def load_events():
+    p = DATA / "events.json"
+    if not p.exists():
+        return []
+    try:
+        blob = json.loads(p.read_text())
+    except (ValueError, OSError):
+        return []
+    if isinstance(blob, dict):
+        return blob.get("events") or blob.get("items") or []
+    return blob if isinstance(blob, list) else []
+
+
+def _event_date_label(ev):
+    """29-30 Sep 2026 / 30 Jun 2026 / 26 Aug - 28 Aug 2026 across months."""
+    sd = _parse_date(ev.get("start_date"))
+    ed = _parse_date(ev.get("end_date")) or sd
+    if not sd:
+        return ev.get("status", "")
+    if not ed or ed == sd:
+        return sd.strftime("%-d %b %Y")
+    if sd.month == ed.month and sd.year == ed.year:
+        return f"{sd.day}-{ed.strftime('%-d %b %Y')}"
+    return f"{sd.strftime('%-d %b')} - {ed.strftime('%-d %b %Y')}"
+
+
+def _event_card(ev):
+    title = ev.get("title", "")
+    organiser = ev.get("organiser", "")
+    location = ev.get("location", "")
+    when = _event_date_label(ev)
+    means = ev.get("means") or ev.get("summary") or ""
+    source_url = ev.get("source_url") or ""
+    meta = " &middot; ".join(x for x in (organiser, location) if x)
+    source_html = (
+        f'<a href="{source_url}" style="color:{EVENTS_ACCENT};font-size:12px;font-weight:700;text-decoration:none;">Details &rarr;</a>'
+        if source_url else ""
+    )
+    return f"""
+      <tr><td style="padding:7px 0;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e8e6dd;border-radius:11px;">
+          <tr><td style="padding:16px 18px;border-left:3px solid {EVENTS_ACCENT};border-top-left-radius:11px;border-bottom-left-radius:11px;">
+            <table width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="vertical-align:top;">
+                  <span style="font-size:16px;font-weight:800;color:#0e1410;letter-spacing:-0.01em;">{title}</span>
+                </td>
+                <td align="right" style="vertical-align:top;white-space:nowrap;">
+                  <span style="display:inline-block;font-size:11px;font-weight:800;color:{EVENTS_ACCENT};background:rgba(63,124,145,.12);padding:4px 10px;border-radius:999px;">{when}</span>
+                </td>
+              </tr>
+            </table>
+            <div style="font-size:12px;color:#5f655f;margin-top:6px;">{meta}</div>
+            <div style="font-size:13px;color:#3a403a;line-height:1.5;margin-top:6px;">{means}</div>
+            <div style="margin-top:8px;">{source_html}</div>
+          </td></tr>
+        </table>
+      </td></tr>"""
+
+
+def build_events_section(weekly=False):
+    """Bottom-of-email upcoming-events block. Returns "" when no data file."""
+    events = load_events()
+    if not events:
+        return ""
+
+    today = dt.date.today()
+    upcoming = [
+        e for e in events
+        if (end := _parse_date(e.get("end_date") or e.get("start_date"))) and end >= today
+    ]
+    upcoming.sort(key=lambda e: _parse_date(e.get("start_date")) or dt.date.max)
+    if not upcoming:
+        return ""
+
+    max_cards = 4 if weekly else 3
+    cards_data = upcoming[:max_cards]
+    cards = "".join(_event_card(e) for e in cards_data)
+    intro = f"Next {len(cards_data)} on the calendar &middot; {len(upcoming)} tracked"
+
+    return f"""
+        <tr><td style="background:#fff;padding:8px 32px 30px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="padding:18px 0 4px;"><div style="height:1px;background:#e8e6dd;"></div></td></tr>
+            <tr><td style="padding:6px 0 14px;">
+              <div style="background:{EVENTS_ACCENT};color:#fff;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;display:inline-block;padding:6px 13px;border-radius:999px;">Events</div>
+              <div style="font-size:22px;font-weight:800;color:#0e1410;margin-top:12px;letter-spacing:-0.015em;line-height:1.25;">Dates worth planning around</div>
+              <div style="font-size:13px;color:#5f655f;margin-top:3px;font-weight:600;">{intro}</div>
+            </td></tr>
+            <tr><td><table width="100%" cellpadding="0" cellspacing="0">{cards}</table></td></tr>
+            <tr><td style="padding:12px 0 0;">
+              <a href="{SITE_URL}/events" style="color:{EVENTS_ACCENT};font-size:13px;font-weight:700;text-decoration:none;">See the full events calendar &rarr;</a>
+            </td></tr>
+          </table>
+        </td></tr>"""
+
+
+def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html=""):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
     period_word = "week" if weekly else "today"
@@ -412,8 +518,13 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html=""):
 
     # Summary line for the dark header
     if is_quiet:
-        summary = f"<strong>Nothing new this {period_word}.</strong> Showing the items closest to deadline so they don't slip."
-        preheader = f"Quiet {period_word}. Here are the live items closest to deadline."
+        # "today" already reads as a time phrase, so it takes no "this" prefix
+        # ("Nothing new today"), while the weekly variant needs it
+        # ("Nothing new this week"). Without this, daily briefs read
+        # "Nothing new this today".
+        quiet_phrase = "this week" if weekly else "today"
+        summary = f"<strong>Nothing new {quiet_phrase}.</strong> Showing the items closest to deadline so they don't slip."
+        preheader = f"Quiet {quiet_phrase}. Here are the live items closest to deadline."
         proc_subtitle = "On the radar &middot; closest deadlines"
         grants_subtitle = "On the radar &middot; closest deadlines"
         proc_track_label = "Track 1 &middot; Procurement"
@@ -492,6 +603,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html=""):
             </td></tr>
           </table>
         </td></tr>
+        {events_html}
         {capital_html}
 
         <!-- Footer -->
@@ -499,6 +611,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html=""):
           <div style="margin-bottom:8px;">
             <a href="{SITE_URL}/opportunities" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Procurement</a>
             <a href="{SITE_URL}/grants" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Grants</a>
+            <a href="{SITE_URL}/events" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Events</a>
             <a href="{SITE_URL}/directory" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Directory</a>
             <a href="{SITE_URL}/submit?type=feedback" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Leave feedback</a>
           </div>
@@ -664,7 +777,9 @@ def main():
               f"Falling back to {len(opps)} procurement + {len(grants)} grants by deadline urgency.")
 
     capital_html = build_capital_section(weekly=WEEKLY_MODE)
-    html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE, capital_html=capital_html)
+    events_html = build_events_section(weekly=WEEKLY_MODE)
+    html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE,
+                             capital_html=capital_html, events_html=events_html)
     today_ddmm = dt.date.today().strftime("%-d %b")
     period_word = "this week" if WEEKLY_MODE else "today"
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
