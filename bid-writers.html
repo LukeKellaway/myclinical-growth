@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bid Writing Help · MyClinical Growth</title>
-<meta name="description" content="Spotted an NHS tender and need help writing the bid? Tell us about it and we'll get you working with an experienced NHS bid writer.">
+<title>Bid &amp; Grant Writing Help · MyClinical Growth</title>
+<meta name="description" content="Need help writing an NHS bid or grant submission? Tell us about the opportunity and we'll introduce you to an experienced bid writer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -48,15 +48,15 @@
 <meta property="og:site_name" content="MyClinical Growth">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://growth.myclinical.co.uk/bid-writers">
-<meta property="og:title" content="Bid Writing Help · MyClinical Growth">
-<meta property="og:description" content="Spotted an NHS tender and need help writing the bid? Tell us about it and we'll get you working with an experienced NHS bid writer.">
+<meta property="og:title" content="Bid &amp; Grant Writing Help · MyClinical Growth">
+<meta property="og:description" content="Need help writing an NHS bid or grant submission? Tell us about the opportunity and we'll introduce you to an experienced bid writer.">
 <meta property="og:image" content="https://growth.myclinical.co.uk/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="MyClinical Growth — NHS procurement and UK healthtech funding, one daily brief.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Bid Writing Help · MyClinical Growth">
-<meta name="twitter:description" content="Spotted an NHS tender and need help writing the bid? Tell us about it and we'll get you working with an experienced NHS bid writer.">
+<meta name="twitter:title" content="Bid &amp; Grant Writing Help · MyClinical Growth">
+<meta name="twitter:description" content="Need help writing an NHS bid or grant submission? Tell us about the opportunity and we'll introduce you to an experienced bid writer.">
 <meta name="twitter:image" content="https://growth.myclinical.co.uk/assets/img/og-image.png">
 </head>
 <body data-page="bid-writers">
@@ -80,9 +80,9 @@
 
 <header class="page-head">
   <div class="wrap">
-    <span class="badge">Bid Writing Help</span>
-    <h1>Need help writing your NHS bid?</h1>
-    <p>Most NHS procurement is won or lost on the quality of the written response. If you&rsquo;ve found an opportunity and don&rsquo;t have the time or the in-house experience to answer it well, get in touch. Tell us about the bid and we&rsquo;ll get you working with an experienced NHS bid writer.</p>
+    <span class="badge">Bid &amp; Grant Writing Help</span>
+    <h1>Need help writing your NHS bid or grant submission?</h1>
+    <p>Most NHS procurement or grant submissions are won or lost on the quality of the written response. If you&rsquo;ve found an opportunity and don&rsquo;t have the time or the in-house experience to answer it well, get in touch. Tell us about the opportunity and we&rsquo;ll introduce you to an experienced bid writer.</p>
   </div>
 </header>
 
@@ -90,21 +90,21 @@
   <div class="wrap soon-wrap">
     <div class="soon-card">
       <span class="soon-pill">How it works</span>
-      <h2>Tell us about the bid. We&rsquo;ll take it from there.</h2>
-      <p>Send over the details below and they come straight to me. I work with an experienced bid writer who knows NHS and public-sector procurement, and I&rsquo;ll get the two of you connected so you can talk scope, timing, and fees.</p>
+      <h2>Tell us about the bid or grant. We&rsquo;ll take it from there.</h2>
+      <p>Send over the details below and they come straight to me. I work with an experienced bid writer who knows NHS and public-sector procurement and is experienced in winning grants for innovative healthtech initiatives. I&rsquo;ll get the two of you connected so you can talk scope, timing, and fees.</p>
       <ul class="soon-list">
-        <li>A writer who has worked on NHS frameworks and tenders, not a generalist</li>
+        <li>A writer who has worked on NHS frameworks, tenders and grants, not a generalist</li>
         <li>You deal with them directly once you&rsquo;re connected</li>
         <li>Quick to respond, with your deadline in mind</li>
-        <li>No cost to ask, no obligation, and your details aren&rsquo;t added to any list</li>
+        <li>No cost to ask, no obligation and your details aren&rsquo;t added to any list</li>
       </ul>
     </div>
 
     <div class="contact-card">
-      <h2>Tell us about your bid</h2>
+      <h2>Tell us about your bid or grant</h2>
       <p class="lead">The more you can share about the opportunity and the deadline, the faster we can help. Only your name and email are required.</p>
 
-      <div class="thanks" id="thanks-msg">Thanks &mdash; that&rsquo;s with us. We&rsquo;ll review what you&rsquo;ve sent and get you connected with a bid writer who fits. Keep an eye on your inbox.</div>
+      <div class="thanks" id="thanks-msg">Thanks, that&rsquo;s with us. We&rsquo;ll review what you&rsquo;ve sent and get you connected with a writer who fits. Keep an eye on your inbox.</div>
 
       <form name="bid-writer-intro"
             method="POST"
@@ -131,38 +131,46 @@
           <label for="bw-phone">Phone (optional)</label>
           <input id="bw-phone" type="tel" name="phone" placeholder="So the writer can reach you" />
         </div>
-        <div class="full">
-          <label for="bw-tender">What are you bidding for?</label>
-          <input id="bw-tender" type="text" name="tender" placeholder="e.g. NHS England remote monitoring framework, Lot 2" />
-        </div>
         <div>
-          <label for="bw-link">Link to the notice (optional)</label>
-          <input id="bw-link" type="url" name="notice_link" placeholder="https://" />
+          <label for="bw-type">Is this a tender/bid or a grant?</label>
+          <select id="bw-type" name="opportunity_type">
+            <option value="tender">Tender / procurement bid</option>
+            <option value="grant">Grant / funding application</option>
+            <option value="both">Both, or not sure</option>
+          </select>
         </div>
         <div>
           <label for="bw-deadline">Submission deadline</label>
           <input id="bw-deadline" type="text" name="deadline" placeholder="e.g. 30 June 2026" />
         </div>
+        <div class="full">
+          <label for="bw-tender">What is the opportunity?</label>
+          <input id="bw-tender" type="text" name="opportunity" placeholder="e.g. NHS England remote monitoring framework, Lot 2 / SBRI Healthcare Phase 1" />
+        </div>
         <div>
+          <label for="bw-link">Link to the notice or call (optional)</label>
+          <input id="bw-link" type="url" name="notice_link" placeholder="https://" />
+        </div>
+        <div>
+          <label for="bw-value">Contract or grant value (optional)</label>
+          <input id="bw-value" type="text" name="value" placeholder="e.g. £250k over 2 years / up to £150k" />
+        </div>
+        <div class="full">
           <label for="bw-support">Help you need</label>
           <select id="bw-support" name="support_needed">
-            <option value="full">Write the whole bid</option>
+            <option value="full">Write the whole submission</option>
             <option value="review">Review and strengthen our draft</option>
             <option value="sections">Specific sections only</option>
             <option value="unsure">Not sure yet</option>
           </select>
-        </div>
-        <div>
-          <label for="bw-value">Contract value (optional)</label>
-          <input id="bw-value" type="text" name="contract_value" placeholder="e.g. £250k over 2 years" />
         </div>
         <div class="full">
           <label for="bw-message">Anything else we should know? (optional)</label>
           <textarea id="bw-message" name="message" placeholder="Where you are in the process, what's tricky about this one, what a good outcome looks like."></textarea>
         </div>
         <div class="full cform-actions">
-          <button type="submit" class="btn btn-primary">Get bid writing help</button>
-          <span class="cform-note">No cost, no obligation. Your details come to MyClinical and go only to the bid writer we connect you with &mdash; nowhere else.</span>
+          <button type="submit" class="btn btn-primary">Get writing help</button>
+          <span class="cform-note">No cost, no obligation. Your details come to MyClinical and go only to the bid writer we connect you with, nowhere else.</span>
         </div>
       </form>
     </div>
