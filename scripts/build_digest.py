@@ -554,7 +554,30 @@ def build_stat_strip():
         </td></tr>"""
 
 
-def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html="", stat_strip=""):
+# --- one-off announcement banner -------------------------------------------
+# A small "New" banner under the stat strip. Auto-hides after ANNOUNCE_UNTIL so
+# it quietly disappears without a code change. Set ANNOUNCE_TEXT to "" to pull
+# it sooner.
+ANNOUNCE_UNTIL = dt.date(2026, 6, 24)
+ANNOUNCE_TEXT = ('New: we now track 40+ UK healthtech and NHS events, with an honest read on '
+                 'which are worth your time. See them all at '
+                 f'<a href="{SITE_URL}/events" style="color:#4f8a6e;font-weight:700;text-decoration:none;">/events</a>.')
+
+
+def build_announcement():
+    if not ANNOUNCE_TEXT or dt.date.today() > ANNOUNCE_UNTIL:
+        return ""
+    return f"""
+        <tr><td style="background:#fff;padding:8px 32px 0;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="background:#eef4f0;border:1px solid #d6e4dc;border-radius:11px;padding:13px 16px;font-size:13.5px;color:#27402f;line-height:1.55;">
+              <span style="font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4f8a6e;margin-right:8px;">New</span>{ANNOUNCE_TEXT}
+            </td></tr>
+          </table>
+        </td></tr>"""
+
+
+def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html="", stat_strip="", announcement=""):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
     period_word = "week" if weekly else "today"
@@ -625,6 +648,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
           </div>
         </td></tr>
         {stat_strip}
+        {announcement}
 
         <!-- Body -->
         <tr><td style="background:#fff;padding:28px 32px 8px;">
@@ -824,8 +848,10 @@ def main():
     capital_html = build_capital_section(weekly=WEEKLY_MODE)
     events_html = build_events_section(weekly=WEEKLY_MODE)
     stat_strip = build_stat_strip()
+    announcement = build_announcement()
     html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE,
-                             capital_html=capital_html, events_html=events_html, stat_strip=stat_strip)
+                             capital_html=capital_html, events_html=events_html,
+                             stat_strip=stat_strip, announcement=announcement)
     today_ddmm = dt.date.today().strftime("%-d %b")
     period_word = "this week" if WEEKLY_MODE else "today"
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
