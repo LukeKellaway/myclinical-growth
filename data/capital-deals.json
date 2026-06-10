@@ -1,8 +1,29 @@
 {
-  "updated": "2026-06-09",
+  "updated": "2026-06-10",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 60,
+  "count": 61,
   "deals": [
+    {
+      "key": "rem3dy-health-equity-2026-06",
+      "company": "Rem3dy Health",
+      "what": "Birmingham-based AI-driven personalised nutrition (Nourished brand) raises \u00a314m growth round at \u00a384m valuation to fund US, MENA and India expansion",
+      "type": "equity",
+      "round": "Growth",
+      "amount_gbp": 14000000,
+      "date": "2026-06-09",
+      "investors": [
+        "Suntory",
+        "Estrella Galicia",
+        "Apollo Hospitals",
+        "UPSA",
+        "Future Planet Capital Regional"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": null,
+      "source_url": "https://businesscloud.co.uk/news/rem3dy-health-raises-14m-to-power-global-expansion/",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "joyvi-health-equity-2026-06",
       "company": "Joyvi\u00e9 Health",
