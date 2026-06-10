@@ -510,7 +510,51 @@ def build_events_section(weekly=False):
         </td></tr>"""
 
 
-def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html=""):
+# --- at-a-glance stat strip (under the header) -----------------------------
+# Four "state" counts that are almost always non-zero, so the strip looks
+# substantial even on a quiet news day. Each box deep-links to its page.
+# "What's new today" stays in the header summary line above the strip.
+def _stat_box(number, label, href, accent):
+    return f"""
+      <td width="25%" valign="top" style="padding:0 5px;">
+        <a href="{href}" style="display:block;text-decoration:none;border:1px solid #e8e6dd;border-radius:11px;padding:13px 12px;">
+          <div style="width:8px;height:8px;border-radius:2px;background:{accent};margin-bottom:9px;font-size:0;line-height:0;">&nbsp;</div>
+          <div style="font-size:23px;font-weight:800;color:#0e1410;letter-spacing:-0.02em;line-height:1;">{number}</div>
+          <div style="font-size:11.5px;font-weight:600;color:#5f655f;margin-top:6px;line-height:1.25;">{label}</div>
+        </a>
+      </td>"""
+
+
+def build_stat_strip():
+    """Row of four count boxes: live tenders, open grants, upcoming events,
+    rolling capital. Returns "" only if every source is empty."""
+    all_opps = load("opportunities-live.json") + load("opportunities.json")
+    open_opps = [o for o in all_opps if not _is_closed(o)]
+    open_grants = [g for g in load("grants.json") if not _is_closed(g)]
+    today = dt.date.today()
+    upcoming_events = [
+        e for e in load_events()
+        if (end := _parse_date(e.get("end_date") or e.get("start_date"))) and end >= today
+    ]
+    cap = _capital_tracker(load_capital_deals())
+    cap_now = _fmt_gbp(cap["cap_now"]) or "£0"
+
+    if not (open_opps or open_grants or upcoming_events or cap["cap_now"]):
+        return ""
+
+    boxes = (
+        _stat_box(len(open_opps), "Live tenders", f"{SITE_URL}/opportunities", "#4f8a6e") +
+        _stat_box(len(open_grants), "Open grants", f"{SITE_URL}/grants", "#7d5ba6") +
+        _stat_box(len(upcoming_events), "Upcoming events", f"{SITE_URL}/events", "#3f7c91") +
+        _stat_box(cap_now, "Capital, 12 months", f"{SITE_URL}/capital/tracker", "#b07d12")
+    )
+    return f"""
+        <tr><td style="background:#fff;padding:20px 27px 8px;">
+          <table width="100%" cellpadding="0" cellspacing="0"><tr>{boxes}</tr></table>
+        </td></tr>"""
+
+
+def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html="", stat_strip=""):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
     period_word = "week" if weekly else "today"
@@ -580,6 +624,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
             {"This week" if weekly else "Today"}: {summary}.
           </div>
         </td></tr>
+        {stat_strip}
 
         <!-- Body -->
         <tr><td style="background:#fff;padding:28px 32px 8px;">
@@ -778,8 +823,9 @@ def main():
 
     capital_html = build_capital_section(weekly=WEEKLY_MODE)
     events_html = build_events_section(weekly=WEEKLY_MODE)
+    stat_strip = build_stat_strip()
     html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE,
-                             capital_html=capital_html, events_html=events_html)
+                             capital_html=capital_html, events_html=events_html, stat_strip=stat_strip)
     today_ddmm = dt.date.today().strftime("%-d %b")
     period_word = "this week" if WEEKLY_MODE else "today"
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
