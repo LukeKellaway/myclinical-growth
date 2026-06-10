@@ -1,6 +1,6 @@
 {
-  "updated": "2026-06-10T11:56:27.912520Z",
-  "count": 42,
+  "updated": "2026-06-10T12:00:00.000000Z",
+  "count": 44,
   "events": [
     {
       "id": "event-nhs-confedexpo-2026-2026",
@@ -107,6 +107,28 @@
         "Meetup",
         "Brighton",
         "Community"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-hpn-midlands-and-mental-health-2026-2026",
+      "title": "HPN Midlands and Mental Health 2026",
+      "organiser": "Healthcare Partnership Network (HPN)",
+      "source_url": "https://hpn-uk.com/agenda/n26/",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "East Midlands Conference Centre, Nottingham",
+      "format": "In person",
+      "start_date": "2026-06-23",
+      "end_date": "2026-06-24",
+      "cost": "Free for senior NHS leaders (invitation and approval required); commercial sponsor packages available",
+      "summary": "An invitation-only, two-day hosted forum connecting senior NHS and ICS digital leaders across the Midlands with solution providers. Topics include digital transformation, AI adoption, the NHS 10-Year Plan, data strategy, mental health integration, and neighbourhood care.",
+      "means": "This is a genuinely senior buyer-facing event. The delegate floor is CIOs, CDIOs, CCIOs and Trust executives, and every supplier gets pre-scheduled one-to-one meetings with them. For a founder wanting direct access to Midlands NHS decision-makers, the sponsorship model is worth examining seriously.",
+      "tags": [
+        "NHS buyers",
+        "Digital transformation",
+        "AI adoption"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -635,6 +657,28 @@
         "Outpatients",
         "Elective recovery",
         "Convenzis"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-hpn-south-2026-2026",
+      "title": "HPN South 2026",
+      "organiser": "Healthcare Partnership Network (HPN)",
+      "source_url": "https://hpn-uk.com/rta-south",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "Radisson Blu Edwardian Hotel, Heathrow, London",
+      "format": "In person",
+      "start_date": "2026-10-15",
+      "end_date": "2026-10-16",
+      "cost": "Free for senior NHS leaders (invitation and approval required); commercial sponsor packages available",
+      "summary": "An invitation-only, two-day hosted forum connecting senior NHS and ICS digital leaders across southern England with solution providers. Peer-led sessions cover digital transformation, AI, data strategy, financial sustainability, and the NHS 10-Year Plan.",
+      "means": "Another genuinely senior buyer crowd with guaranteed pre-booked supplier meetings baked into the format. This is not a trade show floor. Founders sponsoring get structured access to senior NHS decision-makers in the South, which makes it high-value if that geography is a target.",
+      "tags": [
+        "NHS buyers",
+        "Digital transformation",
+        "Hosted meetings"
       ],
       "status": "Upcoming",
       "confidence": "high"
