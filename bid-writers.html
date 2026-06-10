@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Bid Writers · MyClinical Growth</title>
-<meta name="description" content="Reach UK healthtech founders the moment they spot an NHS opportunity. Coming soon: a curated directory of bid writers who actually know NHS procurement.">
+<title>Bid Writing Help · MyClinical Growth</title>
+<meta name="description" content="Spotted an NHS tender and need help writing the bid? Tell us about it and we'll get you working with an experienced NHS bid writer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,12 +24,17 @@
   .cform{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
   .cform .full{grid-column:1 / -1;}
   .cform label{display:block;font-size:12.5px;font-weight:600;color:#cfd3cd;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em;}
-  .cform input,.cform textarea{width:100%;padding:13px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--white);font-size:16px;font-family:inherit;}
+  .cform input,.cform textarea,.cform select{width:100%;padding:13px 14px;border-radius:9px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:var(--white);font-size:16px;font-family:inherit;}
   .cform input::placeholder,.cform textarea::placeholder{color:#9fb0a4;}
+  .cform select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,#9fb0a4 50%),linear-gradient(135deg,#9fb0a4 50%,transparent 50%);background-position:calc(100% - 18px) center,calc(100% - 13px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;}
   .cform textarea{min-height:120px;resize:vertical;}
   .cform .hp{position:absolute;left:-5000px;}
   .cform-actions{margin-top:18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
   .cform-note{font-size:12.5px;color:#9fb0a4;}
+  .thanks{display:none;background:rgba(79,138,110,.16);border:1px solid rgba(79,138,110,.4);color:#e9eee9;border-radius:12px;padding:22px 24px;font-size:15.5px;line-height:1.5;}
+  body.submitted .thanks{display:block;}
+  body.submitted form.cform{display:none;}
+  body.submitted .contact-card p.lead{display:none;}
   @media(max-width:640px){.cform{grid-template-columns:1fr;}}
 </style>
 <!-- mcg-head-injected -->
@@ -43,20 +48,18 @@
 <meta property="og:site_name" content="MyClinical Growth">
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://growth.myclinical.co.uk/bid-writers">
-<meta property="og:title" content="For Bid Writers · MyClinical Growth">
-<meta property="og:description" content="Reach UK healthtech founders the moment they spot an NHS opportunity. Coming soon: a curated directory of bid writers who actually know NHS procurement.">
+<meta property="og:title" content="Bid Writing Help · MyClinical Growth">
+<meta property="og:description" content="Spotted an NHS tender and need help writing the bid? Tell us about it and we'll get you working with an experienced NHS bid writer.">
 <meta property="og:image" content="https://growth.myclinical.co.uk/assets/img/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="MyClinical Growth — NHS procurement and UK healthtech funding, one daily brief.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="For Bid Writers · MyClinical Growth">
-<meta name="twitter:description" content="Reach UK healthtech founders the moment they spot an NHS opportunity. Coming soon: a curated directory of bid writers who actually know NHS procurement.">
+<meta name="twitter:title" content="Bid Writing Help · MyClinical Growth">
+<meta name="twitter:description" content="Spotted an NHS tender and need help writing the bid? Tell us about it and we'll get you working with an experienced NHS bid writer.">
 <meta name="twitter:image" content="https://growth.myclinical.co.uk/assets/img/og-image.png">
 </head>
 <body data-page="bid-writers">
-
-<div class="flag">Coming soon &middot; we are not yet listing bid writers &middot; register your interest below and we&rsquo;ll be in touch when this opens</div>
 
 <nav>
   <div class="wrap nav-inner">
@@ -66,7 +69,7 @@
       <a href="/grants">Grants</a>
       <a href="/events">Events</a>
       <a href="/directory">Directory</a>
-      <a href="/bid-writers" class="active">Bid Writers</a>
+      <a href="/bid-writers" class="active">Bid Help</a>
       <span class="nav-drop"><a href="/capital/tracker">Capital</a><div class="nav-menu"><a href="/capital/tracker">Capital Tracker</a><a href="/capital/finder">Capital Finder</a><a href="/capital">Sponsor us</a></div></span>
       <a href="/submit">Submit</a>
       <a href="/about">About</a>
@@ -77,36 +80,39 @@
 
 <header class="page-head">
   <div class="wrap">
-    <span class="badge">For Bid Writers</span>
-    <h1>Get in front of founders the moment they spot a tender.</h1>
-    <p>MyClinical Growth surfaces NHS opportunities to founders before the window closes. Most of them need help writing the bid. We&rsquo;re building a small, curated directory of bid writers who actually know NHS procurement.</p>
+    <span class="badge">Bid Writing Help</span>
+    <h1>Need help writing your NHS bid?</h1>
+    <p>Most NHS procurement is won or lost on the quality of the written response. If you&rsquo;ve found an opportunity and don&rsquo;t have the time or the in-house experience to answer it well, get in touch. Tell us about the bid and we&rsquo;ll get you working with an experienced NHS bid writer.</p>
   </div>
 </header>
 
 <section>
   <div class="wrap soon-wrap">
     <div class="soon-card">
-      <span class="soon-pill">Coming soon</span>
-      <h2>A small, paid directory. Not a marketplace.</h2>
-      <p>The plan: a handful of vetted bid-writing firms (and independents) listed alongside the relevant procurement opportunities. Founders see who they could work with at the moment they realise they need help.</p>
-      <p>We&rsquo;re keeping it deliberately small so being listed actually means something. Listing is paid.</p>
+      <span class="soon-pill">How it works</span>
+      <h2>Tell us about the bid. We&rsquo;ll take it from there.</h2>
+      <p>Send over the details below and they come straight to me. I work with an experienced bid writer who knows NHS and public-sector procurement, and I&rsquo;ll get the two of you connected so you can talk scope, timing, and fees.</p>
       <ul class="soon-list">
-        <li>Placed next to live procurement notices on the Procurement page</li>
-        <li>A dedicated profile with your specialism, recent wins, and how to contact you</li>
-        <li>Mentions in the daily brief when there&rsquo;s a strong match</li>
-        <li>No exclusivity, no commission. Flat directory fee.</li>
+        <li>A writer who has worked on NHS frameworks and tenders, not a generalist</li>
+        <li>You deal with them directly once you&rsquo;re connected</li>
+        <li>Quick to respond, with your deadline in mind</li>
+        <li>No cost to ask, no obligation, and your details aren&rsquo;t added to any list</li>
       </ul>
     </div>
 
     <div class="contact-card">
-      <h2>Register your interest</h2>
-      <p class="lead">Tell us a bit about your firm. We&rsquo;ll be in touch when the directory opens with pricing and listing details. No obligation, no spam, no sharing your details.</p>
-      <form name="bid-writer-interest"
+      <h2>Tell us about your bid</h2>
+      <p class="lead">The more you can share about the opportunity and the deadline, the faster we can help. Only your name and email are required.</p>
+
+      <div class="thanks" id="thanks-msg">Thanks &mdash; that&rsquo;s with us. We&rsquo;ll review what you&rsquo;ve sent and get you connected with a bid writer who fits. Keep an eye on your inbox.</div>
+
+      <form name="bid-writer-intro"
             method="POST"
             data-netlify="true"
             netlify-honeypot="bot-field"
-            class="cform">
-        <input type="hidden" name="form-name" value="bid-writer-interest" />
+            class="cform"
+            action="/bid-writers?sent=1">
+        <input type="hidden" name="form-name" value="bid-writer-intro" />
         <div class="hp"><label>Don&rsquo;t fill this out: <input name="bot-field" /></label></div>
 
         <div>
@@ -114,24 +120,49 @@
           <input id="bw-name" type="text" name="name" placeholder="Jane Smith" required />
         </div>
         <div>
-          <label for="bw-email">Email</label>
-          <input id="bw-email" type="email" name="email" placeholder="you@yourfirm.com" required />
+          <label for="bw-email">Work email</label>
+          <input id="bw-email" type="email" name="email" placeholder="you@yourcompany.com" required />
         </div>
         <div>
-          <label for="bw-company">Firm / trading name</label>
-          <input id="bw-company" type="text" name="company" placeholder="Acme Bid Writers Ltd" required />
+          <label for="bw-company">Company / organisation</label>
+          <input id="bw-company" type="text" name="company" placeholder="Acme Health Ltd" />
         </div>
         <div>
-          <label for="bw-website">Website</label>
-          <input id="bw-website" type="url" name="website" placeholder="https://" />
+          <label for="bw-phone">Phone (optional)</label>
+          <input id="bw-phone" type="tel" name="phone" placeholder="So the writer can reach you" />
         </div>
         <div class="full">
-          <label for="bw-message">Tell us about your NHS bid experience (optional)</label>
-          <textarea id="bw-message" name="message" placeholder="Frameworks you've worked on, lots you specialise in, anything else you'd like us to know."></textarea>
+          <label for="bw-tender">What are you bidding for?</label>
+          <input id="bw-tender" type="text" name="tender" placeholder="e.g. NHS England remote monitoring framework, Lot 2" />
+        </div>
+        <div>
+          <label for="bw-link">Link to the notice (optional)</label>
+          <input id="bw-link" type="url" name="notice_link" placeholder="https://" />
+        </div>
+        <div>
+          <label for="bw-deadline">Submission deadline</label>
+          <input id="bw-deadline" type="text" name="deadline" placeholder="e.g. 30 June 2026" />
+        </div>
+        <div>
+          <label for="bw-support">Help you need</label>
+          <select id="bw-support" name="support_needed">
+            <option value="full">Write the whole bid</option>
+            <option value="review">Review and strengthen our draft</option>
+            <option value="sections">Specific sections only</option>
+            <option value="unsure">Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="bw-value">Contract value (optional)</label>
+          <input id="bw-value" type="text" name="contract_value" placeholder="e.g. £250k over 2 years" />
+        </div>
+        <div class="full">
+          <label for="bw-message">Anything else we should know? (optional)</label>
+          <textarea id="bw-message" name="message" placeholder="Where you are in the process, what's tricky about this one, what a good outcome looks like."></textarea>
         </div>
         <div class="full cform-actions">
-          <button type="submit" class="btn btn-primary">Register interest</button>
-          <span class="cform-note">We&rsquo;ll reply to the email above. Your details stay with MyClinical Growth.</span>
+          <button type="submit" class="btn btn-primary">Get bid writing help</button>
+          <span class="cform-note">No cost, no obligation. Your details come to MyClinical and go only to the bid writer we connect you with &mdash; nowhere else.</span>
         </div>
       </form>
     </div>
@@ -157,7 +188,7 @@
       </div>
       <div class="foot-col">
         <h5>Partners</h5>
-        <a href="/bid-writers">For bid writers</a>
+        <a href="/bid-writers">Bid writing help</a>
         <a href="/capital">Sponsor us</a>
       </div>
       <div class="foot-col">
@@ -173,6 +204,15 @@
     </div>
   </div>
 </footer>
+
+<script>
+  // After a successful Netlify submission the form's action redirects back
+  // here with ?sent=1. Reveal the thank-you panel and hide the form so the
+  // reader stays on the page.
+  if (location.search.indexOf("sent=1") > -1) {
+    document.body.classList.add("submitted");
+  }
+</script>
 
 </body>
 </html>
