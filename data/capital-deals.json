@@ -1,8 +1,31 @@
 {
-  "updated": "2026-06-10",
+  "updated": "2026-06-13",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 61,
+  "count": 62,
   "deals": [
+    {
+      "key": "01health-equity-2026-06",
+      "company": "01Health",
+      "what": "Series A to scale specialist healthcare platform enabling local clinics to deliver specialist care; supports UK rollout and US market entry",
+      "type": "equity",
+      "round": "Series A",
+      "amount_gbp": 11200000,
+      "date": "2026-06-10",
+      "investors": [
+        "Gresham House Ventures",
+        "Balderton Capital",
+        "Eka Ventures",
+        "Wavemaker360",
+        "Nicolas Cary (angel)"
+      ],
+      "directory_matches": [
+        "Balderton Capital"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.uktech.news/medtech/01health-raises-11-2m-to-bring-specialist-healthcare-to-local-clinics-20260610",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "rem3dy-health-equity-2026-06",
       "company": "Rem3dy Health",
