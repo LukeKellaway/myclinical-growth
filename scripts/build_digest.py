@@ -514,20 +514,21 @@ def build_events_section(weekly=False):
 # Four "state" counts that are almost always non-zero, so the strip looks
 # substantial even on a quiet news day. Each box deep-links to its page.
 # "What's new today" stays in the header summary line above the strip.
-def _stat_box(number, label, href, accent):
+def _stat_box(number, label, href, accent, num_size="23px", width="50%"):
     return f"""
-      <td width="25%" valign="top" style="padding:0 5px;">
-        <a href="{href}" style="display:block;text-decoration:none;border:1px solid #e8e6dd;border-radius:11px;padding:13px 12px;">
+      <td width="{width}" valign="top" style="padding:5px;">
+        <a href="{href}" style="display:block;text-decoration:none;border:1px solid #e8e6dd;border-radius:11px;padding:13px 14px;">
           <div style="width:8px;height:8px;border-radius:2px;background:{accent};margin-bottom:9px;font-size:0;line-height:0;">&nbsp;</div>
-          <div style="font-size:23px;font-weight:800;color:#0e1410;letter-spacing:-0.02em;line-height:1;">{number}</div>
+          <div style="font-size:{num_size};font-weight:800;color:#0e1410;letter-spacing:-0.02em;line-height:1;white-space:nowrap;">{number}</div>
           <div style="font-size:11.5px;font-weight:600;color:#5f655f;margin-top:6px;line-height:1.25;">{label}</div>
         </a>
       </td>"""
 
 
 def build_stat_strip():
-    """Row of four count boxes: live tenders, open grants, upcoming events,
-    rolling capital. Returns "" only if every source is empty."""
+    """Two rows of two count boxes (2x2): live tenders, open grants, events,
+    rolling capital. A 2x2 grid gives each box more room on phones, where most
+    subscribers read. Returns "" only if every source is empty."""
     all_opps = load("opportunities-live.json") + load("opportunities.json")
     open_opps = [o for o in all_opps if not _is_closed(o)]
     open_grants = [g for g in load("grants.json") if not _is_closed(g)]
@@ -542,15 +543,20 @@ def build_stat_strip():
     if not (open_opps or open_grants or upcoming_events or cap["cap_now"]):
         return ""
 
-    boxes = (
+    row1 = (
         _stat_box(len(open_opps), "Live tenders", f"{SITE_URL}/opportunities", "#4f8a6e") +
-        _stat_box(len(open_grants), "Open grants", f"{SITE_URL}/grants", "#7d5ba6") +
-        _stat_box(len(upcoming_events), "Upcoming events", f"{SITE_URL}/events", "#3f7c91") +
-        _stat_box(cap_now, "Capital, 12 months", f"{SITE_URL}/capital/tracker", "#b07d12")
+        _stat_box(len(open_grants), "Open grants", f"{SITE_URL}/grants", "#7d5ba6")
+    )
+    row2 = (
+        _stat_box(len(upcoming_events), "Events", f"{SITE_URL}/events", "#3f7c91") +
+        _stat_box(cap_now, "Deal capital", f"{SITE_URL}/capital/tracker", "#b07d12", num_size="19px")
     )
     return f"""
-        <tr><td style="background:#fff;padding:20px 27px 8px;">
-          <table width="100%" cellpadding="0" cellspacing="0"><tr>{boxes}</tr></table>
+        <tr><td style="background:#fff;padding:16px 22px 8px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>{row1}</tr>
+            <tr>{row2}</tr>
+          </table>
         </td></tr>"""
 
 
@@ -594,8 +600,8 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
         preheader = f"Quiet {quiet_phrase}. Here are the live items closest to deadline."
         proc_subtitle = "On the radar &middot; closest deadlines"
         grants_subtitle = "On the radar &middot; closest deadlines"
-        proc_track_label = "Track 1 &middot; Procurement"
-        grants_track_label = "Track 2 &middot; Grants"
+        proc_track_label = "Procurement"
+        grants_track_label = "Grants"
     else:
         summary_pieces = []
         if opps:
@@ -609,8 +615,8 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
         preheader = f"{total} new {preheader_period} across NHS procurement and UK healthtech funding."
         proc_subtitle = "NHS contracts and framework routes"
         grants_subtitle = "Non-dilutive UK healthtech funding"
-        proc_track_label = "Track 1 &middot; Procurement"
-        grants_track_label = "Track 2 &middot; Grants"
+        proc_track_label = "Procurement"
+        grants_track_label = "Grants"
 
     proc_section = _section(
         title=proc_track_label,
@@ -643,9 +649,6 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
             <div style="color:#fff;font-size:22px;font-weight:900;letter-spacing:-0.025em;line-height:1;">MyClinical <span style="color:#8fcaa9;">Growth</span></div>
           </a>
           <div style="color:#aab1aa;font-size:13.5px;margin-top:8px;letter-spacing:.01em;">{brief_label} &middot; {today}</div>
-          <div style="color:#dfe4df;font-size:14px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.10);">
-            {"This week" if weekly else "Today"}: {summary}.
-          </div>
         </td></tr>
         {stat_strip}
         {announcement}
@@ -853,16 +856,12 @@ def main():
                              capital_html=capital_html, events_html=events_html,
                              stat_strip=stat_strip, announcement=announcement)
     today_ddmm = dt.date.today().strftime("%-d %b")
-    period_word = "this week" if WEEKLY_MODE else "today"
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
-    if is_quiet:
-        subject = f"Quiet {'week' if WEEKLY_MODE else 'day'} | NHS procurement & UK healthtech funding ({today_ddmm})"
-    elif opps and grants:
-        subject = f"{len(opps)} procurement, {len(grants)} grant{'s' if len(grants) != 1 else ''} | {brief_label}"
-    elif opps:
-        subject = f"{len(opps)} new NHS procurement {'opportunity' if len(opps)==1 else 'opportunities'} {period_word}"
-    else:
-        subject = f"{len(grants)} new grant {'call' if len(grants)==1 else 'calls'} {period_word}"
+    # Fixed masthead-style subject: a steady tagline plus the moving date, so it
+    # never reads as negative ("Quiet day") or repetitive. The date keeps each
+    # send distinct in the inbox and stops Gmail collapsing identical subjects.
+    dose_period = "Weekly" if WEEKLY_MODE else "Daily"
+    subject = f"{dose_period} Dose of UK Healthcare Growth Opportunities ({today_ddmm})"
 
     # Build recipients block. If frequency segmenting is enabled, daily goes
     # to anyone with DAILY=Yes OR blank (the blank rule preserves subscribers
