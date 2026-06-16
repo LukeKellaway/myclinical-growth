@@ -1,8 +1,34 @@
 {
-  "updated": "2026-06-13",
+  "updated": "2026-06-16",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 62,
+  "count": 63,
   "deals": [
+    {
+      "key": "thena-capital-equity-2026-06",
+      "company": "THENA Capital",
+      "what": "Final close of debut \u00a345m Fund I to back early-stage UK digital health and medtech startups; anchored by British Business Bank Enterprise Capital Funds \u2014 first all-female GP team to receive BBB ECF backing; five portfolio companies already invested",
+      "type": "equity",
+      "round": "Fund Close (Fund I)",
+      "amount_gbp": 45000000,
+      "date": "2026-06-12",
+      "investors": [
+        "British Business Bank (Enterprise Capital Funds)",
+        "Baroness Martha Lane Fox (LP)",
+        "Healthcare executives and family offices (undisclosed LPs)",
+        "GSK senior figures (LP)",
+        "Novartis senior figures (LP)",
+        "AstraZeneca senior figures (LP)"
+      ],
+      "directory_matches": [
+        "AstraZeneca (Strategic Investments)",
+        "British Business Bank (equity programmes)",
+        "GSK (Equity Investments)"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://thenextweb.com/news/thena-capital-45-million-medtech-fund",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "01health-equity-2026-06",
       "company": "01Health",
