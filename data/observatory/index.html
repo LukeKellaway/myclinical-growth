@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UK National Data Observatory — MyClinical Insights</title>
+<meta name="description" content="141+ UK national healthcare, economic, and public health datasets in one interactive dashboard. NHS performance, public health indicators, interactive maps.">
+<link rel="canonical" href="https://myclinical.co.uk/data/observatory">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..600,30&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root {
+  --bg: #0a0e17; --bg2: #111827; --bg3: #1f2937; --border: #374151;
+  --text: #f9fafb; --text2: #9ca3af; --accent: #3b82f6; --accent2: #8b5cf6;
+  --green: #10b981; --red: #ef4444; --amber: #f59e0b; --grey: #6b7280;
+  --radius: 12px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:var(--bg); color:var(--text); }
+.app { display:flex; height:100vh; }
+.sidebar { width:260px; background:var(--bg2); border-right:1px solid var(--border); display:flex; flex-direction:column; flex-shrink:0; }
+.logo { padding:20px; border-bottom:1px solid var(--border); }
+.logo h1 { font-size:15px; font-weight:700; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.logo p { font-size:11px; color:var(--text2); margin-top:4px; }
+.nav-scroll { flex:1; overflow-y:auto; padding:8px; }
+.nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; font-size:13px; color:var(--text2); transition:all 0.15s; margin-bottom:2px; }
+.nav-item:hover { background:var(--bg3); color:var(--text); }
+.nav-item.active { background:var(--accent); color:white; }
+.nav-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.main { flex:1; overflow-y:auto; padding:32px 40px; }
+@media(max-width:900px) { .sidebar{display:none} .main{padding:16px} }
+
+.rag { display:inline-block; width:14px; height:14px; border-radius:50%; }
+.rag.red { background:var(--red); box-shadow:0 0 8px var(--red); }
+.rag.amber { background:var(--amber); box-shadow:0 0 8px var(--amber); }
+.rag.green { background:var(--green); box-shadow:0 0 8px var(--green); }
+.rag.grey { background:var(--grey); }
+.rag-text { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; }
+.rag-text.red { background:#ef444420; color:var(--red); }
+.rag-text.amber { background:#f59e0b20; color:var(--amber); }
+.rag-text.green { background:#10b98120; color:var(--green); }
+
+h2 { font-size:22px; font-weight:700; margin-bottom:4px; }
+.subtitle { color:var(--text2); font-size:14px; margin-bottom:24px; }
+
+.stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-bottom:24px; }
+.stat { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:18px; }
+.stat .label { font-size:11px; color:var(--text2); font-weight:500; display:flex; align-items:center; gap:6px; }
+.stat .value { font-size:26px; font-weight:700; margin-top:4px; }
+.stat .sub { font-size:11px; color:var(--text2); margin-top:2px; }
+
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:20px; margin-bottom:24px; }
+.card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); }
+.card-head { padding:14px 18px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
+.card-head h3 { font-size:14px; font-weight:600; }
+.card-body { padding:18px; }
+
+.tbl { width:100%; border-collapse:collapse; font-size:12px; }
+.tbl th { text-align:left; padding:8px 10px; background:var(--bg3); font-weight:600; font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text2); }
+.tbl td { padding:7px 10px; border-top:1px solid var(--border); }
+.tbl tr:hover td { background:rgba(59,130,246,0.05); }
+.tbl-scroll { max-height:350px; overflow-y:auto; }
+
+.bar-row { display:flex; align-items:center; gap:6px; margin-bottom:5px; font-size:12px; }
+.bar-lbl { width:160px; text-align:right; color:var(--text2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.bar-track { flex:1; height:22px; background:var(--bg3); border-radius:4px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:4px; min-width:2px; }
+.bar-val { width:55px; font-size:11px; color:var(--text2); }
+
+.trend { font-size:12px; font-weight:600; }
+.trend.up { color:var(--red); }
+.trend.down { color:var(--green); }
+.trend.stable { color:var(--text2); }
+
+.query-box { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:20px; margin-bottom:24px; }
+.query-row { display:flex; gap:10px; }
+.query-input { flex:1; background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:12px 16px; color:var(--text); font-size:14px; outline:none; }
+.query-input:focus { border-color:var(--accent); }
+.query-btn { background:var(--accent); color:white; border:none; padding:12px 20px; border-radius:8px; font-weight:600; cursor:pointer; }
+.query-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:10px; }
+.chip { padding:5px 12px; background:var(--bg3); border:1px solid var(--border); border-radius:20px; font-size:11px; color:var(--text2); cursor:pointer; }
+.chip:hover { border-color:var(--accent); color:var(--accent); }
+.qr-item { padding:12px; border-bottom:1px solid var(--border); }
+.qr-name { font-weight:600; color:var(--accent); cursor:pointer; }
+.spark { display:inline-block; vertical-align:middle; }
+.full { grid-column:1/-1; }
+
+/* Map page styles */
+.map-container { position:relative; width:100%; height:calc(100vh - 120px); border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); }
+#map { width:100%; height:100%; background:var(--bg2); }
+.map-controls { position:absolute; top:12px; right:12px; z-index:1000; display:flex; flex-direction:column; gap:8px; }
+.map-select { background:var(--bg2); color:var(--text); border:1px solid var(--border); border-radius:8px; padding:8px 12px; font-size:12px; cursor:pointer; min-width:200px; outline:none; }
+.map-select:focus { border-color:var(--accent); }
+.map-legend { position:absolute; bottom:24px; left:12px; z-index:1000; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:12px; min-width:160px; }
+.map-legend h4 { font-size:11px; color:var(--text2); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px; }
+.legend-scale { display:flex; height:12px; border-radius:3px; overflow:hidden; margin-bottom:4px; }
+.legend-labels { display:flex; justify-content:space-between; font-size:10px; color:var(--text2); }
+.map-detail { position:absolute; bottom:24px; right:12px; z-index:1000; background:var(--bg2); border:1px solid var(--accent); border-radius:8px; padding:16px; width:280px; max-height:300px; overflow-y:auto; display:none; }
+.map-detail h3 { font-size:14px; font-weight:600; margin-bottom:8px; color:var(--accent); }
+.map-detail .metric-row { display:flex; justify-content:space-between; padding:4px 0; font-size:12px; border-bottom:1px solid var(--border); }
+.map-detail .metric-label { color:var(--text2); }
+.map-detail .metric-value { font-weight:600; }
+.leaflet-container { background:var(--bg2) !important; }
+.map-tooltip { background:var(--bg2) !important; color:var(--text) !important; border:1px solid var(--border) !important; border-radius:6px !important; padding:8px 12px !important; font-size:12px !important; box-shadow:0 4px 12px rgba(0,0,0,0.3) !important; }
+.map-tooltip .area-name { font-weight:600; font-size:13px; margin-bottom:4px; }
+.map-tooltip .area-value { color:var(--accent); font-weight:600; }
+
+/* AI Cost Viability page */
+.ai-g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px}
+.ai-g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.ai-g2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:24px}
+@media(max-width:1024px){.ai-g4{grid-template-columns:repeat(2,1fr)}.ai-g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.ai-g4,.ai-g3,.ai-g2{grid-template-columns:1fr}}
+.ai-mv{font-size:28px;font-weight:800;line-height:1.2}
+.ai-ml{font-size:13px;color:var(--text2);margin-top:4px}
+.ai-mc{font-size:12px;font-weight:600;margin-top:6px;display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px}
+.ai-mc-up{background:rgba(239,68,68,.15);color:#f87171}
+.ai-mc-dn{background:rgba(34,197,94,.15);color:#4ade80}
+.ai-msub{font-size:11px;color:var(--text2);margin-top:6px}
+.ai-tl{width:12px;height:12px;border-radius:50%;display:inline-block}
+.ai-tl-r{background:var(--red);box-shadow:0 0 6px var(--red)}
+.ai-tl-a{background:var(--amber);box-shadow:0 0 6px var(--amber)}
+.ai-tl-g{background:var(--green);box-shadow:0 0 6px var(--green)}
+.ai-alert{background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(239,68,68,.04));border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
+.ai-prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:24px}
+.ai-prod-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;transition:.2s}
+.ai-prod-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ai-prod-icon{font-size:28px;margin-bottom:10px}
+.ai-prod-name{font-size:16px;font-weight:700;margin-bottom:4px}
+.ai-prod-desc{font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.4}
+.ai-prod-status{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 12px;border-radius:8px;margin-bottom:10px}
+.ai-status-viable{background:rgba(16,185,129,.1);color:#4ade80}
+.ai-status-pressure{background:rgba(245,158,11,.1);color:#fbbf24}
+.ai-status-unviable{background:rgba(239,68,68,.1);color:#f87171}
+.ai-prod-stat{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--border);font-size:12px}
+.ai-prod-stat-l{color:var(--text2)}
+.ai-prod-stat-v{font-weight:600}
+.ai-slider-row{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.ai-slider-row label{font-size:13px;font-weight:500;color:var(--text2);min-width:160px}
+.ai-slider-row input[type=range]{flex:1;height:6px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:3px;outline:none}
+.ai-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg2);box-shadow:0 0 8px rgba(59,130,246,.5)}
+.ai-slider-val{font-size:14px;font-weight:700;color:#60a5fa;min-width:90px;text-align:right}
+.ai-preset-btns{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.ai-preset-btn{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;font-family:inherit;transition:.2s}
+.ai-preset-btn:hover{border-color:var(--accent);color:var(--text)}
+.ai-preset-btn.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.ai-timeline-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.ai-timeline-icon{font-size:20px;width:36px;text-align:center;flex-shrink:0}
+.ai-timeline-prod{font-size:14px;font-weight:600;flex:1}
+.ai-timeline-bar-c{flex:2;background:var(--bg3);border-radius:6px;height:24px;position:relative;overflow:hidden}
+.ai-timeline-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:600;color:#fff;transition:width .5s}
+.ai-timeline-date{font-size:13px;font-weight:700;min-width:100px;text-align:right}
+.ai-tab-nav{display:flex;gap:4px;background:var(--bg2);border-radius:10px;padding:4px;margin-bottom:24px;flex-wrap:wrap}
+.ai-tab-btn{padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;border:none;background:transparent;font-family:inherit;transition:.2s}
+.ai-tab-btn:hover{color:var(--text);background:var(--bg3)}
+.ai-tab-btn.on{color:#fff;background:#2563eb}
+.ai-explain{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px;padding:16px;background:var(--bg2);border-radius:10px;border-left:3px solid var(--accent)}
+.ai-ac{padding:14px;border-radius:8px;background:var(--bg3);border-left:3px solid var(--red)}
+.ai-ac-t{font-size:12px;font-weight:600;margin-bottom:4px}
+.ai-ac-s{font-size:11px;color:#f87171}
+.ai-chart-box{position:relative;height:280px}
+
+/* ═══ MyClinical Brand Nav ═══ */
+.mc-nav{background:rgba(10,14,23,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:10px 0;position:sticky;top:0;z-index:10000;font-family:'Inter',system-ui,sans-serif}
+.mc-nav-inner{max-width:100%;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.mc-logo-link{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--text);font-weight:800;font-size:1.05rem;letter-spacing:-.03em}
+.mc-logo-icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#4a9eff,#2dd4a8);display:grid;place-items:center;font-size:12px;font-weight:900;color:#0a0e17}
+.mc-nav-links{display:flex;gap:20px;list-style:none}
+.mc-nav-links a{color:#64748b;text-decoration:none;font-size:.76rem;font-weight:500;transition:color .2s}
+.mc-nav-links a:hover,.mc-nav-links a.active{color:var(--text)}
+.mc-badge{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#2dd4a8;background:rgba(45,212,168,.08);border:1px solid rgba(45,212,168,.15);padding:3px 8px;border-radius:20px}
+.mc-back{display:inline-flex;align-items:center;gap:6px;color:#64748b;text-decoration:none;font-size:.76rem;font-weight:500;padding:4px 0;margin-bottom:4px;transition:color .2s}
+.mc-back:hover{color:var(--text)}
+.mc-back svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
+.app{height:calc(100vh - 45px)!important}
+@media(max-width:640px){.mc-nav-links{display:none}}
+</style>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<!-- NAV -->
+<header class="masthead">
+    <div class="masthead-top">
+        <a href="/" class="masthead-wordmark">MyClinical</a>
+        <span class="masthead-meta">Issue 24 · <span id="masthead-date">May 2026</span></span>
+    </div>
+    <nav class="masthead-nav">
+        <a href="https://www.growth.myclinical.co.uk" target="_blank" class="section-link" data-brand="growth">
+            <span class="sec-no">No. 01</span>
+            <span class="sec-name">Growth</span>
+        </a>
+        <a href="/data/" class="section-link" data-brand="data">
+            <span class="sec-no">No. 02</span>
+            <span class="sec-name">Data</span>
+        </a>
+        <a href="/insights/" class="section-link" data-brand="insights">
+            <span class="sec-no">No. 03</span>
+            <span class="sec-name">Insights</span>
+        </a>
+        <a href="/coach/" class="section-link" data-brand="coach">
+            <span class="sec-no">No. 04</span>
+            <span class="sec-name">Coach</span>
+        </a>
+        <a href="/research/" class="section-link" data-brand="research">
+            <span class="sec-no">No. 05</span>
+            <span class="sec-name">Research</span>
+        </a>
+        <a href="https://myclinicaldd.gumroad.com" target="_blank" class="section-link" data-brand="dd">
+            <span class="sec-no">No. 06</span>
+            <span class="sec-name">DD</span>
+        </a>
+        <a href="/content/" class="section-link" data-brand="content">
+            <span class="sec-no">No. 07</span>
+            <span class="sec-name">Content</span>
+        </a>
+        <a href="/#subscribe" class="masthead-subscribe">Subscribe</a>
+    </nav>
+</header>
+<div id="app" class="app">
+  <div class="sidebar">
+    <div class="logo">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+        <h1>UK National Data Observatory</h1>
+      </div>
+      <p>Health · Economy · Inequality</p>
+      <div style="margin-top:8px"><span class="mc-badge">MyClinical Data</span></div>
+    </div>
+    <div class="nav-scroll" id="nav"></div>
+    <div style="padding:12px 16px;border-top:1px solid var(--border)">
+      <a href="/data/" class="mc-back"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to MyClinical Data</a>
+    </div>
+  </div>
+  <div class="main" id="main"></div>
+</div>
+<script>
+const dateEl = document.getElementById('masthead-date'); if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+let D=null, view='overview', charts={};
+const PAGES=[
+  {id:'overview',label:'Overview',color:'#3b82f6'},
+  {id:'performance',label:'NHS Performance',color:'#ef4444'},
+  {id:'fingertips',label:'Public Health Indicators',color:'#8b5cf6'},
+  {id:'demographics',label:'Demographics',color:'#3b82f6'},
+  {id:'economy',label:'Economy & Employment',color:'#10b981'},
+  {id:'environment',label:'Environment',color:'#06b6d4'},
+  {id:'map',label:'Map',color:'#06b6d4'},
+  {id:'query',label:'Query / Search',color:'#f59e0b'},
+  {id:'aicost',label:'AI Cost Viability',color:'#a855f7'},
+];
+
+async function init(){
+  try{ D=await(await fetch('dashboard_data.json')).json(); buildNav(); render(); }
+  catch(e){ document.getElementById('main').innerHTML='<h2 style="color:var(--red);padding:40px">Could not load dashboard_data.json — run process_v2.py first</h2>'; }
+}
+
+function buildNav(){
+  document.getElementById('nav').innerHTML=PAGES.map(p=>`<div class="nav-item${view===p.id?' active':''}" onclick="go('${p.id}')"><span class="nav-dot" style="background:${p.color}"></span>${p.label}</div>`).join('');
+}
+function go(v){
+  // Cleanup map when navigating away
+  if(view==='map'&&mapInstance){try{mapInstance.remove();}catch(e){}mapInstance=null;mapLayer=null;}
+  view=v;buildNav();render();
+}
+
+function render(){
+  const m=document.getElementById('main');
+  switch(view){
+    case'overview':m.innerHTML=renderOverview();break;
+    case'performance':m.innerHTML=renderPerformance();break;
+    case'fingertips':m.innerHTML=renderFingertips();break;
+    case'demographics':m.innerHTML=renderDemographics();break;
+    case'economy':m.innerHTML=renderEconomy();break;
+    case'environment':m.innerHTML=renderEnvironment();break;
+    case'map':m.innerHTML=renderMapPage();requestAnimationFrame(initMap);break;
+    case'query':m.innerHTML=renderQuery();break;
+    case'aicost':m.innerHTML=renderAICost();requestAnimationFrame(initAICostCharts);break;
+  }
+  requestAnimationFrame(renderProvCharts);
+}
+
+function fmt(n){return n!=null?n.toLocaleString(undefined,{maximumFractionDigits:1}):'—';}
+function fmtK(n){return n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?(n/1e3).toFixed(0)+'K':fmt(n);}
+function ragDot(r){return`<span class="rag ${r||'grey'}"></span>`;}
+function ragText(r){return`<span class="rag-text ${r||'grey'}">${(r||'N/A').toUpperCase()}</span>`;}
+function trendArrow(t,tq){
+  // tq = trend_quality: "good", "bad", or "neutral"
+  const color = tq==='bad'?'var(--red)':tq==='good'?'var(--green)':'var(--text2)';
+  if(t==='increasing')return`<span class="trend" style="color:${color}">▲ Rising</span>`;
+  if(t==='decreasing')return`<span class="trend" style="color:${color}">▼ Falling</span>`;
+  if(t==='stable')return'<span class="trend stable">● Stable</span>';
+  return'<span class="trend stable">—</span>';
+}
+function trendColor(tq){return tq==='bad'?'#ef4444':tq==='good'?'#10b981':'#6b7280';}
+function sparkSVG(ts,w=120,h=30,color='#3b82f6'){
+  if(!ts||ts.length<2)return'';
+  const vals=ts.map(t=>t.value),mn=Math.min(...vals),mx=Math.max(...vals),rng=mx-mn||1;
+  const pts=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-2-(v-mn)/rng*(h-4)).toFixed(1)}`).join(' ');
+  return`<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5"/></svg>`;
+}
+
+// ═══════════════ OVERVIEW ═══════════════
+function renderOverview(){
+  const p=D.performance,s=D.summary;
+  const rtt=p.rtt?.headline||{},dm=p.dm01?.headline||{},ae=p.ae?.headline||{},ca=p.cancer?.headline||{};
+
+  // Build RTT specialty options
+  const rttSpecs=(p.rtt?.by_specialty||[]).filter(x=>x.specialty!=='Total');
+  const rttOpts=rttSpecs.map(x=>`<option value="${x.specialty}">${x.specialty.replace(' Service','')} (${fmtK(x.total_wl)}, ${x.pct_18wk}%)</option>`).join('');
+
+  // Build DM01 test options
+  const dmTests=p.dm01?.by_test||[];
+  const dmOpts=dmTests.map(x=>`<option value="${x.test}">${x.test} (${fmtK(x.over_13wk)} breaches)</option>`).join('');
+
+  return`
+    <h2>UK National Data Observatory</h2>
+    <p class="subtitle">Last updated ${new Date(D.generated_at).toLocaleDateString('en-GB')} · ${s.total_indicators} public health indicators</p>
+
+    <div class="stats">
+      <div class="stat" style="cursor:pointer;position:relative" onclick="toggleDrop('rtt-drop')">
+        <div class="label">${ragDot(rtt.rag)} RTT 18-Week <span style="font-size:10px;opacity:0.5">▼ click for specialties</span></div>
+        <div class="value">${fmt(rtt.pct_18_weeks)}%</div>
+        <div class="sub">${fmtK(rtt.total_waiting_list)} total pathways (target 92%)</div>
+        <div id="rtt-drop" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-radius:0 0 8px 8px;max-height:250px;overflow-y:auto;z-index:10;padding:8px">
+          ${rttSpecs.slice(0,15).map(x=>{const rc=x.pct_18wk>=92?'green':x.pct_18wk>=85?'amber':'red';
+          return`<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:11px;border-bottom:1px solid var(--border)">
+            <span>${x.specialty.replace(' Service','')}</span>
+            <span>${ragText(rc)} ${x.pct_18wk}% · ${fmtK(x.total_wl)} WL · ${fmtK(x.over_52wk)} 52wk+</span>
+          </div>`;}).join('')}
+        </div>
+      </div>
+      <div class="stat" style="cursor:pointer;position:relative" onclick="toggleDrop('dm-drop')">
+        <div class="label">${ragDot(dm.rag_13wk)} DM01 13wk+ Breaches <span style="font-size:10px;opacity:0.5">▼ click for modalities</span></div>
+        <div class="value">${fmtK(dm.over_13_weeks)}</div>
+        <div class="sub">${fmt(dm.pct_within_6_weeks)}% within 6 weeks</div>
+        <div id="dm-drop" style="display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-radius:0 0 8px 8px;max-height:250px;overflow-y:auto;z-index:10;padding:8px">
+          ${dmTests.slice(0,15).map(x=>`<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:11px;border-bottom:1px solid var(--border)">
+            <span>${x.test.substring(0,30)}</span>
+            <span style="color:var(--red)">${fmtK(x.over_13wk)} breaches</span>
+            <span>${fmt(x.pct_within_6wk)}% <6wk</span>
+          </div>`).join('')}
+        </div>
+      </div>
+      <div class="stat"><div class="label">${ragDot(ae.rag)} A&E 4-Hour</div><div class="value">${fmt(ae.pct_within_4_hours)}%</div><div class="sub">${fmtK(ae.total_attendances)} attendances (target 95%)</div></div>
+      <div class="stat"><div class="label">${ragDot(ca.fds_rag)} Cancer FDS</div><div class="value">${fmt(ca.fds_performance)}%</div><div class="sub">Faster Diagnosis Standard (target 75%)</div></div>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="label">RTT Over 52 Weeks</div><div class="value" style="color:var(--red)">${fmtK(rtt.over_52_weeks)}</div><div class="sub">${fmtK(rtt.over_65_weeks)} over 65 weeks</div></div>
+      <div class="stat"><div class="label" style="color:var(--red)">Indicators Worsening</div><div class="value" style="color:var(--red)">${s.indicators_worsening}</div><div class="sub">of ${s.total_indicators} tracked</div></div>
+      <div class="stat"><div class="label" style="color:var(--green)">Indicators Improving</div><div class="value" style="color:var(--green)">${s.indicators_improving}</div><div class="sub">getting better</div></div>
+      <div class="stat"><div class="label">Stable</div><div class="value">${s.indicators_stable}</div><div class="sub">no significant change</div></div>
+    </div>
+    <h3 style="margin:16px 0 12px;font-size:16px">Key Public Health Trends</h3>
+    <div class="grid">${renderFeaturedCards()}</div>`;
+}
+
+function toggleDrop(id){
+  const el=document.getElementById(id);
+  el.style.display=el.style.display==='none'?'block':'none';
+  if(window.event)window.event.stopPropagation();
+}
+
+function renderFeaturedCards(){
+  const featured=['Diabetes_Prevalence','Life_Expectancy_Male','Suicide_Rate','Child_Poverty','Obesity_Prevalence','Smoking_Prevalence','Depression_Prevalence','Alcohol_Admissions'];
+  return featured.map(n=>{const f=D.fingertips[n];if(!f)return'';const tc=trendColor(f.trend_quality);return`<div class="card">
+    <div class="card-head"><h3>${f.indicator_name.substring(0,55)}</h3>${trendArrow(f.trend,f.trend_quality)}</div>
+    <div class="card-body"><div style="display:flex;justify-content:space-between;align-items:center">
+      <div><div style="font-size:28px;font-weight:700">${fmt(f.england_latest)}</div><div style="font-size:11px;color:var(--text2)">England · ${f.latest_period}</div></div>
+      ${sparkSVG(f.time_series,140,40,tc)}
+    </div><div style="margin-top:8px;font-size:11px;color:var(--text2)">${f.distribution.higher_than_england} areas worse · ${f.distribution.lower_than_england} better · ${f.area_count} total</div></div></div>`;}).join('');
+}
+
+// ═══════════════ PERFORMANCE ═══════════════
+function renderPerformance(){
+  const rtt=D.performance.rtt,dm=D.performance.dm01,ae=D.performance.ae,ca=D.performance.cancer;
+  return`
+    <h2>NHS Performance</h2><p class="subtitle">${rtt?.period||''}</p>
+    <div class="stats">
+      <div class="stat"><div class="label">${ragDot(rtt?.headline.rag)} RTT 18-Week</div><div class="value">${fmt(rtt?.headline.pct_18_weeks)}%</div><div class="sub">Target 92% · ${fmtK(rtt?.headline.total_waiting_list)} pathways</div></div>
+      <div class="stat"><div class="label">${ragDot(dm?.headline.rag_6wk)} DM01 <6wk</div><div class="value">${fmt(dm?.headline.pct_within_6_weeks)}%</div><div class="sub">Target 99% · ${fmtK(dm?.headline.total_waiting_list)} WL</div></div>
+      <div class="stat"><div class="label">${ragDot(ae?.headline.rag)} A&E 4hr</div><div class="value">${fmt(ae?.headline.pct_within_4_hours)}%</div><div class="sub">Target 95%</div></div>
+      <div class="stat"><div class="label">${ragDot(ca?.headline.fds_rag)} Cancer FDS</div><div class="value">${fmt(ca?.headline.fds_performance)}%</div><div class="sub">Target 75%</div></div>
+    </div>
+    <h3 style="margin:16px 0 8px;font-size:16px">Search Provider</h3>
+    <div style="margin-bottom:16px;display:flex;gap:8px">
+      <input class="query-input" id="prov-search" placeholder="e.g. King's, Guy's, Lambeth, Barts..." style="max-width:400px" onkeydown="if(event.key==='Enter')searchProvider()">
+      <button class="query-btn" onclick="searchProvider()">Search</button>
+    </div>
+    <div id="prov-results"></div>
+    <h3 style="margin:8px 0 12px;font-size:16px">Provider Performance Charts</h3>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Every provider plotted against target. Hover for details. Red line = national target.</p>
+    <div class="grid">
+      <div class="card full"><div class="card-head"><h3>RTT 18-Week Performance by Provider (${rtt?.all_providers?.length||0} providers)</h3></div>
+        <div class="card-body" style="height:400px"><canvas id="chart-rtt-prov"></canvas></div></div>
+      <div class="card full"><div class="card-head"><h3>DM01 % Within 6 Weeks by Provider (${dm?.all_providers?.length||0} providers)</h3></div>
+        <div class="card-body" style="height:400px"><canvas id="chart-dm01-prov"></canvas></div></div>
+      <div class="card full"><div class="card-head"><h3>A&E 4-Hour Performance by Provider (${ae?.all_providers?.length||0} providers)</h3></div>
+        <div class="card-body" style="height:400px"><canvas id="chart-ae-prov"></canvas></div></div>
+    </div>
+    <h3 style="margin:16px 0 12px;font-size:16px">Breakdown</h3>
+    <div class="grid">
+      ${rtt?renderSpecialties(rtt):''}
+      ${dm?renderDM01Tests(dm):''}
+      ${rtt?renderProviderTable('RTT — Worst Providers by 18-Week %',rtt.worst_providers,[['Provider','name',35],['WL','total_wl'],['18wk%','pct_18wk','%','rtt'],['52wk+','over_52wk']]):''}
+      ${dm?renderProviderTable('DM01 — Most 13-Week Breaches',dm.worst_providers,[['Provider','name',35],['WL','total_wl'],['13wk+','over_13wk','','red'],['%','pct_over_13wk','%']]):''}
+      ${ae?renderProviderTable('A&E — Worst 4-Hour Performance',ae.worst_providers,[['Provider','name',35],['Attend.','attendances'],['4hr%','pct_within_4hr','%','ae'],['Over 4hr','over_4hr']]):''}
+    </div>`;
+}
+
+function renderSpecialties(rtt){
+  const s=rtt.by_specialty.filter(x=>x.specialty!=='Total'),mx=Math.max(...s.map(x=>x.total_wl));
+  return`<div class="card"><div class="card-head"><h3>RTT by Specialty</h3></div><div class="card-body">
+    ${s.slice(0,12).map(x=>{const rc=x.pct_18wk>=92?'green':x.pct_18wk>=85?'amber':'red';
+    return`<div class="bar-row"><span class="bar-lbl">${x.specialty.replace(' Service','')}</span><div class="bar-track"><div class="bar-fill" style="width:${(x.total_wl/mx*100).toFixed(0)}%;background:var(--${rc})"></div></div><span class="bar-val">${fmtK(x.total_wl)}</span></div>`;}).join('')}
+  </div></div>`;
+}
+
+function renderDM01Tests(dm){
+  const t=dm.by_test.slice(0,12),mx=Math.max(...t.map(x=>x.over_13wk));
+  return`<div class="card"><div class="card-head"><h3>DM01 13wk+ Breaches by Test</h3></div><div class="card-body">
+    ${t.map(x=>`<div class="bar-row"><span class="bar-lbl">${x.test.substring(0,25)}</span><div class="bar-track"><div class="bar-fill" style="width:${(x.over_13wk/mx*100).toFixed(0)}%;background:var(--red)"></div></div><span class="bar-val">${fmtK(x.over_13wk)}</span></div>`).join('')}
+  </div></div>`;
+}
+
+function renderProviderTable(title,list,cols){
+  return`<div class="card"><div class="card-head"><h3>${title}</h3></div><div class="card-body"><div class="tbl-scroll"><table class="tbl">
+    <thead><tr>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr></thead>
+    <tbody>${list.slice(0,15).map(p=>`<tr>${cols.map(c=>{
+      let v=p[c[1]];if(typeof v==='string')v=v.substring(0,c[2]||50);
+      else if(typeof v==='number'&&v>999&&!c[2])v=fmtK(v);
+      let style='';
+      if(c[3]==='red')style='color:var(--red)';
+      if(c[3]==='rtt'){const rc=v>=92?'green':v>=85?'amber':'red';return`<td>${ragText(rc)} ${v}${c[2]||''}</td>`;}
+      if(c[3]==='ae'){const rc=v>=95?'green':v>=80?'amber':'red';return`<td>${ragText(rc)} ${v}${c[2]||''}</td>`;}
+      return`<td style="${style}">${v}${c[2]&&typeof p[c[1]]==='number'?c[2]:''}</td>`;
+    }).join('')}</tr>`).join('')}</tbody>
+  </table></div></div></div>`;
+}
+
+let provSearchCache={};
+function searchProvider(){
+  const q=document.getElementById('prov-search').value.toLowerCase().trim();
+  if(!q){document.getElementById('prov-results').innerHTML='';return;}
+  const rtt=D.performance.rtt?.all_providers||[];
+  const dm=D.performance.dm01?.all_providers||[];
+  const ae=D.performance.ae?.all_providers||[];
+
+  const rttMatch=rtt.filter(p=>p.name.toLowerCase().includes(q));
+  const dmMatch=dm.filter(p=>p.name.toLowerCase().includes(q));
+  const aeMatch=ae.filter(p=>p.name.toLowerCase().includes(q));
+
+  if(!rttMatch.length&&!dmMatch.length&&!aeMatch.length){
+    document.getElementById('prov-results').innerHTML='<p style="color:var(--text2);font-size:13px">No providers found. Try a different search term.</p>';
+    return;
+  }
+
+  const providers={};
+  rttMatch.forEach(p=>{const k=p.name;if(!providers[k])providers[k]={name:p.name};providers[k].rtt=p;});
+  dmMatch.forEach(p=>{const k=p.name;if(!providers[k])providers[k]={name:p.name};providers[k].dm01=p;});
+  aeMatch.forEach(p=>{const k=p.name;if(!providers[k])providers[k]={name:p.name};providers[k].ae=p;});
+
+  const rttSorted=[...rtt].sort((a,b)=>b.pct_18wk-a.pct_18wk);
+  const dmSorted=[...dm].sort((a,b)=>b.pct_within_6wk-a.pct_within_6wk);
+  const aeSorted=[...ae].sort((a,b)=>b.pct_within_4hr-a.pct_within_4hr);
+  provSearchCache={rtt,dm,ae,rttSorted,dmSorted,aeSorted};
+
+  let idx=0;
+  let html='';
+  for(const[name,p]of Object.entries(providers)){
+    const pid='prov-'+idx++;
+    html+=`<div class="card full" style="margin-bottom:12px;border-left:3px solid var(--accent);cursor:pointer" onclick="toggleProvDetail('${pid}')">
+      <div class="card-head" style="display:flex;justify-content:space-between;align-items:center"><h3>${name}</h3><span style="font-size:11px;color:var(--text2)">▼ Click for detail</span></div>
+      <div class="card-body"><div class="stats" style="margin-bottom:0">`;
+    if(p.rtt){
+      const rank=rttSorted.findIndex(x=>x.name===name)+1;
+      const rc=p.rtt.pct_18wk>=92?'green':p.rtt.pct_18wk>=85?'amber':'red';
+      html+=`<div class="stat"><div class="label">${ragDot(rc)} RTT 18-Week</div><div class="value">${fmt(p.rtt.pct_18wk)}%</div><div class="sub">Rank ${rank}/${rtt.length} · WL: ${fmtK(p.rtt.total_wl)} · 52wk+: ${fmtK(p.rtt.over_52wk)}</div></div>`;
+    }
+    if(p.dm01){
+      const rank=dmSorted.findIndex(x=>x.name===name)+1;
+      const rc=p.dm01.pct_within_6wk>=99?'green':p.dm01.pct_within_6wk>=95?'amber':'red';
+      html+=`<div class="stat"><div class="label">${ragDot(rc)} DM01 <6wk</div><div class="value">${fmt(p.dm01.pct_within_6wk)}%</div><div class="sub">Rank ${rank}/${dm.length} · WL: ${fmtK(p.dm01.total_wl)} · 13wk+: ${fmtK(p.dm01.over_13wk)}</div></div>`;
+    }
+    if(p.ae){
+      const rank=aeSorted.findIndex(x=>x.name===name)+1;
+      const rc=p.ae.pct_within_4hr>=95?'green':p.ae.pct_within_4hr>=80?'amber':'red';
+      html+=`<div class="stat"><div class="label">${ragDot(rc)} A&E 4hr</div><div class="value">${fmt(p.ae.pct_within_4hr)}%</div><div class="sub">Rank ${rank}/${ae.length} · Attendances: ${fmtK(p.ae.attendances)}</div></div>`;
+    }
+    html+=`</div></div></div>`;
+    // Hidden expandable detail
+    html+=`<div id="${pid}" style="display:none;margin:-12px 0 12px 0;padding:0 16px">`;
+    // Gauge bars: provider vs national avg vs target
+    html+=`<div class="card full" style="border-color:var(--accent)"><div class="card-body">`;
+    html+=`<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">`;
+    if(p.rtt){
+      const nat=D.performance.rtt.headline.pct_18_weeks;
+      html+=provGauge('RTT 18-Week %',p.rtt.pct_18wk,nat,92,'rtt','pct_18wk',name,rttSorted,rtt.length);
+    }
+    if(p.dm01){
+      const nat=D.performance.dm01.headline.pct_within_6_weeks;
+      html+=provGauge('DM01 <6 Week %',p.dm01.pct_within_6wk,nat,99,'dm01','pct_within_6wk',name,dmSorted,dm.length);
+    }
+    if(p.ae){
+      const nat=D.performance.ae.headline.pct_within_4_hours;
+      html+=provGauge('A&E 4-Hour %',p.ae.pct_within_4hr,nat,95,'ae','pct_within_4hr',name,aeSorted,ae.length);
+    }
+    html+=`</div>`;
+    // Distribution histogram
+    html+=`<div style="margin-top:16px;display:grid;grid-template-columns:${p.rtt?'1fr ':''}${p.dm01?'1fr ':''}${p.ae?'1fr':''};gap:16px">`;
+    if(p.rtt) html+=provHistogram('RTT Distribution',rtt.map(x=>x.pct_18wk),p.rtt.pct_18wk,92,'prov-hist-rtt-'+pid);
+    if(p.dm01) html+=provHistogram('DM01 Distribution',dm.map(x=>x.pct_within_6wk),p.dm01.pct_within_6wk,99,'prov-hist-dm-'+pid);
+    if(p.ae) html+=provHistogram('A&E Distribution',ae.map(x=>x.pct_within_4hr),p.ae.pct_within_4hr,95,'prov-hist-ae-'+pid);
+    html+=`</div>`;
+    html+=`</div></div></div>`;
+  }
+  document.getElementById('prov-results').innerHTML=html;
+}
+
+function toggleProvDetail(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const show=el.style.display==='none';
+  el.style.display=show?'block':'none';
+  if(show){
+    // Render histograms after DOM is visible
+    requestAnimationFrame(()=>{
+      el.querySelectorAll('canvas').forEach(c=>{
+        const fn=c.dataset.renderFn;
+        if(fn&&window[fn])window[fn](c);
+      });
+    });
+  }
+}
+
+function provGauge(label,val,natAvg,target,type,field,name,sorted,total){
+  const rank=sorted.findIndex(x=>x.name===name)+1;
+  const pctile=Math.round((1-rank/total)*100);
+  const rc=type==='rtt'?(val>=92?'green':val>=85?'amber':'red'):type==='dm01'?(val>=99?'green':val>=95?'amber':'red'):(val>=95?'green':val>=80?'amber':'red');
+  return`<div>
+    <div style="font-size:12px;font-weight:600;margin-bottom:8px;color:var(--text2)">${label}</div>
+    <div style="position:relative;height:24px;background:#1e293b;border-radius:4px;overflow:hidden;margin-bottom:6px">
+      <div style="position:absolute;height:100%;width:${Math.min(val,100)}%;background:var(--${rc});opacity:0.8;border-radius:4px"></div>
+      <div style="position:absolute;height:100%;width:2px;left:${Math.min(target,100)}%;background:#ef4444;top:0"></div>
+      <div style="position:absolute;height:100%;width:2px;left:${Math.min(natAvg,100)}%;background:#3b82f6;top:0"></div>
+      <div style="position:absolute;width:100%;text-align:center;font-size:11px;font-weight:700;line-height:24px;color:white">${fmt(val)}%</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text2)">
+      <span><span style="color:#3b82f6">■</span> National ${fmt(natAvg)}%</span>
+      <span><span style="color:#ef4444">■</span> Target ${target}%</span>
+    </div>
+    <div style="margin-top:6px;font-size:11px;color:var(--text2)">Rank <strong style="color:var(--text)">${rank}</strong> of ${total} · <strong style="color:var(--text)">${pctile}th</strong> percentile</div>
+  </div>`;
+}
+
+function provHistogram(label,allVals,provVal,target,canvasId){
+  // Auto-range from data, with some padding
+  const sorted=[...allVals].sort((a,b)=>a-b);
+  const dataMn=sorted[0]||0, dataMx=sorted[sorted.length-1]||100;
+  const mn=Math.max(0,Math.floor((Math.min(dataMn,target,provVal)-5)/5)*5);
+  const mx=Math.min(100,Math.ceil((Math.max(dataMx,target,provVal)+5)/5)*5);
+  const bins=20,bw=(mx-mn)/bins;
+  const counts=new Array(bins).fill(0);
+  allVals.forEach(v=>{const b=Math.min(Math.max(Math.floor((v-mn)/bw),0),bins-1);counts[b]++;});
+  const maxC=Math.max(...counts,1);
+  const w=280,h=120,barW=w/bins,pad=16;
+
+  const provBin=Math.min(Math.max(Math.floor((provVal-mn)/bw),0),bins-1);
+
+  let bars='';
+  for(let i=0;i<bins;i++){
+    const bh=counts[i]/maxC*(h-pad-20);
+    const x=i*barW;
+    const fill=i===provBin?'#3b82f6':'#4b5563';
+    bars+=`<rect x="${x+1}" y="${h-pad-bh}" width="${barW-2}" height="${bh}" fill="${fill}" rx="1"/>`;
+  }
+  // Target line (positioned by actual value within range)
+  const tPct=(target-mn)/(mx-mn);
+  const tx=tPct*w;
+  bars+=`<line x1="${tx}" y1="0" x2="${tx}" y2="${h-pad}" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,3"/>`;
+  // Provider line
+  const pPct=(provVal-mn)/(mx-mn);
+  const px=pPct*w;
+  bars+=`<line x1="${px}" y1="0" x2="${px}" y2="${h-pad}" stroke="#3b82f6" stroke-width="2.5"/>`;
+  // Provider triangle marker
+  bars+=`<polygon points="${px-5},${h-pad+2} ${px+5},${h-pad+2} ${px},${h-pad-4}" fill="#3b82f6"/>`;
+
+  // X-axis labels: show 5 evenly spaced values
+  const steps=5;
+  for(let i=0;i<=steps;i++){
+    const v=mn+i*(mx-mn)/steps;
+    const x=i*w/steps;
+    bars+=`<text x="${x}" y="${h-2}" fill="#9ca3af" font-size="9" text-anchor="middle">${Math.round(v)}%</text>`;
+  }
+
+  return`<div>
+    <div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px">${label}</div>
+    <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;background:#0f172a;border-radius:4px;padding:2px">${bars}</svg>
+    <div style="display:flex;gap:12px;font-size:10px;color:var(--text2);margin-top:4px">
+      <span><span style="color:#3b82f6">▲</span> This provider (${fmt(provVal)}%)</span>
+      <span><span style="color:#ef4444">┃</span> Target (${target}%)</span>
+      <span style="color:#6b7280">Bars = all providers</span>
+    </div>
+  </div>`;
+}
+
+// ═══════════════ FINGERTIPS ═══════════════
+function renderFingertips(){
+  const ft=D.fingertips,names=Object.keys(ft).sort();
+  const inc=Object.values(ft).filter(v=>v.trend_quality==='bad').length;
+  const dec=Object.values(ft).filter(v=>v.trend_quality==='good').length;
+  let html=`<h2>Public Health Indicators</h2><p class="subtitle">${names.length} Fingertips indicators with time series and area breakdowns</p>
+    <div class="stats">
+      <div class="stat"><div class="label">Total</div><div class="value">${names.length}</div></div>
+      <div class="stat"><div class="label" style="color:var(--red)">▲ Worsening</div><div class="value" style="color:var(--red)">${inc}</div></div>
+      <div class="stat"><div class="label" style="color:var(--green)">▼ Improving</div><div class="value" style="color:var(--green)">${dec}</div></div>
+    </div>
+    <div class="card full" style="margin-bottom:24px"><div class="card-head"><h3>All Indicators</h3></div><div class="card-body"><div class="tbl-scroll" style="max-height:600px"><table class="tbl">
+    <thead><tr><th>Indicator</th><th>England</th><th>Period</th><th>Trend</th><th>Sparkline</th><th style="color:var(--red)">Higher</th><th style="color:var(--green)">Lower</th></tr></thead><tbody>`;
+  for(const n of names){const f=ft[n];
+    html+=`<tr><td style="cursor:pointer;color:var(--accent)" onclick="showInd('${n}')">${f.indicator_name.substring(0,55)}</td>
+    <td><strong>${fmt(f.england_latest)}</strong></td><td style="font-size:11px;color:var(--text2)">${f.latest_period}</td>
+    <td>${trendArrow(f.trend,f.trend_quality)}</td><td>${sparkSVG(f.time_series,100,24,trendColor(f.trend_quality))}</td>
+    <td style="color:var(--red)">${f.distribution.higher_than_england}</td><td style="color:var(--green)">${f.distribution.lower_than_england}</td></tr>`;
+  }
+  html+='</tbody></table></div></div></div><div id="ind-detail"></div>';
+  return html;
+}
+
+function showInd(name){
+  const f=D.fingertips[name];if(!f)return;
+  const det=document.getElementById('ind-detail');
+  const top=f.top_10||[],bot=f.bottom_10||[],mx=top.length?top[0].value:1;
+  det.innerHTML=`<div class="card full" style="margin-top:16px;border-color:var(--accent)">
+    <div class="card-head" style="background:var(--accent)11"><h3>${f.indicator_name}</h3>${trendArrow(f.trend,f.trend_quality)}</div>
+    <div class="card-body">
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-bottom:16px">
+        <div><div style="font-size:11px;color:var(--text2)">England</div><div style="font-size:32px;font-weight:700">${fmt(f.england_latest)}</div></div>
+        <div><div style="font-size:11px;color:var(--text2)">Period</div><div style="font-size:14px;margin-top:4px">${f.latest_period}</div></div>
+        <div><div style="font-size:11px;color:var(--text2)">Areas</div><div style="font-size:14px;margin-top:4px">${f.area_count}</div></div>
+        <div><div style="font-size:11px;color:var(--text2)">Time Series</div><div style="margin-top:4px">${sparkSVG(f.time_series,200,50,'#3b82f6')}</div></div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">${f.time_series.map(t=>`<div style="text-align:center;font-size:10px;color:var(--text2)"><div style="font-weight:600;color:var(--text)">${t.value}</div>${t.period.substring(0,7)}</div>`).join('')}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--red)">▲ Highest 10</div>
+          ${top.map(a=>`<div class="bar-row"><span class="bar-lbl">${a.name.substring(0,25)}</span><div class="bar-track"><div class="bar-fill" style="width:${(a.value/mx*100).toFixed(0)}%;background:${a.vs_england.includes('Higher')?'var(--red)':'var(--green)'}"></div></div><span class="bar-val">${a.value}</span></div>`).join('')}
+        </div>
+        <div><div style="font-weight:600;font-size:13px;margin-bottom:8px;color:var(--green)">▼ Lowest 10</div>
+          ${bot.map(a=>`<div class="bar-row"><span class="bar-lbl">${a.name.substring(0,25)}</span><div class="bar-track"><div class="bar-fill" style="width:${mx?(a.value/mx*100).toFixed(0):0}%;background:${a.vs_england.includes('Lower')?'var(--green)':'var(--red)'}"></div></div><span class="bar-val">${a.value}</span></div>`).join('')}
+        </div>
+      </div>
+    </div></div>`;
+  det.scrollIntoView({behavior:'smooth'});
+}
+
+// ═══════════════ DEMOGRAPHICS / ECONOMY / ENVIRONMENT ═══════════════
+function renderDemographics(){return`<h2>Demographics</h2><p class="subtitle">ONS population data by local authority</p><div class="grid">${renderONS(D.demographics)}</div>`;}
+function renderEconomy(){return`<h2>Economy & Employment</h2><p class="subtitle">ONS economic data by local authority</p><div class="grid">${renderONS(D.economy)}</div>`;}
+function renderEnvironment(){return`<h2>Environment</h2><p class="subtitle">DEFRA air quality data</p><div class="grid">${renderONS(D.environment)}</div>`;}
+
+function renderONS(data){
+  let html='';
+  let idx=0;
+  for(const[name,ds]of Object.entries(data||{})){
+    if(!ds||!ds.top_10)continue;
+    const areas=ds.all_areas||ds.top_10;
+    const mx=areas[0]?.value||1;
+    const id=`ons-${idx++}`;
+    html+=`<div class="card full"><div class="card-head"><h3>${name.replace(/_/g,' ')}</h3><span style="font-size:11px;color:var(--text2)">${ds.area_count} areas</span></div>
+    <div class="card-body"><div style="display:flex;gap:16px;margin-bottom:12px;font-size:12px;flex-wrap:wrap">
+      <div><span style="color:var(--text2)">Mean:</span> <strong>${fmt(ds.mean)}</strong></div>
+      <div><span style="color:var(--text2)">Highest:</span> ${fmt(ds.max.value)} (${ds.max.area.substring(0,20)})</div>
+      <div><span style="color:var(--text2)">Lowest:</span> ${fmt(ds.min.value)} (${ds.min.area.substring(0,20)})</div>
+    </div>
+    <input class="query-input" placeholder="Filter areas... e.g. Lambeth, Manchester" style="margin-bottom:12px;max-width:350px;font-size:12px" oninput="filterONS('${id}',this.value)">
+    <div id="${id}" style="max-height:400px;overflow-y:auto">
+    ${areas.map(a=>`<div class="bar-row ons-row" data-name="${a.name.toLowerCase()}"><span class="bar-lbl">${a.name.substring(0,30)}</span><div class="bar-track"><div class="bar-fill" style="width:${(a.value/mx*100).toFixed(0)}%;background:var(--accent)"></div></div><span class="bar-val">${fmt(a.value)}</span></div>`).join('')}
+    </div></div></div>`;
+  }
+  return html;
+}
+function filterONS(id,q){
+  const rows=document.querySelectorAll('#'+id+' .ons-row');
+  const term=q.toLowerCase().trim();
+  rows.forEach(r=>{r.style.display=(!term||r.dataset.name.includes(term))?'':'none';});
+}
+
+// ═══════════════ QUERY ═══════════════
+function renderQuery(){
+  const totalSearchable=Object.keys(D.fingertips).length+Object.keys(D.demographics||{}).length+Object.keys(D.economy||{}).length+Object.keys(D.environment||{}).length;
+  return`<h2>Query Data</h2><p class="subtitle">Search across ${totalSearchable} indicators and datasets</p>
+    <div class="query-box"><div class="query-row">
+      <input class="query-input" id="qi" placeholder="e.g. diabetes, suicide, child poverty, screening..." onkeydown="if(event.key==='Enter')doQuery()">
+      <button class="query-btn" onclick="doQuery()">Search</button>
+    </div><div class="query-chips">
+      ${['diabetes','cancer','mental health','obesity','smoking','deprivation','child poverty','life expectancy','suicide','alcohol','employment','screening','population','earnings','mortality','breastfeeding'].map(q=>`<span class="chip" onclick="document.getElementById('qi').value='${q}';doQuery()">${q}</span>`).join('')}
+    </div><div id="qr"></div></div>`;
+}
+
+function doQuery(){
+  const q=document.getElementById('qi').value.toLowerCase().trim();if(!q)return;
+  const r=document.getElementById('qr');
+  const terms=q.split(/\s+/);
+  const matches=[];
+
+  // Search Fingertips indicators
+  for(const[name,f]of Object.entries(D.fingertips)){
+    const txt=(name.replace(/_/g,' ')+' '+f.indicator_name).toLowerCase();
+    let score=terms.filter(t=>txt.includes(t)).length;
+    if(txt.includes(q))score+=2;
+    if(score>0)matches.push({name,data:f,score,type:'fingertips'});
+  }
+
+  // Search Demographics, Economy, Environment
+  const otherSections=[
+    {key:'demographics',label:'Demographics',page:'demographics'},
+    {key:'economy',label:'Economy',page:'economy'},
+    {key:'environment',label:'Environment',page:'environment'}
+  ];
+  for(const sec of otherSections){
+    for(const[name,ds]of Object.entries(D[sec.key]||{})){
+      if(!ds||!ds.top_10)continue;
+      const txt=(name.replace(/_/g,' ')+' '+sec.label).toLowerCase();
+      let score=terms.filter(t=>txt.includes(t)).length;
+      if(txt.includes(q))score+=2;
+      if(score>0)matches.push({name,data:ds,score,type:sec.key,label:sec.label,page:sec.page});
+    }
+  }
+
+  matches.sort((a,b)=>b.score-a.score);
+  if(!matches.length){r.innerHTML='<p style="color:var(--text2);margin-top:16px">No matches found. Try: diabetes, cancer, mental health, obesity, screening, population, earnings</p>';return;}
+
+  r.innerHTML=matches.slice(0,20).map(m=>{
+    if(m.type==='fingertips'){
+      const f=m.data;
+      return`<div class="qr-item"><div style="display:flex;justify-content:space-between;align-items:center">
+        <div><span class="qr-name" onclick="go('fingertips');setTimeout(()=>showInd('${m.name}'),100)">${f.indicator_name.substring(0,60)}</span> ${trendArrow(f.trend,f.trend_quality)}</div>
+        <div style="text-align:right"><strong>${fmt(f.england_latest)}</strong> <span style="font-size:11px;color:var(--text2)">${f.latest_period}</span> ${sparkSVG(f.time_series,80,20,trendColor(f.trend_quality))}</div>
+      </div><div style="font-size:11px;color:var(--text2);margin-top:4px">
+        ${f.top_10?.[0]?'Highest: '+f.top_10[0].name+' ('+f.top_10[0].value+')':''} · ${f.area_count} areas · ${f.distribution.higher_than_england} worse than England
+      </div></div>`;
+    } else {
+      const ds=m.data;
+      return`<div class="qr-item"><div style="display:flex;justify-content:space-between;align-items:center">
+        <div><span class="qr-name" onclick="go('${m.page}')">${m.name.replace(/_/g,' ')}</span> <span style="font-size:11px;padding:2px 6px;background:var(--bg3);border-radius:4px;color:var(--text2)">${m.label}</span></div>
+        <div style="text-align:right"><strong>Mean: ${fmt(ds.mean)}</strong> <span style="font-size:11px;color:var(--text2)">${ds.area_count} areas</span></div>
+      </div><div style="font-size:11px;color:var(--text2);margin-top:4px">
+        Highest: ${ds.max?.area?.substring(0,25)||'—'} (${fmt(ds.max?.value)}) · Lowest: ${ds.min?.area?.substring(0,25)||'—'} (${fmt(ds.min?.value)})
+      </div></div>`;
+    }
+  }).join('');
+}
+
+function renderProvCharts(){
+  Object.values(charts).forEach(c=>c.destroy());charts={};
+  if(view!=='performance')return;
+
+  const rtt=D.performance.rtt, dm=D.performance.dm01, ae=D.performance.ae;
+
+  // RTT chart
+  const rttCanvas=document.getElementById('chart-rtt-prov');
+  if(rttCanvas && rtt?.all_providers){
+    const prov=rtt.all_providers;
+    charts.rtt=new Chart(rttCanvas,{
+      type:'bar',
+      data:{
+        labels:prov.map(p=>p.name.substring(0,25)),
+        datasets:[{
+          data:prov.map(p=>p.pct_18wk),
+          backgroundColor:prov.map(p=>p.pct_18wk>=92?'#10b98199':p.pct_18wk>=85?'#f59e0b99':'#ef444499'),
+          borderWidth:0,
+          barPercentage:1,categoryPercentage:1
+        }]
+      },
+      options:{
+        indexAxis:'x',responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          annotation:null,
+          tooltip:{callbacks:{
+            title:(items)=>prov[items[0].dataIndex]?.name||'',
+            label:(item)=>`${item.raw}% within 18wk · WL: ${fmtK(prov[item.dataIndex].total_wl)} · 52wk+: ${fmtK(prov[item.dataIndex].over_52wk)}`
+          }}
+        },
+        scales:{
+          x:{display:false},
+          y:{min:0,max:100,grid:{color:'#374151'},ticks:{color:'#9ca3af',callback:v=>v+'%'}}
+        }
+      },
+      plugins:[{
+        id:'targetLine',
+        afterDraw(chart){
+          const y=chart.scales.y.getPixelForValue(92);
+          const ctx=chart.ctx;
+          ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.setLineDash([6,4]);
+          ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
+          ctx.fillStyle='#ef4444';ctx.font='11px sans-serif';ctx.fillText('92% target',chart.chartArea.left+4,y-6);
+          ctx.restore();
+        }
+      }]
+    });
+  }
+
+  // DM01 chart
+  const dmCanvas=document.getElementById('chart-dm01-prov');
+  if(dmCanvas && dm?.all_providers){
+    const prov=dm.all_providers;
+    charts.dm01=new Chart(dmCanvas,{
+      type:'bar',
+      data:{
+        labels:prov.map(p=>p.name.substring(0,25)),
+        datasets:[{
+          data:prov.map(p=>p.pct_within_6wk),
+          backgroundColor:prov.map(p=>p.pct_within_6wk>=99?'#10b98199':p.pct_within_6wk>=95?'#f59e0b99':'#ef444499'),
+          borderWidth:0,barPercentage:1,categoryPercentage:1
+        }]
+      },
+      options:{
+        indexAxis:'x',responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},
+          tooltip:{callbacks:{
+            title:(items)=>prov[items[0].dataIndex]?.name||'',
+            label:(item)=>`${item.raw}% within 6wk · WL: ${fmtK(prov[item.dataIndex].total_wl)} · 13wk+: ${fmtK(prov[item.dataIndex].over_13wk)}`
+          }}
+        },
+        scales:{x:{display:false},y:{min:0,max:100,grid:{color:'#374151'},ticks:{color:'#9ca3af',callback:v=>v+'%'}}}
+      },
+      plugins:[{
+        id:'targetLine2',
+        afterDraw(chart){
+          const y=chart.scales.y.getPixelForValue(99);
+          const ctx=chart.ctx;
+          ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.setLineDash([6,4]);
+          ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
+          ctx.fillStyle='#ef4444';ctx.font='11px sans-serif';ctx.fillText('99% target',chart.chartArea.left+4,y-6);
+          ctx.restore();
+        }
+      }]
+    });
+  }
+
+  // AE chart
+  const aeCanvas=document.getElementById('chart-ae-prov');
+  if(aeCanvas && ae?.all_providers){
+    const prov=ae.all_providers;
+    charts.ae=new Chart(aeCanvas,{
+      type:'bar',
+      data:{
+        labels:prov.map(p=>p.name.substring(0,25)),
+        datasets:[{
+          data:prov.map(p=>p.pct_within_4hr),
+          backgroundColor:prov.map(p=>p.pct_within_4hr>=95?'#10b98199':p.pct_within_4hr>=80?'#f59e0b99':'#ef444499'),
+          borderWidth:0,barPercentage:1,categoryPercentage:1
+        }]
+      },
+      options:{
+        indexAxis:'x',responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},
+          tooltip:{callbacks:{
+            title:(items)=>prov[items[0].dataIndex]?.name||'',
+            label:(item)=>`${item.raw}% within 4hr · Attendances: ${fmtK(prov[item.dataIndex].attendances)}`
+          }}
+        },
+        scales:{x:{display:false},y:{min:0,max:100,grid:{color:'#374151'},ticks:{color:'#9ca3af',callback:v=>v+'%'}}}
+      },
+      plugins:[{
+        id:'targetLine3',
+        afterDraw(chart){
+          const y=chart.scales.y.getPixelForValue(95);
+          const ctx=chart.ctx;
+          ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.setLineDash([6,4]);
+          ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
+          ctx.fillStyle='#ef4444';ctx.font='11px sans-serif';ctx.fillText('95% target',chart.chartArea.left+4,y-6);
+          ctx.restore();
+        }
+      }]
+    });
+  }
+}
+
+// ═══════════════ MAP ═══════════════
+let mapInstance=null, mapGeoICB=null, mapGeoLA=null, mapLayer=null, mapMetric='rtt_18wk_pct', mapGeoType='icb';
+
+function hasMetricData(metric, geoType){
+  const src=geoType==='icb'?D.map_data.icb:D.map_data.la;
+  let count=0;
+  for(const data of Object.values(src)){if(data[metric]!=null)count++;}
+  return count>0;
+}
+
+function renderMapPage(){
+  const md=D.map_data;
+  if(!md)return'<h2>Map</h2><p class="subtitle">No map data available. Re-run process_v2.py.</p>';
+
+  const icbDefs=md.metric_defs.icb||{};
+  const laDefs=md.metric_defs.la||{};
+
+  let opts='<optgroup label="NHS Performance (ICB boundaries)">';
+  for(const[k,v]of Object.entries(icbDefs)){
+    if((k==='rtt_18wk_pct'||k==='dm01_6wk_pct')&&hasMetricData(k,'icb')) opts+=`<option value="${k}" data-geo="icb">${v.label}</option>`;
+  }
+  opts+='</optgroup><optgroup label="Public Health — ICB Level">';
+  for(const[k,v]of Object.entries(icbDefs)){
+    if(k!=='rtt_18wk_pct'&&k!=='dm01_6wk_pct'&&hasMetricData(k,'icb')) opts+=`<option value="${k}" data-geo="icb">${v.label}</option>`;
+  }
+  opts+='</optgroup><optgroup label="Public Health — Local Authority">';
+  for(const[k,v]of Object.entries(laDefs)){
+    if(hasMetricData(k,'la')) opts+=`<option value="${k}" data-geo="la">${v.label}</option>`;
+  }
+  opts+='</optgroup>';
+
+  return`<h2>Interactive Map</h2><p class="subtitle">Choropleth map of England — select a metric to explore geographic variation. Click an area for details.</p>
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="map-controls">
+        <select class="map-select" id="map-metric" onchange="changeMapMetric(this)">${opts}</select>
+        <div id="map-geo-label" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:11px;color:var(--text2);text-align:center">Boundaries: ICB</div>
+      </div>
+      <div class="map-legend" id="map-legend"></div>
+      <div class="map-detail" id="map-detail"></div>
+    </div>`;
+}
+
+async function initMap(){
+  if(mapInstance){try{mapInstance.remove();}catch(e){}mapInstance=null;}
+
+  const mapEl=document.getElementById('map');
+  if(!mapEl)return;  // Guard against rapid page switches
+
+  mapInstance=L.map('map',{
+    zoomControl:true,attributionControl:false,
+    minZoom:5,maxZoom:12
+  }).setView([52.8,-1.5],6);
+
+  // Dark tile layer
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png',{
+    subdomains:'abcd',maxZoom:19
+  }).addTo(mapInstance);
+  // Labels on top
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}{r}.png',{
+    subdomains:'abcd',maxZoom:19,pane:'overlayPane'
+  }).addTo(mapInstance);
+
+  // Load GeoJSON files
+  if(!mapGeoICB){
+    try{const r=await fetch('icb_boundaries.geojson');if(r.ok)mapGeoICB=await r.json();}catch(e){console.error('Failed to load ICB GeoJSON',e);}
+  }
+  if(!mapGeoLA){
+    try{const r=await fetch('la_boundaries.geojson');if(r.ok)mapGeoLA=await r.json();}catch(e){console.error('Failed to load LA GeoJSON',e);}
+  }
+
+  if(!mapInstance)return;  // Guard against navigating away during fetch
+  updateMapLayer();
+}
+
+function changeMapMetric(sel){
+  const opt=sel.options[sel.selectedIndex];
+  mapMetric=sel.value;
+  mapGeoType=opt.dataset.geo||'icb';
+  const geoLabel=document.getElementById('map-geo-label');
+  if(geoLabel)geoLabel.textContent='Boundaries: '+(mapGeoType==='icb'?'ICB (42)':'Local Authority (151)');
+  updateMapLayer();
+}
+
+function getMapValues(metric, geoType){
+  const md=D.map_data;
+  const src=geoType==='icb'?md.icb:md.la;
+  const vals={};
+  for(const[code,data]of Object.entries(src)){
+    if(data[metric]!=null) vals[code]=data[metric];
+  }
+  return vals;
+}
+
+function getColorScale(values, metricDef){
+  const vals=Object.values(values).filter(v=>v!=null);
+  if(!vals.length)return{min:0,max:100,getColor:()=>'#374151'};
+  const sorted=[...vals].sort((a,b)=>a-b);
+  const mn=sorted[Math.floor(sorted.length*0.02)]||sorted[0];
+  const mx=sorted[Math.floor(sorted.length*0.98)]||sorted[sorted.length-1];
+
+  const isGreenHigh=metricDef?.colorScale==='green_red_below';
+
+  // Color stops: 5 colors from bad to good
+  const colors=isGreenHigh
+    ?['#ef4444','#f97316','#eab308','#84cc16','#22c55e']  // red to green (low=bad)
+    :['#22c55e','#84cc16','#eab308','#f97316','#ef4444']; // green to red (low=good, high=bad)
+
+  function getColor(v){
+    if(v==null)return'#374151';
+    const t=Math.max(0,Math.min(1,(v-mn)/(mx-mn||1)));
+    const idx=t*(colors.length-1);
+    const lo=Math.floor(idx),hi=Math.min(lo+1,colors.length-1);
+    const frac=idx-lo;
+    return lerpColor(colors[lo],colors[hi],frac);
+  }
+
+  return{min:mn,max:mx,getColor,colors,isGreenHigh};
+}
+
+function lerpColor(c1,c2,t){
+  const h=s=>parseInt(s.slice(1),16);
+  const a=h(c1),b=h(c2);
+  const r1=(a>>16)&255,g1=(a>>8)&255,b1=a&255;
+  const r2=(b>>16)&255,g2=(b>>8)&255,b2=b&255;
+  const r=Math.round(r1+(r2-r1)*t),g=Math.round(g1+(g2-g1)*t),bl=Math.round(b1+(b2-b1)*t);
+  return`rgb(${r},${g},${bl})`;
+}
+
+function updateMapLayer(){
+  if(!mapInstance)return;
+  if(mapLayer){mapInstance.removeLayer(mapLayer);mapLayer=null;}
+
+  const md=D.map_data;
+  const allDefs={...md.metric_defs.icb,...md.metric_defs.la};
+  const metricDef=allDefs[mapMetric]||{};
+  const values=getMapValues(mapMetric,mapGeoType);
+  const scale=getColorScale(values,metricDef);
+  const geoData=mapGeoType==='icb'?mapGeoICB:mapGeoLA;
+
+  if(!geoData){return;}
+
+  mapLayer=L.geoJSON(geoData,{
+    style:function(feature){
+      const code=feature.properties.code;
+      const val=values[code];
+      return{
+        fillColor:scale.getColor(val),
+        fillOpacity:val!=null?0.75:0.15,
+        weight:1.5,
+        color:'#1e293b',
+        opacity:0.8
+      };
+    },
+    onEachFeature:function(feature,layer){
+      const code=feature.properties.code;
+      const name=feature.properties.name;
+      const val=values[code];
+
+      layer.on({
+        mouseover:function(e){
+          e.target.setStyle({weight:3,color:'#3b82f6',fillOpacity:0.9});
+          e.target.bringToFront();
+          const tt=`<div class="area-name">${name}</div><div class="area-value">${metricDef.label||mapMetric}: ${val!=null?fmt(val)+(metricDef.unit==='%'?'%':''):'No data'}${metricDef.unit&&metricDef.unit!=='%'?' '+metricDef.unit:''}</div>`;
+          layer.bindTooltip(tt,{className:'map-tooltip',sticky:true}).openTooltip();
+        },
+        mouseout:function(e){
+          mapLayer.resetStyle(e.target);
+          layer.unbindTooltip();
+        },
+        click:function(e){
+          showMapDetail(code,name,mapGeoType);
+        }
+      });
+    }
+  }).addTo(mapInstance);
+
+  updateMapLegend(scale,metricDef);
+  // Hide detail panel when metric changes
+  document.getElementById('map-detail').style.display='none';
+}
+
+function updateMapLegend(scale,metricDef){
+  const el=document.getElementById('map-legend');
+  if(!el)return;
+  const colors=scale.colors||['#374151'];
+  const gradStops=colors.map((c,i)=>`${c} ${(i/(colors.length-1)*100).toFixed(0)}%`).join(',');
+
+  // Count areas with data
+  const values=getMapValues(mapMetric,mapGeoType);
+  const dataCount=Object.values(values).filter(v=>v!=null).length;
+  const totalCount=mapGeoType==='icb'?Object.keys(D.map_data.icb).length:Object.keys(D.map_data.la).length;
+
+  el.innerHTML=`<h4>${metricDef.label||mapMetric}</h4>
+    <div class="legend-scale" style="background:linear-gradient(to right,${gradStops})"></div>
+    <div class="legend-labels"><span>${fmt(scale.min)}${metricDef.unit==='%'?'%':''}</span><span>${fmt(scale.max)}${metricDef.unit==='%'?'%':''}</span></div>
+    ${metricDef.target?`<div style="font-size:10px;color:var(--accent);margin-top:4px">Target: ${metricDef.target}${metricDef.unit||''}</div>`:''}
+    <div style="font-size:10px;color:var(--text2);margin-top:4px">${dataCount} of ${totalCount} ${mapGeoType==='icb'?'ICBs':'local authorities'}</div>
+    <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2);margin-top:2px"><span style="display:inline-block;width:10px;height:10px;background:#374151;border-radius:2px"></span> No data</div>`;
+}
+
+function showMapDetail(code,name,geoType){
+  const md=D.map_data;
+  const data=geoType==='icb'?md.icb[code]:md.la[code];
+  const defs=geoType==='icb'?md.metric_defs.icb:md.metric_defs.la;
+  const el=document.getElementById('map-detail');
+  if(!data||!el)return;
+
+  let rows='';
+  for(const[k,def]of Object.entries(defs)){
+    const v=data[k];
+    if(v==null)continue;
+    const unit=def.unit==='%'?'%':(def.unit?' '+def.unit:'');
+    rows+=`<div class="metric-row"><span class="metric-label">${def.label}</span><span class="metric-value">${fmt(v)}${unit}</span></div>`;
+  }
+
+  // Also show non-metric fields for ICBs
+  if(geoType==='icb'){
+    if(data.rtt_total_wl)rows+=`<div class="metric-row"><span class="metric-label">RTT Total Waiting List</span><span class="metric-value">${fmtK(data.rtt_total_wl)}</span></div>`;
+    if(data.rtt_over_52wk)rows+=`<div class="metric-row"><span class="metric-label">RTT Over 52 Weeks</span><span class="metric-value">${fmtK(data.rtt_over_52wk)}</span></div>`;
+    if(data.dm01_total_wl)rows+=`<div class="metric-row"><span class="metric-label">DM01 Total Waiting List</span><span class="metric-value">${fmtK(data.dm01_total_wl)}</span></div>`;
+  }
+
+  el.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center"><h3>${name||code}</h3><span style="cursor:pointer;color:var(--text2);font-size:18px;line-height:1" onclick="this.parentElement.parentElement.style.display='none'">&times;</span></div>${rows||'<p style="color:var(--text2);font-size:12px">No data available</p>'}`;
+  el.style.display='block';
+}
+
+// ═══════════════ AI COST VIABILITY ═══════════════
+const AI_PRODUCTS = [
+  {id:"chatbot",icon:"💬",name:"AI Chatbot / Triage",desc:"Patient-facing chat for symptom checking, appointment booking, and triage.",computePerUse:0.003,usesPerDay:5000,annualLicence:120000,valuePerUse:3.20,breakEvenElec:420,category:"Low Compute"},
+  {id:"scribe",icon:"📝",name:"Clinical Scribe",desc:"AI that listens to consultations and writes clinical notes. Saves 10-15 mins per patient.",computePerUse:0.015,usesPerDay:800,annualLicence:250000,valuePerUse:12.50,breakEvenElec:310,category:"Medium Compute"},
+  {id:"cdss",icon:"🏥",name:"Clinical Decision Support",desc:"AI built into EHRs that flags drug interactions, suggests diagnoses, or recommends care pathways.",computePerUse:0.008,usesPerDay:3000,annualLicence:180000,valuePerUse:5.80,breakEvenElec:350,category:"Medium Compute"},
+  {id:"imaging",icon:"🔬",name:"Medical Imaging / Radiology AI",desc:"AI that reads X-rays, CT scans, MRIs — detecting cancers, fractures, lung disease. Very GPU-intensive.",computePerUse:0.25,usesPerDay:200,annualLicence:350000,valuePerUse:45.00,breakEvenElec:155,category:"High Compute"},
+  {id:"pathology",icon:"🧬",name:"Digital Pathology AI",desc:"AI analysis of tissue slides. Processes massive image files — 5-10 gigapixels per slide.",computePerUse:0.40,usesPerDay:120,annualLicence:280000,valuePerUse:52.00,breakEvenElec:118,category:"Very High Compute"},
+  {id:"genomics",icon:"🧪",name:"Genomics / Precision Medicine",desc:"AI for whole genome sequences, identifying mutations, matching to targeted therapies.",computePerUse:2.5,usesPerDay:15,annualLicence:400000,valuePerUse:320.00,breakEvenElec:112,category:"Very High Compute"},
+  {id:"remote",icon:"📱",name:"Remote Patient Monitoring",desc:"AI watching wearable/sensor data for deterioration. Low compute per reading but massive volume.",computePerUse:0.0005,usesPerDay:50000,annualLicence:95000,valuePerUse:0.45,breakEvenElec:480,category:"Low Compute"},
+  {id:"rpa",icon:"🤖",name:"Back Office / RPA",desc:"Workflow automation for scheduling, billing, referral processing. Not true AI — more automation.",computePerUse:0.001,usesPerDay:10000,annualLicence:85000,valuePerUse:1.80,breakEvenElec:550,category:"Low Compute"},
+  {id:"predict",icon:"📊",name:"Predictive Analytics",desc:"AI models predicting readmissions, outbreaks, staffing needs. Batch jobs — heavy at training time.",computePerUse:0.05,usesPerDay:500,annualLicence:200000,valuePerUse:22.00,breakEvenElec:240,category:"Medium Compute"},
+  {id:"drugdisc",icon:"💊",name:"Drug Discovery AI",desc:"Molecular simulation, drug-target interaction, clinical trial optimisation. Extremely GPU-intensive.",computePerUse:8.0,usesPerDay:5,annualLicence:600000,valuePerUse:1200.00,breakEvenElec:130,category:"Very High Compute"}
+];
+
+const AI_HIST_PRICES = [
+  {year:"2018",price:57},{year:"2019",price:44},{year:"2020",price:35},
+  {year:"2021",price:118},{year:"2022",price:194},{year:"2023",price:93},
+  {year:"2024",price:72},{year:"2025 H1",price:65},{year:"2025 H2",price:74},
+  {year:"Mar 2026",price:97.4}
+];
+
+const AI_COST_VARS = [
+  {id:1,name:"UK wholesale electricity",cat:"Energy",base:65,cur:97.4,unit:"£/MWh",src:"Cornwall Insight",note:"Up ~50% due to Iran conflict"},
+  {id:2,name:"UK gas price (30-day)",cat:"Energy",base:100,cur:172,unit:"index",src:"Smart Energy UK",note:"+72% in 30 days"},
+  {id:3,name:"Brent crude",cat:"Energy",base:73,cur:120,unit:"$/barrel",src:"IEA",note:"Up 65% from $73"},
+  {id:4,name:"UK energy price cap (Jul 2026)",cat:"Energy",base:1637,cur:1801,unit:"£/year",src:"Cornwall/EDF",note:"Rising 10%"},
+  {id:5,name:"Network cost trajectory",cat:"Grid",base:0,cur:20,unit:"% over 4yr",src:"Octopus Energy",note:"Structural rise"},
+  {id:6,name:"Grid transmission spend (RIIO-ET3)",cat:"Grid",base:18,cur:70,unit:"£bn",src:"Ofgem",note:"4x increase from ET2"},
+  {id:7,name:"Helium spot price",cat:"Helium",base:380,cur:450,unit:"$/MCF",src:"Crux Investor",note:"Up 400% — Qatar force majeure"},
+  {id:8,name:"Data centre demand (2030)",cat:"Grid",base:5.0,cur:26.2,unit:"TWh",src:"Oxford Economics",note:"5x growth from 2023"},
+  {id:9,name:"UK vs US DC power cost",cat:"Energy",base:4,cur:4,unit:"x",src:"Social Market Foundation",note:"Structural disadvantage"},
+  {id:10,name:"Hospital operating margins",cat:"Healthcare",base:2.5,cur:2.3,unit:"%",src:"Nelson Advisors",note:"Razor thin"},
+  {id:11,name:"NHS AI spend to date",cat:"Healthcare",base:0,cur:21,unit:"£m",src:"Frontier Economics",note:"Tiny vs £10bn ambition"},
+  {id:12,name:"NHS digital budget (by 2028-29)",cat:"Healthcare",base:6700,cur:10000,unit:"£m",src:"NHS Confederation",note:"+50% increase"},
+  {id:13,name:"MRI helium requirement",cat:"Helium",base:2000,cur:2000,unit:"litres/unit",src:"RSNA",note:"Fixed requirement"},
+  {id:14,name:"UK MRI fleet",cat:"Healthcare",base:556,cur:656,unit:"machines",src:"GOV.UK",note:"Growing via CDC programme"},
+  {id:15,name:"ChatGPT vs Google search",cat:"Energy",base:10,cur:10,unit:"x electricity",src:"Goldman Sachs",note:"Growing gap"}
+];
+
+let aiElecPrice=97.4, aiComputeMult=1.0, aiGrowthRate=18, aiTab='products';
+let aiChartInst={};
+
+function aiGetStatus(p){
+  const costPerUse=(p.computePerUse*aiElecPrice*aiComputeMult)+(p.annualLicence/(p.usesPerDay*365));
+  const margin=((p.valuePerUse-costPerUse)/p.valuePerUse*100);
+  const abe=p.breakEvenElec/aiComputeMult;
+  if(aiElecPrice>=abe)return{status:"unviable",label:"Uneconomical",margin:margin.toFixed(1),costPerUse:costPerUse.toFixed(2)};
+  if(aiElecPrice>=abe*0.7)return{status:"pressure",label:"Under Pressure",margin:margin.toFixed(1),costPerUse:costPerUse.toFixed(2)};
+  return{status:"viable",label:"Viable",margin:margin.toFixed(1),costPerUse:costPerUse.toFixed(2)};
+}
+function aiGetDefunct(p){
+  const abe=p.breakEvenElec/aiComputeMult;
+  if(aiElecPrice>=abe)return{text:"Already uneconomical",months:0,color:"var(--red)"};
+  const months=Math.ceil(12*Math.log(abe/aiElecPrice)/Math.log(1+aiGrowthRate/100));
+  if(months>120)return{text:"10+ years",months:120,color:"var(--green)"};
+  const d=new Date(2026,2,1);d.setMonth(d.getMonth()+months);
+  const ds=d.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
+  const color=months<=12?"var(--red)":months<=36?"var(--amber)":"var(--green)";
+  return{text:ds,months,color};
+}
+function aiFmtVal(val,unit){
+  if(unit==="£/MWh")return"£"+val;if(unit==="$/barrel")return"$"+val;
+  if(unit==="$/MCF")return"$"+val;if(unit==="%")return val+"%";
+  if(unit==="TWh")return val+" TWh";if(unit==="x")return val+"x";
+  if(unit==="x electricity")return val+"x";if(unit==="litres/unit")return val.toLocaleString()+"L";
+  if(unit==="machines")return val.toLocaleString();
+  if(unit==="£m"&&val>=1000)return"£"+(val/1000).toFixed(1)+"bn";
+  if(unit==="£m")return"£"+val+"m";if(unit==="£bn")return"£"+val+"bn";
+  if(unit==="£/year")return"£"+val.toLocaleString();
+  if(unit==="% over 4yr")return"+"+val+"%";if(unit==="index")return val;
+  return val;
+}
+function aiPct(c,b){return b===0?null:((c-b)/b*100).toFixed(1);}
+function aiTl(v){
+  const p=aiPct(v.cur,v.base);if(p===null)return"a";
+  const a=Math.abs(parseFloat(p));
+  if(v.id===10)return v.cur<2?"r":v.cur<2.5?"a":"g";
+  return a>30?"r":a>10?"a":"g";
+}
+
+function renderAICost(){
+  return`<h2>Healthcare AI Cost Viability</h2>
+  <p class="subtitle">Will your AI investment still make sense as costs rise? — Updated March 2026</p>
+  <div class="ai-tab-nav" id="ai-tab-nav">
+    <button class="ai-tab-btn${aiTab==='products'?' on':''}" onclick="aiSwitchTab('products')">Product Viability</button>
+    <button class="ai-tab-btn${aiTab==='timeline'?' on':''}" onclick="aiSwitchTab('timeline')">Forecast Timeline</button>
+    <button class="ai-tab-btn${aiTab==='tracker'?' on':''}" onclick="aiSwitchTab('tracker')">Cost Tracker</button>
+    <button class="ai-tab-btn${aiTab==='data'?' on':''}" onclick="aiSwitchTab('data')">Data Reference</button>
+  </div>
+  <div id="ai-content">${aiTab==='products'?aiRenderProducts():aiTab==='timeline'?aiRenderTimeline():aiTab==='tracker'?aiRenderTracker():aiRenderData()}</div>`;
+}
+
+function aiSwitchTab(t){
+  aiTab=t;
+  document.querySelectorAll('.ai-tab-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().includes(t==='products'?'product':t==='timeline'?'forecast':t==='tracker'?'cost':t==='data'?'data':'')));
+  document.getElementById('ai-content').innerHTML=t==='products'?aiRenderProducts():t==='timeline'?aiRenderTimeline():t==='tracker'?aiRenderTracker():aiRenderData();
+  requestAnimationFrame(initAICostCharts);
+}
+
+function aiRenderProducts(){
+  const presets=[
+    {name:"Pre-Crisis (2025)",elec:65,comp:1.0},
+    {name:"Current (Mar 2026)",elec:97.4,comp:1.0},
+    {name:"If Crisis Deepens",elec:145,comp:1.2},
+    {name:"Worst Case",elec:200,comp:1.5}
+  ];
+
+  let viable=0,pressure=0,unviable=0;
+  const sorted=[...AI_PRODUCTS].sort((a,b)=>{const o={unviable:0,pressure:1,viable:2};return o[aiGetStatus(a).status]-o[aiGetStatus(b).status];});
+  let cards='';
+  sorted.forEach(p=>{
+    const s=aiGetStatus(p),d=aiGetDefunct(p);
+    if(s.status==='viable')viable++;else if(s.status==='pressure')pressure++;else unviable++;
+    const abe=(p.breakEvenElec/aiComputeMult).toFixed(0);
+    cards+=`<div class="ai-prod-card">
+      <div class="ai-prod-icon">${p.icon}</div>
+      <div class="ai-prod-name">${p.name}</div>
+      <div class="ai-prod-desc">${p.desc}</div>
+      <div class="ai-prod-status ai-status-${s.status}"><span class="ai-tl ai-tl-${s.status==='viable'?'g':s.status==='pressure'?'a':'r'}"></span> ${s.label}</div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Compute level</span><span class="ai-prod-stat-v">${p.category}</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Cost per use</span><span class="ai-prod-stat-v">£${s.costPerUse}</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Value per use</span><span class="ai-prod-stat-v">£${p.valuePerUse.toFixed(2)}</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Margin</span><span class="ai-prod-stat-v" style="color:${parseFloat(s.margin)<20?'var(--red)':parseFloat(s.margin)<50?'var(--amber)':'var(--green)'}">${s.margin}%</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Breaks at</span><span class="ai-prod-stat-v">£${abe}/MWh</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Projected defunct</span><span class="ai-prod-stat-v" style="color:${d.color}">${d.text}</span></div>
+    </div>`;
+  });
+
+  return`
+    <div class="ai-g2" style="margin-bottom:24px">
+      <div class="card"><div class="card-body">
+        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">How It Works — The Maths</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.7">
+          Each AI product has an <strong style="color:var(--text)">energy cost per use</strong> — per scan, consultation, or query. When the cost per use exceeds the value delivered, the product <strong style="color:var(--red)">becomes uneconomical</strong>. Products with high compute needs (medical imaging, pathology) hit the wall first. The <strong style="color:var(--amber)">break-even electricity price</strong> is where running AI costs more than the traditional alternative.
+        </div>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Why This Matters for NHS Procurement</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.7">
+          Most AI vendors quote licence costs but <strong style="color:var(--text)">not infrastructure costs</strong>. A system affordable at today's energy prices could become a liability if electricity spikes (+50% in March 2026), compute demand pushes costs up (5x by 2030), helium becomes scarce (+400%), or the grid can't keep up.
+        </div>
+      </div></div>
+    </div>
+    <div class="card" style="margin-bottom:24px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Adjust Energy & Compute Costs</div>
+      <div class="ai-preset-btns">${presets.map((p,i)=>`<button class="ai-preset-btn${i===1?' on':''}" onclick="aiApplyPreset(${i})">${p.name}</button>`).join('')}</div>
+      <div class="ai-slider-row">
+        <label>Electricity price</label>
+        <input type="range" id="ai-s-elec" min="30" max="300" step="1" value="${aiElecPrice}" oninput="aiSliderChange()">
+        <span class="ai-slider-val" id="ai-v-elec">£${aiElecPrice.toFixed(0)}/MWh</span>
+      </div>
+      <div class="ai-slider-row">
+        <label>Compute cost multiplier</label>
+        <input type="range" id="ai-s-comp" min="50" max="250" step="5" value="${aiComputeMult*100}" oninput="aiSliderChange()">
+        <span class="ai-slider-val" id="ai-v-comp">${(aiComputeMult*100).toFixed(0)}%</span>
+      </div>
+      <div style="font-size:11px;color:var(--text2);font-style:italic;margin-top:8px">£65/MWh was typical in 2025. Currently £97.40 due to Hormuz crisis. Compute 100% = today's costs.</div>
+    </div></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+      <h3 style="font-size:16px;font-weight:700">Product Viability at Current Costs</h3>
+      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(16,185,129,.15);color:#4ade80">
+        <span style="color:var(--green)">${viable} Viable</span> · <span style="color:var(--amber)">${pressure} Pressure</span> · <span style="color:var(--red)">${unviable} Uneconomical</span>
+      </span>
+    </div>
+    <div class="ai-prod-grid">${cards}</div>`;
+}
+
+function aiApplyPreset(idx){
+  const presets=[{elec:65,comp:1.0},{elec:97.4,comp:1.0},{elec:145,comp:1.2},{elec:200,comp:1.5}];
+  aiElecPrice=presets[idx].elec;aiComputeMult=presets[idx].comp;
+  document.getElementById('ai-s-elec').value=aiElecPrice;
+  document.getElementById('ai-s-comp').value=aiComputeMult*100;
+  document.getElementById('ai-v-elec').textContent='£'+aiElecPrice.toFixed(0)+'/MWh';
+  document.getElementById('ai-v-comp').textContent=(aiComputeMult*100).toFixed(0)+'%';
+  document.querySelectorAll('.ai-preset-btn').forEach((b,j)=>b.classList.toggle('on',j===idx));
+  aiRefreshProducts();
+}
+function aiSliderChange(){
+  aiElecPrice=parseFloat(document.getElementById('ai-s-elec').value);
+  aiComputeMult=parseFloat(document.getElementById('ai-s-comp').value)/100;
+  document.getElementById('ai-v-elec').textContent='£'+aiElecPrice.toFixed(0)+'/MWh';
+  document.getElementById('ai-v-comp').textContent=(aiComputeMult*100).toFixed(0)+'%';
+  document.querySelectorAll('.ai-preset-btn').forEach(b=>b.classList.remove('on'));
+  aiRefreshProducts();
+}
+function aiRefreshProducts(){
+  // Re-render just the product grid section
+  const el=document.querySelector('.ai-prod-grid');
+  if(!el)return;
+  // Easier: re-render entire products tab
+  document.getElementById('ai-content').innerHTML=aiRenderProducts();
+}
+
+function aiRenderTimeline(){
+  // Build timeline rows
+  const sorted=[...AI_PRODUCTS].sort((a,b)=>aiGetDefunct(a).months-aiGetDefunct(b).months);
+  let rows='';
+  sorted.forEach(p=>{
+    const d=aiGetDefunct(p);
+    const barPct=Math.min((d.months/120)*100,100);
+    const barColor=d.months<=12?"linear-gradient(90deg,#ef4444,#f87171)":d.months<=36?"linear-gradient(90deg,#f59e0b,#fbbf24)":"linear-gradient(90deg,#10b981,#4ade80)";
+    rows+=`<div class="ai-timeline-row">
+      <div class="ai-timeline-icon">${p.icon}</div>
+      <div class="ai-timeline-prod">${p.name}</div>
+      <div class="ai-timeline-bar-c"><div class="ai-timeline-bar" style="width:${Math.max(barPct,5)}%;background:${barColor}">${d.months>0?d.months+'mo':''}</div></div>
+      <div class="ai-timeline-date" style="color:${d.color}">${d.text}</div>
+    </div>`;
+  });
+
+  return`
+    <div class="ai-explain"><strong>When does each product become uneconomical?</strong> Based on energy price trends, this shows the projected date each AI product type will cost more to run than the value it delivers.</div>
+    <div class="card" style="margin-bottom:16px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Energy Price Assumptions</div>
+      <div class="ai-slider-row">
+        <label>Annual energy cost growth</label>
+        <input type="range" id="ai-growth-rate" min="5" max="60" step="1" value="${aiGrowthRate}" oninput="aiGrowthChange()">
+        <span class="ai-slider-val" id="ai-growth-val">+${aiGrowthRate}%/yr</span>
+      </div>
+      <div style="font-size:11px;color:var(--text2);font-style:italic">Current trajectory: ~18%/yr based on March 2026 conflict-driven prices.</div>
+    </div></div>
+    <div class="card" style="margin-bottom:16px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Historical UK Wholesale Electricity Price</div>
+      <div class="ai-chart-box"><canvas id="ai-chart-history"></canvas></div>
+    </div></div>
+    <div class="card" style="margin-bottom:16px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Projected Viability Timeline</div>
+      <div class="ai-chart-box" style="height:360px"><canvas id="ai-chart-forecast"></canvas></div>
+    </div></div>
+    <div class="card"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Product-by-Product Countdown</div>
+      ${rows}
+      <div style="font-size:11px;color:var(--text2);font-style:italic;margin-top:16px">"Defunct" means infrastructure cost exceeds value delivered — making a traditional approach cheaper.</div>
+    </div></div>`;
+}
+
+function aiGrowthChange(){
+  aiGrowthRate=parseInt(document.getElementById('ai-growth-rate').value);
+  document.getElementById('ai-growth-val').textContent='+'+aiGrowthRate+'%/yr';
+  // Rebuild timeline
+  aiSwitchTab('timeline');
+}
+
+function aiRenderTracker(){
+  const topCards=[
+    {l:"UK Wholesale Electricity",v:"£97.40/MWh",c:"+50%",t:"up",s:"Iran conflict impact"},
+    {l:"Brent Crude",v:"$120/bbl",c:"+65%",t:"up",s:"Hormuz closed"},
+    {l:"Helium Spot Price",v:"$450+/MCF",c:"+400%",t:"up",s:"Qatar force majeure"},
+    {l:"Hospital Margins",v:"2.3%",c:"-0.2pp",t:"down",s:"Razor thin"}
+  ];
+
+  let monitor='';
+  AI_COST_VARS.forEach(v=>{
+    const p=aiPct(v.cur,v.base);
+    const light=aiTl(v);
+    const isGoodUp=v.id===12||v.id===14;
+    const pColor=p!==null?(parseFloat(p)>0?(isGoodUp?'var(--green)':'var(--red)'):'var(--green)'):'var(--text2)';
+    monitor+=`<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border)">
+      <span class="ai-tl ai-tl-${light}"></span>
+      <span style="flex:1;font-size:13px;color:var(--text2)">${v.name}</span>
+      <span style="font-size:13px;font-weight:700;min-width:70px;text-align:right">${aiFmtVal(v.cur,v.unit)}</span>
+      ${p!==null?`<span style="font-size:11px;font-weight:600;min-width:55px;text-align:right;color:${pColor}">${parseFloat(p)>0?'+':''}${p}%</span>`:''}
+    </div>`;
+  });
+
+  const assumptions=[
+    {t:"1. Stable Energy Prices",s:"CHALLENGED — Brent +65%, electricity +50%, gas +72%"},
+    {t:"2. Affordable Compute",s:"CHALLENGED — UK DC power 4x US cost, demand 5x by 2030"},
+    {t:"3. Reliable Supply Chains",s:"CHALLENGED — Helium +400%, Qatar force majeure"},
+    {t:"4. Grid Capacity",s:"CHALLENGED — Grid spend rising 4x, may not meet demand"}
+  ];
+
+  return`
+    <div class="ai-alert"><span style="font-size:20px;flex-shrink:0">⚠</span><div>
+      <div style="font-size:14px;font-weight:600;color:#f87171">All Four ROI Assumptions Under Simultaneous Pressure — March 2026</div>
+      <div style="font-size:13px;color:var(--text2);margin-top:2px">Energy prices surging (Iran/Hormuz crisis), helium supply disrupted, grid capacity constrained, compute demand accelerating.</div>
+    </div></div>
+    <div class="ai-g4">${topCards.map(c=>`<div class="card"><div class="card-body">
+      <div class="ai-ml">${c.l}</div><div class="ai-mv">${c.v}</div>
+      <span class="ai-mc ai-mc-${c.t==='up'?'up':'dn'}">${c.t==='up'?'↑':'↓'} ${c.c}</span>
+      <div class="ai-msub">${c.s}</div>
+    </div></div>`).join('')}</div>
+    <div class="ai-g2" style="align-items:stretch">
+      <div class="card"><div class="card-body">
+        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Energy Price Trajectory (6-Month)</div>
+        <div class="ai-chart-box"><canvas id="ai-chart-energy"></canvas></div>
+      </div></div>
+      <div class="card"><div class="card-body">
+        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Helium Price & Supply Index</div>
+        <div class="ai-chart-box"><canvas id="ai-chart-helium"></canvas></div>
+      </div></div>
+    </div>
+    <div class="card" style="margin-bottom:16px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Variable Status Monitor</div>
+      ${monitor}
+    </div></div>
+    <div class="card"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Four Core Assumptions — Current Status</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+        ${assumptions.map(a=>`<div class="ai-ac"><div class="ai-ac-t">${a.t}</div><div class="ai-ac-s">${a.s}</div></div>`).join('')}
+      </div>
+    </div></div>`;
+}
+
+function aiRenderData(){
+  const cats=["All","Energy","Grid","Helium","Healthcare"];
+  const catColors={Energy:"239,68,68",Grid:"59,130,246",Helium:"168,85,247",Healthcare:"16,185,129"};
+  let data=AI_COST_VARS;
+  let rows=data.map(v=>{
+    const p=aiPct(v.cur,v.base);
+    const light=aiTl(v);
+    const rgb=catColors[v.cat]||"148,163,184";
+    const pNum=p!==null?parseFloat(p):0;
+    const pColor=pNum>20?'var(--red)':pNum>5?'var(--amber)':'var(--green)';
+    return`<tr>
+      <td style="font-weight:600">${v.name}</td>
+      <td><span style="font-size:11px;padding:2px 8px;border-radius:4px;background:rgba(${rgb},.12);color:rgba(${rgb},1)">${v.cat}</span></td>
+      <td>${aiFmtVal(v.base,v.unit)}</td>
+      <td style="font-weight:700">${aiFmtVal(v.cur,v.unit)}</td>
+      <td>${p!==null?`<span style="font-weight:600;color:${pColor}">${pNum>0?'+':''}${p}%</span>`:'—'}</td>
+      <td><span class="ai-tl ai-tl-${light}"></span></td>
+      <td style="font-size:12px;max-width:200px">${v.note}</td>
+      <td style="font-size:12px;color:var(--text2)">${v.src}</td>
+    </tr>`;
+  }).join('');
+
+  return`
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+      <h3 style="font-size:16px;font-weight:700">Data Reference Table</h3>
+      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(148,163,184,.15);color:var(--text2)">${data.length} variables</span>
+    </div>
+    <div class="card" style="padding:0;overflow:auto"><table class="tbl">
+      <thead><tr><th>Variable</th><th>Category</th><th>Baseline</th><th>Current</th><th>Change</th><th>Status</th><th>Note</th><th>Source</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table></div>`;
+}
+
+function initAICostCharts(){
+  // Destroy old AI chart instances
+  Object.values(aiChartInst).forEach(c=>{try{c.destroy();}catch(e){}});
+  aiChartInst={};
+  if(view!=='aicost')return;
+
+  // History chart (timeline tab)
+  const histCanvas=document.getElementById('ai-chart-history');
+  if(histCanvas){
+    aiChartInst.history=new Chart(histCanvas,{
+      type:'line',
+      data:{
+        labels:AI_HIST_PRICES.map(h=>h.year),
+        datasets:[{
+          label:'UK Wholesale Electricity (£/MWh)',
+          data:AI_HIST_PRICES.map(h=>h.price),
+          borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.1)',
+          fill:true,tension:0.3,pointRadius:4,
+          pointBackgroundColor:AI_HIST_PRICES.map(h=>h.price>100?'#ef4444':'#3b82f6')
+        }]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{
+          legend:{labels:{color:'#9ca3af',font:{size:11}}},
+          annotation:{annotations:{currentLine:{type:'line',yMin:97.4,yMax:97.4,borderColor:'rgba(239,68,68,.5)',borderWidth:2,borderDash:[6,6],label:{content:'Current: £97.40',display:true,position:'end',color:'#f87171',font:{size:11}}}}}
+        },
+        scales:{
+          x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},
+          y:{ticks:{color:'#64748b',font:{size:11},callback:v=>'£'+v},grid:{color:'#374151'}}
+        }
+      }
+    });
+  }
+
+  // Forecast chart (timeline tab)
+  const foreCanvas=document.getElementById('ai-chart-forecast');
+  if(foreCanvas){
+    const years=[],prices=[];
+    for(let m=0;m<=60;m+=6){
+      const price=aiElecPrice*Math.pow(1+aiGrowthRate/100,m/12);
+      const d=new Date(2026,2+m,1);
+      years.push(d.toLocaleDateString('en-GB',{month:'short',year:'2-digit'}));
+      prices.push(Math.round(price));
+    }
+    const datasets=[{label:'Projected electricity price',data:prices,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.08)',fill:true,tension:0.3,pointRadius:3,borderWidth:2}];
+    const prodColors=["#ef4444","#f59e0b","#a855f7","#22c55e","#06b6d4","#ec4899","#84cc16","#f97316","#6366f1","#14b8a6"];
+    AI_PRODUCTS.forEach((p,i)=>{
+      const be=p.breakEvenElec/aiComputeMult;
+      datasets.push({label:p.name+' (£'+Math.round(be)+')',data:years.map(()=>Math.round(be)),borderColor:prodColors[i%prodColors.length],borderDash:[4,4],borderWidth:1.5,pointRadius:0,fill:false});
+    });
+    aiChartInst.forecast=new Chart(foreCanvas,{
+      type:'line',data:{labels:years,datasets},
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#9ca3af',font:{size:10},boxWidth:12},position:'bottom'}},
+        scales:{
+          x:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#374151'}},
+          y:{ticks:{color:'#64748b',font:{size:10},callback:v=>'£'+v},grid:{color:'#374151'},title:{display:true,text:'£/MWh',color:'#64748b'}}
+        }
+      }
+    });
+  }
+
+  // Energy chart (tracker tab)
+  const energyCanvas=document.getElementById('ai-chart-energy');
+  if(energyCanvas){
+    aiChartInst.energy=new Chart(energyCanvas,{
+      type:'line',
+      data:{
+        labels:['Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26'],
+        datasets:[
+          {label:'Electricity (£/MWh)',data:[62,64,63,67,70,78,97.4],borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.1)',fill:true,tension:.3,pointRadius:3},
+          {label:'Brent Crude ($)',data:[71,73,72,74,76,88,120],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,.1)',fill:true,tension:.3,pointRadius:3}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#9ca3af',font:{size:11}}}},
+        scales:{x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},y:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}}}
+      }
+    });
+  }
+
+  // Helium chart (tracker tab)
+  const heliumCanvas=document.getElementById('ai-chart-helium');
+  if(heliumCanvas){
+    aiChartInst.helium=new Chart(heliumCanvas,{
+      type:'line',
+      data:{
+        labels:['Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q1 26'],
+        datasets:[
+          {label:'Price ($/MCF)',data:[380,390,400,420,450,480,520,1900],borderColor:'#a855f7',backgroundColor:'rgba(168,85,247,.1)',fill:true,tension:.3,pointRadius:3,yAxisID:'y'},
+          {label:'Supply Index',data:[100,98,95,90,85,70,65,30],borderColor:'#22c55e',borderDash:[5,5],backgroundColor:'transparent',tension:.3,pointRadius:3,yAxisID:'y1'}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{labels:{color:'#9ca3af',font:{size:11}}}},
+        scales:{
+          x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},
+          y:{position:'left',ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},
+          y1:{position:'right',min:0,max:100,ticks:{color:'#64748b',font:{size:11}},grid:{display:false}}
+        }
+      }
+    });
+  }
+}
+
+init();
+</script>
+
+<!-- FOOTER -->
+<footer class="colophon">
+    <div class="container">
+        <div class="colophon-grid">
+            <div class="colophon-brand">
+                <span class="footer-wordmark">MyClinical</span>
+                <p class="footer-tagline">Tools, data, and education for clinicians who build. A publication of Luke Kellaway.</p>
+            </div>
+            <div class="colophon-col">
+                <h4>Sections</h4>
+                <a href="https://www.growth.myclinical.co.uk" target="_blank">No. 01 — Growth</a>
+                <a href="/data/">No. 02 — Data</a>
+                <a href="/insights/">No. 03 — Insights</a>
+                <a href="/coach/">No. 04 — Coach</a>
+                <a href="/research/">No. 05 — Research</a>
+                <a href="https://myclinicaldd.gumroad.com" target="_blank">No. 06 — DD</a>
+                <a href="/content/">No. 07 — Content</a>
+            </div>
+            <div class="colophon-col">
+                <h4>Tools</h4>
+                <a href="/data/observatory/">UK Data Observatory</a>
+                <a href="/data/cost-dashboard.html">AI Cost Dashboard</a>
+                <a href="/research/clinician-translation-matrix.html">Translation Matrix</a>
+            </div>
+            <div class="colophon-col">
+                <h4>Colophon</h4>
+                <a href="https://lukekellaway.com" target="_blank">Editor — Luke Kellaway</a>
+                <a href="https://www.linkedin.com/in/lukekellaway" target="_blank">LinkedIn</a>
+                <a href="mailto:luke@v3rticals.com">Contact</a>
+            </div>
+        </div>
+        <div class="colophon-bottom">
+            <span>&copy; 2026 MyClinical · A publication of <a href="https://lukekellaway.com" target="_blank">Luke Kellaway</a> · Read with care.</span>
+            <span class="colophon-imprint">Set in Fraunces and Inter.</span>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
