@@ -1,0 +1,100 @@
+name: Refresh observatory data
+
+# Rebuilds data/observatory/dashboard_data.json from the latest public sources
+# and commits it when it changes (which triggers a Netlify production deploy).
+#
+# Runs on GitHub's infrastructure — it does NOT need anyone's computer on, and it
+# uses the built-in GITHUB_TOKEN to commit, so there is no personal token to
+# create or renew.
+#
+# Pipeline: scripts/fetch_observatory.py downloads the sources into a temp dir
+# (ONS via Nomis, public health via Fingertips, NHS England performance resolved
+# from the publication pages), then scripts/process_v2.py turns them into the
+# dashboard JSON. A guard refuses to publish an empty or broken result, so a bad
+# fetch leaves the last good data live and self-heals next month.
+
+on:
+  schedule:
+    # Once a month, mid-morning UTC on the 14th — by then the previous month's
+    # NHS RTT/DM01/A&E figures (published ~9th-13th) are out. A missed run
+    # self-heals next month; the commit-only-on-change guard avoids dead deploys.
+    - cron: "0 9 14 * *"
+  workflow_dispatch:        # manual "Run workflow" button for testing / catch-up
+  push:
+    branches: [main]
+    paths:
+      - "scripts/fetch_observatory.py"
+      - "scripts/process_v2.py"
+      - "scripts/download_manifest.json"
+      - ".github/workflows/poll-observatory.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: poll-observatory
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install openpyxl
+
+      - name: Fetch latest source data
+        env:
+          OBS_DATA_DIR: ${{ runner.temp }}/obsdata
+        run: python scripts/fetch_observatory.py
+
+      - name: Build dashboard_data.json
+        env:
+          OBS_DATA_DIR: ${{ runner.temp }}/obsdata
+          OBS_OUTPUT: data/observatory/dashboard_data.json
+        run: python scripts/process_v2.py
+
+      - name: Guard against a broken or empty build
+        # If the new JSON won't parse, is tiny, or lost its core sections,
+        # discard it and keep the last good file live. Exit 0 so the run is a
+        # clean "nothing to publish", not a failure alarm.
+        run: |
+          python - <<'PY'
+          import json, os, subprocess, sys
+          p = "data/observatory/dashboard_data.json"
+          ok = True
+          try:
+              d = json.load(open(p))
+              size = os.path.getsize(p)
+              ft = len(d.get("fingertips") or {})
+              perf = d.get("performance") or {}
+              if size < 300_000: ok = False; print(f"too small: {size} bytes")
+              if not perf.get("rtt"): ok = False; print("performance.rtt missing")
+              if ft < 40: ok = False; print(f"only {ft} fingertips indicators")
+          except Exception as e:
+              ok = False; print("parse error:", e)
+          if not ok:
+              print("Guard failed — reverting to last committed data.")
+              subprocess.run(["git", "checkout", "--", p])
+          else:
+              print("Guard passed.")
+          PY
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "growth-bot"
+          git config user.email "growth-bot@users.noreply.github.com"
+          git add data/observatory/dashboard_data.json 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No data change — skipping commit."
+          else
+            git commit -m "observatory: auto-refresh ($(date -u +%Y-%m-%dT%H:%MZ))"
+            git push
+          fi

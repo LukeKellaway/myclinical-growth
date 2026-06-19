@@ -1,0 +1,1416 @@
+{
+  "download_date": "2026-03-26T11:56:09.607097",
+  "status": "completed",
+  "datasets": {
+    "Performance_Waiting_Times": {
+      "RTT": {
+        "url": "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/03/Full-CSV-data-file-Jan26-ZIP-4M-WL5BiP.zip",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Performance_Waiting_Times/RTT_latest.zip",
+        "status": "downloaded",
+        "size_bytes": 3630829,
+        "timestamp": "2026-03-26T11:56:09.782031",
+        "size_human": "3.5 MB"
+      },
+      "DM01": {
+        "url": "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/03/DM01-JANUARY-2026-full-extract_42P3N.zip",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Performance_Waiting_Times/DM01_latest.zip",
+        "status": "downloaded",
+        "size_bytes": 1275067,
+        "timestamp": "2026-03-26T11:56:09.921371",
+        "size_human": "1.2 MB"
+      },
+      "Cancer_Waits": {
+        "url": "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/03/January-2026-Monthly-Combined-CSV-Provisional.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Performance_Waiting_Times/Cancer_Waits_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 5068686,
+        "timestamp": "2026-03-26T11:56:09.999046",
+        "size_human": "4.8 MB"
+      },
+      "AE": {
+        "url": "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/03/February-2026-CSV-Dl8t54.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Performance_Waiting_Times/AE_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 29315,
+        "timestamp": "2026-03-26T11:56:10.125510",
+        "size_human": "28.6 KB"
+      },
+      "Ambulance_QI": {
+        "url": "https://www.england.nhs.uk/statistics/wp-content/uploads/sites/2/2026/03/AmbSYS-to-Feb-2026-LB32C.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Performance_Waiting_Times/Ambulance_QI_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 1352389,
+        "timestamp": "2026-03-26T11:56:10.166605",
+        "size_human": "1.3 MB"
+      }
+    },
+    "Prescribing": {
+      "EPD": {
+        "url": "https://opendata.nhsbsa.net/dataset/65050ec0-5abd-48ce-989d-defc08ed837e/resource/07442fa4-4701-49a1-bd70-11cdc18ee039/download/epd_202506.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Prescribing/EPD_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 52494336,
+        "timestamp": "2026-03-26T11:56:15.256922",
+        "size_human": "50.1 MB"
+      },
+      "SCMD": {
+        "url": "https://opendata.nhsbsa.net/dataset/d5d7cd63-5373-4a0e-ae22-7f1a198e305d/resource/68f51d08-148a-40ec-9ec6-08988baa23ea/download/scmdv3_202206.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Prescribing/SCMD_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 30974756,
+        "timestamp": "2026-03-26T11:56:50.140241",
+        "size_human": "29.5 MB"
+      }
+    },
+    "Prevalence_QOF": {
+      "QOF": {
+        "url": "https://files.digital.nhs.uk/95/4708D7/QOF2425.zip",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Prevalence_QOF/QOF_Prevalence_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 8268493,
+        "timestamp": "2026-03-26T11:56:59.320385",
+        "size_human": "7.9 MB"
+      }
+    },
+    "Workforce": {
+      "NHS_Workforce": {
+        "url": "https://files.digital.nhs.uk/96/3643C8/NHS%20HCHS%20Workforce%20Statistics%2C%20Trusts%20and%20core%20organisations%20-%20data%20tables%2C%20November%202025.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Workforce/NHS_Workforce_latest.xlsx",
+        "status": "downloaded",
+        "size_bytes": 7240957,
+        "timestamp": "2026-03-26T11:56:59.874382",
+        "size_human": "6.9 MB"
+      },
+      "Sickness_Absence": {
+        "url": "https://files.digital.nhs.uk/70/89F714/NHS%20Sickness%20Absence%20rates%20CSV%2C%20November%202025.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Workforce/Sickness_Absence_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 41053,
+        "timestamp": "2026-03-26T11:57:00.468257",
+        "size_human": "40.1 KB"
+      },
+      "GP_Workforce": {
+        "url": "https://files.digital.nhs.uk/B7/7BA665/GPW%20Bulletin%20Tables%20-%20December%202025.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Workforce/GP_Workforce_latest.xlsx",
+        "status": "downloaded",
+        "size_bytes": 1549448,
+        "timestamp": "2026-03-26T11:57:00.847452",
+        "size_human": "1.5 MB"
+      }
+    },
+    "Hospital_Activity": {
+      "PROMs": {
+        "url": "https://files.digital.nhs.uk/E6/F48C54/Equality%202324%20upload.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Hospital_Activity/PROMs_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 96554,
+        "timestamp": "2026-03-26T11:57:01.852154",
+        "size_human": "94.3 KB"
+      },
+      "Bed_Availability": {
+        "status": "not_found",
+        "page": "https://www.england.nhs.uk/statistics/statistical-work-areas/bed-availability-and-occupancy/"
+      }
+    },
+    "Mental_Health": {
+      "IAPT": {
+        "url": "https://digital.nhs.uk/binaries/content/assets/website-assets/data-and-information/datasets/iapt/iapt-month-metadata.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Mental_Health/IAPT_latest.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:03.479294",
+        "error": "404 Client Error: Not Found for url: https://digital.nhs.uk/binaries/content/assets/website-assets/data-and-information/datasets/iapt/iapt-month-metadata.xlsx"
+      }
+    },
+    "Primary_Care": {
+      "GP_Appointments": {
+        "url": "https://files.digital.nhs.uk/7A/6E5407/Appointments_GP_Daily_CSV_Jan_26.zip",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Primary_Care/GP_Appointments_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 54350724,
+        "timestamp": "2026-03-26T11:57:03.841819",
+        "size_human": "51.8 MB"
+      },
+      "GP_Populations": {
+        "url": "https://files.digital.nhs.uk/CB/9CE5FC/gp-reg-pat-prac-all.zip",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Primary_Care/GP_Populations_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 73980,
+        "timestamp": "2026-03-26T11:57:05.124538",
+        "size_human": "72.2 KB"
+      }
+    },
+    "Dental": {
+      "Dental_Activity": {
+        "url": "https://opendata.nhsbsa.net/dataset/9621bedf-c03c-4af6-9e8f-5f4afb5b780c/resource/d6607787-c8aa-4c71-9c34-da32ade63faf/download/uda_contractor_202512.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Dental/Dental_Activity_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 1069838,
+        "timestamp": "2026-03-26T11:57:08.318942",
+        "size_human": "1.0 MB"
+      }
+    },
+    "Screening_Immunisation": {
+      "Immunisation": {
+        "url": "https://files.digital.nhs.uk/5E/EBAC47/childhood-vaccinations-eng-2024-tab.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Screening_Immunisation/Immunisation_latest.csv",
+        "status": "downloaded",
+        "size_bytes": 400253,
+        "timestamp": "2026-03-26T11:57:28.680911",
+        "size_human": "390.9 KB"
+      }
+    },
+    "Finance": {
+      "National_Costs": {
+        "url": "https://www.england.nhs.uk/wp-content/uploads/2025/11/NCC_National-Schedule_2024_25.zip",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Finance/National_Costs_latest.xlsx",
+        "status": "downloaded",
+        "size_bytes": 2770788,
+        "timestamp": "2026-03-26T11:57:28.926895",
+        "size_human": "2.6 MB"
+      }
+    },
+    "Patient_Experience": {
+      "FFT": {
+        "status": "not_found",
+        "page": "https://www.england.nhs.uk/fft/friends-and-family-test-data/"
+      },
+      "GP_Patient_Survey": {
+        "url": "https://gp-patient.co.uk/downloads/2024/GPPS_2024_practice_level_weighted_data.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Patient_Experience/GP_Patient_Survey_2024.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:29.016417",
+        "error": "404 Client Error: Not Found for url: https://gp-patient.co.uk/downloads/2024/GPPS_2024_practice_level_weighted_data.xlsx"
+      }
+    },
+    "Organisation": {
+      "ODS_GP": {
+        "url": "https://www.odsdatasearchandexport.nhs.uk/referenceDataCatalogue/565791179.html#GPPractices(PrescribingCostCentres)-epraccur.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Organisation/ODS_GP_Practices.csv",
+        "status": "downloaded",
+        "size_bytes": 93279,
+        "timestamp": "2026-03-26T11:57:29.207323",
+        "size_human": "91.1 KB"
+      },
+      "ODS_Trusts": {
+        "url": "https://digital.nhs.uk/services/organisation-data-service/data-search-and-export/csv-downloads/miscellaneous",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Organisation/ODS_Trusts.csv",
+        "status": "downloaded",
+        "size_bytes": 57434,
+        "timestamp": "2026-03-26T11:57:29.363340",
+        "size_human": "56.1 KB"
+      }
+    },
+    "ONS_and_Wider_Data": {
+      "Population_MYE": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=TYPE464&date=latest&gender=0&c_age=200&measures=20100&select=date_name,geography_name,geography_code,gender_name,c_age_name,measures_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Demographics/ONS_Population_MYE_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 26653,
+        "timestamp": "2026-03-26T11:57:29.577302",
+        "size_human": "26.0 KB"
+      },
+      "Population_By_Age": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2002_1.data.csv?geography=TYPE464&date=latest&gender=0...2&c_age=1...101&measures=20100&select=date_name,geography_name,geography_code,gender_name,c_age_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Demographics/ONS_Population_By_Age_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 1261953,
+        "timestamp": "2026-03-26T11:57:29.961667",
+        "size_human": "1.2 MB"
+      },
+      "Population_Ethnicity": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2041_1.data.csv?geography=TYPE464&c2021_eth_20=0...19&measures=20100&select=geography_name,geography_code,c2021_eth_20_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Demographics/ONS_Population_Ethnicity_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:31.253896",
+        "size_human": "0.0 KB"
+      },
+      "Births": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_207_1.data.csv?geography=TYPE464&date=latest&measures=20100&select=date_name,geography_name,geography_code,measures_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Demographics/ONS_Births_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:31.293817",
+        "size_human": "0.0 KB"
+      },
+      "Deaths": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_161_1.data.csv?geography=TYPE464&date=latest&gender=0&age=0&measures=20100&select=date_name,geography_name,geography_code,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Demographics/ONS_Deaths_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 825058,
+        "timestamp": "2026-03-26T11:57:31.362872",
+        "size_human": "805.7 KB"
+      },
+      "Employment_Rate": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_17_5.data.csv?geography=TYPE464&date=latest&variable=18,20,84,111,1487,1488,1489&measures=20599,21001,21002,21003&select=date_name,geography_name,geography_code,variable_name,measures_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Economy_Employment/ONS_Employment_APS_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 1129891,
+        "timestamp": "2026-03-26T11:57:33.842344",
+        "size_human": "1.1 MB"
+      },
+      "Claimant_Count": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_162_1.data.csv?geography=TYPE464&date=latest&gender=0&age=0&measure=1&measures=20100&select=date_name,geography_name,geography_code,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Economy_Employment/ONS_Claimant_Count_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 17334,
+        "timestamp": "2026-03-26T11:57:34.457496",
+        "size_human": "16.9 KB"
+      },
+      "Median_Earnings": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_30_1.data.csv?geography=TYPE464&date=latest&sex=7&item=2&pay=7&measures=20100&select=date_name,geography_name,geography_code,sex_name,item_name,pay_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Economy_Employment/ONS_Median_Earnings_ASHE_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 29135,
+        "timestamp": "2026-03-26T11:57:34.664454",
+        "size_human": "28.5 KB"
+      },
+      "GVA_Per_Head": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_57_1.data.csv?geography=TYPE464&date=latest&industry=0&measures=20100&select=date_name,geography_name,geography_code,industry_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Economy_Employment/ONS_GVA_Per_Head_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:34.799764",
+        "size_human": "0.0 KB"
+      },
+      "Business_Counts": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_141_1.data.csv?geography=TYPE464&date=latest&industry=0&employment_sizeband=0&legal_status=0&measures=20100&select=date_name,geography_name,geography_code,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Economy_Employment/ONS_Business_Counts_LA.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:34.878565",
+        "error": "406 Client Error: Not Acceptable for url: https://www.nomisweb.co.uk/api/v01/dataset/NM_141_1.data.csv?geography=TYPE464&date=latest&industry=0&employment_sizeband=0&legal_status=0&measures=20100&select=date_name,geography_name,geography_code,obs_value"
+      },
+      "DWP_Benefits": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_134_1.data.csv?geography=TYPE464&date=latest&sex=0&age=0&benefit=0&duration=0&ethnicity=0&measures=20100&select=date_name,geography_name,geography_code,benefit_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Economy_Employment/DWP_Benefits_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:34.976752",
+        "size_human": "0.0 KB"
+      },
+      "IMD_2019": {
+        "url": "https://assets.publishing.service.gov.uk/media/5d8b387740f0b604d7b299e3/File_1_-_IMD2019_Index_of_Multiple_Deprivation.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Deprivation/IMD_2019_LSOA.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.185951",
+        "error": "404 Client Error: Not Found for url: https://assets.publishing.service.gov.uk/media/5d8b387740f0b604d7b299e3/File_1_-_IMD2019_Index_of_Multiple_Deprivation.xlsx"
+      },
+      "IMD_Income": {
+        "url": "https://assets.publishing.service.gov.uk/media/5d8b38a6ed915d036a256d0b/File_5_-_IoD2019_Scores.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Deprivation/IMD_2019_All_Scores_LSOA.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.305565",
+        "error": "404 Client Error: Not Found for url: https://assets.publishing.service.gov.uk/media/5d8b38a6ed915d036a256d0b/File_5_-_IoD2019_Scores.xlsx"
+      },
+      "IMD_LA_Summary": {
+        "url": "https://assets.publishing.service.gov.uk/media/5d8b38cded915d0373038787/File_10_-_IoD2019_Local_Authority_District_Summaries__lower-tier__.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Deprivation/IMD_2019_LA_Summaries.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.370171",
+        "error": "404 Client Error: Not Found for url: https://assets.publishing.service.gov.uk/media/5d8b38cded915d0373038787/File_10_-_IoD2019_Local_Authority_District_Summaries__lower-tier__.xlsx"
+      },
+      "House_Prices": {
+        "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/ratioofhousepricetoworkplacebasedearningslowerquartileandmedian/current/ratioofhousepricetoresidencebasedearnings.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Housing/ONS_House_Price_Earnings_Ratio.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.444649",
+        "error": "404 Client Error: Not Found for url: https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/housing/datasets/ratioofhousepricetoworkplacebasedearningslowerquartileandmedian/current/ratioofhousepricetoresidencebasedearnings.xlsx"
+      },
+      "Homelessness": {
+        "url": "https://assets.publishing.service.gov.uk/media/66e3db55c816b4badc2c4a95/Detailed_LA_2024-25_Q1.ods",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Housing/DLUHC_Homelessness_LA.ods",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.575141",
+        "error": "404 Client Error: Not Found for url: https://assets.publishing.service.gov.uk/media/66e3db55c816b4badc2c4a95/Detailed_LA_2024-25_Q1.ods"
+      },
+      "Social_Housing_Lettings": {
+        "status": "manual",
+        "page": "https://core-data.service.gov.uk/",
+        "note": "Register at CORE for social housing lettings data"
+      },
+      "GCSE_KS4": {
+        "url": "https://content.explore-education-statistics.service.gov.uk/api/releases/4a34dca4-e2b1-45f8-b09e-63c9aebb7598/files/f4e6f08c-b7e3-4de9-8f97-d2c2f0e6b5e6",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Education/DfE_GCSE_KS4_LA.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.712645",
+        "error": "404 Client Error: Not Found for url: https://content.explore-education-statistics.service.gov.uk/api/releases/4a34dca4-e2b1-45f8-b09e-63c9aebb7598/files/f4e6f08c-b7e3-4de9-8f97-d2c2f0e6b5e6"
+      },
+      "School_Absence": {
+        "url": "https://content.explore-education-statistics.service.gov.uk/api/releases/b2a6cff0-1584-4a9e-8cc0-d5cd0a71bf22/files",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Education/DfE_School_Absence.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.833580",
+        "error": "406 Client Error: Not Acceptable for url: https://content.explore-education-statistics.service.gov.uk/api/releases/b2a6cff0-1584-4a9e-8cc0-d5cd0a71bf22/files"
+      },
+      "Free_School_Meals": {
+        "url": "https://content.explore-education-statistics.service.gov.uk/api/releases/4caa2ebb-9ae0-43f0-9e89-a3c2ca6f7e56/files",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Education/DfE_Free_School_Meals.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:35.972068",
+        "error": "406 Client Error: Not Acceptable for url: https://content.explore-education-statistics.service.gov.uk/api/releases/4caa2ebb-9ae0-43f0-9e89-a3c2ca6f7e56/files"
+      },
+      "NEET": {
+        "url": "https://content.explore-education-statistics.service.gov.uk/api/releases/d0c844ec-8a4e-44f3-83d2-cbaa9cde6d07/files",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Education/DfE_NEET_Participation.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:36.084653",
+        "error": "406 Client Error: Not Acceptable for url: https://content.explore-education-statistics.service.gov.uk/api/releases/d0c844ec-8a4e-44f3-83d2-cbaa9cde6d07/files"
+      },
+      "Police_Crime": {
+        "url": "https://data.police.uk/data/fetch?date=2025-01&force=metropolitan",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Crime/Police_Recorded_Crime_Metropolitan.zip",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:36.285323",
+        "error": "HTTPSConnectionPool(host='data.police.uk', port=443): Max retries exceeded with url: /data/fetch?date=2025-01&force=metropolitan (Caused by SSLError(SSLError(1, '[SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)')))"
+      },
+      "Crime_ONS": {
+        "status": "manual",
+        "page": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/crimeinenglandandwalesappendixtables",
+        "note": "Crime Survey for England and Wales - visit page to download appendix tables"
+      },
+      "Air_Quality": {
+        "url": "https://uk-air.defra.gov.uk/datastore/pcm/mappm252023g.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Environment/DEFRA_Air_Quality_PM25.csv",
+        "status": "downloaded",
+        "size_bytes": 7856897,
+        "timestamp": "2026-03-26T11:57:36.347292",
+        "size_human": "7.5 MB"
+      },
+      "Air_Quality_NO2": {
+        "url": "https://uk-air.defra.gov.uk/datastore/pcm/mapno22023.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Environment/DEFRA_Air_Quality_NO2.csv",
+        "status": "downloaded",
+        "size_bytes": 7895420,
+        "timestamp": "2026-03-26T11:57:40.467748",
+        "size_human": "7.5 MB"
+      },
+      "Fuel_Poverty": {
+        "url": "https://assets.publishing.service.gov.uk/media/65f0d9a1362b5100117ff14b/fuel-poverty-sub-regional-tables-2024-2022-data.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Environment/BEIS_Fuel_Poverty_LA.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T11:57:44.524729",
+        "error": "404 Client Error: Not Found for url: https://assets.publishing.service.gov.uk/media/65f0d9a1362b5100117ff14b/fuel-poverty-sub-regional-tables-2024-2022-data.xlsx"
+      }
+    },
+    "Fingertips_Extracts": {
+      "Diabetes_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=241&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Diabetes_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 34438005,
+        "timestamp": "2026-03-26T11:57:44.687480",
+        "size_human": "32.8 MB"
+      },
+      "CHD_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=273&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_CHD_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 33472822,
+        "timestamp": "2026-03-26T11:57:56.357811",
+        "size_human": "31.9 MB"
+      },
+      "COPD_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=1938&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_COPD_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:58:05.308999",
+        "size_human": "0.4 KB"
+      },
+      "Depression_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=848&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Depression_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 26273733,
+        "timestamp": "2026-03-26T11:58:06.364711",
+        "size_human": "25.1 MB"
+      },
+      "Obesity_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93088&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Obesity_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 1079406,
+        "timestamp": "2026-03-26T11:58:12.028453",
+        "size_human": "1.0 MB"
+      },
+      "Smoking_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92443&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Smoking_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 13356008,
+        "timestamp": "2026-03-26T11:58:13.162570",
+        "size_human": "12.7 MB"
+      },
+      "Hypertension_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=253&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Hypertension_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 33719900,
+        "timestamp": "2026-03-26T11:58:15.515959",
+        "size_human": "32.2 MB"
+      },
+      "Asthma_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=247&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Asthma_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 27799157,
+        "timestamp": "2026-03-26T11:58:23.190729",
+        "size_human": "26.5 MB"
+      },
+      "Dementia_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=22401&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Dementia_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 4479962,
+        "timestamp": "2026-03-26T11:58:29.400909",
+        "size_human": "4.3 MB"
+      },
+      "CKD_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=285&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_CKD_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:58:31.417547",
+        "size_human": "0.4 KB"
+      },
+      "Cancer_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=276&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Cancer_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 33849461,
+        "timestamp": "2026-03-26T11:58:32.463664",
+        "size_human": "32.3 MB"
+      },
+      "Epilepsy_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=254&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Epilepsy_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:58:37.376861",
+        "size_human": "0.4 KB"
+      },
+      "Heart_Failure_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=281&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Heart_Failure_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:58:38.443047",
+        "size_human": "0.4 KB"
+      },
+      "Atrial_Fibrillation_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=273&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Atrial_Fibrillation_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 33472822,
+        "timestamp": "2026-03-26T11:58:39.491407",
+        "size_human": "31.9 MB"
+      },
+      "Mental_Health_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91280&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Mental_Health_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 25657741,
+        "timestamp": "2026-03-26T11:58:43.060064",
+        "size_human": "24.5 MB"
+      },
+      "Learning_Disability_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=200&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Learning_Disability_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 24277684,
+        "timestamp": "2026-03-26T11:58:45.736596",
+        "size_human": "23.2 MB"
+      },
+      "Palliative_Care_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91357&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Palliative_Care_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 38050279,
+        "timestamp": "2026-03-26T11:58:48.305435",
+        "size_human": "36.3 MB"
+      },
+      "Life_Expectancy_Male": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90366&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Life_Expectancy_Male.csv",
+        "status": "downloaded",
+        "size_bytes": 25870075,
+        "timestamp": "2026-03-26T11:58:58.620040",
+        "size_human": "24.7 MB"
+      },
+      "Life_Expectancy_Female": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90366&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Life_Expectancy_Female.csv",
+        "status": "downloaded",
+        "size_bytes": 25870075,
+        "timestamp": "2026-03-26T11:59:06.191869",
+        "size_human": "24.7 MB"
+      },
+      "Healthy_Life_Expectancy": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90362&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Healthy_Life_Expectancy.csv",
+        "status": "downloaded",
+        "size_bytes": 658550,
+        "timestamp": "2026-03-26T11:59:11.852152",
+        "size_human": "643.1 KB"
+      },
+      "Under75_CVD_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91872&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Under75_CVD_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 3157499,
+        "timestamp": "2026-03-26T11:59:12.952447",
+        "size_human": "3.0 MB"
+      },
+      "Under75_Cancer_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91073&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Under75_Cancer_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:59:14.838942",
+        "size_human": "0.4 KB"
+      },
+      "Under75_Respiratory_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91074&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Under75_Respiratory_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:59:15.884033",
+        "size_human": "0.4 KB"
+      },
+      "Under75_Liver_Disease_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91075&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Under75_Liver_Disease_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:59:16.929363",
+        "size_human": "0.4 KB"
+      },
+      "Infant_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92196&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Infant_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 1839894,
+        "timestamp": "2026-03-26T11:59:17.984453",
+        "size_human": "1.8 MB"
+      },
+      "Suicide_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=41001&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Suicide_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 6688718,
+        "timestamp": "2026-03-26T11:59:19.282665",
+        "size_human": "6.4 MB"
+      },
+      "Drug_Misuse_Deaths": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91381&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Drug_Misuse_Deaths.csv",
+        "status": "downloaded",
+        "size_bytes": 5172766,
+        "timestamp": "2026-03-26T11:59:21.405581",
+        "size_human": "4.9 MB"
+      },
+      "Excess_Winter_Deaths": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90360&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Excess_Winter_Deaths.csv",
+        "status": "downloaded",
+        "size_bytes": 5456811,
+        "timestamp": "2026-03-26T11:59:24.993175",
+        "size_human": "5.2 MB"
+      },
+      "Preventable_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93721&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Preventable_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 12986650,
+        "timestamp": "2026-03-26T11:59:26.213204",
+        "size_human": "12.4 MB"
+      },
+      "Avoidable_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93720&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Avoidable_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 7237226,
+        "timestamp": "2026-03-26T11:59:30.307719",
+        "size_human": "6.9 MB"
+      },
+      "Deprivation_Score_IMD2019": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93553&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Deprivation_Score_IMD2019.csv",
+        "status": "downloaded",
+        "size_bytes": 1519500,
+        "timestamp": "2026-03-26T11:59:35.567833",
+        "size_human": "1.4 MB"
+      },
+      "Slope_Index_Inequality_LE_Male": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92901&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Slope_Index_Inequality_LE_Male.csv",
+        "status": "downloaded",
+        "size_bytes": 3235073,
+        "timestamp": "2026-03-26T11:59:37.344935",
+        "size_human": "3.1 MB"
+      },
+      "Slope_Index_Inequality_LE_Female": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92902&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Slope_Index_Inequality_LE_Female.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:59:39.183636",
+        "size_human": "0.4 KB"
+      },
+      "Gap_Employment_Rate_MH": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90282&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Gap_Employment_Rate_MH.csv",
+        "status": "downloaded",
+        "size_bytes": 1270400,
+        "timestamp": "2026-03-26T11:59:40.222894",
+        "size_human": "1.2 MB"
+      },
+      "Inequality_Life_Expectancy": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92901&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Inequality_Life_Expectancy.csv",
+        "status": "downloaded",
+        "size_bytes": 3235073,
+        "timestamp": "2026-03-26T11:59:41.496715",
+        "size_human": "3.1 MB"
+      },
+      "Alcohol_Admissions": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91414&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Alcohol_Admissions.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:59:42.923102",
+        "size_human": "0.4 KB"
+      },
+      "Alcohol_Mortality": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91382&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Alcohol_Mortality.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T11:59:43.968836",
+        "size_human": "0.4 KB"
+      },
+      "Physical_Inactivity": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93014&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Physical_Inactivity.csv",
+        "status": "downloaded",
+        "size_bytes": 779214,
+        "timestamp": "2026-03-26T11:59:45.011654",
+        "size_human": "761.0 KB"
+      },
+      "Excess_Weight_Adults": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93088&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Excess_Weight_Adults.csv",
+        "status": "downloaded",
+        "size_bytes": 1079406,
+        "timestamp": "2026-03-26T11:59:46.259637",
+        "size_human": "1.0 MB"
+      },
+      "Excess_Weight_Children_Yr6": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90323&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Excess_Weight_Children_Yr6.csv",
+        "status": "downloaded",
+        "size_bytes": 2905570,
+        "timestamp": "2026-03-26T11:59:47.441697",
+        "size_human": "2.8 MB"
+      },
+      "Excess_Weight_Children_Reception": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90316&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Excess_Weight_Children_Reception.csv",
+        "status": "downloaded",
+        "size_bytes": 2486439,
+        "timestamp": "2026-03-26T11:59:48.842675",
+        "size_human": "2.4 MB"
+      },
+      "Smoking_At_Delivery": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93085&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Smoking_At_Delivery.csv",
+        "status": "downloaded",
+        "size_bytes": 1997170,
+        "timestamp": "2026-03-26T11:59:50.156778",
+        "size_human": "1.9 MB"
+      },
+      "Breastfeeding_Initiation": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92517&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Breastfeeding_Initiation.csv",
+        "status": "downloaded",
+        "size_bytes": 390620,
+        "timestamp": "2026-03-26T11:59:51.500723",
+        "size_human": "381.5 KB"
+      },
+      "Breastfeeding_6to8wks": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92518&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Breastfeeding_6to8wks.csv",
+        "status": "downloaded",
+        "size_bytes": 1423907,
+        "timestamp": "2026-03-26T11:59:52.639959",
+        "size_human": "1.4 MB"
+      },
+      "Drug_Treatment_Completion": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91117&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Drug_Treatment_Completion.csv",
+        "status": "downloaded",
+        "size_bytes": 151413,
+        "timestamp": "2026-03-26T11:59:53.852518",
+        "size_human": "147.9 KB"
+      },
+      "Low_Birth_Weight": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=20101&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Low_Birth_Weight.csv",
+        "status": "downloaded",
+        "size_bytes": 2010940,
+        "timestamp": "2026-03-26T11:59:54.949454",
+        "size_human": "1.9 MB"
+      },
+      "Teenage_Pregnancy_U18": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=20401&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Teenage_Pregnancy_U18.csv",
+        "status": "downloaded",
+        "size_bytes": 2065607,
+        "timestamp": "2026-03-26T11:59:56.329555",
+        "size_human": "2.0 MB"
+      },
+      "Child_Poverty": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93701&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Child_Poverty.csv",
+        "status": "downloaded",
+        "size_bytes": 895790,
+        "timestamp": "2026-03-26T11:59:57.590552",
+        "size_human": "874.8 KB"
+      },
+      "School_Readiness": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90631&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_School_Readiness.csv",
+        "status": "downloaded",
+        "size_bytes": 834011,
+        "timestamp": "2026-03-26T11:59:58.835390",
+        "size_human": "814.5 KB"
+      },
+      "GCSE_Attainment": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93378&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_GCSE_Attainment.csv",
+        "status": "downloaded",
+        "size_bytes": 600987,
+        "timestamp": "2026-03-26T12:00:00.008149",
+        "size_human": "586.9 KB"
+      },
+      "Children_Social_Care_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92039&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Children_Social_Care_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 13477967,
+        "timestamp": "2026-03-26T12:00:01.160208",
+        "size_human": "12.9 MB"
+      },
+      "Looked_After_Children_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90803&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Looked_After_Children_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 196209,
+        "timestamp": "2026-03-26T12:00:05.617759",
+        "size_human": "191.6 KB"
+      },
+      "NEET_16to17": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93203&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_NEET_16to17.csv",
+        "status": "downloaded",
+        "size_bytes": 1340806,
+        "timestamp": "2026-03-26T12:00:06.737415",
+        "size_human": "1.3 MB"
+      },
+      "Pupil_Absence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93419&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Pupil_Absence.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:07.935312",
+        "size_human": "0.4 KB"
+      },
+      "First_Time_Entrants_Youth_Justice": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=10401&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_First_Time_Entrants_Youth_Justice.csv",
+        "status": "downloaded",
+        "size_bytes": 549603,
+        "timestamp": "2026-03-26T12:00:08.979472",
+        "size_human": "536.7 KB"
+      },
+      "Employment_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92313&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Employment_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 5105077,
+        "timestamp": "2026-03-26T12:00:10.133833",
+        "size_human": "4.9 MB"
+      },
+      "Unemployment_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92314&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Unemployment_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:12.148278",
+        "size_human": "0.4 KB"
+      },
+      "Long_Term_Unemployment": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92316&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Long_Term_Unemployment.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:13.188379",
+        "size_human": "0.4 KB"
+      },
+      "Fuel_Poverty": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93759&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Fuel_Poverty.csv",
+        "status": "downloaded",
+        "size_bytes": 540565,
+        "timestamp": "2026-03-26T12:00:14.240671",
+        "size_human": "527.9 KB"
+      },
+      "Overcrowded_Households": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90420&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Overcrowded_Households.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:15.387741",
+        "size_human": "0.4 KB"
+      },
+      "Homelessness_Statutory": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93736&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Homelessness_Statutory.csv",
+        "status": "downloaded",
+        "size_bytes": 601726,
+        "timestamp": "2026-03-26T12:00:16.432780",
+        "size_human": "587.6 KB"
+      },
+      "Rough_Sleeping": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93737&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Rough_Sleeping.csv",
+        "status": "downloaded",
+        "size_bytes": 643508,
+        "timestamp": "2026-03-26T12:00:17.671274",
+        "size_human": "628.4 KB"
+      },
+      "Violent_Crime": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=11202&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Violent_Crime.csv",
+        "status": "downloaded",
+        "size_bytes": 862780,
+        "timestamp": "2026-03-26T12:00:18.834673",
+        "size_human": "842.6 KB"
+      },
+      "Domestic_Abuse_Incidents": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92863&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Domestic_Abuse_Incidents.csv",
+        "status": "downloaded",
+        "size_bytes": 411204,
+        "timestamp": "2026-03-26T12:00:19.974446",
+        "size_human": "401.6 KB"
+      },
+      "Reoffending_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=10402&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Reoffending_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:21.089174",
+        "size_human": "0.4 KB"
+      },
+      "Social_Isolation_Adult": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93758&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Social_Isolation_Adult.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:22.131888",
+        "size_human": "0.4 KB"
+      },
+      "Loneliness": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93757&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Loneliness.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:23.173790",
+        "size_human": "0.4 KB"
+      },
+      "Food_Insecurity": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93755&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Food_Insecurity.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:24.217977",
+        "size_human": "0.4 KB"
+      },
+      "Emergency_Admissions": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91382&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Emergency_Admissions.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:25.260641",
+        "size_human": "0.4 KB"
+      },
+      "Unplanned_Hospitalisation_Chronic": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90810&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Unplanned_Hospitalisation_Chronic.csv",
+        "status": "downloaded",
+        "size_bytes": 6557164,
+        "timestamp": "2026-03-26T12:00:26.301921",
+        "size_human": "6.3 MB"
+      },
+      "Emergency_Readmissions_30day": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90898&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Emergency_Readmissions_30day.csv",
+        "status": "downloaded",
+        "size_bytes": 346580,
+        "timestamp": "2026-03-26T12:00:27.927482",
+        "size_human": "338.5 KB"
+      },
+      "Hip_Fracture_Emergency": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90361&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Hip_Fracture_Emergency.csv",
+        "status": "downloaded",
+        "size_bytes": 5836746,
+        "timestamp": "2026-03-26T12:00:29.044286",
+        "size_human": "5.6 MB"
+      },
+      "Flu_Vaccination_Over65": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92462&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Flu_Vaccination_Over65.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:30.612351",
+        "size_human": "0.4 KB"
+      },
+      "Flu_Vaccination_At_Risk": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92463&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Flu_Vaccination_At_Risk.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:31.653733",
+        "size_human": "0.4 KB"
+      },
+      "Cervical_Screening_Coverage": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93024&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Cervical_Screening_Coverage.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:32.698653",
+        "size_human": "0.4 KB"
+      },
+      "Breast_Screening_Coverage": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=22001&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Breast_Screening_Coverage.csv",
+        "status": "downloaded",
+        "size_bytes": 1450353,
+        "timestamp": "2026-03-26T12:00:33.742832",
+        "size_human": "1.4 MB"
+      },
+      "Bowel_Screening_Coverage": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91720&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Bowel_Screening_Coverage.csv",
+        "status": "downloaded",
+        "size_bytes": 936358,
+        "timestamp": "2026-03-26T12:00:35.016989",
+        "size_human": "914.4 KB"
+      },
+      "NHS_Health_Check_Uptake": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91111&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_NHS_Health_Check_Uptake.csv",
+        "status": "downloaded",
+        "size_bytes": 1289256,
+        "timestamp": "2026-03-26T12:00:36.247184",
+        "size_human": "1.2 MB"
+      },
+      "Early_Cancer_Diagnosis": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92853&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Early_Cancer_Diagnosis.csv",
+        "status": "downloaded",
+        "size_bytes": 223113,
+        "timestamp": "2026-03-26T12:00:37.438544",
+        "size_human": "217.9 KB"
+      },
+      "Antibiotic_Prescribing": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92363&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Antibiotic_Prescribing.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:38.550234",
+        "size_human": "0.4 KB"
+      },
+      "Self_Harm_Admissions": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=21001&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Self_Harm_Admissions.csv",
+        "status": "downloaded",
+        "size_bytes": 4112923,
+        "timestamp": "2026-03-26T12:00:39.594250",
+        "size_human": "3.9 MB"
+      },
+      "Depression_Recorded_Prevalence": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=848&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Depression_Recorded_Prevalence.csv",
+        "status": "downloaded",
+        "size_bytes": 26273733,
+        "timestamp": "2026-03-26T12:00:41.134167",
+        "size_human": "25.1 MB"
+      },
+      "Dementia_Diagnosis_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92949&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Dementia_Diagnosis_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 1290585,
+        "timestamp": "2026-03-26T12:00:44.936333",
+        "size_human": "1.2 MB"
+      },
+      "MH_Crisis_Team_Gatekeeping": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90587&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_MH_Crisis_Team_Gatekeeping.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:46.091031",
+        "size_human": "0.4 KB"
+      },
+      "IAPT_Recovery_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93495&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_IAPT_Recovery_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 234214,
+        "timestamp": "2026-03-26T12:00:47.137311",
+        "size_human": "228.7 KB"
+      },
+      "Perinatal_MH_Rate": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92856&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Perinatal_MH_Rate.csv",
+        "status": "downloaded",
+        "size_bytes": 209996,
+        "timestamp": "2026-03-26T12:00:48.256733",
+        "size_human": "205.1 KB"
+      },
+      "Air_Pollution_PM25": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93861&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Air_Pollution_PM25.csv",
+        "status": "downloaded",
+        "size_bytes": 655747,
+        "timestamp": "2026-03-26T12:00:49.410261",
+        "size_human": "640.4 KB"
+      },
+      "Noise_Complaints": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93069&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Noise_Complaints.csv",
+        "status": "downloaded",
+        "size_bytes": 10579953,
+        "timestamp": "2026-03-26T12:00:50.565044",
+        "size_human": "10.1 MB"
+      },
+      "Access_Green_Space": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93764&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Access_Green_Space.csv",
+        "status": "downloaded",
+        "size_bytes": 2730674,
+        "timestamp": "2026-03-26T12:00:55.687044",
+        "size_human": "2.6 MB"
+      },
+      "Road_Casualties_KSI": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=11001&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Road_Casualties_KSI.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:56.820830",
+        "size_human": "0.4 KB"
+      },
+      "Excess_Cold_Hazards": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93764&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Excess_Cold_Hazards.csv",
+        "status": "downloaded",
+        "size_bytes": 2730674,
+        "timestamp": "2026-03-26T12:00:57.861892",
+        "size_human": "2.6 MB"
+      },
+      "Internet_Non_Users": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93779&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Internet_Non_Users.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:00:59.191027",
+        "size_human": "0.4 KB"
+      },
+      "Digital_Exclusion_Composite": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=93784&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Digital_Exclusion_Composite.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:01:00.235656",
+        "size_human": "0.4 KB"
+      },
+      "Falls_Admissions_65plus": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=22401&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Falls_Admissions_65plus.csv",
+        "status": "downloaded",
+        "size_bytes": 4479962,
+        "timestamp": "2026-03-26T12:01:01.272703",
+        "size_human": "4.3 MB"
+      },
+      "Hip_Fractures_65plus": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=90361&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Hip_Fractures_65plus.csv",
+        "status": "downloaded",
+        "size_bytes": 5836746,
+        "timestamp": "2026-03-26T12:01:02.560619",
+        "size_human": "5.6 MB"
+      },
+      "Flu_Vacc_65plus": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=92462&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Flu_Vacc_65plus.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:01:03.942150",
+        "size_human": "0.4 KB"
+      },
+      "Dementia_65plus": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91891&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Dementia_65plus.csv",
+        "status": "downloaded",
+        "size_bytes": 633539,
+        "timestamp": "2026-03-26T12:01:04.982780",
+        "size_human": "618.7 KB"
+      },
+      "Social_Care_Users_65plus": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91722&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Social_Care_Users_65plus.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:01:06.135694",
+        "size_human": "0.4 KB"
+      },
+      "Delayed_Transfers_Care": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91379&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Delayed_Transfers_Care.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:01:07.176642",
+        "size_human": "0.4 KB"
+      },
+      "Reablement_Effectiveness": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91582&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Reablement_Effectiveness.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:01:08.217733",
+        "size_human": "0.4 KB"
+      },
+      "Permanent_Admissions_Care_Homes": {
+        "url": "https://fingertips.phe.org.uk/api/all_data/csv/by_indicator_id?indicator_ids=91405&area_type_id=7",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Fingertips_Extracts/Fingertips_Permanent_Admissions_Care_Homes.csv",
+        "status": "downloaded",
+        "size_bytes": 376,
+        "timestamp": "2026-03-26T12:01:09.261174",
+        "size_human": "0.4 KB"
+      }
+    },
+    "Private_Health_Digital_Social": {
+      "CQC_Active_Locations": {
+        "url": "https://api.cqc.org.uk/public/v1/providers?page=1&perPage=1000&partnerCode=OpenData",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Private_Healthcare/CQC_Providers_Sample.json",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:10.307266",
+        "error": "403 Client Error: Forbidden for url: https://api.cqc.org.uk/public/v1/providers?page=1&perPage=1000&partnerCode=OpenData"
+      },
+      "CQC_Directory": {
+        "url": "https://www.cqc.org.uk/sites/default/files/HSCA_Active_Locations.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Private_Healthcare/CQC_HSCA_Active_Locations.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:10.403413",
+        "error": "404 Client Error: Not Found for url: https://www.cqc.org.uk/sites/default/files/HSCA_Active_Locations.csv"
+      },
+      "Private_Patient_Activity": {
+        "status": "manual",
+        "note": "Private patient income found in trust financial accounts on NHS England site"
+      },
+      "OECD_Health_Coverage": {
+        "url": "https://stats.oecd.org/sdmx-json/data/HEALTH_PROT/GBR.INSCOVPOP+INSCOVSSH+INSGOVSCH+INSPRICH.TOT/all?startTime=2000&endTime=2025&dimensionAtObservation=allDimensions",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Private_Healthcare/OECD_Health_Insurance_Coverage_UK.json",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:11.206215",
+        "error": "404 Client Error: Not Found for url: https://stats.oecd.org/sdmx-json/data/HEALTH_PROT/GBR.INSCOVPOP+INSCOVSSH+INSGOVSCH+INSPRICH.TOT/all?startTime=2000&endTime=2025&dimensionAtObservation=allDimensions"
+      },
+      "Ofcom_Broadband": {
+        "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/telecoms-research/connected-nations/connected-nations-2024/connected-nations-uk-report.pdf",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Digital_Access/Ofcom_Connected_Nations_2024_Report.pdf",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:11.324043",
+        "error": "404 Client Error: Not Found for url: https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/telecoms-research/connected-nations/connected-nations-2024/connected-nations-uk-report.pdf"
+      },
+      "Ofcom_Broadband_Performance": {
+        "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/telecoms-research/broadband-speeds/uk-home-broadband-performance/uk-home-broadband-performance-2024/uk-broadband-data-2024.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Digital_Access/Ofcom_Broadband_Performance_2024.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:11.538887",
+        "error": "404 Client Error: Not Found for url: https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/telecoms-research/broadband-speeds/uk-home-broadband-performance/uk-home-broadband-performance-2024/uk-broadband-data-2024.csv"
+      },
+      "ONS_Internet_Access": {
+        "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/datasets/internetaccesshouseholdsandindividualsreferencetables/2020/internetaccesshouseholdsandindividuals2020.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Digital_Access/ONS_Internet_Access_Households.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:11.728553",
+        "error": "404 Client Error: Not Found for url: https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/householdcharacteristics/homeinternetandsocialmediausage/datasets/internetaccesshouseholdsandindividualsreferencetables/2020/internetaccesshouseholdsandindividuals2020.xlsx"
+      },
+      "ONS_Internet_Users": {
+        "url": "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/itandinternetindustry/datasets/internetusers/current/internetusers.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Digital_Access/ONS_Internet_Users.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:11.878388",
+        "error": "404 Client Error: Not Found for url: https://www.ons.gov.uk/file?uri=/businessindustryandtrade/itandinternetindustry/datasets/internetusers/current/internetusers.xlsx"
+      },
+      "Ofcom_LLSOA_Broadband": {
+        "url": "https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/telecoms-research/connected-nations/connected-nations-2024/connected-nations-2024-fixed-local-authority.csv",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Digital_Access/Ofcom_Broadband_by_LA_2024.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:12.004651",
+        "error": "404 Client Error: Not Found for url: https://www.ofcom.org.uk/siteassets/resources/documents/research-and-data/telecoms-research/connected-nations/connected-nations-2024/connected-nations-2024-fixed-local-authority.csv"
+      },
+      "NHS_Digital_Inclusion": {
+        "url": "https://digital.nhs.uk/binaries/content/assets/website-assets/data-and-information/data-insights/digital-inclusion/digital-inclusion-data-2024.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Digital_Access/NHS_Digital_Inclusion_2024.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:12.243410",
+        "error": "404 Client Error: Not Found for url: https://digital.nhs.uk/binaries/content/assets/website-assets/data-and-information/data-insights/digital-inclusion/digital-inclusion-data-2024.xlsx"
+      },
+      "ONS_Business_Tech": {
+        "url": "https://www.ons.gov.uk/file?uri=/businessindustryandtrade/itandinternetindustry/datasets/aborneinternetandtechnologysurvey/current/ictactivityofukbusinesses.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Technology_AI/ONS_Business_ICT_Activity.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:12.387977",
+        "error": "429 Client Error: Too Many Requests for url: https://www.ons.gov.uk/file?uri=/businessindustryandtrade/itandinternetindustry/datasets/aborneinternetandtechnologysurvey/current/ictactivityofukbusinesses.xlsx"
+      },
+      "DSIT_AI_Activity": {
+        "url": "https://assets.publishing.service.gov.uk/media/65ba37dc4ec51d000dc40a72/AI_Activity_in_UK_Businesses_Report_2024.pdf",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Technology_AI/DSIT_AI_Activity_UK_Business_2024.pdf",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:12.482523",
+        "error": "404 Client Error: Not Found for url: https://assets.publishing.service.gov.uk/media/65ba37dc4ec51d000dc40a72/AI_Activity_in_UK_Businesses_Report_2024.pdf"
+      },
+      "ONS_Opinions_Lifestyle": {
+        "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/wellbeing/datasets/publicopinionsandsocialtrendsgreatbritain/current/publicopinionsandsocialtrends.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Technology_AI/ONS_Opinions_Social_Trends.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:12.558483",
+        "error": "429 Client Error: Too Many Requests for url: https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/wellbeing/datasets/publicopinionsandsocialtrendsgreatbritain/current/publicopinionsandsocialtrends.xlsx"
+      },
+      "GOV_AI_Regulation": {
+        "url": "https://assets.publishing.service.gov.uk/media/64cb71a547915a00142a91c4/a-pro-innovation-approach-to-ai-regulation-amended-web-ready.pdf",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Technology_AI/GOV_AI_Regulation.pdf",
+        "status": "downloaded",
+        "size_bytes": 1245266,
+        "timestamp": "2026-03-26T12:01:12.901272",
+        "size_human": "1.2 MB"
+      },
+      "ONS_Wellbeing": {
+        "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/wellbeing/datasets/headlineestimatesofpersonalwellbeing/current/headlineestimatesofpersonalwellbeing.xlsx",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Personal_Wellbeing_LA.xlsx",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:12.979655",
+        "error": "429 Client Error: Too Many Requests for url: https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/wellbeing/datasets/headlineestimatesofpersonalwellbeing/current/headlineestimatesofpersonalwellbeing.xlsx"
+      },
+      "Active_Lives": {
+        "url": "https://activelives.sportengland.org/DownloadCsv?query=&language=en-GB",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/Sport_England_Active_Lives.csv",
+        "status": "failed",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.064640",
+        "error": "404 Client Error: Not Found for url: https://activelives.sportengland.org/Error/Error404?aspxerrorpath=/DownloadCsv"
+      },
+      "ONS_Disability": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2083_1.data.csv?geography=TYPE464&c2021_disability_5=0...4&measures=20100&select=geography_name,geography_code,c2021_disability_5_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Disability_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.185392",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Unpaid_Care": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2072_1.data.csv?geography=TYPE464&c2021_carer_5=0...4&measures=20100&select=geography_name,geography_code,c2021_carer_5_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Unpaid_Care_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.402310",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Tenure": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2071_1.data.csv?geography=TYPE464&c2021_tenure_9=0...8&measures=20100&select=geography_name,geography_code,c2021_tenure_9_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Household_Tenure_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.463942",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Qualifications": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2085_1.data.csv?geography=TYPE464&c2021_hiqual_8=0...7&measures=20100&select=geography_name,geography_code,c2021_hiqual_8_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Qualifications_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.524957",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Occupation": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2082_1.data.csv?geography=TYPE464&c2021_occ_10=0...9&measures=20100&select=geography_name,geography_code,c2021_occ_10_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Occupation_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.584420",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Country_of_Birth": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2048_1.data.csv?geography=TYPE464&c2021_cob_12=0...11&measures=20100&select=geography_name,geography_code,c2021_cob_12_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Country_of_Birth_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.642537",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Language": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2076_1.data.csv?geography=TYPE464&c2021_lang_23=0...22&measures=20100&select=geography_name,geography_code,c2021_lang_23_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Language_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.707820",
+        "size_human": "0.0 KB"
+      },
+      "ONS_Religion": {
+        "url": "https://www.nomisweb.co.uk/api/v01/dataset/NM_2077_1.data.csv?geography=TYPE464&c2021_religion_10=0...9&measures=20100&select=geography_name,geography_code,c2021_religion_10_name,obs_value",
+        "file": "/Users/lukekellaway/Desktop/UK_National_Data/Social_Wellbeing/ONS_Religion_Census2021_LA.csv",
+        "status": "downloaded",
+        "size_bytes": 0,
+        "timestamp": "2026-03-26T12:01:13.811846",
+        "size_human": "0.0 KB"
+      }
+    }
+  },
+  "summary": {
+    "total_datasets": 174,
+    "downloaded": 141,
+    "failed_or_manual": 33,
+    "completed_at": "2026-03-26T12:01:13.878174"
+  }
+}
