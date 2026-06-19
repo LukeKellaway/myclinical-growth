@@ -48,8 +48,8 @@ Trigger:
 
 Email step:
 - From name: `Luke Kellaway (MyClinical Growth)`
-- From email: `growth@myclinical.co.uk`
-- Reply to: `growth@myclinical.co.uk` (or your inbox)
+- From email: `info@myclinical.co.uk`
+- Reply to: `info@myclinical.co.uk`
 - Subject line: `Welcome. Here is what to expect.`
 - Preview text: `Founder note, when the first brief lands, and the portal guides worth reading before you bid for anything.`
 - Content: select **Code your own > Paste in code** and paste the contents of `email-templates/welcome.html`.
