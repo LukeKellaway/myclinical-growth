@@ -8,63 +8,62 @@
 <link rel="canonical" href="https://myclinical.co.uk/data/observatory">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..600,30&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
 :root {
-  --bg: #0a0e17; --bg2: #111827; --bg3: #1f2937; --border: #374151;
-  --text: #f9fafb; --text2: #9ca3af; --accent: #3b82f6; --accent2: #8b5cf6;
-  --green: #10b981; --red: #ef4444; --amber: #f59e0b; --grey: #6b7280;
-  --radius: 12px;
+  --bg: #f6f6f3; --bg2: #ffffff; --bg3: #eceae4; --border: #e1e0d9;
+  --text: #222823; --text2: #5f655f; --accent: #4f8a6e; --accent2: #1f3d2d;
+  --green: #4f8a6e; --red: #a3492f; --amber: #b5791f; --grey: #9aa19a;
+  --forest: #1f3d2d; --ink: #0e1410; --radius: 12px;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:var(--bg); color:var(--text); }
+body { font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.5; }
 .app { display:flex; height:100vh; }
 .sidebar { width:260px; background:var(--bg2); border-right:1px solid var(--border); display:flex; flex-direction:column; flex-shrink:0; }
 .logo { padding:20px; border-bottom:1px solid var(--border); }
-.logo h1 { font-size:15px; font-weight:700; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.logo h1 { font-size:15px; font-weight:800; letter-spacing:-0.02em; background:linear-gradient(135deg,var(--sage,#4f8a6e),var(--forest)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
 .logo p { font-size:11px; color:var(--text2); margin-top:4px; }
 .nav-scroll { flex:1; overflow-y:auto; padding:8px; }
-.nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; font-size:13px; color:var(--text2); transition:all 0.15s; margin-bottom:2px; }
-.nav-item:hover { background:var(--bg3); color:var(--text); }
-.nav-item.active { background:var(--accent); color:white; }
+.nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; font-size:13px; font-weight:500; color:var(--text2); transition:all 0.15s; margin-bottom:2px; }
+.nav-item:hover { background:var(--bg3); color:var(--ink); }
+.nav-item.active { background:var(--accent); color:#fff; }
 .nav-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 .main { flex:1; overflow-y:auto; padding:32px 40px; }
 @media(max-width:900px) { .sidebar{display:none} .main{padding:16px} }
 
-.rag { display:inline-block; width:14px; height:14px; border-radius:50%; }
-.rag.red { background:var(--red); box-shadow:0 0 8px var(--red); }
-.rag.amber { background:var(--amber); box-shadow:0 0 8px var(--amber); }
-.rag.green { background:var(--green); box-shadow:0 0 8px var(--green); }
+.rag { display:inline-block; width:13px; height:13px; border-radius:50%; }
+.rag.red { background:var(--red); }
+.rag.amber { background:var(--amber); }
+.rag.green { background:var(--green); }
 .rag.grey { background:var(--grey); }
 .rag-text { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; padding:3px 8px; border-radius:4px; }
-.rag-text.red { background:#ef444420; color:var(--red); }
-.rag-text.amber { background:#f59e0b20; color:var(--amber); }
-.rag-text.green { background:#10b98120; color:var(--green); }
+.rag-text.red { background:rgba(163,73,47,.12); color:var(--red); }
+.rag-text.amber { background:rgba(181,121,31,.15); color:var(--amber); }
+.rag-text.green { background:rgba(79,138,110,.15); color:var(--green); }
 
-h2 { font-size:22px; font-weight:700; margin-bottom:4px; }
+h2 { font-size:22px; font-weight:800; color:var(--forest); margin-bottom:4px; }
 .subtitle { color:var(--text2); font-size:14px; margin-bottom:24px; }
 
 .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-bottom:24px; }
 .stat { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); padding:18px; }
 .stat .label { font-size:11px; color:var(--text2); font-weight:500; display:flex; align-items:center; gap:6px; }
-.stat .value { font-size:26px; font-weight:700; margin-top:4px; }
+.stat .value { font-size:26px; font-weight:800; color:var(--forest); letter-spacing:-0.02em; margin-top:4px; }
 .stat .sub { font-size:11px; color:var(--text2); margin-top:2px; }
 
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:20px; margin-bottom:24px; }
 .card { background:var(--bg2); border:1px solid var(--border); border-radius:var(--radius); }
 .card-head { padding:14px 18px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; }
-.card-head h3 { font-size:14px; font-weight:600; }
+.card-head h3 { font-size:14px; font-weight:700; color:var(--ink); }
 .card-body { padding:18px; }
 
 .tbl { width:100%; border-collapse:collapse; font-size:12px; }
 .tbl th { text-align:left; padding:8px 10px; background:var(--bg3); font-weight:600; font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:var(--text2); }
 .tbl td { padding:7px 10px; border-top:1px solid var(--border); }
-.tbl tr:hover td { background:rgba(59,130,246,0.05); }
+.tbl tr:hover td { background:rgba(79,138,110,0.07); }
 .tbl-scroll { max-height:350px; overflow-y:auto; }
 
 .bar-row { display:flex; align-items:center; gap:6px; margin-bottom:5px; font-size:12px; }
@@ -120,107 +119,130 @@ h2 { font-size:22px; font-weight:700; margin-bottom:4px; }
 .ai-mv{font-size:28px;font-weight:800;line-height:1.2}
 .ai-ml{font-size:13px;color:var(--text2);margin-top:4px}
 .ai-mc{font-size:12px;font-weight:600;margin-top:6px;display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:6px}
-.ai-mc-up{background:rgba(239,68,68,.15);color:#f87171}
-.ai-mc-dn{background:rgba(34,197,94,.15);color:#4ade80}
+.ai-mc-up{background:rgba(163,73,47,.12);color:var(--red)}
+.ai-mc-dn{background:rgba(79,138,110,.15);color:var(--green)}
 .ai-msub{font-size:11px;color:var(--text2);margin-top:6px}
 .ai-tl{width:12px;height:12px;border-radius:50%;display:inline-block}
-.ai-tl-r{background:var(--red);box-shadow:0 0 6px var(--red)}
-.ai-tl-a{background:var(--amber);box-shadow:0 0 6px var(--amber)}
-.ai-tl-g{background:var(--green);box-shadow:0 0 6px var(--green)}
-.ai-alert{background:linear-gradient(135deg,rgba(239,68,68,.12),rgba(239,68,68,.04));border:1px solid rgba(239,68,68,.3);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
+.ai-tl-r{background:var(--red)}
+.ai-tl-a{background:var(--amber)}
+.ai-tl-g{background:var(--green)}
+.ai-alert{background:linear-gradient(135deg,rgba(163,73,47,.10),rgba(163,73,47,.03));border:1px solid rgba(163,73,47,.28);border-radius:12px;padding:16px 20px;margin-bottom:24px;display:flex;align-items:flex-start;gap:12px}
 .ai-prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-bottom:24px}
 .ai-prod-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:20px;transition:.2s}
-.ai-prod-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ai-prod-card:hover{border-color:var(--accent);box-shadow:0 8px 24px -12px rgba(14,20,16,.25);transform:translateY(-2px)}
 .ai-prod-icon{font-size:28px;margin-bottom:10px}
-.ai-prod-name{font-size:16px;font-weight:700;margin-bottom:4px}
+.ai-prod-name{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px}
 .ai-prod-desc{font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.4}
 .ai-prod-status{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 12px;border-radius:8px;margin-bottom:10px}
-.ai-status-viable{background:rgba(16,185,129,.1);color:#4ade80}
-.ai-status-pressure{background:rgba(245,158,11,.1);color:#fbbf24}
-.ai-status-unviable{background:rgba(239,68,68,.1);color:#f87171}
+.ai-status-viable{background:rgba(79,138,110,.12);color:var(--green)}
+.ai-status-pressure{background:rgba(181,121,31,.13);color:var(--amber)}
+.ai-status-unviable{background:rgba(163,73,47,.10);color:var(--red)}
 .ai-prod-stat{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--border);font-size:12px}
 .ai-prod-stat-l{color:var(--text2)}
 .ai-prod-stat-v{font-weight:600}
 .ai-slider-row{display:flex;align-items:center;gap:16px;margin-bottom:16px}
 .ai-slider-row label{font-size:13px;font-weight:500;color:var(--text2);min-width:160px}
 .ai-slider-row input[type=range]{flex:1;height:6px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:3px;outline:none}
-.ai-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg2);box-shadow:0 0 8px rgba(59,130,246,.5)}
-.ai-slider-val{font-size:14px;font-weight:700;color:#60a5fa;min-width:90px;text-align:right}
+.ai-slider-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg2);box-shadow:0 1px 4px rgba(79,138,110,.45)}
+.ai-slider-val{font-size:14px;font-weight:700;color:var(--accent);min-width:90px;text-align:right}
 .ai-preset-btns{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
 .ai-preset-btn{padding:10px 20px;border-radius:8px;font-size:13px;font-weight:600;border:1px solid var(--border);background:var(--bg2);color:var(--text2);cursor:pointer;font-family:inherit;transition:.2s}
 .ai-preset-btn:hover{border-color:var(--accent);color:var(--text)}
-.ai-preset-btn.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.ai-preset-btn.on{background:var(--forest);border-color:var(--forest);color:#fff}
 .ai-timeline-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
 .ai-timeline-icon{font-size:20px;width:36px;text-align:center;flex-shrink:0}
 .ai-timeline-prod{font-size:14px;font-weight:600;flex:1}
 .ai-timeline-bar-c{flex:2;background:var(--bg3);border-radius:6px;height:24px;position:relative;overflow:hidden}
 .ai-timeline-bar{height:100%;border-radius:6px;display:flex;align-items:center;padding-left:8px;font-size:11px;font-weight:600;color:#fff;transition:width .5s}
 .ai-timeline-date{font-size:13px;font-weight:700;min-width:100px;text-align:right}
-.ai-tab-nav{display:flex;gap:4px;background:var(--bg2);border-radius:10px;padding:4px;margin-bottom:24px;flex-wrap:wrap}
+.ai-tab-nav{display:flex;gap:4px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:4px;margin-bottom:24px;flex-wrap:wrap}
 .ai-tab-btn{padding:8px 20px;border-radius:8px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;border:none;background:transparent;font-family:inherit;transition:.2s}
 .ai-tab-btn:hover{color:var(--text);background:var(--bg3)}
-.ai-tab-btn.on{color:#fff;background:#2563eb}
-.ai-explain{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px;padding:16px;background:var(--bg2);border-radius:10px;border-left:3px solid var(--accent)}
+.ai-tab-btn.on{color:#fff;background:var(--forest)}
+.ai-explain{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:20px;padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;border-left:3px solid var(--accent)}
 .ai-ac{padding:14px;border-radius:8px;background:var(--bg3);border-left:3px solid var(--red)}
 .ai-ac-t{font-size:12px;font-weight:600;margin-bottom:4px}
-.ai-ac-s{font-size:11px;color:#f87171}
+.ai-ac-s{font-size:11px;color:var(--red)}
 .ai-chart-box{position:relative;height:280px}
 
 /* ═══ MyClinical Brand Nav ═══ */
-.mc-nav{background:rgba(10,14,23,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:10px 0;position:sticky;top:0;z-index:10000;font-family:'Inter',system-ui,sans-serif}
+.mc-nav{background:rgba(246,246,243,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:10px 0;position:sticky;top:0;z-index:10000;font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif}
 .mc-nav-inner{max-width:100%;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
-.mc-logo-link{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--text);font-weight:800;font-size:1.05rem;letter-spacing:-.03em}
-.mc-logo-icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#4a9eff,#2dd4a8);display:grid;place-items:center;font-size:12px;font-weight:900;color:#0a0e17}
+.mc-logo-link{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);font-weight:800;font-size:1.05rem;letter-spacing:-.03em}
+.mc-logo-icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#4f8a6e,#1f3d2d);display:grid;place-items:center;font-size:12px;font-weight:900;color:#fff}
 .mc-nav-links{display:flex;gap:20px;list-style:none}
-.mc-nav-links a{color:#64748b;text-decoration:none;font-size:.76rem;font-weight:500;transition:color .2s}
-.mc-nav-links a:hover,.mc-nav-links a.active{color:var(--text)}
-.mc-badge{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#2dd4a8;background:rgba(45,212,168,.08);border:1px solid rgba(45,212,168,.15);padding:3px 8px;border-radius:20px}
-.mc-back{display:inline-flex;align-items:center;gap:6px;color:#64748b;text-decoration:none;font-size:.76rem;font-weight:500;padding:4px 0;margin-bottom:4px;transition:color .2s}
-.mc-back:hover{color:var(--text)}
+.mc-nav-links a{color:var(--text2);text-decoration:none;font-size:.76rem;font-weight:500;transition:color .2s}
+.mc-nav-links a:hover,.mc-nav-links a.active{color:var(--ink)}
+.mc-badge{display:inline-flex;align-items:center;gap:5px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);background:rgba(79,138,110,.08);border:1px solid rgba(79,138,110,.2);padding:3px 8px;border-radius:20px}
+.mc-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:.76rem;font-weight:500;padding:4px 0;margin-bottom:4px;transition:color .2s}
+.mc-back:hover{color:var(--ink)}
 .mc-back svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none}
-.app{height:calc(100vh - 45px)!important}
+.app{height:calc(100vh - 64px)!important}
 @media(max-width:640px){.mc-nav-links{display:none}}
+
+/* ─── growth.myclinical.co.uk top nav ─── */
+.gnav{position:sticky;top:0;z-index:10000;background:rgba(246,246,243,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border);font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif}
+.gnav-inner{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.gnav-logo{font-weight:900;font-size:20px;letter-spacing:-.03em;color:var(--ink);text-decoration:none;white-space:nowrap}
+.gnav-logo span{color:var(--accent)}
+.gnav-links{display:flex;gap:22px;align-items:center}
+.gnav-links a{font-weight:500;font-size:14.5px;color:var(--text2);text-decoration:none;transition:color .15s}
+.gnav-links a:hover{color:var(--ink)}
+.gnav-cta{background:var(--forest);color:#fff;font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}
+.gnav-cta:hover{background:#172e21}
+.gnav-drop{position:relative;display:inline-flex}
+.gnav-drop>a::after{content:" \25BE";font-size:10px;color:var(--text2)}
+.gnav-menu{position:absolute;top:100%;left:0;min-width:172px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 14px 34px rgba(14,20,16,.14);padding:6px;display:none;flex-direction:column;gap:2px;z-index:60}
+.gnav-drop:hover .gnav-menu,.gnav-drop:focus-within .gnav-menu{display:flex}
+.gnav-menu a{padding:8px 12px;border-radius:7px;font-size:13.5px;color:var(--text2);white-space:nowrap}
+.gnav-menu a:hover{background:var(--bg3);color:var(--ink)}
+.gnav-cb,.gnav-burger{display:none}
+@media(max-width:900px){
+  .gnav-inner{padding:0 18px;height:58px;flex-wrap:wrap}
+  .gnav-burger{display:block;font-size:24px;line-height:1;cursor:pointer;color:var(--ink);order:3;user-select:none}
+  .gnav-cta{order:2}
+  .gnav-links{display:none}
+  .gnav-cb:checked ~ .gnav-links{display:flex;flex-direction:column;gap:14px;width:100%;padding:14px 0 4px}
+  .gnav-drop{flex-direction:column}
+  .gnav-menu{position:static;display:flex;box-shadow:none;border:none;background:transparent;padding:4px 0 0 14px;min-width:0}
+  .app{height:auto!important}
+}
+
+/* ─── growth.myclinical.co.uk footer ─── */
+.gfoot{background:var(--ink);color:#9aa19a;padding:54px 0 36px;font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif}
+.gfoot-inner{max-width:1280px;margin:0 auto;padding:0 32px}
+.gfoot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.16)}
+.gfoot-brand{max-width:320px}
+.gfoot-word{font-weight:900;font-size:19px;letter-spacing:-.03em;color:#fff;display:inline-block;margin-bottom:10px}
+.gfoot-word span{color:var(--accent)}
+.gfoot-brand p{font-size:13.5px;line-height:1.55;color:#9aa19a}
+.gfoot-col h5{color:#fff;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+.gfoot-col a{display:block;font-size:14px;color:#9aa19a;text-decoration:none;margin-bottom:9px;transition:color .15s}
+.gfoot-col a:hover{color:#fff}
+.gfoot-bottom{padding-top:22px;font-size:13px;color:#9aa19a}
+@media(max-width:900px){.gfoot-inner{padding:0 18px}}
 </style>
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<!-- NAV -->
-<header class="masthead">
-    <div class="masthead-top">
-        <a href="/" class="masthead-wordmark">MyClinical</a>
-        <span class="masthead-meta">Issue 24 · <span id="masthead-date">May 2026</span></span>
-    </div>
-    <nav class="masthead-nav">
-        <a href="https://www.growth.myclinical.co.uk" target="_blank" class="section-link" data-brand="growth">
-            <span class="sec-no">No. 01</span>
-            <span class="sec-name">Growth</span>
-        </a>
-        <a href="/data/" class="section-link" data-brand="data">
-            <span class="sec-no">No. 02</span>
-            <span class="sec-name">Data</span>
-        </a>
-        <a href="/insights/" class="section-link" data-brand="insights">
-            <span class="sec-no">No. 03</span>
-            <span class="sec-name">Insights</span>
-        </a>
-        <a href="/coach/" class="section-link" data-brand="coach">
-            <span class="sec-no">No. 04</span>
-            <span class="sec-name">Coach</span>
-        </a>
-        <a href="/research/" class="section-link" data-brand="research">
-            <span class="sec-no">No. 05</span>
-            <span class="sec-name">Research</span>
-        </a>
-        <a href="https://myclinicaldd.gumroad.com" target="_blank" class="section-link" data-brand="dd">
-            <span class="sec-no">No. 06</span>
-            <span class="sec-name">DD</span>
-        </a>
-        <a href="/content/" class="section-link" data-brand="content">
-            <span class="sec-no">No. 07</span>
-            <span class="sec-name">Content</span>
-        </a>
-        <a href="/#subscribe" class="masthead-subscribe">Subscribe</a>
+<!-- NAV (matches growth.myclinical.co.uk) -->
+<header class="gnav">
+  <div class="gnav-inner">
+    <a href="https://growth.myclinical.co.uk/" class="gnav-logo">MyClinical <span>Growth</span></a>
+    <input type="checkbox" id="gnav-cb" class="gnav-cb">
+    <label for="gnav-cb" class="gnav-burger" aria-label="Menu">&#9776;</label>
+    <nav class="gnav-links">
+      <a href="https://growth.myclinical.co.uk/opportunities">Procurement</a>
+      <a href="https://growth.myclinical.co.uk/grants">Grants</a>
+      <a href="https://growth.myclinical.co.uk/events">Events</a>
+      <a href="https://growth.myclinical.co.uk/directory">Directory</a>
+      <a href="https://growth.myclinical.co.uk/bid-writers">Bid Help</a>
+      <span class="gnav-drop"><a href="https://growth.myclinical.co.uk/capital/tracker">Capital</a><div class="gnav-menu"><a href="https://growth.myclinical.co.uk/capital/tracker">Capital Tracker</a><a href="https://growth.myclinical.co.uk/capital/finder">Capital Finder</a><a href="https://growth.myclinical.co.uk/capital">Sponsor us</a></div></span>
+      <a href="https://growth.myclinical.co.uk/submit">Submit</a>
+      <a href="https://growth.myclinical.co.uk/about">About</a>
     </nav>
+    <a href="https://growth.myclinical.co.uk/#signup" class="gnav-cta">Get the brief</a>
+  </div>
 </header>
 <div id="app" class="app">
   <div class="sidebar">
@@ -240,17 +262,17 @@ h2 { font-size:22px; font-weight:700; margin-bottom:4px; }
 </div>
 <script>
 const dateEl = document.getElementById('masthead-date'); if (dateEl) dateEl.textContent = new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
-let D=null, view='overview', charts={};
+let D=null, view='overview', charts={}, highlightProv='';
 const PAGES=[
-  {id:'overview',label:'Overview',color:'#3b82f6'},
-  {id:'performance',label:'NHS Performance',color:'#ef4444'},
-  {id:'fingertips',label:'Public Health Indicators',color:'#8b5cf6'},
-  {id:'demographics',label:'Demographics',color:'#3b82f6'},
-  {id:'economy',label:'Economy & Employment',color:'#10b981'},
-  {id:'environment',label:'Environment',color:'#06b6d4'},
-  {id:'map',label:'Map',color:'#06b6d4'},
-  {id:'query',label:'Query / Search',color:'#f59e0b'},
-  {id:'aicost',label:'AI Cost Viability',color:'#a855f7'},
+  {id:'overview',label:'Overview',color:'#4f8a6e'},
+  {id:'performance',label:'NHS Performance',color:'#a3492f'},
+  {id:'fingertips',label:'Public Health Indicators',color:'#1f3d2d'},
+  {id:'demographics',label:'Demographics',color:'#6b8f3f'},
+  {id:'economy',label:'Economy & Employment',color:'#c2823f'},
+  {id:'environment',label:'Environment',color:'#5f8a82'},
+  {id:'map',label:'Map',color:'#3f6f8a'},
+  {id:'query',label:'Query / Search',color:'#b5791f'},
+  {id:'aicost',label:'AI Cost Viability',color:'#7a5a8a'},
 ];
 
 async function init(){
@@ -295,8 +317,8 @@ function trendArrow(t,tq){
   if(t==='stable')return'<span class="trend stable">● Stable</span>';
   return'<span class="trend stable">—</span>';
 }
-function trendColor(tq){return tq==='bad'?'#ef4444':tq==='good'?'#10b981':'#6b7280';}
-function sparkSVG(ts,w=120,h=30,color='#3b82f6'){
+function trendColor(tq){return tq==='bad'?'#a3492f':tq==='good'?'#4f8a6e':'#9aa19a';}
+function sparkSVG(ts,w=120,h=30,color='#4f8a6e'){
   if(!ts||ts.length<2)return'';
   const vals=ts.map(t=>t.value),mn=Math.min(...vals),mx=Math.max(...vals),rng=mx-mn||1;
   const pts=vals.map((v,i)=>`${(i/(vals.length-1)*w).toFixed(1)},${(h-2-(v-mn)/rng*(h-4)).toFixed(1)}`).join(' ');
@@ -376,6 +398,7 @@ function renderFeaturedCards(){
 
 // ═══════════════ PERFORMANCE ═══════════════
 function renderPerformance(){
+  highlightProv='';
   const rtt=D.performance.rtt,dm=D.performance.dm01,ae=D.performance.ae,ca=D.performance.cancer;
   return`
     <h2>NHS Performance</h2><p class="subtitle">${rtt?.period||''}</p>
@@ -385,11 +408,13 @@ function renderPerformance(){
       <div class="stat"><div class="label">${ragDot(ae?.headline.rag)} A&E 4hr</div><div class="value">${fmt(ae?.headline.pct_within_4_hours)}%</div><div class="sub">Target 95%</div></div>
       <div class="stat"><div class="label">${ragDot(ca?.headline.fds_rag)} Cancer FDS</div><div class="value">${fmt(ca?.headline.fds_performance)}%</div><div class="sub">Target 75%</div></div>
     </div>
-    <h3 style="margin:16px 0 8px;font-size:16px">Search Provider</h3>
-    <div style="margin-bottom:16px;display:flex;gap:8px">
-      <input class="query-input" id="prov-search" placeholder="e.g. King's, Guy's, Lambeth, Barts..." style="max-width:400px" onkeydown="if(event.key==='Enter')searchProvider()">
+    <h3 style="margin:16px 0 8px;font-size:16px">Find a Provider</h3>
+    <div style="margin-bottom:6px;display:flex;gap:8px;flex-wrap:wrap">
+      <input class="query-input" id="prov-search" placeholder="e.g. King's, Guy's, Lambeth, Barts..." style="max-width:400px" oninput="if(!this.value.trim())clearProvSearch()" onkeydown="if(event.key==='Enter')searchProvider()">
       <button class="query-btn" onclick="searchProvider()">Search</button>
+      <button class="query-btn" style="background:var(--bg3);color:var(--text)" onclick="clearProvSearch()">Clear</button>
     </div>
+    <p style="font-size:12px;color:var(--text2);margin-bottom:14px">Matches are marked with a label on the provider charts below, and listed in full underneath.</p>
     <div id="prov-results"></div>
     <h3 style="margin:8px 0 12px;font-size:16px">Provider Performance Charts</h3>
     <p style="font-size:12px;color:var(--text2);margin-bottom:16px">Every provider plotted against target. Hover for details. Red line = national target.</p>
@@ -442,9 +467,16 @@ function renderProviderTable(title,list,cols){
 }
 
 let provSearchCache={};
+function clearProvSearch(){
+  const inp=document.getElementById('prov-search');if(inp)inp.value='';
+  highlightProv='';
+  const r=document.getElementById('prov-results');if(r)r.innerHTML='';
+  requestAnimationFrame(renderProvCharts);
+}
 function searchProvider(){
   const q=document.getElementById('prov-search').value.toLowerCase().trim();
-  if(!q){document.getElementById('prov-results').innerHTML='';return;}
+  highlightProv=q;
+  if(!q){clearProvSearch();return;}
   const rtt=D.performance.rtt?.all_providers||[];
   const dm=D.performance.dm01?.all_providers||[];
   const ae=D.performance.ae?.all_providers||[];
@@ -518,6 +550,7 @@ function searchProvider(){
     html+=`</div></div></div>`;
   }
   document.getElementById('prov-results').innerHTML=html;
+  requestAnimationFrame(renderProvCharts);
 }
 
 function toggleProvDetail(id){
@@ -542,15 +575,15 @@ function provGauge(label,val,natAvg,target,type,field,name,sorted,total){
   const rc=type==='rtt'?(val>=92?'green':val>=85?'amber':'red'):type==='dm01'?(val>=99?'green':val>=95?'amber':'red'):(val>=95?'green':val>=80?'amber':'red');
   return`<div>
     <div style="font-size:12px;font-weight:600;margin-bottom:8px;color:var(--text2)">${label}</div>
-    <div style="position:relative;height:24px;background:#1e293b;border-radius:4px;overflow:hidden;margin-bottom:6px">
-      <div style="position:absolute;height:100%;width:${Math.min(val,100)}%;background:var(--${rc});opacity:0.8;border-radius:4px"></div>
-      <div style="position:absolute;height:100%;width:2px;left:${Math.min(target,100)}%;background:#ef4444;top:0"></div>
-      <div style="position:absolute;height:100%;width:2px;left:${Math.min(natAvg,100)}%;background:#3b82f6;top:0"></div>
-      <div style="position:absolute;width:100%;text-align:center;font-size:11px;font-weight:700;line-height:24px;color:white">${fmt(val)}%</div>
+    <div style="position:relative;height:24px;background:#eceae4;border-radius:4px;overflow:hidden;margin-bottom:6px">
+      <div style="position:absolute;height:100%;width:${Math.min(val,100)}%;background:var(--${rc});opacity:0.82;border-radius:4px"></div>
+      <div style="position:absolute;height:100%;width:2px;left:${Math.min(target,100)}%;background:#a3492f;top:0"></div>
+      <div style="position:absolute;height:100%;width:2px;left:${Math.min(natAvg,100)}%;background:#1f3d2d;top:0"></div>
+      <div style="position:absolute;width:100%;text-align:center;font-size:11px;font-weight:700;line-height:24px;color:var(--ink)">${fmt(val)}%</div>
     </div>
     <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text2)">
-      <span><span style="color:#3b82f6">■</span> National ${fmt(natAvg)}%</span>
-      <span><span style="color:#ef4444">■</span> Target ${target}%</span>
+      <span><span style="color:#4f8a6e">■</span> National ${fmt(natAvg)}%</span>
+      <span><span style="color:#a3492f">■</span> Target ${target}%</span>
     </div>
     <div style="margin-top:6px;font-size:11px;color:var(--text2)">Rank <strong style="color:var(--text)">${rank}</strong> of ${total} · <strong style="color:var(--text)">${pctile}th</strong> percentile</div>
   </div>`;
@@ -574,35 +607,35 @@ function provHistogram(label,allVals,provVal,target,canvasId){
   for(let i=0;i<bins;i++){
     const bh=counts[i]/maxC*(h-pad-20);
     const x=i*barW;
-    const fill=i===provBin?'#3b82f6':'#4b5563';
+    const fill=i===provBin?'#4f8a6e':'#9aa19a';
     bars+=`<rect x="${x+1}" y="${h-pad-bh}" width="${barW-2}" height="${bh}" fill="${fill}" rx="1"/>`;
   }
   // Target line (positioned by actual value within range)
   const tPct=(target-mn)/(mx-mn);
   const tx=tPct*w;
-  bars+=`<line x1="${tx}" y1="0" x2="${tx}" y2="${h-pad}" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,3"/>`;
+  bars+=`<line x1="${tx}" y1="0" x2="${tx}" y2="${h-pad}" stroke="#a3492f" stroke-width="2" stroke-dasharray="4,3"/>`;
   // Provider line
   const pPct=(provVal-mn)/(mx-mn);
   const px=pPct*w;
-  bars+=`<line x1="${px}" y1="0" x2="${px}" y2="${h-pad}" stroke="#3b82f6" stroke-width="2.5"/>`;
+  bars+=`<line x1="${px}" y1="0" x2="${px}" y2="${h-pad}" stroke="#4f8a6e" stroke-width="2.5"/>`;
   // Provider triangle marker
-  bars+=`<polygon points="${px-5},${h-pad+2} ${px+5},${h-pad+2} ${px},${h-pad-4}" fill="#3b82f6"/>`;
+  bars+=`<polygon points="${px-5},${h-pad+2} ${px+5},${h-pad+2} ${px},${h-pad-4}" fill="#4f8a6e"/>`;
 
   // X-axis labels: show 5 evenly spaced values
   const steps=5;
   for(let i=0;i<=steps;i++){
     const v=mn+i*(mx-mn)/steps;
     const x=i*w/steps;
-    bars+=`<text x="${x}" y="${h-2}" fill="#9ca3af" font-size="9" text-anchor="middle">${Math.round(v)}%</text>`;
+    bars+=`<text x="${x}" y="${h-2}" fill="#5f655f" font-size="9" text-anchor="middle">${Math.round(v)}%</text>`;
   }
 
   return`<div>
     <div style="font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px">${label}</div>
-    <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;background:#0f172a;border-radius:4px;padding:2px">${bars}</svg>
+    <svg viewBox="0 0 ${w} ${h}" style="width:100%;height:${h}px;background:#eceae4;border-radius:4px;padding:2px">${bars}</svg>
     <div style="display:flex;gap:12px;font-size:10px;color:var(--text2);margin-top:4px">
-      <span><span style="color:#3b82f6">▲</span> This provider (${fmt(provVal)}%)</span>
-      <span><span style="color:#ef4444">┃</span> Target (${target}%)</span>
-      <span style="color:#6b7280">Bars = all providers</span>
+      <span><span style="color:#4f8a6e">▲</span> This provider (${fmt(provVal)}%)</span>
+      <span><span style="color:#a3492f">┃</span> Target (${target}%)</span>
+      <span style="color:#9aa19a">Bars = all providers</span>
     </div>
   </div>`;
 }
@@ -641,7 +674,7 @@ function showInd(name){
         <div><div style="font-size:11px;color:var(--text2)">England</div><div style="font-size:32px;font-weight:700">${fmt(f.england_latest)}</div></div>
         <div><div style="font-size:11px;color:var(--text2)">Period</div><div style="font-size:14px;margin-top:4px">${f.latest_period}</div></div>
         <div><div style="font-size:11px;color:var(--text2)">Areas</div><div style="font-size:14px;margin-top:4px">${f.area_count}</div></div>
-        <div><div style="font-size:11px;color:var(--text2)">Time Series</div><div style="margin-top:4px">${sparkSVG(f.time_series,200,50,'#3b82f6')}</div></div>
+        <div><div style="font-size:11px;color:var(--text2)">Time Series</div><div style="margin-top:4px">${sparkSVG(f.time_series,200,50,'#4f8a6e')}</div></div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">${f.time_series.map(t=>`<div style="text-align:center;font-size:10px;color:var(--text2)"><div style="font-weight:600;color:var(--text)">${t.value}</div>${t.period.substring(0,7)}</div>`).join('')}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
@@ -759,6 +792,57 @@ function renderProvCharts(){
   if(view!=='performance')return;
 
   const rtt=D.performance.rtt, dm=D.performance.dm01, ae=D.performance.ae;
+  const hl=(highlightProv||'').trim().toLowerCase();
+
+  // Bar colour, with searched providers overridden to solid ink so they stand out.
+  function bg(prov,key,good,mid){
+    return prov.map(p=>{
+      if(hl&&p.name.toLowerCase().includes(hl))return'#0e1410';
+      const v=p[key];return v>=good?'#4f8a6e99':v>=mid?'#b5791f99':'#a3492f99';
+    });
+  }
+  // Draws a labelled marker over each searched provider's bar so it is findable.
+  function drawHighlights(chart,prov,key){
+    if(!hl)return;
+    const ctx=chart.ctx,xs=chart.scales.x,ys=chart.scales.y,top=chart.chartArea.top;
+    let drawn=0;
+    prov.forEach((p,i)=>{
+      if(!p.name.toLowerCase().includes(hl))return;
+      const x=xs.getPixelForValue(i),yv=ys.getPixelForValue(p[key]);
+      ctx.save();
+      ctx.strokeStyle='#0e1410';ctx.lineWidth=1.5;ctx.setLineDash([]);
+      ctx.beginPath();ctx.moveTo(x,top);ctx.lineTo(x,yv);ctx.stroke();
+      ctx.fillStyle='#0e1410';
+      ctx.beginPath();ctx.moveTo(x-5,yv-9);ctx.lineTo(x+5,yv-9);ctx.lineTo(x,yv-2);ctx.closePath();ctx.fill();
+      if(drawn<8){
+        const txt=p.name.substring(0,22)+'  '+p[key]+'%';
+        ctx.font='bold 10px "Hanken Grotesk",sans-serif';
+        const w=ctx.measureText(txt).width+10;
+        const lx=Math.min(Math.max(x-w/2,chart.chartArea.left),chart.chartArea.right-w);
+        const ly=top+4+(drawn%4)*17;
+        ctx.fillStyle='#1f3d2d';
+        if(ctx.roundRect){ctx.beginPath();ctx.roundRect(lx,ly,w,15,3);ctx.fill();}else{ctx.fillRect(lx,ly,w,15);}
+        ctx.fillStyle='#fff';ctx.fillText(txt,lx+5,ly+11);
+      }
+      drawn++;
+      ctx.restore();
+    });
+  }
+  function targetPlugin(id,target,label){
+    return {id,afterDraw(chart){
+      const y=chart.scales.y.getPixelForValue(target),ctx=chart.ctx;
+      ctx.save();ctx.strokeStyle='#a3492f';ctx.lineWidth=2;ctx.setLineDash([6,4]);
+      ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
+      ctx.fillStyle='#a3492f';ctx.font='11px sans-serif';ctx.setLineDash([]);ctx.fillText(label,chart.chartArea.left+4,y-6);
+      ctx.restore();
+    }};
+  }
+  const baseOpts=(prov,labelFn)=>({
+    indexAxis:'x',responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{
+      title:(items)=>prov[items[0].dataIndex]?.name||'',label:labelFn}}},
+    scales:{x:{display:false},y:{min:0,max:100,grid:{color:'#e1e0d9'},ticks:{color:'#5f655f',callback:v=>v+'%'}}}
+  });
 
   // RTT chart
   const rttCanvas=document.getElementById('chart-rtt-prov');
@@ -766,41 +850,12 @@ function renderProvCharts(){
     const prov=rtt.all_providers;
     charts.rtt=new Chart(rttCanvas,{
       type:'bar',
-      data:{
-        labels:prov.map(p=>p.name.substring(0,25)),
-        datasets:[{
-          data:prov.map(p=>p.pct_18wk),
-          backgroundColor:prov.map(p=>p.pct_18wk>=92?'#10b98199':p.pct_18wk>=85?'#f59e0b99':'#ef444499'),
-          borderWidth:0,
-          barPercentage:1,categoryPercentage:1
-        }]
-      },
-      options:{
-        indexAxis:'x',responsive:true,maintainAspectRatio:false,
-        plugins:{
-          legend:{display:false},
-          annotation:null,
-          tooltip:{callbacks:{
-            title:(items)=>prov[items[0].dataIndex]?.name||'',
-            label:(item)=>`${item.raw}% within 18wk · WL: ${fmtK(prov[item.dataIndex].total_wl)} · 52wk+: ${fmtK(prov[item.dataIndex].over_52wk)}`
-          }}
-        },
-        scales:{
-          x:{display:false},
-          y:{min:0,max:100,grid:{color:'#374151'},ticks:{color:'#9ca3af',callback:v=>v+'%'}}
-        }
-      },
-      plugins:[{
-        id:'targetLine',
-        afterDraw(chart){
-          const y=chart.scales.y.getPixelForValue(92);
-          const ctx=chart.ctx;
-          ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.setLineDash([6,4]);
-          ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
-          ctx.fillStyle='#ef4444';ctx.font='11px sans-serif';ctx.fillText('92% target',chart.chartArea.left+4,y-6);
-          ctx.restore();
-        }
-      }]
+      data:{labels:prov.map(p=>p.name.substring(0,25)),datasets:[{
+        data:prov.map(p=>p.pct_18wk),backgroundColor:bg(prov,'pct_18wk',92,85),
+        borderWidth:0,barPercentage:1,categoryPercentage:1}]},
+      options:baseOpts(prov,(item)=>`${item.raw}% within 18wk · WL: ${fmtK(prov[item.dataIndex].total_wl)} · 52wk+: ${fmtK(prov[item.dataIndex].over_52wk)}`),
+      plugins:[targetPlugin('targetLine',92,'92% target'),
+        {id:'hlRtt',afterDraw:c=>drawHighlights(c,prov,'pct_18wk')}]
     });
   }
 
@@ -810,35 +865,12 @@ function renderProvCharts(){
     const prov=dm.all_providers;
     charts.dm01=new Chart(dmCanvas,{
       type:'bar',
-      data:{
-        labels:prov.map(p=>p.name.substring(0,25)),
-        datasets:[{
-          data:prov.map(p=>p.pct_within_6wk),
-          backgroundColor:prov.map(p=>p.pct_within_6wk>=99?'#10b98199':p.pct_within_6wk>=95?'#f59e0b99':'#ef444499'),
-          borderWidth:0,barPercentage:1,categoryPercentage:1
-        }]
-      },
-      options:{
-        indexAxis:'x',responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false},
-          tooltip:{callbacks:{
-            title:(items)=>prov[items[0].dataIndex]?.name||'',
-            label:(item)=>`${item.raw}% within 6wk · WL: ${fmtK(prov[item.dataIndex].total_wl)} · 13wk+: ${fmtK(prov[item.dataIndex].over_13wk)}`
-          }}
-        },
-        scales:{x:{display:false},y:{min:0,max:100,grid:{color:'#374151'},ticks:{color:'#9ca3af',callback:v=>v+'%'}}}
-      },
-      plugins:[{
-        id:'targetLine2',
-        afterDraw(chart){
-          const y=chart.scales.y.getPixelForValue(99);
-          const ctx=chart.ctx;
-          ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.setLineDash([6,4]);
-          ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
-          ctx.fillStyle='#ef4444';ctx.font='11px sans-serif';ctx.fillText('99% target',chart.chartArea.left+4,y-6);
-          ctx.restore();
-        }
-      }]
+      data:{labels:prov.map(p=>p.name.substring(0,25)),datasets:[{
+        data:prov.map(p=>p.pct_within_6wk),backgroundColor:bg(prov,'pct_within_6wk',99,95),
+        borderWidth:0,barPercentage:1,categoryPercentage:1}]},
+      options:baseOpts(prov,(item)=>`${item.raw}% within 6wk · WL: ${fmtK(prov[item.dataIndex].total_wl)} · 13wk+: ${fmtK(prov[item.dataIndex].over_13wk)}`),
+      plugins:[targetPlugin('targetLine2',99,'99% target'),
+        {id:'hlDm',afterDraw:c=>drawHighlights(c,prov,'pct_within_6wk')}]
     });
   }
 
@@ -848,35 +880,12 @@ function renderProvCharts(){
     const prov=ae.all_providers;
     charts.ae=new Chart(aeCanvas,{
       type:'bar',
-      data:{
-        labels:prov.map(p=>p.name.substring(0,25)),
-        datasets:[{
-          data:prov.map(p=>p.pct_within_4hr),
-          backgroundColor:prov.map(p=>p.pct_within_4hr>=95?'#10b98199':p.pct_within_4hr>=80?'#f59e0b99':'#ef444499'),
-          borderWidth:0,barPercentage:1,categoryPercentage:1
-        }]
-      },
-      options:{
-        indexAxis:'x',responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false},
-          tooltip:{callbacks:{
-            title:(items)=>prov[items[0].dataIndex]?.name||'',
-            label:(item)=>`${item.raw}% within 4hr · Attendances: ${fmtK(prov[item.dataIndex].attendances)}`
-          }}
-        },
-        scales:{x:{display:false},y:{min:0,max:100,grid:{color:'#374151'},ticks:{color:'#9ca3af',callback:v=>v+'%'}}}
-      },
-      plugins:[{
-        id:'targetLine3',
-        afterDraw(chart){
-          const y=chart.scales.y.getPixelForValue(95);
-          const ctx=chart.ctx;
-          ctx.save();ctx.strokeStyle='#ef4444';ctx.lineWidth=2;ctx.setLineDash([6,4]);
-          ctx.beginPath();ctx.moveTo(chart.chartArea.left,y);ctx.lineTo(chart.chartArea.right,y);ctx.stroke();
-          ctx.fillStyle='#ef4444';ctx.font='11px sans-serif';ctx.fillText('95% target',chart.chartArea.left+4,y-6);
-          ctx.restore();
-        }
-      }]
+      data:{labels:prov.map(p=>p.name.substring(0,25)),datasets:[{
+        data:prov.map(p=>p.pct_within_4hr),backgroundColor:bg(prov,'pct_within_4hr',95,80),
+        borderWidth:0,barPercentage:1,categoryPercentage:1}]},
+      options:baseOpts(prov,(item)=>`${item.raw}% within 4hr · Attendances: ${fmtK(prov[item.dataIndex].attendances)}`),
+      plugins:[targetPlugin('targetLine3',95,'95% target'),
+        {id:'hlAe',afterDraw:c=>drawHighlights(c,prov,'pct_within_4hr')}]
     });
   }
 }
@@ -977,7 +986,7 @@ function getMapValues(metric, geoType){
 
 function getColorScale(values, metricDef){
   const vals=Object.values(values).filter(v=>v!=null);
-  if(!vals.length)return{min:0,max:100,getColor:()=>'#374151'};
+  if(!vals.length)return{min:0,max:100,getColor:()=>'#d8d6cd'};
   const sorted=[...vals].sort((a,b)=>a-b);
   const mn=sorted[Math.floor(sorted.length*0.02)]||sorted[0];
   const mx=sorted[Math.floor(sorted.length*0.98)]||sorted[sorted.length-1];
@@ -986,11 +995,11 @@ function getColorScale(values, metricDef){
 
   // Color stops: 5 colors from bad to good
   const colors=isGreenHigh
-    ?['#ef4444','#f97316','#eab308','#84cc16','#22c55e']  // red to green (low=bad)
-    :['#22c55e','#84cc16','#eab308','#f97316','#ef4444']; // green to red (low=good, high=bad)
+    ?['#a3492f','#c2823f','#cdae6b','#7faa86','#2f6b4f']  // poor to good (low=bad)
+    :['#2f6b4f','#7faa86','#cdae6b','#c2823f','#a3492f']; // good to poor (low=good, high=bad)
 
   function getColor(v){
-    if(v==null)return'#374151';
+    if(v==null)return'#d8d6cd';
     const t=Math.max(0,Math.min(1,(v-mn)/(mx-mn||1)));
     const idx=t*(colors.length-1);
     const lo=Math.floor(idx),hi=Math.min(lo+1,colors.length-1);
@@ -1029,10 +1038,10 @@ function updateMapLayer(){
       const val=values[code];
       return{
         fillColor:scale.getColor(val),
-        fillOpacity:val!=null?0.75:0.15,
-        weight:1.5,
-        color:'#1e293b',
-        opacity:0.8
+        fillOpacity:val!=null?0.78:0.18,
+        weight:1,
+        color:'#ffffff',
+        opacity:0.9
       };
     },
     onEachFeature:function(feature,layer){
@@ -1042,7 +1051,7 @@ function updateMapLayer(){
 
       layer.on({
         mouseover:function(e){
-          e.target.setStyle({weight:3,color:'#3b82f6',fillOpacity:0.9});
+          e.target.setStyle({weight:3,color:'#1f3d2d',fillOpacity:0.92});
           e.target.bringToFront();
           const tt=`<div class="area-name">${name}</div><div class="area-value">${metricDef.label||mapMetric}: ${val!=null?fmt(val)+(metricDef.unit==='%'?'%':''):'No data'}${metricDef.unit&&metricDef.unit!=='%'?' '+metricDef.unit:''}</div>`;
           layer.bindTooltip(tt,{className:'map-tooltip',sticky:true}).openTooltip();
@@ -1066,7 +1075,7 @@ function updateMapLayer(){
 function updateMapLegend(scale,metricDef){
   const el=document.getElementById('map-legend');
   if(!el)return;
-  const colors=scale.colors||['#374151'];
+  const colors=scale.colors||['#e1e0d9'];
   const gradStops=colors.map((c,i)=>`${c} ${(i/(colors.length-1)*100).toFixed(0)}%`).join(',');
 
   // Count areas with data
@@ -1079,7 +1088,7 @@ function updateMapLegend(scale,metricDef){
     <div class="legend-labels"><span>${fmt(scale.min)}${metricDef.unit==='%'?'%':''}</span><span>${fmt(scale.max)}${metricDef.unit==='%'?'%':''}</span></div>
     ${metricDef.target?`<div style="font-size:10px;color:var(--accent);margin-top:4px">Target: ${metricDef.target}${metricDef.unit||''}</div>`:''}
     <div style="font-size:10px;color:var(--text2);margin-top:4px">${dataCount} of ${totalCount} ${mapGeoType==='icb'?'ICBs':'local authorities'}</div>
-    <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2);margin-top:2px"><span style="display:inline-block;width:10px;height:10px;background:#374151;border-radius:2px"></span> No data</div>`;
+    <div style="display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text2);margin-top:2px"><span style="display:inline-block;width:10px;height:10px;background:#e1e0d9;border-radius:2px"></span> No data</div>`;
 }
 
 function showMapDetail(code,name,geoType){
@@ -1190,7 +1199,10 @@ function aiTl(v){
 
 function renderAICost(){
   return`<h2>Healthcare AI Cost Viability</h2>
-  <p class="subtitle">Will your AI investment still make sense as costs rise? — Updated March 2026</p>
+  <p class="subtitle">Will your AI investment still make sense as costs rise? Updated March 2026</p>
+  <div style="background:rgba(181,121,31,.10);border:1px solid rgba(181,121,31,.30);border-left:3px solid var(--amber);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--text);line-height:1.55">
+    <strong>FYI: this is a working experiment.</strong> The cost model and figures here are illustrative and still being refined, so treat them as directional rather than definitive. Feedback is welcome.
+  </div>
   <div class="ai-tab-nav" id="ai-tab-nav">
     <button class="ai-tab-btn${aiTab==='products'?' on':''}" onclick="aiSwitchTab('products')">Product Viability</button>
     <button class="ai-tab-btn${aiTab==='timeline'?' on':''}" onclick="aiSwitchTab('timeline')">Forecast Timeline</button>
@@ -1268,7 +1280,7 @@ function aiRenderProducts(){
     </div></div>
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
       <h3 style="font-size:16px;font-weight:700">Product Viability at Current Costs</h3>
-      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(16,185,129,.15);color:#4ade80">
+      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(79,138,110,.15);color:#4f8a6e">
         <span style="color:var(--green)">${viable} Viable</span> · <span style="color:var(--amber)">${pressure} Pressure</span> · <span style="color:var(--red)">${unviable} Uneconomical</span>
       </span>
     </div>
@@ -1308,7 +1320,7 @@ function aiRenderTimeline(){
   sorted.forEach(p=>{
     const d=aiGetDefunct(p);
     const barPct=Math.min((d.months/120)*100,100);
-    const barColor=d.months<=12?"linear-gradient(90deg,#ef4444,#f87171)":d.months<=36?"linear-gradient(90deg,#f59e0b,#fbbf24)":"linear-gradient(90deg,#10b981,#4ade80)";
+    const barColor=d.months<=12?"linear-gradient(90deg,#a3492f,#a3492f)":d.months<=36?"linear-gradient(90deg,#b5791f,#b5791f)":"linear-gradient(90deg,#4f8a6e,#4f8a6e)";
     rows+=`<div class="ai-timeline-row">
       <div class="ai-timeline-icon">${p.icon}</div>
       <div class="ai-timeline-prod">${p.name}</div>
@@ -1381,7 +1393,7 @@ function aiRenderTracker(){
 
   return`
     <div class="ai-alert"><span style="font-size:20px;flex-shrink:0">⚠</span><div>
-      <div style="font-size:14px;font-weight:600;color:#f87171">All Four ROI Assumptions Under Simultaneous Pressure — March 2026</div>
+      <div style="font-size:14px;font-weight:600;color:#a3492f">All Four ROI Assumptions Under Simultaneous Pressure — March 2026</div>
       <div style="font-size:13px;color:var(--text2);margin-top:2px">Energy prices surging (Iran/Hormuz crisis), helium supply disrupted, grid capacity constrained, compute demand accelerating.</div>
     </div></div>
     <div class="ai-g4">${topCards.map(c=>`<div class="card"><div class="card-body">
@@ -1436,7 +1448,7 @@ function aiRenderData(){
   return`
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
       <h3 style="font-size:16px;font-weight:700">Data Reference Table</h3>
-      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(148,163,184,.15);color:var(--text2)">${data.length} variables</span>
+      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(95,101,95,.15);color:var(--text2)">${data.length} variables</span>
     </div>
     <div class="card" style="padding:0;overflow:auto"><table class="tbl">
       <thead><tr><th>Variable</th><th>Category</th><th>Baseline</th><th>Current</th><th>Change</th><th>Status</th><th>Note</th><th>Source</th></tr></thead>
@@ -1460,20 +1472,20 @@ function initAICostCharts(){
         datasets:[{
           label:'UK Wholesale Electricity (£/MWh)',
           data:AI_HIST_PRICES.map(h=>h.price),
-          borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.1)',
+          borderColor:'#4f8a6e',backgroundColor:'rgba(79,138,110,.1)',
           fill:true,tension:0.3,pointRadius:4,
-          pointBackgroundColor:AI_HIST_PRICES.map(h=>h.price>100?'#ef4444':'#3b82f6')
+          pointBackgroundColor:AI_HIST_PRICES.map(h=>h.price>100?'#a3492f':'#4f8a6e')
         }]
       },
       options:{
         responsive:true,maintainAspectRatio:false,
         plugins:{
-          legend:{labels:{color:'#9ca3af',font:{size:11}}},
-          annotation:{annotations:{currentLine:{type:'line',yMin:97.4,yMax:97.4,borderColor:'rgba(239,68,68,.5)',borderWidth:2,borderDash:[6,6],label:{content:'Current: £97.40',display:true,position:'end',color:'#f87171',font:{size:11}}}}}
+          legend:{labels:{color:'#5f655f',font:{size:11}}},
+          annotation:{annotations:{currentLine:{type:'line',yMin:97.4,yMax:97.4,borderColor:'rgba(163,73,47,.5)',borderWidth:2,borderDash:[6,6],label:{content:'Current: £97.40',display:true,position:'end',color:'#a3492f',font:{size:11}}}}}
         },
         scales:{
-          x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},
-          y:{ticks:{color:'#64748b',font:{size:11},callback:v=>'£'+v},grid:{color:'#374151'}}
+          x:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
+          y:{ticks:{color:'#5f655f',font:{size:11},callback:v=>'£'+v},grid:{color:'#e1e0d9'}}
         }
       }
     });
@@ -1489,8 +1501,8 @@ function initAICostCharts(){
       years.push(d.toLocaleDateString('en-GB',{month:'short',year:'2-digit'}));
       prices.push(Math.round(price));
     }
-    const datasets=[{label:'Projected electricity price',data:prices,borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.08)',fill:true,tension:0.3,pointRadius:3,borderWidth:2}];
-    const prodColors=["#ef4444","#f59e0b","#a855f7","#22c55e","#06b6d4","#ec4899","#84cc16","#f97316","#6366f1","#14b8a6"];
+    const datasets=[{label:'Projected electricity price',data:prices,borderColor:'#4f8a6e',backgroundColor:'rgba(79,138,110,.08)',fill:true,tension:0.3,pointRadius:3,borderWidth:2}];
+    const prodColors=["#4f8a6e","#1f3d2d","#a3492f","#b5791f","#3f6f8a","#7a5a8a","#6b8f3f","#c2823f","#5f8a82","#9c5a4a"];
     AI_PRODUCTS.forEach((p,i)=>{
       const be=p.breakEvenElec/aiComputeMult;
       datasets.push({label:p.name+' (£'+Math.round(be)+')',data:years.map(()=>Math.round(be)),borderColor:prodColors[i%prodColors.length],borderDash:[4,4],borderWidth:1.5,pointRadius:0,fill:false});
@@ -1499,10 +1511,10 @@ function initAICostCharts(){
       type:'line',data:{labels:years,datasets},
       options:{
         responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{labels:{color:'#9ca3af',font:{size:10},boxWidth:12},position:'bottom'}},
+        plugins:{legend:{labels:{color:'#5f655f',font:{size:10},boxWidth:12},position:'bottom'}},
         scales:{
-          x:{ticks:{color:'#64748b',font:{size:10}},grid:{color:'#374151'}},
-          y:{ticks:{color:'#64748b',font:{size:10},callback:v=>'£'+v},grid:{color:'#374151'},title:{display:true,text:'£/MWh',color:'#64748b'}}
+          x:{ticks:{color:'#5f655f',font:{size:10}},grid:{color:'#e1e0d9'}},
+          y:{ticks:{color:'#5f655f',font:{size:10},callback:v=>'£'+v},grid:{color:'#e1e0d9'},title:{display:true,text:'£/MWh',color:'#5f655f'}}
         }
       }
     });
@@ -1516,14 +1528,14 @@ function initAICostCharts(){
       data:{
         labels:['Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26'],
         datasets:[
-          {label:'Electricity (£/MWh)',data:[62,64,63,67,70,78,97.4],borderColor:'#3b82f6',backgroundColor:'rgba(59,130,246,.1)',fill:true,tension:.3,pointRadius:3},
-          {label:'Brent Crude ($)',data:[71,73,72,74,76,88,120],borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,.1)',fill:true,tension:.3,pointRadius:3}
+          {label:'Electricity (£/MWh)',data:[62,64,63,67,70,78,97.4],borderColor:'#4f8a6e',backgroundColor:'rgba(79,138,110,.1)',fill:true,tension:.3,pointRadius:3},
+          {label:'Brent Crude ($)',data:[71,73,72,74,76,88,120],borderColor:'#b5791f',backgroundColor:'rgba(181,121,31,.1)',fill:true,tension:.3,pointRadius:3}
         ]
       },
       options:{
         responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{labels:{color:'#9ca3af',font:{size:11}}}},
-        scales:{x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},y:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}}}
+        plugins:{legend:{labels:{color:'#5f655f',font:{size:11}}}},
+        scales:{x:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},y:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}}}
       }
     });
   }
@@ -1536,17 +1548,17 @@ function initAICostCharts(){
       data:{
         labels:['Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q1 26'],
         datasets:[
-          {label:'Price ($/MCF)',data:[380,390,400,420,450,480,520,1900],borderColor:'#a855f7',backgroundColor:'rgba(168,85,247,.1)',fill:true,tension:.3,pointRadius:3,yAxisID:'y'},
-          {label:'Supply Index',data:[100,98,95,90,85,70,65,30],borderColor:'#22c55e',borderDash:[5,5],backgroundColor:'transparent',tension:.3,pointRadius:3,yAxisID:'y1'}
+          {label:'Price ($/MCF)',data:[380,390,400,420,450,480,520,1900],borderColor:'#7a5a8a',backgroundColor:'rgba(122,90,138,.1)',fill:true,tension:.3,pointRadius:3,yAxisID:'y'},
+          {label:'Supply Index',data:[100,98,95,90,85,70,65,30],borderColor:'#4f8a6e',borderDash:[5,5],backgroundColor:'transparent',tension:.3,pointRadius:3,yAxisID:'y1'}
         ]
       },
       options:{
         responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{labels:{color:'#9ca3af',font:{size:11}}}},
+        plugins:{legend:{labels:{color:'#5f655f',font:{size:11}}}},
         scales:{
-          x:{ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},
-          y:{position:'left',ticks:{color:'#64748b',font:{size:11}},grid:{color:'#374151'}},
-          y1:{position:'right',min:0,max:100,ticks:{color:'#64748b',font:{size:11}},grid:{display:false}}
+          x:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
+          y:{position:'left',ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
+          y1:{position:'right',min:0,max:100,ticks:{color:'#5f655f',font:{size:11}},grid:{display:false}}
         }
       }
     });
@@ -1556,42 +1568,37 @@ function initAICostCharts(){
 init();
 </script>
 
-<!-- FOOTER -->
-<footer class="colophon">
-    <div class="container">
-        <div class="colophon-grid">
-            <div class="colophon-brand">
-                <span class="footer-wordmark">MyClinical</span>
-                <p class="footer-tagline">Tools, data, and education for clinicians who build. A publication of Luke Kellaway.</p>
-            </div>
-            <div class="colophon-col">
-                <h4>Sections</h4>
-                <a href="https://www.growth.myclinical.co.uk" target="_blank">No. 01 — Growth</a>
-                <a href="/data/">No. 02 — Data</a>
-                <a href="/insights/">No. 03 — Insights</a>
-                <a href="/coach/">No. 04 — Coach</a>
-                <a href="/research/">No. 05 — Research</a>
-                <a href="https://myclinicaldd.gumroad.com" target="_blank">No. 06 — DD</a>
-                <a href="/content/">No. 07 — Content</a>
-            </div>
-            <div class="colophon-col">
-                <h4>Tools</h4>
-                <a href="/data/observatory/">UK Data Observatory</a>
-                <a href="/data/cost-dashboard.html">AI Cost Dashboard</a>
-                <a href="/research/clinician-translation-matrix.html">Translation Matrix</a>
-            </div>
-            <div class="colophon-col">
-                <h4>Colophon</h4>
-                <a href="https://lukekellaway.com" target="_blank">Editor — Luke Kellaway</a>
-                <a href="https://www.linkedin.com/in/lukekellaway" target="_blank">LinkedIn</a>
-                <a href="mailto:luke@v3rticals.com">Contact</a>
-            </div>
-        </div>
-        <div class="colophon-bottom">
-            <span>&copy; 2026 MyClinical · A publication of <a href="https://lukekellaway.com" target="_blank">Luke Kellaway</a> · Read with care.</span>
-            <span class="colophon-imprint">Set in Fraunces and Inter.</span>
-        </div>
+<!-- FOOTER (matches growth.myclinical.co.uk) -->
+<footer class="gfoot">
+  <div class="gfoot-inner">
+    <div class="gfoot-grid">
+      <div class="gfoot-brand">
+        <span class="gfoot-word">MyClinical <span>Growth</span></span>
+        <p>NHS opportunities and UK healthtech funding. Aggregated, signalled, delivered. A free resource, part of the MyClinical line.</p>
+      </div>
+      <div class="gfoot-col">
+        <h5>Resource</h5>
+        <a href="https://growth.myclinical.co.uk/opportunities">Procurement</a>
+        <a href="https://growth.myclinical.co.uk/grants">Grants &amp; funding</a>
+        <a href="https://growth.myclinical.co.uk/events">Events &amp; conferences</a>
+        <a href="https://growth.myclinical.co.uk/directory">Source directory</a>
+        <a href="https://growth.myclinical.co.uk/search">Search everything</a>
+        <a href="https://growth.myclinical.co.uk/submit">Submit a tip</a>
+      </div>
+      <div class="gfoot-col">
+        <h5>Partners</h5>
+        <a href="https://growth.myclinical.co.uk/bid-writers">Bid writing help</a>
+        <a href="https://growth.myclinical.co.uk/capital">Sponsor us</a>
+      </div>
+      <div class="gfoot-col">
+        <h5>MyClinical</h5>
+        <a href="https://lukekellaway.com" target="_blank" rel="noopener">lukekellaway.com</a>
+        <a href="https://growth.myclinical.co.uk/about">About this resource</a>
+        <a href="https://growth.myclinical.co.uk/about#privacy">Privacy policy</a>
+      </div>
     </div>
+    <div class="gfoot-bottom">&copy; 2026 MyClinical Growth. Built so UK healthtech gets a fair shot.</div>
+  </div>
 </footer>
 </body>
 </html>
