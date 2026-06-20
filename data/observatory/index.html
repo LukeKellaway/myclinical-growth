@@ -33,7 +33,15 @@ body { font-family: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe 
 .nav-item.active { background:var(--accent); color:#fff; }
 .nav-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
 .main { flex:1; overflow-y:auto; padding:32px 40px; }
-@media(max-width:900px) { .sidebar{display:none} .main{padding:16px} }
+@media(max-width:900px) {
+  .app{flex-direction:column}
+  .sidebar{width:100%;flex-shrink:0;border-right:none;border-bottom:1px solid var(--border);position:sticky;top:58px;z-index:40;background:var(--bg2)}
+  .sidebar .logo{display:none}
+  .nav-scroll{display:flex;flex-direction:row;overflow-x:auto;overflow-y:hidden;gap:8px;padding:10px 14px;-webkit-overflow-scrolling:touch}
+  .nav-item{flex:0 0 auto;white-space:nowrap;margin-bottom:0}
+  .sidebar > div:last-child{display:none}
+  .main{padding:16px}
+}
 
 .rag { display:inline-block; width:13px; height:13px; border-radius:50%; }
 .rag.red { background:var(--red); }
@@ -198,12 +206,12 @@ h2 { font-size:22px; font-weight:800; color:var(--forest); margin-bottom:4px; }
 .gnav-menu a:hover{background:var(--bg3);color:var(--ink)}
 .gnav-cb,.gnav-burger{display:none}
 @media(max-width:900px){
-  .gnav-inner{padding:0 18px;height:58px;flex-wrap:wrap}
+  .gnav-inner{padding:0 18px;height:58px;position:relative}
   .gnav-burger{display:block;font-size:24px;line-height:1;cursor:pointer;color:var(--ink);order:3;user-select:none}
   .gnav-cta{order:2}
   .gnav-links{display:none}
-  .gnav-cb:checked ~ .gnav-links{display:flex;flex-direction:column;gap:14px;width:100%;padding:14px 0 4px}
-  .gnav-drop{flex-direction:column}
+  .gnav-cb:checked ~ .gnav-links{display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:58px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);box-shadow:0 18px 34px rgba(14,20,16,.16);padding:18px 18px 22px;z-index:9999}
+  .gnav-drop{flex-direction:column;align-items:flex-start}
   .gnav-menu{position:static;display:flex;box-shadow:none;border:none;background:transparent;padding:4px 0 0 14px;min-width:0}
   .app{height:auto!important}
 }
