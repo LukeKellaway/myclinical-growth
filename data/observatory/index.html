@@ -172,6 +172,35 @@ h2 { font-size:22px; font-weight:800; color:var(--forest); margin-bottom:4px; }
 .ai-ac-t{font-size:12px;font-weight:600;margin-bottom:4px}
 .ai-ac-s{font-size:11px;color:var(--red)}
 .ai-chart-box{position:relative;height:280px}
+.ai-bd{display:flex;height:10px;border-radius:5px;overflow:hidden;margin:12px 0 6px;background:var(--bg3)}
+.ai-bd span{height:100%}
+.ai-bd-l{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--text2);margin-bottom:8px}
+.ai-bd-l i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+.ai-tag{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding:2px 7px;border-radius:5px;background:var(--bg3);color:var(--text2)}
+.ai-basis{font-size:11px;color:var(--text2);line-height:1.45;margin-top:10px;padding-top:8px;border-top:1px dashed var(--border)}
+.ai-src{font-size:10px;color:var(--text2);opacity:.85;margin-top:4px;font-style:italic}
+.ai-cliff{font-weight:700}
+.ai-dual{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+@media(max-width:640px){.ai-dual{grid-template-columns:1fr}}
+.ai-dual-card{padding:14px 16px;border-radius:10px;border:1px solid var(--border);background:var(--bg2)}
+.ai-dual-card h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.ai-dual-v{border-left:3px solid var(--accent)}
+.ai-dual-b{border-left:3px solid #3f6f8a}
+.ai-ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:640px){.ai-ct-grid{grid-template-columns:1fr}}
+.ai-ct-field label{display:block;font-size:12px;font-weight:600;color:var(--text2);margin-bottom:6px}
+.ai-ct-field select{width:100%;padding:9px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-family:inherit;font-size:13px}
+.ai-ct-field input[type=range]{width:100%;height:6px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:3px;outline:none;margin-top:6px}
+.ai-ct-field input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--accent);cursor:pointer;border:2px solid var(--bg2);box-shadow:0 1px 4px rgba(79,138,110,.45)}
+.ai-yr{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px}
+.ai-yr-bar-c{flex:1;height:18px;background:var(--bg3);border-radius:5px;overflow:hidden}
+.ai-yr-bar{height:100%;border-radius:5px;transition:width .4s}
+.ai-verdict{padding:16px 18px;border-radius:10px;margin:18px 0;font-size:13.5px;line-height:1.6}
+.ai-qlist{list-style:none;padding:0;margin:8px 0 0}
+.ai-qlist li{padding:8px 0 8px 22px;position:relative;font-size:13px;color:var(--text2);line-height:1.5;border-bottom:1px solid var(--border)}
+.ai-qlist li:last-child{border-bottom:none}
+.ai-qlist li:before{content:'';position:absolute;left:2px;top:13px;width:8px;height:8px;border-radius:2px;background:var(--accent)}
+.ai-note{font-size:11px;color:var(--text2);font-style:italic;margin-top:12px;line-height:1.5}
 
 /* ═══ MyClinical Brand Nav ═══ */
 .mc-nav{background:rgba(246,246,243,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:10px 0;position:sticky;top:0;z-index:10000;font-family:'Hanken Grotesk',-apple-system,system-ui,sans-serif}
@@ -280,12 +309,37 @@ const PAGES=[
   {id:'environment',label:'Environment',color:'#5f8a82'},
   {id:'map',label:'Map',color:'#3f6f8a'},
   {id:'query',label:'Query / Search',color:'#b5791f'},
-  {id:'aicost',label:'AI Cost Viability',color:'#7a5a8a'},
+  {id:'aicost',label:'AI Cost Reality',color:'#7a5a8a'},
 ];
 
+const AI_SUBTABS=['overview','products','contract','sources'];
+function hashToView(h){
+  const parts=h.replace(/^#/,'').split('/');
+  let v=parts[0]==='ai-cost'?'aicost':parts[0];
+  return {v, sub:parts[1]};
+}
+function applyInitialHash(){
+  const {v,sub}=hashToView(location.hash);
+  if(v&&PAGES.some(p=>p.id===v)){
+    view=v;
+    if(v==='aicost'&&sub&&AI_SUBTABS.includes(sub)) aiTab=sub;
+  }
+}
+function applyHash(){
+  if(!location.hash) return;
+  const {v,sub}=hashToView(location.hash);
+  if(!PAGES.some(p=>p.id===v)) return;
+  if(v==='aicost'&&sub&&AI_SUBTABS.includes(sub)) aiTab=sub;
+  if(view!==v){
+    if(view==='map'&&mapInstance){try{mapInstance.remove();}catch(e){}mapInstance=null;mapLayer=null;}
+    view=v;buildNav();render();
+  }
+}
+
 async function init(){
-  try{ D=await(await fetch('dashboard_data.json')).json(); buildNav(); render(); }
+  try{ D=await(await fetch('dashboard_data.json')).json(); applyInitialHash(); buildNav(); render(); }
   catch(e){ document.getElementById('main').innerHTML='<h2 style="color:var(--red);padding:40px">Could not load dashboard_data.json — run process_v2.py first</h2>'; }
+  window.addEventListener('hashchange',applyHash);
 }
 
 function buildNav(){
@@ -295,6 +349,8 @@ function go(v){
   // Cleanup map when navigating away
   if(view==='map'&&mapInstance){try{mapInstance.remove();}catch(e){}mapInstance=null;mapLayer=null;}
   view=v;buildNav();render();
+  const h='#'+(v==='aicost'?'ai-cost'+(aiTab&&aiTab!=='overview'?'/'+aiTab:''):v);
+  try{ history.replaceState(null,'',h); }catch(e){ location.hash=h; }
 }
 
 function render(){
@@ -1125,448 +1181,446 @@ function showMapDetail(code,name,geoType){
   el.style.display='block';
 }
 
-// ═══════════════ AI COST VIABILITY ═══════════════
-const AI_PRODUCTS = [
-  {id:"chatbot",icon:"💬",name:"AI Chatbot / Triage",desc:"Patient-facing chat for symptom checking, appointment booking, and triage.",computePerUse:0.003,usesPerDay:5000,annualLicence:120000,valuePerUse:3.20,breakEvenElec:420,category:"Low Compute"},
-  {id:"scribe",icon:"📝",name:"Clinical Scribe",desc:"AI that listens to consultations and writes clinical notes. Saves 10-15 mins per patient.",computePerUse:0.015,usesPerDay:800,annualLicence:250000,valuePerUse:12.50,breakEvenElec:310,category:"Medium Compute"},
-  {id:"cdss",icon:"🏥",name:"Clinical Decision Support",desc:"AI built into EHRs that flags drug interactions, suggests diagnoses, or recommends care pathways.",computePerUse:0.008,usesPerDay:3000,annualLicence:180000,valuePerUse:5.80,breakEvenElec:350,category:"Medium Compute"},
-  {id:"imaging",icon:"🔬",name:"Medical Imaging / Radiology AI",desc:"AI that reads X-rays, CT scans, MRIs — detecting cancers, fractures, lung disease. Very GPU-intensive.",computePerUse:0.25,usesPerDay:200,annualLicence:350000,valuePerUse:45.00,breakEvenElec:155,category:"High Compute"},
-  {id:"pathology",icon:"🧬",name:"Digital Pathology AI",desc:"AI analysis of tissue slides. Processes massive image files — 5-10 gigapixels per slide.",computePerUse:0.40,usesPerDay:120,annualLicence:280000,valuePerUse:52.00,breakEvenElec:118,category:"Very High Compute"},
-  {id:"genomics",icon:"🧪",name:"Genomics / Precision Medicine",desc:"AI for whole genome sequences, identifying mutations, matching to targeted therapies.",computePerUse:2.5,usesPerDay:15,annualLicence:400000,valuePerUse:320.00,breakEvenElec:112,category:"Very High Compute"},
-  {id:"remote",icon:"📱",name:"Remote Patient Monitoring",desc:"AI watching wearable/sensor data for deterioration. Low compute per reading but massive volume.",computePerUse:0.0005,usesPerDay:50000,annualLicence:95000,valuePerUse:0.45,breakEvenElec:480,category:"Low Compute"},
-  {id:"rpa",icon:"🤖",name:"Back Office / RPA",desc:"Workflow automation for scheduling, billing, referral processing. Not true AI — more automation.",computePerUse:0.001,usesPerDay:10000,annualLicence:85000,valuePerUse:1.80,breakEvenElec:550,category:"Low Compute"},
-  {id:"predict",icon:"📊",name:"Predictive Analytics",desc:"AI models predicting readmissions, outbreaks, staffing needs. Batch jobs — heavy at training time.",computePerUse:0.05,usesPerDay:500,annualLicence:200000,valuePerUse:22.00,breakEvenElec:240,category:"Medium Compute"},
-  {id:"drugdisc",icon:"💊",name:"Drug Discovery AI",desc:"Molecular simulation, drug-target interaction, clinical trial optimisation. Extremely GPU-intensive.",computePerUse:8.0,usesPerDay:5,annualLicence:600000,valuePerUse:1200.00,breakEvenElec:130,category:"Very High Compute"}
+// ═══════════════ AI COST REALITY ═══════════════
+// Honest reframe: for the wrapper products the NHS actually buys, cost per use
+// is pennies and value is pounds, so electricity is a rounding error. The real
+// risks are (1) today's token price is subsidised and will normalise upward,
+// and (2) a fixed-price multi-year contract with no escalator makes the vendor
+// eat that shock. Primary axis is the inference-price multiple, not £/MWh.
+
+// var = inference (inf) + energy (en) per use; fix = amortised licence/integration per use.
+// All £, illustrative but sourced. USD converted at about £0.79/$.
+const AIP = [
+  {id:'scribe',icon:'🗣️',name:'Ambient scribe',type:'API wrapper',
+   desc:'Listens to the consultation and drafts the clinical note. A thin layer over a frontier-model API.',
+   inf:0.08, en:0.00, fix:0.50, unitName:'consultation', orgVol:300000,
+   vLo:7, vHi:15,
+   vBasis:'2 to 4 minutes of clinician time saved per consultation, valued at loaded cost (a GP minute is about £3.70).',
+   vSrc:'PSSRU Unit Costs 2024; King\'s Fund (£37 per 10-minute GP appointment, 2025)'},
+  {id:'triage',icon:'💬',name:'Patient triage chatbot',type:'API wrapper',
+   desc:'Front-door symptom checking and signposting. High volume, small calls.',
+   inf:0.04, en:0.00, fix:0.06, unitName:'conversation', orgVol:1500000,
+   vLo:0.50, vHi:2.00,
+   vBasis:'A share of an avoided 111 or GP contact. A 111 call is about £12 to £15, and only a fraction is safely deflected.',
+   vSrc:'NHS England 111 unit cost; PSSRU Unit Costs 2024'},
+  {id:'coding',icon:'🧾',name:'Clinical coding / back-office',type:'API batch',
+   desc:'Reads notes and assigns codes, or processes referrals. Batch runs over documents.',
+   inf:0.10, en:0.00, fix:0.10, unitName:'record', orgVol:400000,
+   vLo:2, vHi:8,
+   vBasis:'Coder time saved plus tariff recovered through more accurate coding.',
+   vSrc:'NHS clinical coding guidance; illustrative'},
+  {id:'cdss',icon:'🩺',name:'Decision support / EHR copilot',type:'API embedded',
+   desc:'Flags interactions and suggests pathways inside the EHR. Heavy integration, frequent small calls.',
+   inf:0.025, en:0.00, fix:0.40, unitName:'prompt', orgVol:1000000,
+   vLo:3, vHi:10,
+   vBasis:'A fraction of an avoided adverse drug event, plus clinician lookup time saved.',
+   vSrc:'Adverse drug event cost literature; illustrative'},
+  {id:'radiology',icon:'🩻',name:'Radiology AI',type:'Self-hosted GPU',
+   desc:'Pre-reads X-ray, CT and MRI for triage and flags. The vendor runs the GPUs, so electricity is a real cost line.',
+   inf:0.30, en:0.15, fix:0.60, unitName:'study', orgVol:120000,
+   vLo:9, vHi:25,
+   vBasis:'A share of a teleradiology read fee (about £9 for plain film up to £48 for MRI). An AI pre-read captures part of it.',
+   vSrc:'NHS teleradiology framework SBS10228; NDX Imaging 2026 fee schedule'},
+  {id:'pathology',icon:'🔬',name:'Digital pathology AI',type:'Self-hosted GPU',
+   desc:'Analyses gigapixel tissue slides. The most compute and energy heavy of the set.',
+   inf:1.20, en:0.60, fix:0.80, unitName:'slide', orgVol:30000,
+   vLo:20, vHi:60,
+   vBasis:'Pathologist time saved and send-outs avoided per slide.',
+   vSrc:'RCPath workforce costs; illustrative'}
 ];
 
-const AI_HIST_PRICES = [
-  {year:"2018",price:57},{year:"2019",price:44},{year:"2020",price:35},
-  {year:"2021",price:118},{year:"2022",price:194},{year:"2023",price:93},
-  {year:"2024",price:72},{year:"2025 H1",price:65},{year:"2025 H2",price:74},
-  {year:"Mar 2026",price:97.4}
+// Macro assumptions (for the Assumptions & sources tab)
+const AI_MACRO = [
+  {k:'Today\'s blended API price', v:'about £5 per 1M tokens (mid-tier)',
+   note:'Sonnet-class is $3 in / $15 out per 1M tokens; blended for a typical 70/30 task and converted to £.',
+   src:'BenchLM / CloudZero LLM pricing 2026'},
+  {k:'Recent price direction', v:'down ~80% over 2025',
+   note:'Headline token prices fell sharply through 2025 as providers competed for share.',
+   src:'CloudZero, TLDL LLM pricing 2026'},
+  {k:'Subsidy / normalisation', v:'+30 to 50% near-term, 3 to 10× longer-term',
+   note:'Multiple 2026 analyses argue inference is priced below cost. Near-term normalisation is put at +30 to 50% within 12 to 24 months; estimates to reach sustainable economics run 3 to 10×.',
+   src:'Oplexa, MindStudio, Uptech, Investing.com (2026)'},
+  {k:'Currency', v:'about £0.79 per $1', note:'Used to convert USD token and read fees.', src:'Spot, mid-2026'}
 ];
 
-const AI_COST_VARS = [
-  {id:1,name:"UK wholesale electricity",cat:"Energy",base:65,cur:97.4,unit:"£/MWh",src:"Cornwall Insight",note:"Up ~50% due to Iran conflict"},
-  {id:2,name:"UK gas price (30-day)",cat:"Energy",base:100,cur:172,unit:"index",src:"Smart Energy UK",note:"+72% in 30 days"},
-  {id:3,name:"Brent crude",cat:"Energy",base:73,cur:120,unit:"$/barrel",src:"IEA",note:"Up 65% from $73"},
-  {id:4,name:"UK energy price cap (Jul 2026)",cat:"Energy",base:1637,cur:1801,unit:"£/year",src:"Cornwall/EDF",note:"Rising 10%"},
-  {id:5,name:"Network cost trajectory",cat:"Grid",base:0,cur:20,unit:"% over 4yr",src:"Octopus Energy",note:"Structural rise"},
-  {id:6,name:"Grid transmission spend (RIIO-ET3)",cat:"Grid",base:18,cur:70,unit:"£bn",src:"Ofgem",note:"4x increase from ET2"},
-  {id:7,name:"Helium spot price",cat:"Helium",base:380,cur:450,unit:"$/MCF",src:"Crux Investor",note:"Up 400% — Qatar force majeure"},
-  {id:8,name:"Data centre demand (2030)",cat:"Grid",base:5.0,cur:26.2,unit:"TWh",src:"Oxford Economics",note:"5x growth from 2023"},
-  {id:9,name:"UK vs US DC power cost",cat:"Energy",base:4,cur:4,unit:"x",src:"Social Market Foundation",note:"Structural disadvantage"},
-  {id:10,name:"Hospital operating margins",cat:"Healthcare",base:2.5,cur:2.3,unit:"%",src:"Nelson Advisors",note:"Razor thin"},
-  {id:11,name:"NHS AI spend to date",cat:"Healthcare",base:0,cur:21,unit:"£m",src:"Frontier Economics",note:"Tiny vs £10bn ambition"},
-  {id:12,name:"NHS digital budget (by 2028-29)",cat:"Healthcare",base:6700,cur:10000,unit:"£m",src:"NHS Confederation",note:"+50% increase"},
-  {id:13,name:"MRI helium requirement",cat:"Helium",base:2000,cur:2000,unit:"litres/unit",src:"RSNA",note:"Fixed requirement"},
-  {id:14,name:"UK MRI fleet",cat:"Healthcare",base:556,cur:656,unit:"machines",src:"GOV.UK",note:"Growing via CDC programme"},
-  {id:15,name:"ChatGPT vs Google search",cat:"Energy",base:10,cur:10,unit:"x electricity",src:"Goldman Sachs",note:"Growing gap"}
-];
+let aiInfMult = 1, aiElecMult = 1, aiTab = 'overview';
+let aiChartInst = {};
+// contract-tool state
+let aiCtProd = 'radiology', aiCtYears = 5, aiCtEsc = 'none', aiCtEnd = 3;
 
-let aiElecPrice=97.4, aiComputeMult=1.0, aiGrowthRate=18, aiTab='products';
-let aiChartInst={};
+// ── maths ──
+function aiUnit(p, im, em){ return p.inf*im + p.en*em + p.fix; }
+function aiVarUnit(p, im, em){ return p.inf*im + p.en*em; }
+function aiMid(p){ return (p.vLo + p.vHi)/2; }
+function aiMarginPct(v, c){ return (v - c)/v*100; }
+function aiEnergyShare(p, im, em){ const c=aiUnit(p,im,em); return c>0 ? p.en*em/c*100 : 0; }
+// worst-case (low value) inference multiple at which margin hits zero, energy held at em
+function aiInfCliff(p, em){ if(p.inf<=0) return Infinity; return (p.vLo - p.en*em - p.fix)/p.inf; }
+function aiStatus(marginLo){ return marginLo>=70 ? 'viable' : marginLo>=40 ? 'pressure' : 'unviable'; }
+function aiStatusLabel(s){ return s==='viable' ? 'Robust' : s==='pressure' ? 'Watch' : 'Exposed'; }
 
-function aiGetStatus(p){
-  const costPerUse=(p.computePerUse*aiElecPrice*aiComputeMult)+(p.annualLicence/(p.usesPerDay*365));
-  const margin=((p.valuePerUse-costPerUse)/p.valuePerUse*100);
-  const abe=p.breakEvenElec/aiComputeMult;
-  if(aiElecPrice>=abe)return{status:"unviable",label:"Uneconomical",margin:margin.toFixed(1),costPerUse:costPerUse.toFixed(2)};
-  if(aiElecPrice>=abe*0.7)return{status:"pressure",label:"Under Pressure",margin:margin.toFixed(1),costPerUse:costPerUse.toFixed(2)};
-  return{status:"viable",label:"Viable",margin:margin.toFixed(1),costPerUse:costPerUse.toFixed(2)};
-}
-function aiGetDefunct(p){
-  const abe=p.breakEvenElec/aiComputeMult;
-  if(aiElecPrice>=abe)return{text:"Already uneconomical",months:0,color:"var(--red)"};
-  const months=Math.ceil(12*Math.log(abe/aiElecPrice)/Math.log(1+aiGrowthRate/100));
-  if(months>120)return{text:"10+ years",months:120,color:"var(--green)"};
-  const d=new Date(2026,2,1);d.setMonth(d.getMonth()+months);
-  const ds=d.toLocaleDateString('en-GB',{month:'short',year:'numeric'});
-  const color=months<=12?"var(--red)":months<=36?"var(--amber)":"var(--green)";
-  return{text:ds,months,color};
-}
-function aiFmtVal(val,unit){
-  if(unit==="£/MWh")return"£"+val;if(unit==="$/barrel")return"$"+val;
-  if(unit==="$/MCF")return"$"+val;if(unit==="%")return val+"%";
-  if(unit==="TWh")return val+" TWh";if(unit==="x")return val+"x";
-  if(unit==="x electricity")return val+"x";if(unit==="litres/unit")return val.toLocaleString()+"L";
-  if(unit==="machines")return val.toLocaleString();
-  if(unit==="£m"&&val>=1000)return"£"+(val/1000).toFixed(1)+"bn";
-  if(unit==="£m")return"£"+val+"m";if(unit==="£bn")return"£"+val+"bn";
-  if(unit==="£/year")return"£"+val.toLocaleString();
-  if(unit==="% over 4yr")return"+"+val+"%";if(unit==="index")return val;
-  return val;
-}
-function aiPct(c,b){return b===0?null:((c-b)/b*100).toFixed(1);}
-function aiTl(v){
-  const p=aiPct(v.cur,v.base);if(p===null)return"a";
-  const a=Math.abs(parseFloat(p));
-  if(v.id===10)return v.cur<2?"r":v.cur<2.5?"a":"g";
-  return a>30?"r":a>10?"a":"g";
-}
+// ── formatting ──
+function aiGBP(n){ return '£'+Math.round(n).toLocaleString(); }
+function aiGBP2(n){ return n<10 ? '£'+n.toFixed(2) : '£'+Math.round(n).toLocaleString(); }
+function aiFee(n){ return '£'+(Math.round(n/5000)*5000).toLocaleString(); }
+function aiCliffTxt(n){ if(!isFinite(n)) return 'never (no token cost)'; if(n>=20) return '≈'+Math.round(n)+'× (effectively never)'; return '≈'+Math.round(n)+'× today\'s token price'; }
 
+// ── shell ──
 function renderAICost(){
-  return`<h2>Healthcare AI Cost Viability</h2>
-  <p class="subtitle">Will your AI investment still make sense as costs rise? Updated March 2026</p>
+  return `<h2>AI Cost Reality</h2>
+  <p class="subtitle">What actually threatens an NHS AI contract, and what doesn't. Reviewed June 2026.</p>
   <div style="background:rgba(181,121,31,.10);border:1px solid rgba(181,121,31,.30);border-left:3px solid var(--amber);border-radius:10px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:var(--text);line-height:1.55">
-    <strong>FYI: this is a working experiment.</strong> The cost model and figures here are illustrative and still being refined, so treat them as directional rather than definitive. Feedback is welcome.
+    <strong>A working model, not a verdict.</strong> The figures are illustrative and sourced where possible, so treat them as directional. The point is the structure of the risk, not the third decimal place. Every number and its basis is on the <a href="#ai-cost/sources" onclick="aiSwitchTab('sources');return false;" style="color:var(--accent);font-weight:600">Assumptions &amp; sources</a> tab.
   </div>
   <div class="ai-tab-nav" id="ai-tab-nav">
-    <button class="ai-tab-btn${aiTab==='products'?' on':''}" onclick="aiSwitchTab('products')">Product Viability</button>
-    <button class="ai-tab-btn${aiTab==='timeline'?' on':''}" onclick="aiSwitchTab('timeline')">Forecast Timeline</button>
-    <button class="ai-tab-btn${aiTab==='tracker'?' on':''}" onclick="aiSwitchTab('tracker')">Cost Tracker</button>
-    <button class="ai-tab-btn${aiTab==='data'?' on':''}" onclick="aiSwitchTab('data')">Data Reference</button>
+    <button class="ai-tab-btn${aiTab==='overview'?' on':''}" onclick="aiSwitchTab('overview')">Start here</button>
+    <button class="ai-tab-btn${aiTab==='products'?' on':''}" onclick="aiSwitchTab('products')">Product economics</button>
+    <button class="ai-tab-btn${aiTab==='contract'?' on':''}" onclick="aiSwitchTab('contract')">Contract exposure</button>
+    <button class="ai-tab-btn${aiTab==='sources'?' on':''}" onclick="aiSwitchTab('sources')">Assumptions &amp; sources</button>
   </div>
-  <div id="ai-content">${aiTab==='products'?aiRenderProducts():aiTab==='timeline'?aiRenderTimeline():aiTab==='tracker'?aiRenderTracker():aiRenderData()}</div>`;
+  <div id="ai-content">${aiRenderTab()}</div>`;
+}
+
+function aiRenderTab(){
+  return aiTab==='overview' ? aiRenderOverview()
+    : aiTab==='products' ? aiRenderProducts()
+    : aiTab==='contract' ? aiRenderContract()
+    : aiRenderSources();
 }
 
 function aiSwitchTab(t){
-  aiTab=t;
-  document.querySelectorAll('.ai-tab-btn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase().includes(t==='products'?'product':t==='timeline'?'forecast':t==='tracker'?'cost':t==='data'?'data':'')));
-  document.getElementById('ai-content').innerHTML=t==='products'?aiRenderProducts():t==='timeline'?aiRenderTimeline():t==='tracker'?aiRenderTracker():aiRenderData();
+  aiTab = t;
+  try{ history.replaceState(null,'', '#ai-cost/'+t); }catch(e){ try{location.hash='ai-cost/'+t;}catch(_){} }
+  document.querySelectorAll('.ai-tab-btn').forEach(b=>b.classList.remove('on'));
+  document.querySelectorAll('.ai-tab-btn').forEach(b=>{
+    const map={overview:'start here',products:'product economics',contract:'contract exposure',sources:'assumptions'};
+    if(b.textContent.toLowerCase().includes(map[t])) b.classList.add('on');
+  });
+  document.getElementById('ai-content').innerHTML = aiRenderTab();
   requestAnimationFrame(initAICostCharts);
 }
 
-function aiRenderProducts(){
-  const presets=[
-    {name:"Pre-Crisis (2025)",elec:65,comp:1.0},
-    {name:"Current (Mar 2026)",elec:97.4,comp:1.0},
-    {name:"If Crisis Deepens",elec:145,comp:1.2},
-    {name:"Worst Case",elec:200,comp:1.5}
-  ];
+// ── tab 1: overview ──
+function aiRenderOverview(){
+  return `
+  <div class="card" style="margin-bottom:20px"><div class="card-body">
+    <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">The short version</div>
+    <div style="font-size:14px;color:var(--text);line-height:1.7">
+      The scary version of this story is that rising electricity prices will make NHS AI uneconomical. For most NHS AI, that is wrong. The products everyone is actually buying, the scribes, triage, coding and decision support, are thin layers over a model API. Their cost per use is a few pence and the value, a clinician minute saved or a specialist read avoided, is pounds. Electricity is a rounding error for them, and you can see that directly in the cost breakdown on the next tab.
+      <br><br>
+      Two real risks sit underneath, and neither tends to appear on a vendor's slides:
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+      <div style="padding:14px 16px;border-radius:10px;background:var(--bg3);border-left:3px solid var(--amber)">
+        <div style="font-weight:700;font-size:14px;margin-bottom:6px">1. The token price is subsidised</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.6">Frontier inference is being sold below cost to win share. Analysts expect it to normalise upward, from +30 to 50% in the near term to 3 to 10× to reach sustainable economics. Your cost per use today is not the real cost per use.</div>
+      </div>
+      <div style="padding:14px 16px;border-radius:10px;background:var(--bg3);border-left:3px solid var(--red)">
+        <div style="font-weight:700;font-size:14px;margin-bottom:6px">2. The contract carries the shock, or you do</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.6">A multi-year, fixed-price NHS contract with no compute or energy escalator means the vendor absorbs that normalisation. If it turns their margin negative they re-price, re-architect or walk. That is what ends a deployment mid-contract, not the grid.</div>
+      </div>
+    </div>
+    <div style="font-size:14px;color:var(--text);line-height:1.7;margin-top:16px">
+      So this page does two honest things. <strong>Product economics</strong> shows where each product's cost actually comes from (inference, energy, or fixed licence) and how far the token price would have to rise before the margin goes negative. <strong>Contract exposure</strong> lets you stress a signed, fixed-price contract against the subsidy unwinding, and shows the year the vendor's margin turns red.
+    </div>
+  </div></div>
 
-  let viable=0,pressure=0,unviable=0;
-  const sorted=[...AI_PRODUCTS].sort((a,b)=>{const o={unviable:0,pressure:1,viable:2};return o[aiGetStatus(a).status]-o[aiGetStatus(b).status];});
+  <div class="ai-dual">
+    <div class="ai-dual-card ai-dual-v">
+      <h4 style="color:var(--accent)">If you're a vendor</h4>
+      <div style="font-size:13px;color:var(--text2);line-height:1.6">Price and contract for a 3× token-price world, not today's. Put a compute or CPI escalator into any multi-year deal, or you are short a cost you cannot hedge. The risk on the wrapper products is not tokens, it is fixed licence spread over volume you assumed but did not get.</div>
+    </div>
+    <div class="ai-dual-card ai-dual-b">
+      <h4 style="color:#3f6f8a">If you're a buyer</h4>
+      <div style="font-size:13px;color:var(--text2);line-height:1.6">Ask the vendor what their cost per use is today, and what it is at 3× today's token price. If there is no escalator clause, you are carrying the continuity risk, not them. The questions worth asking are at the foot of the Contract exposure tab.</div>
+    </div>
+  </div>
+
+  <div class="ai-note">This replaces an earlier version of this page that framed everything around electricity prices and a 2026 energy crisis. That framing overstated the energy risk for the products that dominate NHS spend, and understated the contract and subsidy risk. This is the corrected model.</div>`;
+}
+
+// ── tab 2: product economics ──
+function aiRenderProducts(){
+  const presets = [
+    {n:'Today (subsidised)', im:1, em:1},
+    {n:'Capital discipline +50%', im:1.5, em:1},
+    {n:'Subsidy unwinds ×3', im:3, em:1.2},
+    {n:'Full true cost ×6', im:6, em:1.5}
+  ];
+  let viable=0, watch=0, exposed=0;
+  const sorted = [...AIP].sort((a,b)=>{
+    const ma=aiMarginPct(a.vLo,aiUnit(a,aiInfMult,aiElecMult));
+    const mb=aiMarginPct(b.vLo,aiUnit(b,aiInfMult,aiElecMult));
+    return ma-mb;
+  });
   let cards='';
   sorted.forEach(p=>{
-    const s=aiGetStatus(p),d=aiGetDefunct(p);
-    if(s.status==='viable')viable++;else if(s.status==='pressure')pressure++;else unviable++;
-    const abe=(p.breakEvenElec/aiComputeMult).toFixed(0);
-    cards+=`<div class="ai-prod-card">
-      <div class="ai-prod-icon">${p.icon}</div>
+    const c = aiUnit(p, aiInfMult, aiElecMult);
+    const mLo = aiMarginPct(p.vLo, c), mHi = aiMarginPct(p.vHi, c);
+    const st = aiStatus(mLo);
+    if(st==='viable') viable++; else if(st==='pressure') watch++; else exposed++;
+    const infS = c>0 ? p.inf*aiInfMult/c*100 : 0;
+    const enS  = c>0 ? p.en*aiElecMult/c*100 : 0;
+    const fxS  = c>0 ? p.fix/c*100 : 0;
+    const cliff = aiInfCliff(p, aiElecMult);
+    const mColor = mLo<0 ? 'var(--red)' : mLo<40 ? 'var(--red)' : mLo<70 ? 'var(--amber)' : 'var(--green)';
+    cards += `<div class="ai-prod-card">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div class="ai-prod-icon">${p.icon}</div>
+        <span class="ai-tag">${p.type}</span>
+      </div>
       <div class="ai-prod-name">${p.name}</div>
       <div class="ai-prod-desc">${p.desc}</div>
-      <div class="ai-prod-status ai-status-${s.status}"><span class="ai-tl ai-tl-${s.status==='viable'?'g':s.status==='pressure'?'a':'r'}"></span> ${s.label}</div>
-      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Compute level</span><span class="ai-prod-stat-v">${p.category}</span></div>
-      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Cost per use</span><span class="ai-prod-stat-v">£${s.costPerUse}</span></div>
-      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Value per use</span><span class="ai-prod-stat-v">£${p.valuePerUse.toFixed(2)}</span></div>
-      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Margin</span><span class="ai-prod-stat-v" style="color:${parseFloat(s.margin)<20?'var(--red)':parseFloat(s.margin)<50?'var(--amber)':'var(--green)'}">${s.margin}%</span></div>
-      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Breaks at</span><span class="ai-prod-stat-v">£${abe}/MWh</span></div>
-      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Projected defunct</span><span class="ai-prod-stat-v" style="color:${d.color}">${d.text}</span></div>
+      <div class="ai-prod-status ai-status-${st}"><span class="ai-tl ai-tl-${st==='viable'?'g':st==='pressure'?'a':'r'}"></span> ${aiStatusLabel(st)} at this scenario</div>
+      <div class="ai-bd">
+        <span style="width:${infS}%;background:#7a5a8a" title="Inference"></span>
+        <span style="width:${enS}%;background:#c2823f" title="Energy"></span>
+        <span style="width:${fxS}%;background:#5f8a82" title="Fixed licence"></span>
+      </div>
+      <div class="ai-bd-l">
+        <span><i style="background:#7a5a8a"></i>Inference ${Math.round(infS)}%</span>
+        <span><i style="background:#c2823f"></i>Energy ${Math.round(enS)}%</span>
+        <span><i style="background:#5f8a82"></i>Fixed ${Math.round(fxS)}%</span>
+      </div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Cost per ${p.unitName}</span><span class="ai-prod-stat-v">${aiGBP2(c)}</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Value per ${p.unitName}</span><span class="ai-prod-stat-v">${aiGBP2(p.vLo)} to ${aiGBP2(p.vHi)}</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Margin band</span><span class="ai-prod-stat-v" style="color:${mColor}">${Math.round(mLo)}–${Math.round(mHi)}%</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Energy share of cost</span><span class="ai-prod-stat-v">${Math.round(enS)}%</span></div>
+      <div class="ai-prod-stat"><span class="ai-prod-stat-l">Token price can rise</span><span class="ai-prod-stat-v ai-cliff" style="color:${cliff<3?'var(--red)':cliff<6?'var(--amber)':'var(--green)'}">${aiCliffTxt(cliff)}</span></div>
+      <div class="ai-basis"><strong style="color:var(--text)">Value basis:</strong> ${p.vBasis}</div>
+      <div class="ai-src">Source: ${p.vSrc}</div>
     </div>`;
   });
 
-  return`
-    <div class="ai-g2" style="margin-bottom:24px">
-      <div class="card"><div class="card-body">
-        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">How It Works — The Maths</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.7">
-          Each AI product has an <strong style="color:var(--text)">energy cost per use</strong> — per scan, consultation, or query. When the cost per use exceeds the value delivered, the product <strong style="color:var(--red)">becomes uneconomical</strong>. Products with high compute needs (medical imaging, pathology) hit the wall first. The <strong style="color:var(--amber)">break-even electricity price</strong> is where running AI costs more than the traditional alternative.
-        </div>
-      </div></div>
-      <div class="card"><div class="card-body">
-        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Why This Matters for NHS Procurement</div>
-        <div style="font-size:13px;color:var(--text2);line-height:1.7">
-          Most AI vendors quote licence costs but <strong style="color:var(--text)">not infrastructure costs</strong>. A system affordable at today's energy prices could become a liability if electricity spikes (+50% in March 2026), compute demand pushes costs up (5x by 2030), helium becomes scarce (+400%), or the grid can't keep up.
-        </div>
-      </div></div>
-    </div>
-    <div class="card" style="margin-bottom:24px"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Adjust Energy & Compute Costs</div>
-      <div class="ai-preset-btns">${presets.map((p,i)=>`<button class="ai-preset-btn${i===1?' on':''}" onclick="aiApplyPreset(${i})">${p.name}</button>`).join('')}</div>
+  return `
+    <div class="ai-explain"><strong>Read the cost bar first.</strong> It splits each product's cost per use into inference (the API or GPU compute), energy (electricity the vendor pays directly), and fixed licence. For the wrapper products energy is at or near zero, which is the whole point: their exposure is the token price and the fixed licence, not the grid. The "token price can rise" figure is the worst-case (low-value) multiple at which the margin reaches zero.</div>
+
+    <div class="card" style="margin-bottom:20px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Stress the cost: inference price is the primary axis</div>
+      <div class="ai-preset-btns">${presets.map((p,i)=>`<button class="ai-preset-btn${(aiInfMult===p.im&&aiElecMult===p.em)?' on':''}" onclick="aiApplyPreset(${i})">${p.n}</button>`).join('')}</div>
       <div class="ai-slider-row">
-        <label>Electricity price</label>
-        <input type="range" id="ai-s-elec" min="30" max="300" step="1" value="${aiElecPrice}" oninput="aiSliderChange()">
-        <span class="ai-slider-val" id="ai-v-elec">£${aiElecPrice.toFixed(0)}/MWh</span>
+        <label>Inference price vs today</label>
+        <input type="range" id="ai-s-inf" min="1" max="6" step="0.5" value="${aiInfMult}" oninput="aiSliderChange()">
+        <span class="ai-slider-val" id="ai-v-inf">×${aiInfMult.toFixed(1)}</span>
       </div>
       <div class="ai-slider-row">
-        <label>Compute cost multiplier</label>
-        <input type="range" id="ai-s-comp" min="50" max="250" step="5" value="${aiComputeMult*100}" oninput="aiSliderChange()">
-        <span class="ai-slider-val" id="ai-v-comp">${(aiComputeMult*100).toFixed(0)}%</span>
+        <label>Electricity vs today</label>
+        <input type="range" id="ai-s-elec" min="1" max="3" step="0.1" value="${aiElecMult}" oninput="aiSliderChange()">
+        <span class="ai-slider-val" id="ai-v-elec">×${aiElecMult.toFixed(1)}</span>
       </div>
-      <div style="font-size:11px;color:var(--text2);font-style:italic;margin-top:8px">£65/MWh was typical in 2025. Currently £97.40 due to Hormuz crisis. Compute 100% = today's costs.</div>
+      <div style="font-size:11px;color:var(--text2);font-style:italic;margin-top:8px">×1 is today's subsidised price. Analysts put normalisation at +30 to 50% near-term and 3 to 10× to reach sustainable economics. Electricity only moves the self-hosted GPU products.</div>
     </div></div>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-      <h3 style="font-size:16px;font-weight:700">Product Viability at Current Costs</h3>
-      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(79,138,110,.15);color:#4f8a6e">
-        <span style="color:var(--green)">${viable} Viable</span> · <span style="color:var(--amber)">${pressure} Pressure</span> · <span style="color:var(--red)">${unviable} Uneconomical</span>
+
+    <div class="card" style="margin-bottom:24px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Margin as the token price rises</div>
+      <div class="ai-chart-box" style="height:320px"><canvas id="ai-chart-cliff"></canvas></div>
+      <div style="font-size:11px;color:var(--text2);font-style:italic;margin-top:8px">Mid-value margin against the inference-price multiple, at the current electricity setting. The flat lines near the top are the wrapper products: token price barely touches them. The lines that slope are the GPU products, where compute and energy are a real share of cost.</div>
+    </div></div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border);flex-wrap:wrap;gap:8px">
+      <h3 style="font-size:16px;font-weight:700">Product economics at this scenario</h3>
+      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(95,101,95,.10)">
+        <span style="color:var(--green)">${viable} Robust</span> · <span style="color:var(--amber)">${watch} Watch</span> · <span style="color:var(--red)">${exposed} Exposed</span>
       </span>
     </div>
     <div class="ai-prod-grid">${cards}</div>`;
 }
 
 function aiApplyPreset(idx){
-  const presets=[{elec:65,comp:1.0},{elec:97.4,comp:1.0},{elec:145,comp:1.2},{elec:200,comp:1.5}];
-  aiElecPrice=presets[idx].elec;aiComputeMult=presets[idx].comp;
-  document.getElementById('ai-s-elec').value=aiElecPrice;
-  document.getElementById('ai-s-comp').value=aiComputeMult*100;
-  document.getElementById('ai-v-elec').textContent='£'+aiElecPrice.toFixed(0)+'/MWh';
-  document.getElementById('ai-v-comp').textContent=(aiComputeMult*100).toFixed(0)+'%';
-  document.querySelectorAll('.ai-preset-btn').forEach((b,j)=>b.classList.toggle('on',j===idx));
-  aiRefreshProducts();
+  const presets=[{im:1,em:1},{im:1.5,em:1},{im:3,em:1.2},{im:6,em:1.5}];
+  aiInfMult=presets[idx].im; aiElecMult=presets[idx].em;
+  document.getElementById('ai-content').innerHTML=aiRenderProducts();
+  requestAnimationFrame(initAICostCharts);
 }
 function aiSliderChange(){
-  aiElecPrice=parseFloat(document.getElementById('ai-s-elec').value);
-  aiComputeMult=parseFloat(document.getElementById('ai-s-comp').value)/100;
-  document.getElementById('ai-v-elec').textContent='£'+aiElecPrice.toFixed(0)+'/MWh';
-  document.getElementById('ai-v-comp').textContent=(aiComputeMult*100).toFixed(0)+'%';
-  document.querySelectorAll('.ai-preset-btn').forEach(b=>b.classList.remove('on'));
-  aiRefreshProducts();
-}
-function aiRefreshProducts(){
-  // Re-render just the product grid section
-  const el=document.querySelector('.ai-prod-grid');
-  if(!el)return;
-  // Easier: re-render entire products tab
+  aiInfMult=parseFloat(document.getElementById('ai-s-inf').value);
+  aiElecMult=parseFloat(document.getElementById('ai-s-elec').value);
   document.getElementById('ai-content').innerHTML=aiRenderProducts();
+  requestAnimationFrame(initAICostCharts);
 }
 
-function aiRenderTimeline(){
-  // Build timeline rows
-  const sorted=[...AI_PRODUCTS].sort((a,b)=>aiGetDefunct(a).months-aiGetDefunct(b).months);
-  let rows='';
-  sorted.forEach(p=>{
-    const d=aiGetDefunct(p);
-    const barPct=Math.min((d.months/120)*100,100);
-    const barColor=d.months<=12?"linear-gradient(90deg,#a3492f,#a3492f)":d.months<=36?"linear-gradient(90deg,#b5791f,#b5791f)":"linear-gradient(90deg,#4f8a6e,#4f8a6e)";
-    rows+=`<div class="ai-timeline-row">
-      <div class="ai-timeline-icon">${p.icon}</div>
-      <div class="ai-timeline-prod">${p.name}</div>
-      <div class="ai-timeline-bar-c"><div class="ai-timeline-bar" style="width:${Math.max(barPct,5)}%;background:${barColor}">${d.months>0?d.months+'mo':''}</div></div>
-      <div class="ai-timeline-date" style="color:${d.color}">${d.text}</div>
+// ── tab 3: contract exposure ──
+function aiCtDefaults(p){
+  // fixed delivery cost ≈ total per-use fixed × volume; revenue set to ~35% margin today
+  const fixedAnnual = p.fix * p.orgVol;
+  const var1 = aiVarUnit(p,1,1) * p.orgVol;
+  const fee = (fixedAnnual + var1) / 0.65;
+  return { fixedAnnual, var1, fee };
+}
+function aiRenderContract(){
+  const p = AIP.find(x=>x.id===aiCtProd);
+  const d = aiCtDefaults(p);
+  const N = aiCtYears;
+  const escFactor = (y)=> aiCtEsc==='none' ? 1 : aiCtEsc==='cpi' ? Math.pow(1.03,y-1) : 1; // compute handled below
+  let rows='', firstNeg=0, minMargin=999;
+  for(let y=1; y<=N; y++){
+    const m = N>1 ? 1 + (aiCtEnd-1)*(y-1)/(N-1) : aiCtEnd;
+    const varY = aiVarUnit(p, m, 1) * p.orgVol;
+    const cost = d.fixedAnnual + varY;
+    let rev;
+    if(aiCtEsc==='compute'){ rev = d.fee + (varY - d.var1); } // pass-through: revenue tracks cost rise
+    else { rev = d.fee * escFactor(y); }
+    const margin = (rev - cost)/rev*100;
+    if(margin<0 && firstNeg===0) firstNeg=y;
+    if(margin<minMargin) minMargin=margin;
+    const barW = Math.max(2, Math.min(100, (margin+50)));
+    const col = margin<0 ? 'var(--red)' : margin<15 ? 'var(--amber)' : 'var(--green)';
+    rows += `<div class="ai-yr">
+      <span style="width:54px;font-weight:700">Year ${y}</span>
+      <span style="width:42px;color:var(--text2)">×${m.toFixed(1)}</span>
+      <span class="ai-yr-bar-c"><span class="ai-yr-bar" style="width:${barW}%;background:${col}"></span></span>
+      <span style="width:64px;text-align:right;font-weight:700;color:${col}">${Math.round(margin)}%</span>
+      <span style="width:84px;text-align:right;color:var(--text2)">${aiGBP((rev-cost))}</span>
     </div>`;
-  });
+  }
+  const escLabel = aiCtEsc==='none' ? 'no escalator' : aiCtEsc==='cpi' ? 'a CPI escalator (3%/yr)' : 'a compute-indexed escalator';
+  let verdict, vColor, vBg;
+  if(aiCtEsc==='compute'){
+    verdict = `With a compute-indexed escalator the vendor's margin holds near today's level (low of ${Math.round(minMargin)}%) because the price rises with their cost. The trust pays more if token prices normalise, but the deployment does not fall over mid-contract. This is the clause that moves the risk off the vendor and makes it explicit and budgeted, instead of hidden.`;
+    vColor='var(--green)'; vBg='rgba(79,138,110,.10)';
+  } else if(firstNeg>0){
+    verdict = `Under this scenario, with ${escLabel}, the vendor's margin turns negative in <strong>Year ${firstNeg}</strong> (low of ${Math.round(minMargin)}%). From that point the vendor is delivering at a loss. In practice they re-price at renewal, quietly degrade the model, or exit. The trust carries the continuity risk it did not price.`;
+    vColor='var(--red)'; vBg='rgba(163,73,47,.10)';
+  } else {
+    verdict = `Under this scenario, with ${escLabel}, the vendor stays in the black across the term (low of ${Math.round(minMargin)}%). The contract absorbs the shock without breaking, though the margin is thinner than at signing. Stress it harder with the end-of-term multiple to find where it breaks.`;
+    vColor='var(--amber)'; vBg='rgba(181,121,31,.10)';
+  }
 
-  return`
-    <div class="ai-explain"><strong>When does each product become uneconomical?</strong> Based on energy price trends, this shows the projected date each AI product type will cost more to run than the value it delivers.</div>
-    <div class="card" style="margin-bottom:16px"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Energy Price Assumptions</div>
-      <div class="ai-slider-row">
-        <label>Annual energy cost growth</label>
-        <input type="range" id="ai-growth-rate" min="5" max="60" step="1" value="${aiGrowthRate}" oninput="aiGrowthChange()">
-        <span class="ai-slider-val" id="ai-growth-val">+${aiGrowthRate}%/yr</span>
+  return `
+    <div class="ai-explain"><strong>The bit that actually ends deployments.</strong> Unit economics tightening does not kill a product on its own. A fixed-price, multi-year NHS contract with no compute or energy escalator does, because the vendor eats the price normalisation while the fee stays flat. This stresses a signed contract against the token price normalising over the term, and shows the year the vendor goes underwater.</div>
+
+    <div class="card" style="margin-bottom:18px"><div class="card-body">
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:14px">The contract</div>
+      <div class="ai-ct-grid">
+        <div class="ai-ct-field"><label>Product</label>
+          <select onchange="aiCtSet('prod',this.value)">${AIP.map(x=>`<option value="${x.id}"${x.id===aiCtProd?' selected':''}>${x.name}</option>`).join('')}</select></div>
+        <div class="ai-ct-field"><label>Escalator clause</label>
+          <select onchange="aiCtSet('esc',this.value)">
+            <option value="none"${aiCtEsc==='none'?' selected':''}>None (fixed price)</option>
+            <option value="cpi"${aiCtEsc==='cpi'?' selected':''}>CPI-linked (3%/yr)</option>
+            <option value="compute"${aiCtEsc==='compute'?' selected':''}>Compute-indexed (pass-through)</option>
+          </select></div>
+        <div class="ai-ct-field"><label>Contract length: <strong>${aiCtYears} years</strong></label>
+          <input type="range" min="1" max="7" step="1" value="${aiCtYears}" oninput="aiCtSet('years',this.value)"></div>
+        <div class="ai-ct-field"><label>Token price by end of term: <strong>×${aiCtEnd}</strong></label>
+          <input type="range" min="1" max="6" step="1" value="${aiCtEnd}" oninput="aiCtSet('end',this.value)"></div>
       </div>
-      <div style="font-size:11px;color:var(--text2);font-style:italic">Current trajectory: ~18%/yr based on March 2026 conflict-driven prices.</div>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--text2);border-top:1px solid var(--border);padding-top:12px">
+        <span>Modelled volume: <strong style="color:var(--text)">${p.orgVol.toLocaleString()} ${p.unitName}s/yr</strong></span>
+        <span>Annual fee: <strong style="color:var(--text)">${aiFee(d.fee)}</strong></span>
+        <span>Vendor fixed cost: <strong style="color:var(--text)">${aiFee(d.fixedAnnual)}/yr</strong></span>
+        <span>Signing margin: <strong style="color:var(--text)">~35%</strong></span>
+      </div>
     </div></div>
-    <div class="card" style="margin-bottom:16px"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Historical UK Wholesale Electricity Price</div>
-      <div class="ai-chart-box"><canvas id="ai-chart-history"></canvas></div>
-    </div></div>
-    <div class="card" style="margin-bottom:16px"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Projected Viability Timeline</div>
-      <div class="ai-chart-box" style="height:360px"><canvas id="ai-chart-forecast"></canvas></div>
-    </div></div>
-    <div class="card"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Product-by-Product Countdown</div>
+
+    <div class="card" style="margin-bottom:8px"><div class="card-body">
+      <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.04em;padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:4px">
+        <span style="width:54px">Year</span><span style="width:42px">Token ×</span><span style="flex:1">Vendor margin</span><span style="width:64px;text-align:right">Margin %</span><span style="width:84px;text-align:right">£ / yr</span>
+      </div>
       ${rows}
-      <div style="font-size:11px;color:var(--text2);font-style:italic;margin-top:16px">"Defunct" means infrastructure cost exceeds value delivered — making a traditional approach cheaper.</div>
-    </div></div>`;
-}
-
-function aiGrowthChange(){
-  aiGrowthRate=parseInt(document.getElementById('ai-growth-rate').value);
-  document.getElementById('ai-growth-val').textContent='+'+aiGrowthRate+'%/yr';
-  // Rebuild timeline
-  aiSwitchTab('timeline');
-}
-
-function aiRenderTracker(){
-  const topCards=[
-    {l:"UK Wholesale Electricity",v:"£97.40/MWh",c:"+50%",t:"up",s:"Iran conflict impact"},
-    {l:"Brent Crude",v:"$120/bbl",c:"+65%",t:"up",s:"Hormuz closed"},
-    {l:"Helium Spot Price",v:"$450+/MCF",c:"+400%",t:"up",s:"Qatar force majeure"},
-    {l:"Hospital Margins",v:"2.3%",c:"-0.2pp",t:"down",s:"Razor thin"}
-  ];
-
-  let monitor='';
-  AI_COST_VARS.forEach(v=>{
-    const p=aiPct(v.cur,v.base);
-    const light=aiTl(v);
-    const isGoodUp=v.id===12||v.id===14;
-    const pColor=p!==null?(parseFloat(p)>0?(isGoodUp?'var(--green)':'var(--red)'):'var(--green)'):'var(--text2)';
-    monitor+=`<div style="display:flex;align-items:center;gap:10px;padding:6px 0;border-bottom:1px solid var(--border)">
-      <span class="ai-tl ai-tl-${light}"></span>
-      <span style="flex:1;font-size:13px;color:var(--text2)">${v.name}</span>
-      <span style="font-size:13px;font-weight:700;min-width:70px;text-align:right">${aiFmtVal(v.cur,v.unit)}</span>
-      ${p!==null?`<span style="font-size:11px;font-weight:600;min-width:55px;text-align:right;color:${pColor}">${parseFloat(p)>0?'+':''}${p}%</span>`:''}
-    </div>`;
-  });
-
-  const assumptions=[
-    {t:"1. Stable Energy Prices",s:"CHALLENGED — Brent +65%, electricity +50%, gas +72%"},
-    {t:"2. Affordable Compute",s:"CHALLENGED — UK DC power 4x US cost, demand 5x by 2030"},
-    {t:"3. Reliable Supply Chains",s:"CHALLENGED — Helium +400%, Qatar force majeure"},
-    {t:"4. Grid Capacity",s:"CHALLENGED — Grid spend rising 4x, may not meet demand"}
-  ];
-
-  return`
-    <div class="ai-alert"><span style="font-size:20px;flex-shrink:0">⚠</span><div>
-      <div style="font-size:14px;font-weight:600;color:#a3492f">All Four ROI Assumptions Under Simultaneous Pressure — March 2026</div>
-      <div style="font-size:13px;color:var(--text2);margin-top:2px">Energy prices surging (Iran/Hormuz crisis), helium supply disrupted, grid capacity constrained, compute demand accelerating.</div>
     </div></div>
-    <div class="ai-g4">${topCards.map(c=>`<div class="card"><div class="card-body">
-      <div class="ai-ml">${c.l}</div><div class="ai-mv">${c.v}</div>
-      <span class="ai-mc ai-mc-${c.t==='up'?'up':'dn'}">${c.t==='up'?'↑':'↓'} ${c.c}</span>
-      <div class="ai-msub">${c.s}</div>
-    </div></div>`).join('')}</div>
-    <div class="ai-g2" style="align-items:stretch">
-      <div class="card"><div class="card-body">
-        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Energy Price Trajectory (6-Month)</div>
-        <div class="ai-chart-box"><canvas id="ai-chart-energy"></canvas></div>
-      </div></div>
-      <div class="card"><div class="card-body">
-        <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Helium Price & Supply Index</div>
-        <div class="ai-chart-box"><canvas id="ai-chart-helium"></canvas></div>
-      </div></div>
+
+    <div class="ai-verdict" style="background:${vBg};border:1px solid ${vColor};color:var(--text)"><span style="color:${vColor};font-weight:700">Verdict. </span>${verdict}</div>
+
+    <div class="ai-dual">
+      <div class="ai-dual-card ai-dual-b">
+        <h4 style="color:#3f6f8a">Questions a buyer should ask before signing</h4>
+        <ul class="ai-qlist">
+          <li>What is your cost per use today, split into compute and fixed?</li>
+          <li>What is that cost at 3× today's token price, and at 6×?</li>
+          <li>Is there a compute or energy escalator, or are you absorbing that risk for the full term?</li>
+          <li>If your margin goes negative, what happens to our service: re-price, model downgrade, or exit?</li>
+          <li>What volume does your pricing assume, and what happens if we come in under it?</li>
+        </ul>
+      </div>
+      <div class="ai-dual-card ai-dual-v">
+        <h4 style="color:var(--accent)">How a vendor protects itself</h4>
+        <ul class="ai-qlist">
+          <li>Put a compute-indexed or CPI escalator into any deal longer than 12 months.</li>
+          <li>Price against a 3× token-price world, not today's subsidised rate.</li>
+          <li>Add a price-review trigger if input costs move beyond a stated band.</li>
+          <li>Hold a model-substitution right so you can swap to a cheaper equivalent.</li>
+          <li>Tie the fixed fee to a committed minimum volume.</li>
+        </ul>
+      </div>
     </div>
-    <div class="card" style="margin-bottom:16px"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Variable Status Monitor</div>
-      ${monitor}
-    </div></div>
+    <div class="ai-note">Figures are illustrative. The fee is set to give roughly a 35% margin at signing, the vendor's fixed cost is modelled from the product's fixed component, and the token price is assumed to rise linearly to the end-of-term multiple. The shape of the result, not the exact pounds, is the point.</div>`;
+}
+function aiCtSet(k,v){
+  if(k==='prod') aiCtProd=v;
+  else if(k==='esc') aiCtEsc=v;
+  else if(k==='years') aiCtYears=parseInt(v);
+  else if(k==='end') aiCtEnd=parseInt(v);
+  document.getElementById('ai-content').innerHTML=aiRenderContract();
+}
+
+// ── tab 4: assumptions & sources ──
+function aiRenderSources(){
+  const prodRows = AIP.map(p=>`<tr>
+    <td style="font-weight:600">${p.icon} ${p.name}</td>
+    <td>${p.type}</td>
+    <td>${aiGBP2(p.inf)}</td>
+    <td>${p.en>0?aiGBP2(p.en):'£0'}</td>
+    <td>${aiGBP2(p.fix)}</td>
+    <td style="font-weight:700">${aiGBP2(p.vLo)} to ${aiGBP2(p.vHi)}</td>
+    <td style="font-size:12px;max-width:260px">${p.vBasis}</td>
+    <td style="font-size:11px;color:var(--text2)">${p.vSrc}</td>
+  </tr>`).join('');
+  const macroRows = AI_MACRO.map(m=>`<tr>
+    <td style="font-weight:600">${m.k}</td>
+    <td style="font-weight:700">${m.v}</td>
+    <td style="font-size:12px;max-width:320px">${m.note}</td>
+    <td style="font-size:11px;color:var(--text2)">${m.src}</td>
+  </tr>`).join('');
+  return `
+    <div class="ai-explain"><strong>Every number, and where it comes from.</strong> The cost side is derived from token and compute prices. The value side is the softest input, so it is stated as a band with an explicit basis: value here means the avoided cost of the traditional alternative (clinician time, a specialist read), not a clinical benefit or an NHS list price. Where a figure is a reasoned estimate rather than a published unit cost, it says so.</div>
+
+    <div style="font-size:13px;font-weight:700;margin:0 0 10px">Per-product cost and value</div>
+    <div class="card" style="padding:0;overflow:auto;margin-bottom:24px"><table class="tbl">
+      <thead><tr><th>Product</th><th>Type</th><th>Inference /use</th><th>Energy /use</th><th>Fixed /use</th><th>Value /use</th><th>Value basis</th><th>Source</th></tr></thead>
+      <tbody>${prodRows}</tbody>
+    </table></div>
+
+    <div style="font-size:13px;font-weight:700;margin:0 0 10px">Macro assumptions</div>
+    <div class="card" style="padding:0;overflow:auto;margin-bottom:24px"><table class="tbl">
+      <thead><tr><th>Assumption</th><th>Value</th><th>Note</th><th>Source</th></tr></thead>
+      <tbody>${macroRows}</tbody>
+    </table></div>
+
     <div class="card"><div class="card-body">
-      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:12px">Four Core Assumptions — Current Status</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-        ${assumptions.map(a=>`<div class="ai-ac"><div class="ai-ac-t">${a.t}</div><div class="ai-ac-s">${a.s}</div></div>`).join('')}
+      <div style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--text2);margin-bottom:10px">How the model works</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.7">
+        Cost per use = inference × (inference multiple) + energy × (electricity multiple) + fixed. Margin = (value − cost) / value. The "token price can rise" figure solves for the inference multiple at which the low-value margin reaches zero, holding electricity fixed. The contract tool sets a fee at roughly a 35% signing margin, models the vendor's fixed delivery cost from the fixed component, then raises the token price linearly to the end-of-term multiple and recomputes the vendor's margin each year. A compute-indexed escalator passes the cost rise through to the fee, which is why it holds the margin.
       </div>
     </div></div>`;
 }
 
-function aiRenderData(){
-  const cats=["All","Energy","Grid","Helium","Healthcare"];
-  const catColors={Energy:"239,68,68",Grid:"59,130,246",Helium:"168,85,247",Healthcare:"16,185,129"};
-  let data=AI_COST_VARS;
-  let rows=data.map(v=>{
-    const p=aiPct(v.cur,v.base);
-    const light=aiTl(v);
-    const rgb=catColors[v.cat]||"148,163,184";
-    const pNum=p!==null?parseFloat(p):0;
-    const pColor=pNum>20?'var(--red)':pNum>5?'var(--amber)':'var(--green)';
-    return`<tr>
-      <td style="font-weight:600">${v.name}</td>
-      <td><span style="font-size:11px;padding:2px 8px;border-radius:4px;background:rgba(${rgb},.12);color:rgba(${rgb},1)">${v.cat}</span></td>
-      <td>${aiFmtVal(v.base,v.unit)}</td>
-      <td style="font-weight:700">${aiFmtVal(v.cur,v.unit)}</td>
-      <td>${p!==null?`<span style="font-weight:600;color:${pColor}">${pNum>0?'+':''}${p}%</span>`:'—'}</td>
-      <td><span class="ai-tl ai-tl-${light}"></span></td>
-      <td style="font-size:12px;max-width:200px">${v.note}</td>
-      <td style="font-size:12px;color:var(--text2)">${v.src}</td>
-    </tr>`;
-  }).join('');
-
-  return`
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-      <h3 style="font-size:16px;font-weight:700">Data Reference Table</h3>
-      <span style="font-size:11px;padding:3px 10px;border-radius:6px;font-weight:600;background:rgba(95,101,95,.15);color:var(--text2)">${data.length} variables</span>
-    </div>
-    <div class="card" style="padding:0;overflow:auto"><table class="tbl">
-      <thead><tr><th>Variable</th><th>Category</th><th>Baseline</th><th>Current</th><th>Change</th><th>Status</th><th>Note</th><th>Source</th></tr></thead>
-      <tbody>${rows}</tbody>
-    </table></div>`;
-}
-
+// ── charts ──
 function initAICostCharts(){
-  // Destroy old AI chart instances
   Object.values(aiChartInst).forEach(c=>{try{c.destroy();}catch(e){}});
   aiChartInst={};
-  if(view!=='aicost')return;
-
-  // History chart (timeline tab)
-  const histCanvas=document.getElementById('ai-chart-history');
-  if(histCanvas){
-    aiChartInst.history=new Chart(histCanvas,{
+  if(view!=='aicost') return;
+  const cv = document.getElementById('ai-chart-cliff');
+  if(cv){
+    const mults=[1,2,3,4,5,6];
+    const prodColors=["#7a5a8a","#3f6f8a","#6b8f3f","#c2823f","#a3492f","#1f3d2d"];
+    const datasets = AIP.map((p,i)=>({
+      label:p.name,
+      data:mults.map(m=>Math.round(aiMarginPct(aiMid(p), aiUnit(p, m, aiElecMult)))),
+      borderColor:prodColors[i%prodColors.length],
+      backgroundColor:'transparent',
+      borderWidth:2, tension:.25, pointRadius:2
+    }));
+    datasets.push({label:'Margin = 0', data:mults.map(()=>0), borderColor:'rgba(163,73,47,.55)', borderDash:[6,5], borderWidth:1.5, pointRadius:0, fill:false});
+    aiChartInst.cliff=new Chart(cv,{
       type:'line',
-      data:{
-        labels:AI_HIST_PRICES.map(h=>h.year),
-        datasets:[{
-          label:'UK Wholesale Electricity (£/MWh)',
-          data:AI_HIST_PRICES.map(h=>h.price),
-          borderColor:'#4f8a6e',backgroundColor:'rgba(79,138,110,.1)',
-          fill:true,tension:0.3,pointRadius:4,
-          pointBackgroundColor:AI_HIST_PRICES.map(h=>h.price>100?'#a3492f':'#4f8a6e')
-        }]
-      },
+      data:{labels:mults.map(m=>'×'+m), datasets},
       options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{
-          legend:{labels:{color:'#5f655f',font:{size:11}}},
-          annotation:{annotations:{currentLine:{type:'line',yMin:97.4,yMax:97.4,borderColor:'rgba(163,73,47,.5)',borderWidth:2,borderDash:[6,6],label:{content:'Current: £97.40',display:true,position:'end',color:'#a3492f',font:{size:11}}}}}
-        },
-        scales:{
-          x:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
-          y:{ticks:{color:'#5f655f',font:{size:11},callback:v=>'£'+v},grid:{color:'#e1e0d9'}}
-        }
-      }
-    });
-  }
-
-  // Forecast chart (timeline tab)
-  const foreCanvas=document.getElementById('ai-chart-forecast');
-  if(foreCanvas){
-    const years=[],prices=[];
-    for(let m=0;m<=60;m+=6){
-      const price=aiElecPrice*Math.pow(1+aiGrowthRate/100,m/12);
-      const d=new Date(2026,2+m,1);
-      years.push(d.toLocaleDateString('en-GB',{month:'short',year:'2-digit'}));
-      prices.push(Math.round(price));
-    }
-    const datasets=[{label:'Projected electricity price',data:prices,borderColor:'#4f8a6e',backgroundColor:'rgba(79,138,110,.08)',fill:true,tension:0.3,pointRadius:3,borderWidth:2}];
-    const prodColors=["#4f8a6e","#1f3d2d","#a3492f","#b5791f","#3f6f8a","#7a5a8a","#6b8f3f","#c2823f","#5f8a82","#9c5a4a"];
-    AI_PRODUCTS.forEach((p,i)=>{
-      const be=p.breakEvenElec/aiComputeMult;
-      datasets.push({label:p.name+' (£'+Math.round(be)+')',data:years.map(()=>Math.round(be)),borderColor:prodColors[i%prodColors.length],borderDash:[4,4],borderWidth:1.5,pointRadius:0,fill:false});
-    });
-    aiChartInst.forecast=new Chart(foreCanvas,{
-      type:'line',data:{labels:years,datasets},
-      options:{
-        responsive:true,maintainAspectRatio:false,
+        responsive:true, maintainAspectRatio:false,
         plugins:{legend:{labels:{color:'#5f655f',font:{size:10},boxWidth:12},position:'bottom'}},
         scales:{
-          x:{ticks:{color:'#5f655f',font:{size:10}},grid:{color:'#e1e0d9'}},
-          y:{ticks:{color:'#5f655f',font:{size:10},callback:v=>'£'+v},grid:{color:'#e1e0d9'},title:{display:true,text:'£/MWh',color:'#5f655f'}}
-        }
-      }
-    });
-  }
-
-  // Energy chart (tracker tab)
-  const energyCanvas=document.getElementById('ai-chart-energy');
-  if(energyCanvas){
-    aiChartInst.energy=new Chart(energyCanvas,{
-      type:'line',
-      data:{
-        labels:['Sep 25','Oct 25','Nov 25','Dec 25','Jan 26','Feb 26','Mar 26'],
-        datasets:[
-          {label:'Electricity (£/MWh)',data:[62,64,63,67,70,78,97.4],borderColor:'#4f8a6e',backgroundColor:'rgba(79,138,110,.1)',fill:true,tension:.3,pointRadius:3},
-          {label:'Brent Crude ($)',data:[71,73,72,74,76,88,120],borderColor:'#b5791f',backgroundColor:'rgba(181,121,31,.1)',fill:true,tension:.3,pointRadius:3}
-        ]
-      },
-      options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{labels:{color:'#5f655f',font:{size:11}}}},
-        scales:{x:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},y:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}}}
-      }
-    });
-  }
-
-  // Helium chart (tracker tab)
-  const heliumCanvas=document.getElementById('ai-chart-helium');
-  if(heliumCanvas){
-    aiChartInst.helium=new Chart(heliumCanvas,{
-      type:'line',
-      data:{
-        labels:['Q1 24','Q2 24','Q3 24','Q4 24','Q1 25','Q2 25','Q3 25','Q1 26'],
-        datasets:[
-          {label:'Price ($/MCF)',data:[380,390,400,420,450,480,520,1900],borderColor:'#7a5a8a',backgroundColor:'rgba(122,90,138,.1)',fill:true,tension:.3,pointRadius:3,yAxisID:'y'},
-          {label:'Supply Index',data:[100,98,95,90,85,70,65,30],borderColor:'#4f8a6e',borderDash:[5,5],backgroundColor:'transparent',tension:.3,pointRadius:3,yAxisID:'y1'}
-        ]
-      },
-      options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{labels:{color:'#5f655f',font:{size:11}}}},
-        scales:{
-          x:{ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
-          y:{position:'left',ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
-          y1:{position:'right',min:0,max:100,ticks:{color:'#5f655f',font:{size:11}},grid:{display:false}}
+          x:{title:{display:true,text:'Inference price vs today',color:'#5f655f',font:{size:11}},ticks:{color:'#5f655f',font:{size:11}},grid:{color:'#e1e0d9'}},
+          y:{title:{display:true,text:'Margin %',color:'#5f655f',font:{size:11}},ticks:{color:'#5f655f',font:{size:10},callback:v=>v+'%'},grid:{color:'#e1e0d9'}}
         }
       }
     });
