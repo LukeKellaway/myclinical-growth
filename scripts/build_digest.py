@@ -163,11 +163,13 @@ def _item_card(it, accent="#4f8a6e"):
     source = it.get("source", "")
     category = it.get("category", "")
     value = it.get("value", "")
-    means = it.get("means", "")
     deadline_chip = _deadline_chip(it.get("deadline", ""))
 
+    # Bare-minimum card: category label + title + one source/value meta line,
+    # then a chip + link footer. The "what it means" blurb was dropped to keep
+    # the email short on mobile; the full note still lives on the detail page.
     category_html = (
-        f'<div style="font-size:10.5px;color:{accent};font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;">{category}</div>'
+        f'<div style="font-size:10.5px;color:{accent};font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">{category}</div>'
         if category else ""
     )
     source_bits = " &middot; ".join(x for x in [source, value] if x)
@@ -175,24 +177,19 @@ def _item_card(it, accent="#4f8a6e"):
         f'<div style="font-size:13px;color:#5f655f;margin-top:4px;">{source_bits}</div>'
         if source_bits else ""
     )
-    means_html = (
-        f'<div style="font-size:14px;color:#2a302a;line-height:1.55;margin:12px 0 14px;padding:12px 14px;background:#f8f7f2;border-radius:8px;">{means}</div>'
-        if means else '<div style="height:8px;"></div>'
-    )
 
     # Two-cell footer: chip on left, link on right. Tables for Outlook safety.
     chip_cell = deadline_chip or '<span style="font-size:11px;color:#8a918a;font-weight:600;letter-spacing:.04em;text-transform:uppercase;">Ongoing</span>'
     return f"""
-      <tr><td style="padding:8px 0;">
+      <tr><td style="padding:6px 0;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e8e6dd;border-radius:12px;">
-          <tr><td style="padding:20px 22px 18px;border-left:3px solid {accent};border-top-left-radius:12px;border-bottom-left-radius:12px;">
+          <tr><td style="padding:15px 18px;border-left:3px solid {accent};border-top-left-radius:12px;border-bottom-left-radius:12px;">
             {category_html}
-            <div style="font-size:17px;font-weight:800;line-height:1.3;color:#0e1410;letter-spacing:-0.01em;">
+            <div style="font-size:16px;font-weight:800;line-height:1.3;color:#0e1410;letter-spacing:-0.01em;">
               <a href="{url}" style="color:#0e1410;text-decoration:none;">{title}</a>
             </div>
             {source_html}
-            {means_html}
-            <table width="100%" cellpadding="0" cellspacing="0">
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:11px;">
               <tr>
                 <td align="left" style="vertical-align:middle;">{chip_cell}</td>
                 <td align="right" style="vertical-align:middle;">
@@ -306,10 +303,13 @@ def _capital_card(d):
         f'<a href="{source_url}" style="color:{CAPITAL_ACCENT};font-size:12px;font-weight:700;text-decoration:none;">Source &rarr;</a>'
         if source_url else ""
     )
+    # Bare-minimum card: company + type + amount on the top line, then one
+    # meta line (round / date / backers) and the source link. The free-text
+    # "what" description was dropped to keep the email short.
     return f"""
-      <tr><td style="padding:7px 0;">
+      <tr><td style="padding:6px 0;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e8e6dd;border-radius:11px;">
-          <tr><td style="padding:16px 18px;border-left:3px solid {CAPITAL_ACCENT};border-top-left-radius:11px;border-bottom-left-radius:11px;">
+          <tr><td style="padding:14px 18px;border-left:3px solid {CAPITAL_ACCENT};border-top-left-radius:11px;border-bottom-left-radius:11px;">
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
                 <td style="vertical-align:top;">
@@ -321,9 +321,8 @@ def _capital_card(d):
                 </td>
               </tr>
             </table>
-            <div style="font-size:13px;color:#3a403a;line-height:1.5;margin-top:6px;">{what}</div>
-            <div style="font-size:12px;color:#5f655f;margin-top:8px;">{round_} &middot; {date_s} &middot; {label}: {backers}</div>
-            <div style="margin-top:8px;">{source_html}</div>
+            <div style="font-size:12px;color:#5f655f;margin-top:7px;">{round_} &middot; {date_s} &middot; {label}: {backers}</div>
+            <div style="margin-top:7px;">{source_html}</div>
           </td></tr>
         </table>
       </td></tr>"""
@@ -451,10 +450,12 @@ def _event_card(ev):
         f'<a href="{source_url}" style="color:{EVENTS_ACCENT};font-size:12px;font-weight:700;text-decoration:none;">Details &rarr;</a>'
         if source_url else ""
     )
+    # Bare-minimum card: title + date pill, one meta line (organiser / location)
+    # and the details link. The summary blurb was dropped to keep things short.
     return f"""
-      <tr><td style="padding:7px 0;">
+      <tr><td style="padding:6px 0;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border:1px solid #e8e6dd;border-radius:11px;">
-          <tr><td style="padding:16px 18px;border-left:3px solid {EVENTS_ACCENT};border-top-left-radius:11px;border-bottom-left-radius:11px;">
+          <tr><td style="padding:14px 18px;border-left:3px solid {EVENTS_ACCENT};border-top-left-radius:11px;border-bottom-left-radius:11px;">
             <table width="100%" cellpadding="0" cellspacing="0">
               <tr>
                 <td style="vertical-align:top;">
@@ -465,9 +466,12 @@ def _event_card(ev):
                 </td>
               </tr>
             </table>
-            <div style="font-size:12px;color:#5f655f;margin-top:6px;">{meta}</div>
-            <div style="font-size:13px;color:#3a403a;line-height:1.5;margin-top:6px;">{means}</div>
-            <div style="margin-top:8px;">{source_html}</div>
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:7px;">
+              <tr>
+                <td style="vertical-align:middle;font-size:12px;color:#5f655f;">{meta}</td>
+                <td align="right" style="vertical-align:middle;">{source_html}</td>
+              </tr>
+            </table>
           </td></tr>
         </table>
       </td></tr>"""
@@ -560,6 +564,31 @@ def build_stat_strip():
         </td></tr>"""
 
 
+# --- data observatory promo box --------------------------------------------
+# Standing callout near the top of the email for the UK National Data
+# Observatory. It is a live, free feature, so no auto-expiry. Dark box so it
+# reads as a flagship feature, sitting just under the stat strip. Plain copy,
+# no em-dashes, per house style.
+OBS_ACCENT = "#3f7c91"  # teal
+
+
+def build_observatory():
+    url = f"{SITE_URL}/data/observatory"
+    return f"""
+        <tr><td style="background:#fff;padding:10px 32px 0;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="background-color:#0e1410;background:linear-gradient(135deg,#0b110d 0%,#16231b 100%);border-radius:12px;padding:18px 20px;">
+              <div style="font-size:10.5px;color:#7fd3ea;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px;">Now live &middot; Data observatory</div>
+              <div style="font-size:18px;font-weight:800;color:#fff;letter-spacing:-0.015em;line-height:1.25;">The UK National Data Observatory</div>
+              <div style="font-size:13.5px;color:#aab1aa;line-height:1.55;margin-top:7px;">141+ national datasets on NHS performance, public health and the economy in one dashboard. Track RTT waiting lists, diagnostic breaches and public health indicators, with interactive maps. Free to use.</div>
+              <div style="margin-top:13px;">
+                <a href="{url}" style="display:inline-block;background:{OBS_ACCENT};color:#fff;font-weight:700;text-decoration:none;padding:10px 20px;border-radius:8px;font-size:13.5px;">Open the observatory &rarr;</a>
+              </div>
+            </td></tr>
+          </table>
+        </td></tr>"""
+
+
 # --- one-off announcement banner -------------------------------------------
 # A small "New" banner under the stat strip. Auto-hides after ANNOUNCE_UNTIL so
 # it quietly disappears without a code change. Set ANNOUNCE_TEXT to "" to pull
@@ -583,7 +612,7 @@ def build_announcement():
         </td></tr>"""
 
 
-def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html="", stat_strip="", announcement=""):
+def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_html="", stat_strip="", announcement="", observatory=""):
     today = dt.date.today().strftime("%A %-d %B %Y")
     total = len(opps) + len(grants)
     period_word = "week" if weekly else "today"
@@ -651,6 +680,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
           <div style="color:#aab1aa;font-size:13.5px;margin-top:8px;letter-spacing:.01em;">{brief_label} &middot; {today}</div>
         </td></tr>
         {stat_strip}
+        {observatory}
         {announcement}
 
         <!-- Body -->
@@ -685,6 +715,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
             <a href="{SITE_URL}/grants" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Grants</a>
             <a href="{SITE_URL}/events" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Events</a>
             <a href="{SITE_URL}/directory" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Directory</a>
+            <a href="{SITE_URL}/data/observatory" style="color:#cfd3cd;text-decoration:none;font-weight:600;margin-right:16px;">Data observatory</a>
             <a href="{SITE_URL}/submit?type=feedback" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Leave feedback</a>
           </div>
           You&rsquo;re receiving this because you subscribed to MyClinical Growth at <a href="{SITE_URL}" style="color:#8fcaa9;">growth.myclinical.co.uk</a>.
@@ -851,10 +882,12 @@ def main():
     capital_html = build_capital_section(weekly=WEEKLY_MODE)
     events_html = build_events_section(weekly=WEEKLY_MODE)
     stat_strip = build_stat_strip()
+    observatory = build_observatory()
     announcement = build_announcement()
     html, preheader = render(opps, grants, is_quiet=is_quiet, weekly=WEEKLY_MODE,
                              capital_html=capital_html, events_html=events_html,
-                             stat_strip=stat_strip, announcement=announcement)
+                             stat_strip=stat_strip, announcement=announcement,
+                             observatory=observatory)
     today_ddmm = dt.date.today().strftime("%-d %b")
     brief_label = "weekly brief" if WEEKLY_MODE else "daily brief"
     # Fixed masthead-style subject: a steady tagline plus the moving date, so it
