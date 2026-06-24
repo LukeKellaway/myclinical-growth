@@ -1,7 +1,25 @@
 {
-  "updated": "2026-06-24T09:31:33.191214Z",
-  "count": 2,
+  "updated": "2026-06-24T14:31:44.520850Z",
+  "count": 3,
   "opportunities": [
+    {
+      "id": "fts-059400-2026",
+      "title": "Provision of Workforce and Associated Services",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06bc1c",
+      "buyer": "North Cumbria Integrated Care NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Patient-facing",
+      "value": "GBP 688,095",
+      "published": "2026-06-24T13:01:05+01:00",
+      "deadline": "2026-07-22T12:00:00+01:00",
+      "summary": "North Cumbria Integrated Care NHS Foundation Trust is seeking to appoint a Neutral Vendor to provide a fully managed service for the supply of Temporary Clinical Workforce across its sites. The appointed Neutral Vendor will be responsible for the sourcing, and fulfilment of tempo…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-050965-2026",
       "title": "The Provision of Enhanced Virtual Care Project",
