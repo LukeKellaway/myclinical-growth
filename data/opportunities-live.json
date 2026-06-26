@@ -1,6 +1,6 @@
 {
-  "updated": "2026-06-26T09:28:44.674972Z",
-  "count": 3,
+  "updated": "2026-06-26T14:26:08.962985Z",
+  "count": 2,
   "opportunities": [
     {
       "id": "fts-059400-2026",
@@ -38,24 +38,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-049462-2026",
-      "title": "Fertility EPR System",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06a595",
-      "buyer": "Barts Health NHS Trust",
-      "type": "Tender",
-      "category": "Clinical systems & EPR",
-      "value": "GBP 350,000",
-      "published": "2026-05-27T10:45:10+01:00",
-      "deadline": "2026-06-15T12:00:00+01:00",
-      "summary": "For the Provision of a Fertility EPR System",
-      "cpv": [],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
