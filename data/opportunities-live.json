@@ -1,25 +1,7 @@
 {
-  "updated": "2026-07-20T14:06:25.393342Z",
-  "count": 2,
+  "updated": "2026-07-20T16:24:35.496170Z",
+  "count": 1,
   "opportunities": [
-    {
-      "id": "cf-25d3885c-1fd9-41d6-bfd2-42bd0c1e3b73-905891",
-      "title": "CA18222 - RTBC - SHGH - MPCE BED STORE",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/25d3885c-1fd9-41d6-bfd2-42bd0c1e3b73",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 300,000",
-      "published": "2026-07-13T11:48:11+01:00",
-      "deadline": "2026-08-28T12:00:00+01:00",
-      "summary": "The works comprise the phased refurbishment and reconfiguration of an existing area within St Helier Hospital to provide a new Bed Store and Medical Records Office. The successful contractor shall undertake all necessary architectural, mechanical, electrical and associated enabli…",
-      "cpv": [],
-      "tags": [
-        "Tender"
-      ],
-      "means": ""
-    },
     {
       "id": "fts-059400-2026",
       "title": "Provision of Workforce and Associated Services",
