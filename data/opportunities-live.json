@@ -1,7 +1,27 @@
 {
-  "updated": "2026-07-22T16:20:20.209798Z",
-  "count": 2,
+  "updated": "2026-07-22T19:20:15.296070Z",
+  "count": 3,
   "opportunities": [
+    {
+      "id": "fts-069379-2026",
+      "title": "Single Point of Access (SPoA) Eye Care Service",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d14b",
+      "buyer": "NHS Cheshire and Merseyside Integrated Care Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 2,000,000",
+      "published": "2026-07-22T19:03:56+01:00",
+      "deadline": "2026-08-28T12:00:00+01:00",
+      "summary": "NHS Cheshire and Merseyside Integrated Care Board is procuring a Single Point of Access (SPoA) Eye Care Service to provide a clinically led referral management and triage service for ophthalmology referrals across Cheshire and Merseyside. The service will improve referral quality…",
+      "cpv": [
+        "33662100"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-069235-2026",
       "title": "Strategic Culture Change Partner",
