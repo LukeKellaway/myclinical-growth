@@ -1,7 +1,27 @@
 {
-  "updated": "2026-07-22T11:10:39.549930Z",
-  "count": 1,
+  "updated": "2026-07-22T13:54:31.180326Z",
+  "count": 2,
   "opportunities": [
+    {
+      "id": "fts-069235-2026",
+      "title": "Strategic Culture Change Partner",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d100",
+      "buyer": "University Hospitals Sussex NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 600,000",
+      "published": "2026-07-22T14:38:52+01:00",
+      "deadline": "2026-08-17T10:00:00+01:00",
+      "summary": "The Trust is looking at appointing an Organisational Culture Change Strategic Partner to provide specialist capacity and expertise to design, deliver and embed a Trust‑wide cultural transformation programme.",
+      "cpv": [
+        "73000000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-059400-2026",
       "title": "Provision of Workforce and Associated Services",
