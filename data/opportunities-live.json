@@ -1,7 +1,26 @@
 {
-  "updated": "2026-07-27T09:53:02.996742Z",
-  "count": 2,
+  "updated": "2026-07-27T14:34:54.901950Z",
+  "count": 3,
   "opportunities": [
+    {
+      "id": "cf-26ab63f3-dae5-40cf-b3c6-f235a74a907e-908427",
+      "title": "Master Vendor Solution for Clinical Workers",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/26ab63f3-dae5-40cf-b3c6-f235a74a907e",
+      "buyer": "Gloucestershire Hospitals NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 40,000,000",
+      "published": "2026-07-27T13:52:16+01:00",
+      "deadline": "2026-08-10T12:00:00+01:00",
+      "summary": "Gloucestershire Hospitals NHS Foundation Trust is looking for Master Vendor Solution for Clinical Workers with provision for Direct Engagement. This Opportunity is being running under CCS/GCA Framework RM6281 - Lot5a - National Framework for the Provision of Clinical and Healthca…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-069379-2026",
       "title": "Single Point of Access (SPoA) Eye Care Service",
