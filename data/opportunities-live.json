@@ -1,7 +1,25 @@
 {
-  "updated": "2026-07-30T14:02:08.318526Z",
-  "count": 5,
+  "updated": "2026-07-30T16:26:43.211659Z",
+  "count": 6,
   "opportunities": [
+    {
+      "id": "fts-072407-2026",
+      "title": "The Provision of Lancashire and South Cumbria Adult Teledermatology Service",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06cd4e",
+      "buyer": "NHS Lancashire and South Cumbria Integrated Care Board",
+      "type": "Tender",
+      "category": "Infrastructure & cloud",
+      "value": "GBP 13,400,000",
+      "published": "2026-07-30T17:06:24+01:00",
+      "deadline": "2026-09-03T12:00:00+01:00",
+      "summary": "NHS Lancashire and South Cumbria Integrated Care Board is seeking to commission The Provision of Lancashire and South Cumbria Adult Teledermatology Service. The overall aim of the services (SkinHub, image capture spoke sites and Central Virtual Triage) is to deliver a pre-seconda…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-c8707325-337c-49e9-8a15-dec0242b460b-908530",
       "title": "CA18285 - R9367 - SHGH - CT REPLACEMENT - BRPD ARCHITECTURAL SERVICES",
