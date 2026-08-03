@@ -1,7 +1,25 @@
 {
-  "updated": "2026-08-03T05:33:09.314000Z",
-  "count": 6,
+  "updated": "2026-08-03T09:45:20.352152Z",
+  "count": 7,
   "opportunities": [
+    {
+      "id": "cf-91c4d6e0-24f1-43c8-82b7-967d84f11f4e-909218",
+      "title": "CA18304 - ESNEFT 2668 - Managed Service for the Provision of Renal Dialysis Services",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/91c4d6e0-24f1-43c8-82b7-967d84f11f4e",
+      "buyer": "East Suffolk and North Essex NHS FT",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 75,000,000",
+      "published": "2026-08-03T10:06:10+01:00",
+      "deadline": "2026-09-07T15:00:00+01:00",
+      "summary": "East Suffolk and North Essex NHS Foundation Trust (ESNEFT) is inviting qualified providers to express an interest to participate in a tender exercise for; Managed Service for the Provision of Renal Dialysis Services under the Provider Selection Regime To access this competition: …",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-072407-2026",
       "title": "The Provision of Lancashire and South Cumbria Adult Teledermatology Service",
