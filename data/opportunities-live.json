@@ -1,7 +1,67 @@
 {
-  "updated": "2026-08-04T08:36:49.552718Z",
-  "count": 7,
+  "updated": "2026-08-04T11:23:43.273138Z",
+  "count": 10,
   "opportunities": [
+    {
+      "id": "fts-073604-2026",
+      "title": "Fertility EPR System",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06daf9",
+      "buyer": "Barts Health NHS Trust",
+      "type": "Tender",
+      "category": "Clinical systems & EPR",
+      "value": "GBP 350,000",
+      "published": "2026-08-04T11:36:26+01:00",
+      "deadline": "2026-08-05T12:00:00+01:00",
+      "summary": "For the Provision of a Fertility EPR System",
+      "cpv": [
+        "72268000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-073593-2026",
+      "title": "Level 2 Digital Weight Management Service for Adults",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06daf1",
+      "buyer": "Aneurin Bevan University Health Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 108,333",
+      "published": "2026-08-04T11:31:22+01:00",
+      "deadline": "2026-08-13T15:30:00+01:00",
+      "summary": "This notice is an Intention to Award Notice published under the Health Services (Provider Selection Regime) (Wales) Regulations 2025. It confirms the intention to award a contract using Direct Award Process 2 (DAP2) in accordance with the Health Services (Provider Selection Regim…",
+      "cpv": [
+        "85100000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "cf-01b3ada9-c0d0-48dc-9e44-93ad3c3a7995-909366",
+      "title": "Fertility EPR System",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/01b3ada9-c0d0-48dc-9e44-93ad3c3a7995",
+      "buyer": "Barts Health NHS Trust",
+      "type": "Tender",
+      "category": "Clinical systems & EPR",
+      "value": "GBP 350,000",
+      "published": "2026-08-04T11:14:14+01:00",
+      "deadline": "2026-08-28T12:00:00+01:00",
+      "summary": "For the Provision of a Fertility EPR System Additional information: To express interest and participate in the tender, please register and apply via Atamis e-sourcing portal https://health-family.force.com/s/Welcome. Should Tenderers have any queries, or having problems using the…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-91c4d6e0-24f1-43c8-82b7-967d84f11f4e-909218",
       "title": "CA18304 - ESNEFT 2668 - Managed Service for the Provision of Renal Dialysis Services",
