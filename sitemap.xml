@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://growth.myclinical.co.uk/</loc><lastmod>2026-08-05</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/opportunities</loc><lastmod>2026-08-05</lastmod><changefreq>hourly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/grants</loc><lastmod>2026-08-05</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/events</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/directory</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/search</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/submit</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/bid-writers</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/capital</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/capital/tracker</loc><lastmod>2026-08-05</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/capital/finder</loc><lastmod>2026-08-05</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/about</loc><lastmod>2026-08-05</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/</loc><lastmod>2026-08-06</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/opportunities</loc><lastmod>2026-08-06</lastmod><changefreq>hourly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/grants</loc><lastmod>2026-08-06</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/events</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/directory</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/search</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/submit</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/bid-writers</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/capital</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/capital/tracker</loc><lastmod>2026-08-06</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/capital/finder</loc><lastmod>2026-08-06</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://growth.myclinical.co.uk/about</loc><lastmod>2026-08-06</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#std-gp-it-futures</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#std-medtech-funding-mandate</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#std-gcloud</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -28,7 +28,6 @@
   <url><loc>https://growth.myclinical.co.uk/opportunity#std-nhs-england-tech-frameworks</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#cf-68211522-dede-45c9-ad29-12c8247ecb72-909457</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#fts-073800-2026</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/opportunity#fts-073604-2026</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#fts-073593-2026</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#cf-01b3ada9-c0d0-48dc-9e44-93ad3c3a7995-909366</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#cf-91c4d6e0-24f1-43c8-82b7-967d84f11f4e-909218</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -41,7 +40,6 @@
   <url><loc>https://growth.myclinical.co.uk/opportunity#grant-wellcome-mental-health-prize-2026</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#grant-sbri-healthcare</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#grant-nihr-i4i</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://growth.myclinical.co.uk/opportunity#grant-nihr-eme</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#grant-biomedical-catalyst</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#grant-horizon-health</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://growth.myclinical.co.uk/opportunity#grant-nihr-i4i-connect</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
