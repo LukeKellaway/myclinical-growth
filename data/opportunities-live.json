@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-07T15:56:19.793039Z",
-  "count": 11,
+  "updated": "2026-08-07T18:57:29.497632Z",
+  "count": 9,
   "opportunities": [
     {
       "id": "cf-68211522-dede-45c9-ad29-12c8247ecb72-909457",
@@ -138,44 +138,6 @@
       "cpv": [],
       "tags": [
         "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "cf-c8707325-337c-49e9-8a15-dec0242b460b-908530",
-      "title": "CA18285 - R9367 - SHGH - CT REPLACEMENT - BRPD ARCHITECTURAL SERVICES",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/c8707325-337c-49e9-8a15-dec0242b460b",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
-      "type": "Tender",
-      "category": "Infrastructure & cloud",
-      "value": "GBP 50,000",
-      "published": "2026-07-28T09:12:12+01:00",
-      "deadline": "2026-08-21T12:00:00+01:00",
-      "summary": "Epsom and St Helier University Hospitals NHS Trust (\"the Trust\") invites suitably qualified and experienced organisations to submit a tender for the replacement of an existing CT scanner and all associated enabling works within an operational acute hospital environment. Tenderers…",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "cf-3551b32a-543a-44d7-8cdd-f2647b553d44-908519",
-      "title": "CA18284 - R9367 - SHGH - MRI REPLACEMENT - BUILDING REGULATION PRINCIPAL DESIGNER AND ARCHITECT - QUOTE",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/3551b32a-543a-44d7-8cdd-f2647b553d44",
-      "buyer": "Epsom & St Helier University Hospitals NHS Trust",
-      "type": "Tender",
-      "category": "Imaging & diagnostics",
-      "value": "GBP 40,000",
-      "published": "2026-07-28T08:39:13+01:00",
-      "deadline": "2026-08-14T12:00:00+01:00",
-      "summary": "The Trust is seeking to appoint a suitably qualified and experienced Architect, who will also undertake the role of Building Regulations Principal Designer (BRPD) under the Building Safety Act 2022, to provide full professional services for the replacement of an existing MRI scan…",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
       ],
       "means": ""
     },
