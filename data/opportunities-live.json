@@ -1,7 +1,25 @@
 {
-  "updated": "2026-08-10T13:07:45.187050Z",
-  "count": 9,
+  "updated": "2026-08-10T16:00:32.093516Z",
+  "count": 10,
   "opportunities": [
+    {
+      "id": "fts-075822-2026",
+      "title": "Digital Mental Health and Emotional Wellbeing Service for Children and Young People",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e05b",
+      "buyer": "NHS SOMERSET INTEGRATED CARE BOARD",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 1,050,000",
+      "published": "2026-08-10T15:12:27+01:00",
+      "deadline": "2026-09-09T12:00:00+01:00",
+      "summary": "NHS Somerset Integrated Care board (ICB) is seeking to secure a Prime Provider who has the capability and capacity to deliver a Digital Mental Health and Emotional Wellbeing Service for Children and Young People. The Service will provide a digitally enabled emotional wellbeing an…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-68211522-dede-45c9-ad29-12c8247ecb72-909457",
       "title": "Echocardiography Insourcing",
