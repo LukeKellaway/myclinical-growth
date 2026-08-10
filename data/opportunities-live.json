@@ -1,5 +1,206 @@
 {
-  "updated": "2026-08-10T18:56:54.066209Z",
-  "count": 0,
-  "opportunities": []
+  "updated": "2026-08-10T21:41:24.948549Z",
+  "count": 10,
+  "opportunities": [
+    {
+      "id": "fts-075822-2026",
+      "title": "Digital Mental Health and Emotional Wellbeing Service for Children and Young People",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e05b",
+      "buyer": "NHS SOMERSET INTEGRATED CARE BOARD",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 1,050,000",
+      "published": "2026-08-10T15:12:27+01:00",
+      "deadline": "2026-09-09T12:00:00+01:00",
+      "summary": "NHS Somerset Integrated Care board (ICB) is seeking to secure a Prime Provider who has the capability and capacity to deliver a Digital Mental Health and Emotional Wellbeing Service for Children and Young People. The Service will provide a digitally enabled emotional wellbeing an…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "cf-68211522-dede-45c9-ad29-12c8247ecb72-909457",
+      "title": "Echocardiography Insourcing",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/68211522-dede-45c9-ad29-12c8247ecb72",
+      "buyer": "NHS South West - Acutes",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "",
+      "published": "2026-08-04T17:01:37+01:00",
+      "deadline": "2026-08-30T12:00:00+01:00",
+      "summary": "Provision of BSE accredited Echocardiographers to deliver outpatient adult cardiac transthoracic echocardiograms, to include:- a full TTE study, performed to BSE current standards using RCHT GE Echo machines at RCHT sites, including the Bodmin and WCH Community Diagnostic Centres…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-073800-2026",
+      "title": "Echocardiography Insourcing",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06db85",
+      "buyer": "ROYAL CORNWALL HOSPITALS NHS  TRUST",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 400,000",
+      "published": "2026-08-04T15:15:33+01:00",
+      "deadline": "2026-08-18T12:00:00+01:00",
+      "summary": "Provision of BSE accredited Echocardiographers to deliver outpatient adult cardiac transthoracic echocardiograms, to include:- a full TTE study, performed to BSE current standards using Royal Cornwall Hospitals Trust (RCHT) GE Echo machines at RCHT sites, including the Bodmin and…",
+      "cpv": [
+        "85110000",
+        "85111000",
+        "85121230",
+        "85121231",
+        "85150000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-073604-2026",
+      "title": "Fertility EPR System",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06daf9",
+      "buyer": "Barts Health NHS Trust",
+      "type": "Tender",
+      "category": "Clinical systems & EPR",
+      "value": "GBP 350,000",
+      "published": "2026-08-04T11:36:26+01:00",
+      "deadline": "2026-08-05T12:00:00+01:00",
+      "summary": "For the Provision of a Fertility EPR System",
+      "cpv": [
+        "72268000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-073593-2026",
+      "title": "Level 2 Digital Weight Management Service for Adults",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06daf1",
+      "buyer": "Aneurin Bevan University Health Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 108,333",
+      "published": "2026-08-04T11:31:22+01:00",
+      "deadline": "2026-08-13T15:30:00+01:00",
+      "summary": "This notice is an Intention to Award Notice published under the Health Services (Provider Selection Regime) (Wales) Regulations 2025. It confirms the intention to award a contract using Direct Award Process 2 (DAP2) in accordance with the Health Services (Provider Selection Regim…",
+      "cpv": [
+        "85100000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "cf-01b3ada9-c0d0-48dc-9e44-93ad3c3a7995-909366",
+      "title": "Fertility EPR System",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/01b3ada9-c0d0-48dc-9e44-93ad3c3a7995",
+      "buyer": "Barts Health NHS Trust",
+      "type": "Tender",
+      "category": "Clinical systems & EPR",
+      "value": "GBP 350,000",
+      "published": "2026-08-04T11:14:14+01:00",
+      "deadline": "2026-08-28T12:00:00+01:00",
+      "summary": "For the Provision of a Fertility EPR System Additional information: To express interest and participate in the tender, please register and apply via Atamis e-sourcing portal https://health-family.force.com/s/Welcome. Should Tenderers have any queries, or having problems using the…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "cf-91c4d6e0-24f1-43c8-82b7-967d84f11f4e-909218",
+      "title": "CA18304 - ESNEFT 2668 - Managed Service for the Provision of Renal Dialysis Services",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/91c4d6e0-24f1-43c8-82b7-967d84f11f4e",
+      "buyer": "East Suffolk and North Essex NHS FT",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 75,000,000",
+      "published": "2026-08-03T10:06:10+01:00",
+      "deadline": "2026-09-07T15:00:00+01:00",
+      "summary": "East Suffolk and North Essex NHS Foundation Trust (ESNEFT) is inviting qualified providers to express an interest to participate in a tender exercise for; Managed Service for the Provision of Renal Dialysis Services under the Provider Selection Regime To access this competition: …",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-072407-2026",
+      "title": "The Provision of Lancashire and South Cumbria Adult Teledermatology Service",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06cd4e",
+      "buyer": "NHS Lancashire and South Cumbria Integrated Care Board",
+      "type": "Tender",
+      "category": "Infrastructure & cloud",
+      "value": "GBP 13,400,000",
+      "published": "2026-07-30T17:06:24+01:00",
+      "deadline": "2026-09-03T12:00:00+01:00",
+      "summary": "NHS Lancashire and South Cumbria Integrated Care Board is seeking to commission The Provision of Lancashire and South Cumbria Adult Teledermatology Service. The overall aim of the services (SkinHub, image capture spoke sites and Central Virtual Triage) is to deliver a pre-seconda…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-069379-2026",
+      "title": "Single Point of Access (SPoA) Eye Care Service",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d14b",
+      "buyer": "NHS Cheshire and Merseyside Integrated Care Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 2,000,000",
+      "published": "2026-07-22T19:03:56+01:00",
+      "deadline": "2026-08-28T12:00:00+01:00",
+      "summary": "NHS Cheshire and Merseyside Integrated Care Board is procuring a Single Point of Access (SPoA) Eye Care Service to provide a clinically led referral management and triage service for ophthalmology referrals across Cheshire and Merseyside. The service will improve referral quality…",
+      "cpv": [
+        "33662100"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-069235-2026",
+      "title": "Strategic Culture Change Partner",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d100",
+      "buyer": "University Hospitals Sussex NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 600,000",
+      "published": "2026-07-22T14:38:52+01:00",
+      "deadline": "2026-08-17T10:00:00+01:00",
+      "summary": "The Trust is looking at appointing an Organisational Culture Change Strategic Partner to provide specialist capacity and expertise to design, deliver and embed a Trust‑wide cultural transformation programme.",
+      "cpv": [
+        "73000000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    }
+  ]
 }
