@@ -1,7 +1,45 @@
 {
-  "updated": "2026-08-12T15:59:24.681795Z",
-  "count": 10,
+  "updated": "2026-08-12T19:02:16.734569Z",
+  "count": 12,
   "opportunities": [
+    {
+      "id": "cf-774434d8-54e1-4da5-ac6c-def808c834fd-910471",
+      "title": "UHS Urgent Treatment Centre Clinical Service Provision",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/774434d8-54e1-4da5-ac6c-def808c834fd",
+      "buyer": "University Hospital Southampton NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 2,250,000",
+      "published": "2026-08-12T17:00:05+01:00",
+      "deadline": "2026-09-01T18:00:00+01:00",
+      "summary": "GP managed service to operate and run the Urgent Treatment Centre alongside UHS ED Clinicians. UTC will operate 12 hours a day with patients directed by UHS staff for the treatment of minor illness. Three year + 2 extension options.",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-076965-2026",
+      "title": "UHS Urgent Treatment Centre Clinical Service Provision",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e308",
+      "buyer": "University Hospital Southampton NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 2,250,000",
+      "published": "2026-08-12T16:58:37+01:00",
+      "deadline": "2026-09-01T18:00:00+01:00",
+      "summary": "GP managed service to operate and run the Urgent Treatment Centre alongside UHS ED Clinicians. UTC will operate 12 hours a day with patients directed by UHS staff for the treatment of minor illness. Three year + 2 extension options.",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-075822-2026",
       "title": "Digital Mental Health and Emotional Wellbeing Service for Children and Young People",
