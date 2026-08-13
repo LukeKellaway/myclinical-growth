@@ -1,7 +1,25 @@
 {
-  "updated": "2026-08-13T10:06:09.373078Z",
+  "updated": "2026-08-13T13:10:44.884889Z",
   "count": 12,
   "opportunities": [
+    {
+      "id": "fts-077259-2026",
+      "title": "Provision of Workforce and Associated Services",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06bc1c",
+      "buyer": "North Cumbria Integrated Care NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Infrastructure & cloud",
+      "value": "GBP 688,095",
+      "published": "2026-08-13T13:48:01+01:00",
+      "deadline": "2026-09-07T12:00:00+01:00",
+      "summary": "North Cumbria Integrated Care NHS Foundation Trust is seeking to appoint a Neutral Vendor to provide a fully managed service for the supply of Clinical Workforce (Agency provision) across its sites. The appointed Neutral Vendor will be responsible for the sourcing, and fulfilment…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-774434d8-54e1-4da5-ac6c-def808c834fd-910471",
       "title": "UHS Urgent Treatment Centre Clinical Service Provision",
@@ -159,24 +177,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "cf-91c4d6e0-24f1-43c8-82b7-967d84f11f4e-909218",
-      "title": "CA18304 - ESNEFT 2668 - Managed Service for the Provision of Renal Dialysis Services",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/91c4d6e0-24f1-43c8-82b7-967d84f11f4e",
-      "buyer": "East Suffolk and North Essex NHS FT",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 75,000,000",
-      "published": "2026-08-03T10:06:10+01:00",
-      "deadline": "2026-09-07T15:00:00+01:00",
-      "summary": "East Suffolk and North Essex NHS Foundation Trust (ESNEFT) is inviting qualified providers to express an interest to participate in a tender exercise for; Managed Service for the Provision of Renal Dialysis Services under the Provider Selection Regime To access this competition: …",
-      "cpv": [],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     },
