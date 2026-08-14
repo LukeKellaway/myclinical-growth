@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-14T13:07:42.948550Z",
-  "count": 11,
+  "updated": "2026-08-14T15:53:31.810923Z",
+  "count": 10,
   "opportunities": [
     {
       "id": "fts-077259-2026",
@@ -73,25 +73,6 @@
       "cpv": [],
       "tags": [
         "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "cf-68211522-dede-45c9-ad29-12c8247ecb72-909457",
-      "title": "Echocardiography Insourcing",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/68211522-dede-45c9-ad29-12c8247ecb72",
-      "buyer": "NHS South West - Acutes",
-      "type": "Tender",
-      "category": "Imaging & diagnostics",
-      "value": "",
-      "published": "2026-08-04T17:01:37+01:00",
-      "deadline": "2026-08-30T12:00:00+01:00",
-      "summary": "Provision of BSE accredited Echocardiographers to deliver outpatient adult cardiac transthoracic echocardiograms, to include:- a full TTE study, performed to BSE current standards using RCHT GE Echo machines at RCHT sites, including the Bodmin and WCH Community Diagnostic Centres…",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
       ],
       "means": ""
     },
