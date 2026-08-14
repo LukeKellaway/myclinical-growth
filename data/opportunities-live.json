@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-14T07:24:26.007311Z",
-  "count": 12,
+  "updated": "2026-08-14T10:03:08.700922Z",
+  "count": 11,
   "opportunities": [
     {
       "id": "fts-077259-2026",
@@ -157,25 +157,6 @@
       ],
       "tags": [
         "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "cf-01b3ada9-c0d0-48dc-9e44-93ad3c3a7995-909366",
-      "title": "Fertility EPR System",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/01b3ada9-c0d0-48dc-9e44-93ad3c3a7995",
-      "buyer": "Barts Health NHS Trust",
-      "type": "Tender",
-      "category": "Clinical systems & EPR",
-      "value": "GBP 350,000",
-      "published": "2026-08-04T11:14:14+01:00",
-      "deadline": "2026-08-28T12:00:00+01:00",
-      "summary": "For the Provision of a Fertility EPR System Additional information: To express interest and participate in the tender, please register and apply via Atamis e-sourcing portal https://health-family.force.com/s/Welcome. Should Tenderers have any queries, or having problems using the…",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
       ],
       "means": ""
     },
