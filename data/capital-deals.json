@@ -1,8 +1,113 @@
 {
-  "updated": "2026-06-16",
+  "updated": "2026-08-18",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 63,
+  "count": 68,
   "deals": [
+    {
+      "key": "qureight-equity-2026-07",
+      "company": "Qureight",
+      "what": "$20m (\u00a315m) Series B to build AI imaging laboratory and expand 3D deep-learning imaging platform into asthma, pulmonary hypertension and bronchiectasis for clinical trials",
+      "type": "equity",
+      "round": "Series B",
+      "amount_gbp": 15000000,
+      "date": "2026-07-29",
+      "investors": [
+        "Molten Ventures",
+        "Hargreave Hale AIM VCT",
+        "XTX Ventures",
+        "Guinness Ventures",
+        "Meltwind",
+        "Ascension"
+      ],
+      "directory_matches": [
+        "Guinness Ventures",
+        "Molten Ventures"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.uktech.news/medtech/qureight-closes-15m-round-to-scale-ai-imaging-platform-20260729",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "vivid-dx-equity-2026-07",
+      "company": "Vivid Dx",
+      "what": "$15m (~\u00a311.8m) seed round to advance direct-from-blood pathogen diagnostic platform through clinical validation",
+      "type": "equity",
+      "round": "Seed",
+      "amount_gbp": 11800000,
+      "date": "2026-07-29",
+      "investors": [
+        "Oxford Science Enterprises",
+        "Cedars-Sinai Intellectual Property Co.",
+        "Jameel Investment Management Company"
+      ],
+      "directory_matches": [
+        "Oxford Science Enterprises (OSE)"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://cambridgebiocapital.substack.com/p/gsk-commits-400m-to-uk-r-and-d-with",
+      "confidence": "medium",
+      "status": "published"
+    },
+    {
+      "key": "mirae-equity-2026-07",
+      "company": "Mirae",
+      "what": "\u00a34m equity round for conversational AI platform that captures patient-reported experiences between appointments for use by clinicians",
+      "type": "equity",
+      "round": "Seed",
+      "amount_gbp": 4000000,
+      "date": "2026-07-29",
+      "investors": [
+        "Oxford Science Enterprises"
+      ],
+      "directory_matches": [
+        "Oxford Science Enterprises (OSE)"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://cambridgebiocapital.substack.com/p/gsk-commits-400m-to-uk-r-and-d-with",
+      "confidence": "medium",
+      "status": "published"
+    },
+    {
+      "key": "tidalsense-equity-2026-07",
+      "company": "TidalSense",
+      "what": "\u20ac16.6m (~\u00a314.2m) equity round to accelerate commercialisation of N-Tidal Diagnose AI COPD breath-test device in UK, Europe and US",
+      "type": "equity",
+      "round": "Growth",
+      "amount_gbp": 14200000,
+      "date": "2026-07-24",
+      "investors": [
+        "Cross-Border Impact Ventures",
+        "BGF",
+        "Airstream Capital",
+        "Foresight Group"
+      ],
+      "directory_matches": [
+        "BGF (Business Growth Fund)",
+        "Foresight Group"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.eu-startups.com/2026/07/cambridge-based-tidalsense-raises-e16-6-million-to-take-its-ai-respiratory-diagnostic-technology-global/",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "vitabiotics-exit-2026-07",
+      "company": "Vitabiotics",
+      "what": "Acquisition of UK's No.1 vitamin company by Bain Capital in a deal reportedly worth ~\u00a3900m, to accelerate international expansion",
+      "type": "exit",
+      "round": "Acquisition",
+      "amount_gbp": 900000000,
+      "date": "2026-07-24",
+      "investors": [
+        "Bain Capital"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": "overseas:USA",
+      "source_url": "https://www.baincapital.com/news/bain-capital-acquire-vitabiotics-uks-no1-vitamin-company",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "thena-capital-equity-2026-06",
       "company": "THENA Capital",
