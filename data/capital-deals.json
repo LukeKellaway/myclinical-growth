@@ -1,7 +1,7 @@
 {
   "updated": "2026-08-18",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 72,
+  "count": 71,
   "deals": [
     {
       "key": "souuthe-grant-2026-08",
@@ -175,23 +175,6 @@
       ],
       "acquirer_origin": null,
       "source_url": "https://www.eu-startups.com/2026/07/cambridge-based-tidalsense-raises-e16-6-million-to-take-its-ai-respiratory-diagnostic-technology-global/",
-      "confidence": "high",
-      "status": "published"
-    },
-    {
-      "key": "vitabiotics-exit-2026-07",
-      "company": "Vitabiotics",
-      "what": "Acquisition of UK's No.1 vitamin company by Bain Capital in a deal reportedly worth ~\u00a3900m, to accelerate international expansion",
-      "type": "exit",
-      "round": "Acquisition",
-      "amount_gbp": 900000000,
-      "date": "2026-07-24",
-      "investors": [
-        "Bain Capital"
-      ],
-      "directory_matches": [],
-      "acquirer_origin": "overseas:USA",
-      "source_url": "https://www.baincapital.com/news/bain-capital-acquire-vitabiotics-uks-no1-vitamin-company",
       "confidence": "high",
       "status": "published"
     },

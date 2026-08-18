@@ -53,6 +53,19 @@ STALE_THRESHOLD = int(os.environ.get("CAPITAL_STALE_RUNS", "4"))    # 4 empty we
 DRY_RUN = os.environ.get("CAPITAL_DRY_RUN", "").lower() in ("1", "true", "yes")
 VALID_TYPES = {"equity", "debt", "grant", "exit"}
 
+# Companies deliberately kept out of the tracker after a human look, matched on
+# lowercased name. The poller drops them with a logged reason instead of just
+# deleting the row, because a deleted row is no longer in the dedupe set and a
+# wide backfill would happily re-add it.
+#
+# Vitabiotics: removed 18 Aug 2026. A £900m Bain Capital acquisition of a
+# consumer vitamins business. Real deal, real source, but it is not healthtech
+# in the sense this tracker means, and at that size it would have dominated the
+# rolling 12-month capital figure on its own.
+EXCLUDED_COMPANIES = {
+    "vitabiotics",
+}
+
 
 # ---------------------------------------------------------------- helpers ----
 def log(msg):
@@ -284,6 +297,8 @@ def main():
 
         if not company or dtype not in VALID_TYPES:
             dropped.append((company or "?", "bad company/type")); continue
+        if company.lower() in EXCLUDED_COMPANIES:
+            dropped.append((company, "manually excluded")); continue
         if not src.startswith("http"):
             dropped.append((company, "no source url")); continue
         if not pd or not (window_start <= pd <= today):
