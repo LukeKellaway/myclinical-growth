@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-MyClinical Growth — daily digest builder.
+MyClinical Growth — digest builder (weekly brief).
 
 Compiles the opportunities and grants added/updated in the last 24h into an
 HTML email and creates a Mailchimp campaign.
@@ -593,10 +593,14 @@ def build_observatory():
 # A small "New" banner under the stat strip. Auto-hides after ANNOUNCE_UNTIL so
 # it quietly disappears without a code change. Set ANNOUNCE_TEXT to "" to pull
 # it sooner.
-ANNOUNCE_UNTIL = dt.date(2026, 6, 24)
-ANNOUNCE_TEXT = ('New: we now track 40+ UK healthtech and NHS events, with an honest read on '
-                 'which are worth your time. See them all at '
-                 f'<a href="{SITE_URL}/events" style="color:#4f8a6e;font-weight:700;text-decoration:none;">/events</a>.')
+ANNOUNCE_UNTIL = dt.date(2026, 9, 28)
+# Chip label above the banner. "New" suits a feature launch; a change to the
+# brief itself deserves wording that doesn't read like marketing.
+ANNOUNCE_LABEL = "A change"
+ANNOUNCE_TEXT = ('The brief is now weekly. It used to land every weekday, but the NHS tender feed '
+                 'yields around ten qualifying items a month, so most editions had nothing new in '
+                 'them. From now on you get one email on Monday mornings with everything from the '
+                 'week: procurement, grants, funding rounds and events. Same signal, less inbox.')
 
 
 def build_announcement():
@@ -606,7 +610,7 @@ def build_announcement():
         <tr><td style="background:#fff;padding:8px 32px 0;">
           <table width="100%" cellpadding="0" cellspacing="0">
             <tr><td style="background:#eef4f0;border:1px solid #d6e4dc;border-radius:11px;padding:13px 16px;font-size:13.5px;color:#27402f;line-height:1.55;">
-              <span style="font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4f8a6e;margin-right:8px;">New</span>{ANNOUNCE_TEXT}
+              <span style="font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#4f8a6e;margin-right:8px;">{ANNOUNCE_LABEL}</span>{ANNOUNCE_TEXT}
             </td></tr>
           </table>
         </td></tr>"""
@@ -617,6 +621,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
     total = len(opps) + len(grants)
     period_word = "week" if weekly else "today"
     brief_label = "The weekly brief" if weekly else "The daily brief"
+    title_label = "weekly brief" if weekly else "daily brief"
 
     # Summary line for the dark header
     if is_quiet:
@@ -665,7 +670,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
     )
 
     html = f"""<!DOCTYPE html>
-<html><head><meta charset="UTF-8"><title>MyClinical Growth daily brief</title></head>
+<html><head><meta charset="UTF-8"><title>MyClinical Growth {title_label}</title></head>
 <body style="margin:0;padding:0;background:#eceae4;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#222823;">
   <div style="display:none;max-height:0;overflow:hidden;font-size:1px;line-height:1px;color:#eceae4;opacity:0;">{preheader}</div>
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#eceae4;">
@@ -719,7 +724,7 @@ def render(opps, grants, is_quiet=False, weekly=False, capital_html="", events_h
             <a href="{SITE_URL}/submit?type=feedback" style="color:#cfd3cd;text-decoration:none;font-weight:600;">Leave feedback</a>
           </div>
           You&rsquo;re receiving this because you subscribed to MyClinical Growth at <a href="{SITE_URL}" style="color:#8fcaa9;">growth.myclinical.co.uk</a>.
-          Prefer this weekly instead of daily? <a href="*|UPDATE_PROFILE|*" style="color:#8fcaa9;">Manage your preferences</a>.
+          The brief lands on Monday mornings. <a href="*|UPDATE_PROFILE|*" style="color:#8fcaa9;">Manage your preferences</a>.
           Or <a href="*|UNSUB|*" style="color:#8fcaa9;">unsubscribe in one click</a>. We don&rsquo;t share the list. Ever.
         </td></tr>
 

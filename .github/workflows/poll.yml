@@ -1,29 +1,26 @@
 name: Poll opportunities & build digest
 
 # Runs the Tier 1 pollers on a schedule, refreshes the live data,
-# and creates the daily Mailchimp digest. Runs on GitHub's
+# and builds the WEEKLY Mailchimp digest on Mondays. Runs on GitHub's
 # infrastructure — it does NOT depend on anyone's computer being on.
 
 on:
   schedule:
-    # GitHub Actions free-tier cron is unreliable in low-load periods
-    # (early UTC hours) and frequently skips ticks entirely. To improve
-    # odds of catching the morning send window, fire every 30 minutes
-    # between 02:00 and 06:00 UTC, then every 3 hours the rest of the day.
-    # Send window in build_digest.py is widened to 03-08 UTC so any
-    # morning tick that DOES land sends the digest. On a good day the
-    # brief arrives 4-5am BST; on a bad day 7-9am BST. The send marker
-    # ensures only one send per day no matter how many ticks fire.
+    # The EMAIL is weekly (Mondays), but the tender POLL stays daily. The
+    # OCDS feeds are free and involve no model call, so a daily refresh costs
+    # nothing but a Netlify deploy, and it stops /opportunities showing a
+    # tender that closed four days ago. At roughly 10 qualifying items a
+    # month that is ~10 deploys, well inside the allowance. poll-stats.json
+    # is excluded from the commit so ticks with no real change never deploy.
     #
-    # Daytime cadence is every 3 hours (06,09,12,15,18,21 UTC) rather than
-    # hourly: each tick that finds new tender data commits a "data: refresh"
-    # and pushes, which triggers a Netlify production deploy. Hourly polling
-    # produced ~6-10 deploys/day and burned through the monthly credit
-    # allowance. Every 3 hours still auto-publishes anything new, just
-    # batched into far fewer deploys. poll-stats.json is excluded from the
-    # commit so ticks with no real change never deploy.
-    - cron: "*/30 2-5 * * *"
-    - cron: "0 6-21/3 * * *"
+    # 06:00 UTC is the daily refresh; 09:00 is a backup tick because GitHub
+    # free-tier cron skips ticks under load. On Mondays the 09:00 tick falls
+    # inside build_digest.py's 07-12 UTC weekly window and sends the brief;
+    # the 11:00 Monday tick is a last chance if both earlier ones are skipped.
+    # The weekly send marker guarantees one send per week however many fire.
+    - cron: "0 6 * * *"
+    - cron: "0 9 * * *"
+    - cron: "0 11 * * 1"
   workflow_dispatch:
     inputs:
       lookback_hours:
@@ -78,30 +75,15 @@ jobs:
         # search engines don't keep visiting past-deadline opportunities.
         run: python scripts/build_sitemap.py
 
-      - name: Build the daily digest (Mailchimp)
-        env:
-          MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
-          MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}
-          MAILCHIMP_SERVER_PREFIX: ${{ secrets.MAILCHIMP_SERVER_PREFIX }}
-          DIGEST_REPLY_TO: ${{ secrets.DIGEST_REPLY_TO }}
-          # Leave DIGEST_AUTOSEND unset to create drafts you review first.
-          # Set it to "true" as a secret once you trust the editorial pass.
-          DIGEST_AUTOSEND: ${{ secrets.DIGEST_AUTOSEND }}
-          # Off until the DAILY/WEEKLY merge fields exist in the Mailchimp audience.
-          # When set: daily sends to DAILY=Yes (or blank), weekly to WEEKLY=Yes.
-          FREQUENCY_SEGMENT_ENABLED: ${{ secrets.FREQUENCY_SEGMENT_ENABLED }}
-          # When triggered manually with force_send=true, bypass the send-window
-          # and same-day-marker checks so the digest can fire mid-day after an
-          # editorial change.
-          FORCE_SEND: ${{ inputs.force_send }}
-        run: python scripts/build_digest.py
-        continue-on-error: true   # a digest hiccup must not block the data refresh
-
       - name: Build the weekly digest (Mailchimp)
-        # Same script, WEEKLY_MODE=true. The script's own gates (Monday-only,
-        # 07-12 UTC window, weekly marker) decide whether to actually send.
-        # On Tue-Sun this is a no-op. We still run every cron tick on Mondays
-        # so a missed early tick can be picked up by a later one.
+        # The daily digest step was removed in Aug 2026: the tender feed yields
+        # ~10 qualifying items a month, so most weekday editions were empty and
+        # the send was retired in favour of one Monday brief. build_digest.py
+        # still supports daily mode if it is ever worth switching back on.
+        #
+        # The script's own gates (Monday-only, 07-12 UTC window, weekly marker)
+        # decide whether to actually send. On Tue-Sun this is a no-op. We still
+        # run on every cron tick so a missed early tick is picked up later.
         env:
           MAILCHIMP_API_KEY: ${{ secrets.MAILCHIMP_API_KEY }}
           MAILCHIMP_AUDIENCE_ID: ${{ secrets.MAILCHIMP_AUDIENCE_ID }}

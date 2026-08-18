@@ -19,6 +19,14 @@
   [headers.values]
     Cache-Control = "public, max-age=300"
 
+# Public data files are read cross-origin by the acquisitions live artifact,
+# so allow CORS reads on the JSON in /data. These files are already public.
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300"
+
 [functions]
   # Serverless functions live in netlify/functions/. Used by the signup
   # form to call Mailchimp's API server-side so subscribers never see a

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Daily UK-healthtech capital poller.
+Weekly UK-healthtech capital poller.
 
 Unlike poll.py (which reads structured OCDS tender feeds), funding rounds and
 exits only exist as prose in news articles, so this script uses the Anthropic
@@ -19,7 +19,7 @@ if it looks wrong fire to the feedback loop"):
   - SPIKE guard: an implausible number of new rows in one run is treated as a
     bad parse — nothing is published and the run FAILS so a human is emailed
   - PARSE failure: malformed model output publishes nothing and FAILS the run
-  - STALE guard: many empty days in a row raises an alert
+  - STALE guard: several empty runs in a row raises an alert
   - every alert is written to data/capital-poll-alerts.json AND, for hard
     tripwires, the workflow exits non-zero so GitHub emails the repo owner
     (the feedback loop) automatically
@@ -47,9 +47,9 @@ REVIEW_FILE = DATA / "capital-poll-review.json"
 
 API_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 MODEL = os.environ.get("CAPITAL_MODEL", "claude-sonnet-4-6")
-LOOKBACK_DAYS = int(os.environ.get("CAPITAL_LOOKBACK_DAYS", "4"))
-MAX_NEW = int(os.environ.get("CAPITAL_MAX_NEW", "15"))      # spike tripwire
-STALE_THRESHOLD = int(os.environ.get("CAPITAL_STALE_DAYS", "10"))
+LOOKBACK_DAYS = int(os.environ.get("CAPITAL_LOOKBACK_DAYS", "9"))   # weekly run + slack
+MAX_NEW = int(os.environ.get("CAPITAL_MAX_NEW", "25"))      # spike tripwire (a week of deals)
+STALE_THRESHOLD = int(os.environ.get("CAPITAL_STALE_RUNS", "4"))    # 4 empty weeks
 DRY_RUN = os.environ.get("CAPITAL_DRY_RUN", "").lower() in ("1", "true", "yes")
 VALID_TYPES = {"equity", "debt", "grant", "exit"}
 
@@ -148,7 +148,7 @@ def call_model(prompt):
     body = json.dumps({
         "model": MODEL,
         "max_tokens": 4096,
-        "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": 8}],
+        "tools": [{"type": "web_search_20250305", "name": "web_search", "max_uses": 10}],
         "messages": [{"role": "user", "content": prompt}],
     }).encode()
     req = Request(
@@ -161,8 +161,18 @@ def call_model(prompt):
         },
         method="POST",
     )
-    with urlopen(req, timeout=180) as r:
-        resp = json.loads(r.read().decode())
+    try:
+        with urlopen(req, timeout=180) as r:
+            resp = json.loads(r.read().decode())
+    except HTTPError as e:
+        # Surface the API's own explanation. Without this an exhausted credit
+        # balance reads as a bare "HTTP Error 400: Bad Request" and the poller
+        # can sit silently broken for weeks (it did: 18 Jun - 18 Aug 2026).
+        try:
+            detail = e.read().decode("utf-8", "replace")[:500]
+        except Exception:
+            detail = "(no response body)"
+        raise RuntimeError(f"HTTP {e.code} from Anthropic: {detail}") from None
     # Concatenate the assistant text blocks (search results are separate blocks).
     text = "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text")
     return text
@@ -302,7 +312,7 @@ def main():
         state.update({"last_run": today.isoformat(), "consecutive_empty": empties})
         STATE_FILE.write_text(json.dumps(state, indent=2) + "\n")
         if empties >= STALE_THRESHOLD:
-            alert("stale", f"{empties} consecutive days with no new deals — check the sources/feed.")
+            alert("stale", f"{empties} consecutive runs with no new deals — check the sources/feed.")
         log(f"No new deals (dropped {len(dropped)} candidates). Nothing to commit.")
         return 0
 

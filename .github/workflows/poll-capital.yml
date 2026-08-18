@@ -1,6 +1,6 @@
 name: Poll capital deals
 
-# Finds new UK healthtech funding rounds, grants and exits once a day and
+# Finds new UK healthtech funding rounds, grants and exits once a week and
 # updates data/capital-deals.json — the single source of truth that both the
 # tracker page (capital/tracker.html) and the weekly email read.
 #
@@ -11,16 +11,22 @@ name: Poll capital deals
 
 on:
   schedule:
-    # Once a day, mid-morning UTC (more reliable than the dead 02-06 window).
-    # The script's 4-day lookback + dedupe means a skipped day self-heals on
-    # the next run, so one tick is enough and keeps API spend to one call/day.
-    - cron: "17 9 * * *"
+    # Once a WEEK, Sunday mid-morning UTC. Sunday (not Monday) so the Monday
+    # 07:30 weekly digest goes out with deals found the day before rather than
+    # a week old. The script's 9-day lookback + dedupe means a skipped week
+    # self-heals on the next run.
+    #
+    # Was daily until Aug 2026. Daily polling burned the Anthropic credit
+    # balance in nine days and then failed silently for two months; weekly is
+    # roughly a quarter of the spend and still catches everything, because the
+    # lookback window overlaps.
+    - cron: "17 9 * * 0"
   workflow_dispatch:
     inputs:
       lookback_days:
         description: "How many days back to search."
         required: false
-        default: "4"
+        default: "9"
       force:
         description: "Run even if it already ran today."
         required: false

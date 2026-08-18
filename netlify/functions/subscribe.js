@@ -26,7 +26,9 @@ exports.handler = async function (event) {
   // Parse the POSTed form body (application/x-www-form-urlencoded)
   const params = new URLSearchParams(event.body || "");
   const email = (params.get("EMAIL") || "").trim().toLowerCase();
-  const daily = (params.get("DAILY") || "Yes").trim();
+  // The brief is weekly only (Aug 2026). The signup forms post DAILY=No and
+  // WEEKLY=Yes as hidden fields; these defaults cover any older cached form.
+  const daily = (params.get("DAILY") || "No").trim();
   const weekly = (params.get("WEEKLY") || "Yes").trim();
 
   // Honeypot: any input starting with "b_" filled = bot. Silently succeed

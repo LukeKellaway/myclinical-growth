@@ -145,8 +145,18 @@ def call_model(prompt):
         },
         method="POST",
     )
-    with urlopen(req, timeout=180) as r:
-        resp = json.loads(r.read().decode())
+    try:
+        with urlopen(req, timeout=180) as r:
+            resp = json.loads(r.read().decode())
+    except HTTPError as e:
+        # Surface the API's own explanation. Without this an exhausted credit
+        # balance reads as a bare "HTTP Error 400: Bad Request" and the poller
+        # can sit silently broken for weeks (it did: 18 Jun - 18 Aug 2026).
+        try:
+            detail = e.read().decode("utf-8", "replace")[:500]
+        except Exception:
+            detail = "(no response body)"
+        raise RuntimeError(f"HTTP {e.code} from Anthropic: {detail}") from None
     return "".join(b.get("text", "") for b in resp.get("content", []) if b.get("type") == "text")
 
 

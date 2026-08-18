@@ -12,10 +12,12 @@ name: Poll events
 
 on:
   schedule:
-    # Once a week, Monday mid-morning UTC. A skipped week self-heals: the next
-    # run re-scans the whole horizon and dedupes. The script's own 6-day guard
-    # means extra ticks never double-spend the API.
-    - cron: "37 9 * * 1"
+    # Once a week, SUNDAY mid-morning UTC. Sunday not Monday: the weekly brief
+    # sends Monday 07:30, so a Monday poll always left the email a week behind
+    # on events. A skipped week self-heals: the next run re-scans the whole
+    # horizon and dedupes. The script's own 6-day guard means extra ticks never
+    # double-spend the API.
+    - cron: "37 9 * * 0"
   workflow_dispatch:
     inputs:
       horizon_days:
