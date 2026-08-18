@@ -1,8 +1,78 @@
 {
   "updated": "2026-08-18",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 68,
+  "count": 72,
   "deals": [
+    {
+      "key": "souuthe-grant-2026-08",
+      "company": "Souuthe",
+      "what": "Saltburn-based dementia and palliative care tech startup receives \u00a375,000 Innovate UK Women in Innovation Award to develop calming sensory technology for people with dementia",
+      "type": "grant",
+      "round": "Women in Innovation Award",
+      "amount_gbp": 75000,
+      "date": "2026-08-07",
+      "investors": [
+        "Innovate UK"
+      ],
+      "directory_matches": [
+        "Innovate UK (UKRI)",
+        "Innovate UK Business Growth (ex-EDGE)",
+        "Innovate UK Growth Catalyst \u2013 Investor Partnerships",
+        "Innovate UK Innovation Loans",
+        "Innovate UK Women in Innovation Awards"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://bdaily.co.uk/articles/2026/08/05/healthtech-start-up-secures-innovate-uk-funding",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "in-house-health-grant-2026-08",
+      "company": "In-House Health",
+      "what": "Manchester-based workplace health startup founded by nurse Emma-Louise Fusari receives \u00a375,000 Innovate UK Women in Innovation Award",
+      "type": "grant",
+      "round": "Women in Innovation Award",
+      "amount_gbp": 75000,
+      "date": "2026-08-07",
+      "investors": [
+        "Innovate UK"
+      ],
+      "directory_matches": [
+        "Innovate UK (UKRI)",
+        "Innovate UK Business Growth (ex-EDGE)",
+        "Innovate UK Growth Catalyst \u2013 Investor Partnerships",
+        "Innovate UK Innovation Loans",
+        "Innovate UK Women in Innovation Awards"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://businesscloud.co.uk/news/nurse-receives-75k-to-improve-workplace-health/",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "mironid-equity-2026-08",
+      "company": "Mironid",
+      "what": "Glasgow biopharma raises Series B to advance clinical development of first-in-class small molecule therapeutics for ADPKD (rare hereditary kidney disease)",
+      "type": "equity",
+      "round": "Series B",
+      "amount_gbp": 34000000,
+      "date": "2026-08-05",
+      "investors": [
+        "Scottish National Investment Bank",
+        "Roche Venture Fund",
+        "Epidarex Capital",
+        "Sofinnova Partners",
+        "BioGeneration Ventures",
+        "University of Strathclyde"
+      ],
+      "directory_matches": [
+        "Scottish National Investment Bank"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.digit.fyi/mironid-34m-funding/",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "qureight-equity-2026-07",
       "company": "Qureight",
@@ -66,6 +136,23 @@
       "acquirer_origin": null,
       "source_url": "https://cambridgebiocapital.substack.com/p/gsk-commits-400m-to-uk-r-and-d-with",
       "confidence": "medium",
+      "status": "published"
+    },
+    {
+      "key": "bighand-healthcare-exit-2026-07",
+      "company": "BigHand Healthcare",
+      "what": "UK healthcare workflow-orchestration software company (division of BigHand) acquired by Dublin-based AI clinical documentation platform T-Pro; deal terms undisclosed",
+      "type": "exit",
+      "round": "Acquisition",
+      "amount_gbp": null,
+      "date": "2026-07-28",
+      "investors": [
+        "T-Pro"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": "overseas:Ireland",
+      "source_url": "https://htn.co.uk/2026/07/28/t-pro-acquires-bighand-healthcare/",
+      "confidence": "high",
       "status": "published"
     },
     {
