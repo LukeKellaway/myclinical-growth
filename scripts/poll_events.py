@@ -161,13 +161,34 @@ def call_model(prompt):
 
 
 def extract_json_array(text):
+    """Pull the JSON array out of the model's reply, tolerating stray prose."""
     text = text.strip()
     if text.startswith("```"):
         text = re.sub(r"^```[a-z]*\n?|\n?```$", "", text).strip()
-    start, end = text.find("["), text.rfind("]")
-    if start == -1 or end == -1 or end < start:
-        raise ValueError("no JSON array in model output")
-    return json.loads(text[start:end + 1])
+    # The model sometimes narrates before the payload ("I'll search for..."),
+    # and that prose can itself contain brackets. Slicing from the FIRST "[" to
+    # the LAST "]" then feeding it to json.loads breaks on that: the decoder
+    # parses the little bracketed fragment, hits the real array afterwards and
+    # raises "Extra data". So try every "[" with raw_decode and keep the best
+    # candidate: the longest array whose items are all objects.
+    decoder = json.JSONDecoder()
+    best = None
+    for i, ch in enumerate(text):
+        if ch != "[":
+            continue
+        try:
+            value, _ = decoder.raw_decode(text, i)
+        except ValueError:
+            continue
+        if not isinstance(value, list):
+            continue
+        if not all(isinstance(v, dict) for v in value):
+            continue
+        if best is None or len(value) > len(best):
+            best = value
+    if best is None:
+        raise ValueError("no JSON array of objects in model output")
+    return best
 
 
 def url_is_dead(url):
