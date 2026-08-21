@@ -1,7 +1,31 @@
 {
-  "updated": "2026-08-20T09:43:04.817151Z",
-  "count": 10,
+  "updated": "2026-08-21T06:38:24.379461Z",
+  "count": 11,
   "opportunities": [
+    {
+      "id": "fts-079675-2026",
+      "title": "WorkWell Service for NHS Essex ICB",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06b462",
+      "buyer": "NHS Essex Integrated Care Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 5,163,141",
+      "published": "2026-08-20T18:09:40+01:00",
+      "deadline": "2026-09-15T12:00:00+01:00",
+      "summary": "NHS Essex Integrated Care Board (herein referred to as the Authority) seeks suitable providers for this WorkWell Services as defined by the LOT structure and service specific details outlined in Document 3a and Document 3b Service Specifications. There is one (1) Essex Work and H…",
+      "cpv": [
+        "85323000",
+        "85323000",
+        "85323000",
+        "85323000",
+        "85323000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-077259-2026",
       "title": "Provision of Workforce and Associated Services",
