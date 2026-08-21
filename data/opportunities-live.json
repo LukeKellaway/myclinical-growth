@@ -1,7 +1,29 @@
 {
-  "updated": "2026-08-21T06:38:24.379461Z",
-  "count": 11,
+  "updated": "2026-08-21T09:45:29.090452Z",
+  "count": 12,
   "opportunities": [
+    {
+      "id": "fts-079728-2026",
+      "title": "Winter Maintenance Services at University Hospital Wishaw",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e933",
+      "buyer": "NHS Lanarkshire",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 138",
+      "published": "2026-08-21T08:56:25+01:00",
+      "deadline": "2026-09-21T12:00:00+01:00",
+      "summary": "NHS Lanarkshire wish to put in place a contract for the provision of managed Winter Maintenance Services at University Wishaw Hospital. Services required via the managed service contract will include gritting, salting and snow clearance, based on local weather monitoring and fore…",
+      "cpv": [
+        "77314000",
+        "44113910",
+        "90620000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-079675-2026",
       "title": "WorkWell Service for NHS Essex ICB",
