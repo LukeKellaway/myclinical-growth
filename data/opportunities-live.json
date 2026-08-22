@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-21T09:45:29.090452Z",
-  "count": 12,
+  "updated": "2026-08-22T06:32:34.850867Z",
+  "count": 10,
   "opportunities": [
     {
       "id": "fts-079728-2026",
@@ -204,47 +204,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-069379-2026",
-      "title": "Single Point of Access (SPoA) Eye Care Service",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d14b",
-      "buyer": "NHS Cheshire and Merseyside Integrated Care Board",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 2,000,000",
-      "published": "2026-07-22T19:03:56+01:00",
-      "deadline": "2026-08-28T12:00:00+01:00",
-      "summary": "NHS Cheshire and Merseyside Integrated Care Board is procuring a Single Point of Access (SPoA) Eye Care Service to provide a clinically led referral management and triage service for ophthalmology referrals across Cheshire and Merseyside. The service will improve referral quality…",
-      "cpv": [
-        "33662100"
-      ],
-      "tags": [
-        "Tender",
-        "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-069235-2026",
-      "title": "Strategic Culture Change Partner",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d100",
-      "buyer": "University Hospitals Sussex NHS Foundation Trust",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 600,000",
-      "published": "2026-07-22T14:38:52+01:00",
-      "deadline": "2026-08-17T10:00:00+01:00",
-      "summary": "The Trust is looking at appointing an Organisational Culture Change Strategic Partner to provide specialist capacity and expertise to design, deliver and embed a Trust‑wide cultural transformation programme.",
-      "cpv": [
-        "73000000"
-      ],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
