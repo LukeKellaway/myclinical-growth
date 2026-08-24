@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24T09:57:03.880200Z",
+  "updated": "2026-08-24T11:25:46.173105Z",
   "count": 10,
   "opportunities": [
     {
@@ -44,7 +44,8 @@
         "85323000"
       ],
       "tags": [
-        "Tender"
+        "Tender",
+        "Closes soon"
       ],
       "means": ""
     },
