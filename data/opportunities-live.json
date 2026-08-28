@@ -1,7 +1,27 @@
 {
-  "updated": "2026-08-27T19:47:29.838919Z",
-  "count": 9,
+  "updated": "2026-08-28T18:07:50.656977Z",
+  "count": 10,
   "opportunities": [
+    {
+      "id": "fts-082175-2026",
+      "title": "North East London Community Dermatology Service",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06ee85",
+      "buyer": "NHS North East London Integrated Care Board",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 19,117,580",
+      "published": "2026-08-28T13:06:57+01:00",
+      "deadline": "2026-09-23T12:00:00+01:00",
+      "summary": "Market Engagement Event The proposed North East London (NEL) Community Dermatology Service will provide a consultant-managed service, aligned with British Association of Dermatologists (BAD) guidance, delivering specialist assessment, diagnosis, treatment and follow-up care for p…",
+      "cpv": [
+        "85121282"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-079728-2026",
       "title": "Winter Maintenance Services at University Hospital Wishaw",
