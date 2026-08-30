@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-29T14:23:50.204789Z",
-  "count": 10,
+  "updated": "2026-08-30T11:06:48.518826Z",
+  "count": 9,
   "opportunities": [
     {
       "id": "fts-082175-2026",
@@ -40,7 +40,8 @@
         "90620000"
       ],
       "tags": [
-        "Tender"
+        "Tender",
+        "Closes soon"
       ],
       "means": ""
     },
@@ -187,25 +188,6 @@
       ],
       "tags": [
         "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-072407-2026",
-      "title": "The Provision of Lancashire and South Cumbria Adult Teledermatology Service",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06cd4e",
-      "buyer": "NHS Lancashire and South Cumbria Integrated Care Board",
-      "type": "Tender",
-      "category": "Infrastructure & cloud",
-      "value": "GBP 13,400,000",
-      "published": "2026-07-30T17:06:24+01:00",
-      "deadline": "2026-09-03T12:00:00+01:00",
-      "summary": "NHS Lancashire and South Cumbria Integrated Care Board is seeking to commission The Provision of Lancashire and South Cumbria Adult Teledermatology Service. The overall aim of the services (SkinHub, image capture spoke sites and Central Virtual Triage) is to deliver a pre-seconda…",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
       ],
       "means": ""
     }
