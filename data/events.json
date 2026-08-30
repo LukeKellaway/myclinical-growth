@@ -1,29 +1,7 @@
 {
-  "updated": "2026-08-18T12:00:00.000000Z",
-  "count": 25,
+  "updated": "2026-08-30T12:00:00.000000Z",
+  "count": 26,
   "events": [
-    {
-      "id": "event-aiih-2026-international-conference-on-artificial-intelligence-in",
-      "title": "AIiH 2026: International Conference on Artificial Intelligence in Healthcare",
-      "organiser": "AIiH Conference Series (hosted at Imperial College London)",
-      "source_url": "https://aiih.cc/",
-      "type": "Conference",
-      "category": "AI in healthcare",
-      "location": "Imperial College London, London",
-      "format": "In person",
-      "start_date": "2026-08-26",
-      "end_date": "2026-08-28",
-      "cost": "Paid (academic/researcher registration fees apply)",
-      "summary": "The third annual AIiH conference brings together researchers and practitioners working on AI methods applied to clinical healthcare problems, covering multimodal generative AI, assistive robotics, wearables, and medical imaging. Proceedings are published via Springer LNCS.",
-      "means": "This is an academic research conference, not a commercial or NHS buyer event. Founders with genuinely novel AI methods may find collaboration or validation partners here, but it will not put you in front of NHS procurement leads or commercial decision-makers.",
-      "tags": [
-        "AI research",
-        "Academic",
-        "Clinical AI"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-epr-summit-scotland-the-digital-health-and-care-record-2026",
       "title": "EPR Summit Scotland: the Digital Health and Care Record",
@@ -289,6 +267,28 @@
       "confidence": "medium"
     },
     {
+      "id": "event-building-better-healthcare-awards-2026-2026",
+      "title": "Building Better Healthcare Awards 2026",
+      "organiser": "Building Better Healthcare (Cognitive Publishing)",
+      "source_url": "https://buildingbetterhealthcare.com/events",
+      "type": "Awards & exhibition",
+      "category": "MedTech",
+      "location": "London, UK",
+      "format": "In person",
+      "start_date": "2026-11-04",
+      "end_date": "2026-11-04",
+      "cost": "Paid (entry and table packages)",
+      "summary": "Annual awards evening and exhibition recognising innovation across medtech, healthtech, and NHS procurement. Covers devices, digital, and clinical services. Attended by medtech suppliers, NHS procurement teams, and clinical decision-makers.",
+      "means": "Primarily a supplier and medtech manufacturer crowd, with NHS procurement and clinical engineering buyers present. Worth it for relationship-building and brand visibility in the device and equipment market, less so for pure software or AI founders.",
+      "tags": [
+        "MedTech",
+        "NHS procurement",
+        "Awards"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
       "id": "event-ai-in-health-summit-2026-2026",
       "title": "AI in Health Summit 2026",
       "organiser": "Economist Enterprise (The Economist Group)",
@@ -504,6 +504,28 @@
         "Digital health",
         "Scotland",
         "Policy"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-hett-leaders-summit-2027-2027",
+      "title": "HETT Leaders Summit 2027",
+      "organiser": "GovNet (HETT)",
+      "source_url": "https://www.hettleaderssummit.co.uk/",
+      "type": "Summit",
+      "category": "Digital health",
+      "location": "Royal Armouries, Leeds",
+      "format": "In person",
+      "start_date": "2027-02-11",
+      "end_date": "2027-02-11",
+      "cost": "Paid (supplier); NHS and public sector free or subsidised",
+      "summary": "A one-day peer-learning and facilitated networking summit for senior NHS and public sector digital leaders, sitting alongside the broader HETT event ecosystem. Focused on shared challenges, leadership insight, and meaningful supplier-buyer connection.",
+      "means": "The room is senior NHS digital leaders, CCIOs, and CIOs, making it one of the more useful single-day buyer-access events in the calendar. For founders, it is most valuable if you already have a product in market and want face time with decision-makers rather than a general awareness play.",
+      "tags": [
+        "NHS digital leaders",
+        "Digital health",
+        "Networking"
       ],
       "status": "Upcoming",
       "confidence": "high"
