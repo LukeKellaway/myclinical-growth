@@ -1,7 +1,27 @@
 {
-  "updated": "2026-08-31T17:52:06.575488Z",
-  "count": 9,
+  "updated": "2026-09-01T10:59:45.323280Z",
+  "count": 10,
   "opportunities": [
+    {
+      "id": "fts-082495-2026",
+      "title": "Microbiology Services Managed Service Contract",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d162",
+      "buyer": "Lothian Health Board",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 3,000,000",
+      "published": "2026-09-01T10:29:03+01:00",
+      "deadline": "2026-09-30T12:00:00+01:00",
+      "summary": "NHS Lothian seeks next-generation automated laboratory solution delivered on a managed services basis for diagnostic and laboratory services at Royal Infirmary of Edinburgh. The scope of the contract is an integrated Microbiology laboratory managed Services contract (“MSC”) provi…",
+      "cpv": [
+        "71900000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-082175-2026",
       "title": "North East London Community Dermatology Service",
