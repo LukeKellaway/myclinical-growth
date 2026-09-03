@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-03T10:36:16.307402Z",
-  "count": 10,
+  "updated": "2026-09-03T13:31:11.113734Z",
+  "count": 8,
   "opportunities": [
     {
       "id": "fts-082495-2026",
@@ -165,46 +165,6 @@
         "85121230",
         "85121231",
         "85150000"
-      ],
-      "tags": [
-        "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-073604-2026",
-      "title": "Fertility EPR System",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06daf9",
-      "buyer": "Barts Health NHS Trust",
-      "type": "Tender",
-      "category": "Clinical systems & EPR",
-      "value": "GBP 350,000",
-      "published": "2026-08-04T11:36:26+01:00",
-      "deadline": "2026-08-05T12:00:00+01:00",
-      "summary": "For the Provision of a Fertility EPR System",
-      "cpv": [
-        "72268000"
-      ],
-      "tags": [
-        "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-073593-2026",
-      "title": "Level 2 Digital Weight Management Service for Adults",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06daf1",
-      "buyer": "Aneurin Bevan University Health Board",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 108,333",
-      "published": "2026-08-04T11:31:22+01:00",
-      "deadline": "2026-08-13T15:30:00+01:00",
-      "summary": "This notice is an Intention to Award Notice published under the Health Services (Provider Selection Regime) (Wales) Regulations 2025. It confirms the intention to award a contract using Direct Award Process 2 (DAP2) in accordance with the Health Services (Provider Selection Regim…",
-      "cpv": [
-        "85100000"
       ],
       "tags": [
         "Tender"
