@@ -1,7 +1,45 @@
 {
-  "updated": "2026-09-04T13:25:06.279882Z",
-  "count": 7,
+  "updated": "2026-09-05T09:52:46.235034Z",
+  "count": 9,
   "opportunities": [
+    {
+      "id": "cf-eadc1d97-036c-4b83-b923-8e6fe0608719-913059",
+      "title": "Digital Consent and Sharing Decision Making Solution",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/eadc1d97-036c-4b83-b923-8e6fe0608719",
+      "buyer": "South Tees Hospitals NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 135,018",
+      "published": "2026-09-04T15:10:54+01:00",
+      "deadline": "2026-09-29T12:00:00+01:00",
+      "summary": "The provision of a Digital Consent and Sharing Decision Making Solution. The contract commencement date is expected to be January 2027. The contract duration is 36 months (with the option of 2 x 12 month extension periods) Additional information: To express interest and participa…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-083956-2026",
+      "title": "Digital Consent and Sharing Decision Making Solution",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06f26b",
+      "buyer": "South Tees Hospitals NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 135,018",
+      "published": "2026-09-04T14:51:10+01:00",
+      "deadline": "2026-09-29",
+      "summary": "Invitation to Tender for the Provision of a Digital Consent and Sharing Decision Making Solution.",
+      "cpv": [
+        "48814400"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-082495-2026",
       "title": "Microbiology Services Managed Service Contract",
