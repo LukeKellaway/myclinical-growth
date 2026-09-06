@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-30T12:00:00.000000Z",
-  "count": 26,
+  "updated": "2026-09-06T12:00:00.000000Z",
+  "count": 29,
   "events": [
     {
       "id": "event-epr-summit-scotland-the-digital-health-and-care-record-2026",
@@ -108,6 +108,28 @@
         "Net zero",
         "Sustainability",
         "Convenzis"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-hsj-patient-safety-congress-2026-2026",
+      "title": "HSJ Patient Safety Congress 2026",
+      "organiser": "Health Service Journal (HSJ)",
+      "source_url": "https://www.hsj.co.uk/events/congress",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "Telford International Centre, Telford",
+      "format": "In person",
+      "start_date": "2026-09-28",
+      "end_date": "2026-09-29",
+      "cost": "Paid",
+      "summary": "HSJ's flagship annual patient safety event bringing together over 1,000 NHS and independent healthcare leaders to push the boundaries of patient safety practice in the UK. Features patient advocates, clinicians, and safety-focused innovators.",
+      "means": "The audience is primarily NHS patient safety leads, clinical risk teams, and quality directors rather than tech buyers or investors. Worth attending if your product has a clear patient safety angle and you want face time with clinical decision-makers, but it is not a procurement or investment crowd.",
+      "tags": [
+        "patient safety",
+        "clinical",
+        "NHS leaders"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -355,6 +377,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-hcsa-annual-conference-exhibition-2026-2026",
+      "title": "HCSA Annual Conference & Exhibition 2026",
+      "organiser": "Health Care Supply Association (HCSA)",
+      "source_url": "https://www.hcsaconference.co.uk/hcsa-2026/",
+      "type": "Conference & expo",
+      "category": "Procurement & policy",
+      "location": "Telford International Centre, Telford",
+      "format": "In person",
+      "start_date": "2026-11-18",
+      "end_date": "2026-11-19",
+      "cost": "Paid; gala dinner included",
+      "summary": "The UK's leading two-day event for NHS procurement and supply chain professionals, featuring 55+ speakers, 90+ exhibitors, workshops, and the HCSA Gala Dinner and Awards. The 2026 theme is 'Setting the Agenda', focusing on NHS procurement reform, digital developments, and AI in commercial decision-making.",
+      "means": "The room is NHS procurement leads, supply chain managers, and their commercial suppliers. If your product needs to land on an NHS framework or you sell into procurement teams, this is one of the highest-density buyer crowds of the year.",
+      "tags": [
+        "NHS procurement",
+        "supply chain",
+        "commercial"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-ehr-wales-reflection-resilience-and-the-road-ahead-2026",
       "title": "EHR Wales: Reflection, Resilience and the Road Ahead",
       "organiser": "Convenzis",
@@ -570,6 +614,28 @@
         "Digital health",
         "NHS",
         "Expo"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-med-tech-expo-2027-2027",
+      "title": "Med-Tech Expo 2027",
+      "organiser": "Med-Tech Innovation Expo",
+      "source_url": "https://med-techexpo.com/",
+      "type": "Trade show",
+      "category": "MedTech",
+      "location": "TBC, UK",
+      "format": "In person",
+      "start_date": "2027-09-15",
+      "end_date": "2027-09-16",
+      "cost": "Free to attend; exhibiting paid",
+      "summary": "The UK's leading medical device manufacturing and supply chain trade show, connecting designers, engineers, manufacturers, and buyers from organisations including NHS, Stryker, Johnson and Johnson, and Medtronic. Features a conference programme alongside the exhibition floor.",
+      "means": "The crowd is predominantly medical device engineers, supply chain buyers, and manufacturers rather than NHS digital decision-makers. Best suited to founders selling physical medtech or device software; less relevant if your product is purely a digital or data platform.",
+      "tags": [
+        "medical devices",
+        "manufacturing",
+        "supply chain"
       ],
       "status": "Upcoming",
       "confidence": "high"
