@@ -1,8 +1,27 @@
 {
-  "updated": "2026-08-18",
+  "updated": "2026-09-06",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 71,
+  "count": 72,
   "deals": [
+    {
+      "key": "strolll-equity-2026-09",
+      "company": "Strolll",
+      "what": "Stafford-based AR neurorehabilitation SaMD company raises undisclosed equity round led by IW Capital with Cleveland Clinic and Future Planet Capital Regional",
+      "type": "equity",
+      "round": "Post-Series A (undisclosed amount)",
+      "amount_gbp": null,
+      "date": "2026-09-03",
+      "investors": [
+        "IW Capital",
+        "Cleveland Clinic",
+        "Future Planet Capital Regional"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": null,
+      "source_url": "https://www.eu-startups.com/2026/09/uk-medtech-strolll-secures-e5-million-in-innovate-uk-funding-and-additional-iw-capital-led-investment",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "souuthe-grant-2026-08",
       "company": "Souuthe",
