@@ -1,7 +1,26 @@
 {
-  "updated": "2026-09-10T10:25:45.797857Z",
-  "count": 7,
+  "updated": "2026-09-10T13:30:28.017097Z",
+  "count": 8,
   "opportunities": [
+    {
+      "id": "cf-eadc1d97-036c-4b83-b923-8e6fe0608719-913059",
+      "title": "Digital Consent and Sharing Decision Making Solution",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/eadc1d97-036c-4b83-b923-8e6fe0608719",
+      "buyer": "South Tees Hospitals NHS Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 135,018",
+      "published": "2026-09-04T15:10:54+01:00",
+      "deadline": "2026-09-29T12:00:00+01:00",
+      "summary": "The provision of a Digital Consent and Sharing Decision Making Solution. The contract commencement date is expected to be January 2027. The contract duration is 36 months (with the option of 2 x 12 month extension periods) Additional information: To express interest and participa…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-083956-2026",
       "title": "Digital Consent and Sharing Decision Making Solution",
