@@ -1,26 +1,7 @@
 {
-  "updated": "2026-09-09T13:40:23.429714Z",
-  "count": 9,
+  "updated": "2026-09-10T10:25:45.797857Z",
+  "count": 7,
   "opportunities": [
-    {
-      "id": "cf-eadc1d97-036c-4b83-b923-8e6fe0608719-913059",
-      "title": "Digital Consent and Sharing Decision Making Solution",
-      "source": "Contracts Finder",
-      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/eadc1d97-036c-4b83-b923-8e6fe0608719",
-      "buyer": "South Tees Hospitals NHS Foundation Trust",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 135,018",
-      "published": "2026-09-04T15:10:54+01:00",
-      "deadline": "2026-09-29T12:00:00+01:00",
-      "summary": "The provision of a Digital Consent and Sharing Decision Making Solution. The contract commencement date is expected to be January 2027. The contract duration is 36 months (with the option of 2 x 12 month extension periods) Additional information: To express interest and participa…",
-      "cpv": [],
-      "tags": [
-        "Tender",
-        "Closes soon"
-      ],
-      "means": ""
-    },
     {
       "id": "fts-083956-2026",
       "title": "Digital Consent and Sharing Decision Making Solution",
@@ -162,24 +143,6 @@
       "published": "2026-08-12T16:58:37+01:00",
       "deadline": "2026-09-01T18:00:00+01:00",
       "summary": "GP managed service to operate and run the Urgent Treatment Centre alongside UHS ED Clinicians. UTC will operate 12 hours a day with patients directed by UHS staff for the treatment of minor illness. Three year + 2 extension options.",
-      "cpv": [],
-      "tags": [
-        "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-075822-2026",
-      "title": "Digital Mental Health and Emotional Wellbeing Service for Children and Young People",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e05b",
-      "buyer": "NHS SOMERSET INTEGRATED CARE BOARD",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 1,050,000",
-      "published": "2026-08-10T15:12:27+01:00",
-      "deadline": "2026-09-09T12:00:00+01:00",
-      "summary": "NHS Somerset Integrated Care board (ICB) is seeking to secure a Prime Provider who has the capability and capacity to deliver a Digital Mental Health and Emotional Wellbeing Service for Children and Young People. The Service will provide a digitally enabled emotional wellbeing an…",
       "cpv": [],
       "tags": [
         "Tender"
