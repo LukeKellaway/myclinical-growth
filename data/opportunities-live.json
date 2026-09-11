@@ -1,7 +1,25 @@
 {
-  "updated": "2026-09-10T13:30:28.017097Z",
-  "count": 8,
+  "updated": "2026-09-11T10:29:08.288420Z",
+  "count": 9,
   "opportunities": [
+    {
+      "id": "cf-75f561ce-129d-4c83-ab5f-97290ac38de5-913675",
+      "title": "Building Information Standards Dynamic Purchasing System",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/75f561ce-129d-4c83-ab5f-97290ac38de5",
+      "buyer": "NHS England",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-09-11T10:11:52+01:00",
+      "deadline": "2027-10-31T12:00:00Z",
+      "summary": "NHS England's Information Representation Service's (IReS) Data Standards Assurance team (DSAS) provides assurance and appraisal services for all Information Standards submitted to the Data Alliance Partnership Board for publication. The IReS Building Information Standards Busines…",
+      "cpv": [],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-eadc1d97-036c-4b83-b923-8e6fe0608719-913059",
       "title": "Digital Consent and Sharing Decision Making Solution",
