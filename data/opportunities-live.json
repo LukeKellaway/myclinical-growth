@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-11T13:28:21.962552Z",
-  "count": 9,
+  "updated": "2026-09-12T09:57:11.298014Z",
+  "count": 8,
   "opportunities": [
     {
       "id": "cf-75f561ce-129d-4c83-ab5f-97290ac38de5-913675",
@@ -162,24 +162,6 @@
       "published": "2026-08-13T13:48:01+01:00",
       "deadline": "2026-09-07T12:00:00+01:00",
       "summary": "North Cumbria Integrated Care NHS Foundation Trust is seeking to appoint a Neutral Vendor to provide a fully managed service for the supply of Clinical Workforce (Agency provision) across its sites. The appointed Neutral Vendor will be responsible for the sourcing, and fulfilment…",
-      "cpv": [],
-      "tags": [
-        "Tender"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-076965-2026",
-      "title": "UHS Urgent Treatment Centre Clinical Service Provision",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e308",
-      "buyer": "University Hospital Southampton NHS Foundation Trust",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 2,250,000",
-      "published": "2026-08-12T16:58:37+01:00",
-      "deadline": "2026-09-01T18:00:00+01:00",
-      "summary": "GP managed service to operate and run the Urgent Treatment Centre alongside UHS ED Clinicians. UTC will operate 12 hours a day with patients directed by UHS staff for the treatment of minor illness. Three year + 2 extension options.",
       "cpv": [],
       "tags": [
         "Tender"
