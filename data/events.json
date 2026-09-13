@@ -1,51 +1,7 @@
 {
-  "updated": "2026-09-06T12:00:00.000000Z",
+  "updated": "2026-09-13T12:00:00.000000Z",
   "count": 29,
   "events": [
-    {
-      "id": "event-epr-summit-scotland-the-digital-health-and-care-record-2026",
-      "title": "EPR Summit Scotland: the Digital Health and Care Record",
-      "organiser": "Convenzis",
-      "source_url": "https://www.convenzis.co.uk/events/epr-scotland",
-      "type": "Conference",
-      "category": "Digital health",
-      "location": "TheStudio, 67 Hope Street, Glasgow",
-      "format": "In person",
-      "start_date": "2026-09-08",
-      "end_date": "2026-09-08",
-      "cost": "Free for NHS; suppliers paid",
-      "summary": "A Convenzis EPR summit for Scotland, focused on enabling the digital health and care record through data standards.",
-      "means": "Targeted at EPR and record-sharing vendors active in Scotland. A focused room of the right buyers if that is your market.",
-      "tags": [
-        "EPR",
-        "Scotland",
-        "Convenzis"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-unlocking-nhs-scotland-procurement-for-smes-2026",
-      "title": "Unlocking NHS Scotland procurement for SMEs",
-      "organiser": "techUK",
-      "source_url": "https://www.techuk.org/what-we-deliver/events/unlocking-nhs-scotland-procurement-for-smes.html",
-      "type": "Panel discussion",
-      "category": "Procurement & policy",
-      "location": "Glasgow",
-      "format": "In person",
-      "start_date": "2026-09-09",
-      "end_date": "2026-09-09",
-      "cost": "Free",
-      "summary": "Part of Glasgow Tech Week, a techUK panel on how SMEs can navigate healthcare procurement in Scotland and scale into NHS adoption.",
-      "means": "Very relevant for smaller vendors trying to crack NHS Scotland. Procurement-specific and SME-focused, exactly the gap most founders struggle with.",
-      "tags": [
-        "Scotland",
-        "Procurement",
-        "SME"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-advanced-therapies-wales-symposium-2026-2026",
       "title": "Advanced Therapies Wales Symposium 2026",
@@ -421,6 +377,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-digital-healthcare-world-congress-2026-2026",
+      "title": "Digital Healthcare World Congress 2026",
+      "organiser": "Digital Healthcare World Congress",
+      "source_url": "https://digitalhealthcareworldcongress.com/",
+      "type": "Conference & expo",
+      "category": "Digital health",
+      "location": "Kensington Conference and Event Centre, London",
+      "format": "In person",
+      "start_date": "2026-11-23",
+      "end_date": "2026-11-24",
+      "cost": "Paid",
+      "summary": "Annual London conference and expo covering AI, digital health, medtech, IoT, pharma, genomics and healthcare IT, with speakers from major tech and health organisations.",
+      "means": "Primarily an international tech and vendor crowd rather than an NHS buyer crowd. Worth considering for networking with fellow suppliers and innovators, but less useful for direct NHS pipeline development.",
+      "tags": [
+        "digital health",
+        "AI",
+        "medtech"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
       "id": "event-giant-health-event-2026-2026",
       "title": "GIANT Health Event 2026",
       "organiser": "GIANT Health",
@@ -617,6 +595,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-hfma-delivering-value-with-digital-technologies-2027-2027",
+      "title": "HFMA Delivering Value with Digital Technologies 2027",
+      "organiser": "Healthcare Financial Management Association (HFMA)",
+      "source_url": "https://www.hfma.org.uk/events/delivering-value-digital-technologies-2026",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "Online",
+      "format": "Online",
+      "start_date": "2027-03-17",
+      "end_date": "2027-03-18",
+      "cost": "Free for HFMA partners; commercial ticket available on request",
+      "summary": "A webinar series for NHS finance and digital leaders exploring how technology delivers value-based healthcare aligned with NHS financial priorities.",
+      "means": "This is an NHS-internal audience: finance directors, digital leaders and HFMA partner organisations. Commercial vendors can attend but it is primarily a policy and best-practice forum, not a buyer-facing sales opportunity.",
+      "tags": [
+        "NHS finance",
+        "digital transformation",
+        "value-based care"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-med-tech-expo-2027-2027",
