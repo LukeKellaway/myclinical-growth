@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-12T12:48:11.665848Z",
-  "count": 8,
+  "updated": "2026-09-13T10:58:32.853185Z",
+  "count": 7,
   "opportunities": [
     {
       "id": "cf-75f561ce-129d-4c83-ab5f-97290ac38de5-913675",
@@ -147,24 +147,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-077259-2026",
-      "title": "Provision of Workforce and Associated Services",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06bc1c",
-      "buyer": "North Cumbria Integrated Care NHS Foundation Trust",
-      "type": "Tender",
-      "category": "Infrastructure & cloud",
-      "value": "GBP 688,095",
-      "published": "2026-08-13T13:48:01+01:00",
-      "deadline": "2026-09-07T12:00:00+01:00",
-      "summary": "North Cumbria Integrated Care NHS Foundation Trust is seeking to appoint a Neutral Vendor to provide a fully managed service for the supply of Clinical Workforce (Agency provision) across its sites. The appointed Neutral Vendor will be responsible for the sourcing, and fulfilment…",
-      "cpv": [],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
