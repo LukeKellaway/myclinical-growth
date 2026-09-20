@@ -1,29 +1,7 @@
 {
-  "updated": "2026-09-13T12:00:00.000000Z",
-  "count": 29,
+  "updated": "2026-09-20T12:00:00.000000Z",
+  "count": 30,
   "events": [
-    {
-      "id": "event-advanced-therapies-wales-symposium-2026-2026",
-      "title": "Advanced Therapies Wales Symposium 2026",
-      "organiser": "Health and Care Research Wales",
-      "source_url": "https://healthandcareresearchwales.org/about/events/advanced-therapies-wales-symposium",
-      "type": "Conference",
-      "category": "Innovation & startups",
-      "location": "Swansea University Bay Campus, Swansea",
-      "format": "In person",
-      "start_date": "2026-09-17",
-      "end_date": "2026-09-17",
-      "cost": "Paid; some free places",
-      "summary": "The annual symposium for the advanced therapies and cell and gene therapy community in Wales.",
-      "means": "Very specific to advanced therapies and the Welsh life sciences ecosystem. Relevant only if you work in that space or want a route into Wales.",
-      "tags": [
-        "Advanced therapies",
-        "Wales",
-        "Life sciences"
-      ],
-      "status": "Upcoming",
-      "confidence": "medium"
-    },
     {
       "id": "event-digital-health-and-social-care-conference-2026-2026",
       "title": "Digital Health and Social Care Conference 2026",
@@ -108,6 +86,28 @@
         "Digital health",
         "NHS",
         "Expo"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-innovation-in-medtech-and-diagnostics-conference-2026-2026",
+      "title": "Innovation in MedTech and Diagnostics Conference 2026",
+      "organiser": "CPI (Centre for Process Innovation)",
+      "source_url": "https://www.uk-cpi.com/events/healthtech-conference-london-2026",
+      "type": "Conference",
+      "category": "MedTech",
+      "location": "Prince Philip House, 3 Carlton House Terrace, London",
+      "format": "In person",
+      "start_date": "2026-10-06",
+      "end_date": "2026-10-07",
+      "cost": "Paid (pricing not publicly listed)",
+      "summary": "A two-day conference hosted by CPI bringing together medtech, pharma, academia, investors and government agencies to focus on the most recent developments in medtech and diagnostics innovation. Sessions are structured around real healthcare needs and what it takes to bring emerging technologies into clinical use.",
+      "means": "This is a cross-sector innovation and commercialisation crowd, not a pure NHS buyer event. Founders working on diagnostics, AI in medtech or device development will find useful NHS and investor contacts, but commercial teams looking purely for NHS procurement leads will find the audience is more R&D and policy than procurement.",
+      "tags": [
+        "MedTech",
+        "Diagnostics",
+        "Innovation"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -570,6 +570,28 @@
         "Pathology",
         "Diagnostics",
         "Convenzis"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-medical-technology-uk-2027-2027",
+      "title": "Medical Technology UK 2027",
+      "organiser": "Medical Technology UK",
+      "source_url": "https://www.medicaltechnologyuk.com/",
+      "type": "Trade show",
+      "category": "MedTech",
+      "location": "Newmarket Racecourse, Newmarket",
+      "format": "In person",
+      "start_date": "2027-03-10",
+      "end_date": "2027-03-11",
+      "cost": "Free to attend (exhibition and learning programme)",
+      "summary": "A specialist two-day exhibition for medical device design, development and manufacturing, bringing together medtech engineers, supply chain professionals, procurement leads and senior OEM executives. The event runs alongside a learning programme covering device regulation, NHS adoption and manufacturing innovation.",
+      "means": "This is a supply chain and manufacturing crowd, not an NHS digital buyer event. It is worth attending if your product involves hardware, device manufacturing or regulated medtech components and you want to reach procurement and supply chain decision-makers in the device sector rather than NHS CIOs or digital transformation leads.",
+      "tags": [
+        "MedTech",
+        "Medical devices",
+        "Manufacturing"
       ],
       "status": "Upcoming",
       "confidence": "high"
