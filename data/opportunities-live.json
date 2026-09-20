@@ -1,6 +1,6 @@
 {
-  "updated": "2026-09-19T13:02:09.956339Z",
-  "count": 6,
+  "updated": "2026-09-20T10:29:19.588256Z",
+  "count": 4,
   "opportunities": [
     {
       "id": "cf-75f561ce-129d-4c83-ab5f-97290ac38de5-913675",
@@ -80,53 +80,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-079728-2026",
-      "title": "Winter Maintenance Services at University Hospital Wishaw",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06e933",
-      "buyer": "NHS Lanarkshire",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 138",
-      "published": "2026-08-21T08:56:25+01:00",
-      "deadline": "2026-09-21T12:00:00+01:00",
-      "summary": "NHS Lanarkshire wish to put in place a contract for the provision of managed Winter Maintenance Services at University Wishaw Hospital. Services required via the managed service contract will include gritting, salting and snow clearance, based on local weather monitoring and fore…",
-      "cpv": [
-        "77314000",
-        "44113910",
-        "90620000"
-      ],
-      "tags": [
-        "Tender",
-        "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-079675-2026",
-      "title": "WorkWell Service for NHS Essex ICB",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06b462",
-      "buyer": "NHS Essex Integrated Care Board",
-      "type": "Tender",
-      "category": "Other digital health",
-      "value": "GBP 5,163,141",
-      "published": "2026-08-20T18:09:40+01:00",
-      "deadline": "2026-09-15T12:00:00+01:00",
-      "summary": "NHS Essex Integrated Care Board (herein referred to as the Authority) seeks suitable providers for this WorkWell Services as defined by the LOT structure and service specific details outlined in Document 3a and Document 3b Service Specifications. There is one (1) Essex Work and H…",
-      "cpv": [
-        "85323000",
-        "85323000",
-        "85323000",
-        "85323000",
-        "85323000"
-      ],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
