@@ -1,51 +1,7 @@
 {
-  "updated": "2026-09-20T12:00:00.000000Z",
-  "count": 30,
+  "updated": "2026-09-27T12:00:00.000000Z",
+  "count": 31,
   "events": [
-    {
-      "id": "event-digital-health-and-social-care-conference-2026-2026",
-      "title": "Digital Health and Social Care Conference 2026",
-      "organiser": "Westminster Insight",
-      "source_url": "https://www.westminsterinsight.com/conferences-and-events/digital-health-and-social-care/",
-      "type": "Conference",
-      "category": "Procurement & policy",
-      "location": "Online",
-      "format": "Online",
-      "start_date": "2026-09-22",
-      "end_date": "2026-09-22",
-      "cost": "Paid",
-      "summary": "A policy-focused conference on the policies, technologies and developments shaping the future of digital health and social care.",
-      "means": "Good for commercial and policy teams who want the regulatory and strategy picture. Online and policy-led, so more intelligence than networking.",
-      "tags": [
-        "Policy",
-        "Digital health",
-        "Online"
-      ],
-      "status": "Upcoming",
-      "confidence": "medium"
-    },
-    {
-      "id": "event-netzeronhs-2026-nhs-sustainability-innovation-conference-2026",
-      "title": "NetZeroNHS 2026: NHS Sustainability & Innovation Conference",
-      "organiser": "Convenzis",
-      "source_url": "https://www.convenzis.co.uk/events/netzeronhs-2026",
-      "type": "Conference",
-      "category": "Innovation & startups",
-      "location": "etc.venues Prospero House, London",
-      "format": "In person",
-      "start_date": "2026-09-22",
-      "end_date": "2026-09-22",
-      "cost": "Free for NHS; suppliers paid",
-      "summary": "A Convenzis conference on NHS sustainability and net zero, covering innovation that helps trusts cut carbon and run greener estates.",
-      "means": "Niche but useful for cleantech and estates innovators selling into the NHS. Skip unless sustainability is central to your offer.",
-      "tags": [
-        "Net zero",
-        "Sustainability",
-        "Convenzis"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-hsj-patient-safety-congress-2026-2026",
       "title": "HSJ Patient Safety Congress 2026",
@@ -111,6 +67,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-procure4health-symposium-london-2026-2026",
+      "title": "Procure4Health Symposium London 2026",
+      "organiser": "BiP Solutions",
+      "source_url": "https://www.p4hengland.co.uk/",
+      "type": "Conference",
+      "category": "Procurement & policy",
+      "location": "Royal National Hotel, London",
+      "format": "In person",
+      "start_date": "2026-10-07",
+      "end_date": "2026-10-07",
+      "cost": "Free for NHS buyers; commercial delegates paid",
+      "summary": "A one-day symposium officially supported by NHS London Procurement Partnership, convening around 300 healthcare procurement professionals, suppliers and key stakeholders for panel debates, presentations and networking focused on NHS procurement innovation and best practice.",
+      "means": "Squarely aimed at NHS procurement professionals and the suppliers who want to reach them. For a founder, this is one of the better rooms to understand how NHS buyers think and to build relationships with procurement leads, though the audience is primarily operational rather than investment-focused.",
+      "tags": [
+        "NHS procurement",
+        "supplier engagement",
+        "commercial"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-abhi-digital-health-conference-2026-2026",
@@ -311,6 +289,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-london-life-sciences-week-2026-2026",
+      "title": "London Life Sciences Week 2026",
+      "organiser": "MedCity, London & Partners and the BioIndustry Association",
+      "source_url": "https://lifesciencesweek.london/",
+      "type": "Festival & expo",
+      "category": "Investment",
+      "location": "Various venues, central London",
+      "format": "In person",
+      "start_date": "2026-11-15",
+      "end_date": "2026-11-20",
+      "cost": "Varies by event; networking platform free",
+      "summary": "A week of 50-plus events spanning life sciences networking, dealmaking and innovation across central London, anchored by the Jefferies European Healthcare Conference and the LSX Investival Showcase, drawing over 1,300 senior decision-makers from international life sciences companies and investor firms.",
+      "means": "This is primarily an investor and business development week for biotech, medtech and pharma rather than an NHS digital-transformation event. It is worth attending if you are raising a Series A or B or need to meet global investors and strategic partners, but it will not put you in a room with NHS procurement leads.",
+      "tags": [
+        "life sciences",
+        "investment",
+        "dealmaking"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-the-king-s-fund-annual-conference-2026-good-health-for-all-2026",
       "title": "The King's Fund Annual Conference 2026: Good Health for All",
       "organiser": "The King's Fund",
@@ -438,6 +438,28 @@
         "Digital health",
         "Scotland",
         "Social care"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-genesis-conference-2026-2026",
+      "title": "Genesis Conference 2026",
+      "organiser": "One Nucleus",
+      "source_url": "https://www.genesisconference.com/",
+      "type": "Conference",
+      "category": "Innovation & startups",
+      "location": "Royal Society of Medicine, London",
+      "format": "In person",
+      "start_date": "2026-12-10",
+      "end_date": "2026-12-10",
+      "cost": "Paid (delegate tickets; exhibition space available)",
+      "summary": "The 26th annual London life science and healthcare networking conference organised by One Nucleus, attracting around 400 attendees for plenary talks, panels from key opinion leaders, one-to-one partnering sessions and an exhibition showcasing life science sector providers.",
+      "means": "A well-established networking and partnering event for the Cambridge and London life sciences cluster, weighted towards biotech and medtech founders, academics and investors rather than NHS operational buyers. Worth attending for startup founders seeking co-development partners or investor introductions, but not primarily an NHS commercial or digital health event.",
+      "tags": [
+        "life sciences",
+        "networking",
+        "partnering"
       ],
       "status": "Upcoming",
       "confidence": "high"
