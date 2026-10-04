@@ -1,8 +1,27 @@
 {
-  "updated": "2026-09-06",
+  "updated": "2026-10-04",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 72,
+  "count": 73,
   "deals": [
+    {
+      "key": "dyad-equity-2026-09",
+      "company": "DYAD",
+      "what": "Series A of $10m (\u00a37.5m) to accelerate expansion of healthcare AI platform across NHS primary care, secondary care, and international markets",
+      "type": "equity",
+      "round": "Series A",
+      "amount_gbp": 7500000,
+      "date": "2026-09-30",
+      "investors": [
+        "Sangha Capital",
+        "Carbide Ventures",
+        "Bill Tai"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": null,
+      "source_url": "https://businesscloud.co.uk/news/dyad-raises-7-5m-to-rewire-care-coordination/",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "strolll-equity-2026-09",
       "company": "Strolll",
