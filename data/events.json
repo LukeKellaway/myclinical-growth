@@ -1,51 +1,7 @@
 {
-  "updated": "2026-09-27T12:00:00.000000Z",
-  "count": 31,
+  "updated": "2026-10-04T12:00:00.000000Z",
+  "count": 35,
   "events": [
-    {
-      "id": "event-hsj-patient-safety-congress-2026-2026",
-      "title": "HSJ Patient Safety Congress 2026",
-      "organiser": "Health Service Journal (HSJ)",
-      "source_url": "https://www.hsj.co.uk/events/congress",
-      "type": "Conference",
-      "category": "Digital health",
-      "location": "Telford International Centre, Telford",
-      "format": "In person",
-      "start_date": "2026-09-28",
-      "end_date": "2026-09-29",
-      "cost": "Paid",
-      "summary": "HSJ's flagship annual patient safety event bringing together over 1,000 NHS and independent healthcare leaders to push the boundaries of patient safety practice in the UK. Features patient advocates, clinicians, and safety-focused innovators.",
-      "means": "The audience is primarily NHS patient safety leads, clinical risk teams, and quality directors rather than tech buyers or investors. Worth attending if your product has a clear patient safety angle and you want face time with clinical decision-makers, but it is not a procurement or investment crowd.",
-      "tags": [
-        "patient safety",
-        "clinical",
-        "NHS leaders"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-hett-show-2026-2026",
-      "title": "HETT Show 2026",
-      "organiser": "HETT (CloserStill Media)",
-      "source_url": "https://www.hettshow.co.uk/",
-      "type": "Conference & expo",
-      "category": "Digital health",
-      "location": "ExCeL London",
-      "format": "In person",
-      "start_date": "2026-09-29",
-      "end_date": "2026-09-30",
-      "cost": "Free for NHS and public sector; commercial paid",
-      "summary": "Healthcare Excellence Through Technology, one of the UK's largest digital health expos with keynotes, multiple stages and a large supplier floor.",
-      "means": "A core event for anyone selling digital health into the NHS. Worth the trip for visibility and leads, though the floor is competitive so pre-booked meetings pay off.",
-      "tags": [
-        "Digital health",
-        "NHS",
-        "Expo"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-innovation-in-medtech-and-diagnostics-conference-2026-2026",
       "title": "Innovation in MedTech and Diagnostics Conference 2026",
@@ -130,6 +86,28 @@
         "Outpatients",
         "Elective recovery",
         "Convenzis"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-surgtech-conference-2026-2026",
+      "title": "SurgTech Conference 2026",
+      "organiser": "NIHR HealthTech Research Centre in Accelerated Surgical Care / Health Innovation Leeds",
+      "source_url": "https://hrc-surgical.nihr.ac.uk/https-hrc-surgical-nihr-ac-uk-events/surgtech-2026/",
+      "type": "Conference",
+      "category": "MedTech",
+      "location": "Headingley Stadium, Leeds",
+      "format": "In person",
+      "start_date": "2026-10-08",
+      "end_date": "2026-10-09",
+      "cost": "Check site; NIHR events typically free or low cost for NHS/academia",
+      "summary": "Two-day event uniting surgical innovators, clinicians, academia, and industry to showcase surgical and perioperative technologies. Speakers include MHRA CEO, NICE CEO, and NIHR senior leaders.",
+      "means": "This is a clinical and academic crowd, not a commercial buyer day. Worth attending if your product sits in surgical tech, med devices, or perioperative innovation and you want early credibility with NIHR and NHS clinical leads.",
+      "tags": [
+        "surgical innovation",
+        "MedTech",
+        "NIHR"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -265,6 +243,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-uk-healthcare-innovation-summit-2026-2026",
+      "title": "UK Healthcare Innovation Summit 2026",
+      "organiser": "Bamberg Health",
+      "source_url": "https://bamberghealth.com/event/uk-healthcare-innovation-summit-2026",
+      "type": "Summit",
+      "category": "Innovation & startups",
+      "location": "Hilton London Canary Wharf, London",
+      "format": "In person",
+      "start_date": "2026-11-05",
+      "end_date": "2026-11-05",
+      "cost": "Check site",
+      "summary": "Single-day summit covering system strategy, workforce transformation, AI governance, funding reform, pathway innovation, and public-private partnerships across the UK health and care system.",
+      "means": "A policy and leadership forum aimed at senior NHS and government stakeholders. Useful for founders who want to hear where system priorities are heading and do light-touch networking with ICS and DHSC-level contacts, but not a primary commercial selling floor.",
+      "tags": [
+        "NHS policy",
+        "AI governance",
+        "innovation"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-abhi-uk-healthtech-conference-2026-2026",
@@ -575,6 +575,50 @@
       "confidence": "high"
     },
     {
+      "id": "event-igpp-ai-in-healthcare-conference-2027-manchester-2027",
+      "title": "IGPP AI in Healthcare Conference 2027 (Manchester)",
+      "organiser": "Institute of Government and Public Policy (IGPP)",
+      "source_url": "https://igpp.org.uk/event/AI_in_Healthcare_Conference_2027",
+      "type": "Conference",
+      "category": "AI in healthcare",
+      "location": "Manchester (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-02-23",
+      "end_date": "2027-02-23",
+      "cost": "From £249 + VAT; free for NHS and public sector",
+      "summary": "A single-day conference bringing together NHS leaders, clinicians, policymakers, regulators, and tech innovators to examine how AI can be embedded safely across health and care, from pilots to proven pathways.",
+      "means": "The crowd skews toward NHS operational and policy people rather than buyers with budget. Good for founders who need to understand adoption blockers and regulatory direction. Not a primary sales event, but useful for thought leadership and direct NHS insight.",
+      "tags": [
+        "AI",
+        "NHS digital",
+        "policy"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-estatesvision-2027-the-health-estates-conference-2027",
+      "title": "EstatesVision 2027: The Health Estates Conference",
+      "organiser": "Convenzis",
+      "source_url": "https://www.convenzis.co.uk/events/estatesvision-2027",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "etc.venues Prospero House, London",
+      "format": "In person",
+      "start_date": "2027-02-23",
+      "end_date": "2027-02-23",
+      "cost": "Check site; Convenzis events typically subsidised or free for NHS",
+      "summary": "A targeted platform for suppliers and technology providers supporting NHS estate transformation, digital infrastructure, and the development of Neighbourhood Health Centres. Covers AI-enabled estate operations, interoperability, and capital programme management.",
+      "means": "The buyer crowd here is NHS estates and facilities managers, not clinical or IT procurement leads. Relevant only if your product touches hospital infrastructure, building management, or digital-physical integration. Skip it if you sell clinical software or diagnostics.",
+      "tags": [
+        "NHS estates",
+        "digital infrastructure",
+        "capital programmes"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-path360-2027-nhs-pathology-strategy-conference-north-2027",
       "title": "Path360 2027: NHS Pathology Strategy Conference North",
       "organiser": "Convenzis",
@@ -595,6 +639,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-igpp-ai-in-healthcare-conference-2027-london-2027",
+      "title": "IGPP AI in Healthcare Conference 2027 (London)",
+      "organiser": "Institute of Government and Public Policy (IGPP)",
+      "source_url": "https://igpp.org.uk/events/digital-technology-and-innovation",
+      "type": "Conference",
+      "category": "AI in healthcare",
+      "location": "The Kia Oval, London",
+      "format": "In person",
+      "start_date": "2027-03-09",
+      "end_date": "2027-03-09",
+      "cost": "From £249 + VAT; free for NHS and public sector",
+      "summary": "A London edition of IGPP's AI in Healthcare series, exploring how AI moves from NHS pilots to scaled, safe deployment, with a focus on procurement strategies, governance, and clinical validation.",
+      "means": "Similar to the Manchester edition: the audience is NHS leaders and policymakers, not procurement budget holders. Valuable for founders wanting credibility and policy intelligence in a smaller, focused room, especially if you cannot make both dates.",
+      "tags": [
+        "AI",
+        "NHS digital",
+        "governance"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-medical-technology-uk-2027-2027",
@@ -661,6 +727,28 @@
       ],
       "status": "Upcoming",
       "confidence": "medium"
+    },
+    {
+      "id": "event-nhs-confedexpo-2027-2027",
+      "title": "NHS ConfedExpo 2027",
+      "organiser": "NHS Confederation and NHS England",
+      "source_url": "https://www.nhsconfedexpo.org/",
+      "type": "Conference & expo",
+      "category": "Procurement & policy",
+      "location": "Manchester Central, Manchester",
+      "format": "In person",
+      "start_date": "2027-06-16",
+      "end_date": "2027-06-17",
+      "cost": "Free for NHS Confederation members, NHS staff, and wider public sector; paid for commercial attendees (up to approx. £995)",
+      "summary": "The UK's largest health and care conference, delivered by NHS Confederation and NHS England, bringing together over 5,000 leaders, clinicians, and partners. Covers NHS strategy, digital transformation, and system-wide innovation.",
+      "means": "This is the single biggest gathering of NHS senior leaders in the UK calendar. The buyer density is very high. For founders and commercial teams, it is essential for visibility, relationship building with ICS and trust leads, and understanding which national priorities are getting real traction.",
+      "tags": [
+        "NHS leadership",
+        "digital transformation",
+        "ICS"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
     },
     {
       "id": "event-med-tech-expo-2027-2027",
