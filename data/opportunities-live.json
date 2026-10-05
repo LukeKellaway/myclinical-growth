@@ -1,7 +1,27 @@
 {
-  "updated": "2026-10-05T13:22:28.734347Z",
-  "count": 1,
+  "updated": "2026-10-05T18:15:14.006438Z",
+  "count": 2,
   "opportunities": [
+    {
+      "id": "fts-093954-2026",
+      "title": "Asset Tracking System",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-078109",
+      "buyer": "NHS Borders",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 116,000",
+      "published": "2026-10-05T15:58:32+01:00",
+      "deadline": "2026-11-16T12:00:00Z",
+      "summary": "NHS Borders is seeking competitive tenders from suitably experienced suppliers for an asset tracking system. The requirement supports a programme to improve the control, traceability and efficient management of clinical and selected non-clinical equipment, replacing fragmented ma…",
+      "cpv": [
+        "48422000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-093514-2026",
       "title": "Insourced Breast USC One-Stop Triple Assessment and Symptomatic Breast Radiology",
