@@ -1,8 +1,50 @@
 {
-  "updated": "2026-10-04",
+  "updated": "2026-10-11",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 73,
+  "count": 75,
   "deals": [
+    {
+      "key": "cori-clinical-equity-2026-10",
+      "company": "Cori Clinical",
+      "what": "Seed round to build an AI workspace linking clinical trial design, regulatory guidance and operational planning into a single living blueprint",
+      "type": "equity",
+      "round": "Seed",
+      "amount_gbp": 3020000,
+      "date": "2026-10-07",
+      "investors": [
+        "Breega",
+        "Enzo Ventures"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": null,
+      "source_url": "https://www.startupmag.co.uk/funding/uk-startup-funding-report-09-10-2026/",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "mintneuro-equity-2026-10",
+      "company": "MintNeuro",
+      "what": "Seed round to scale purpose-built semiconductor chip platform for neural devices and brain-computer interfaces",
+      "type": "equity",
+      "round": "Seed",
+      "amount_gbp": 3770000,
+      "date": "2026-10-07",
+      "investors": [
+        "Odyssey Ventures",
+        "33East",
+        "JSK Investments",
+        "Alumni Ventures",
+        "Empirical Ventures",
+        "Jumpspace Ventures"
+      ],
+      "directory_matches": [
+        "Empirical Ventures"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.finsmes.com/2026/10/mintneuro-raises-5m-in-funding.html",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "dyad-equity-2026-09",
       "company": "DYAD",
