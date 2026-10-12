@@ -1,5 +1,97 @@
 {
-  "updated": "2026-10-12T14:13:42.545619Z",
-  "count": 0,
-  "opportunities": []
+  "updated": "2026-10-12T18:52:41.279250Z",
+  "count": 4,
+  "opportunities": [
+    {
+      "id": "fts-096255-2026",
+      "title": "Dental Implants, Digital Services & Associated Products",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-0785f4",
+      "buyer": "NHS Greater Glasgow and Clyde",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-10-12T16:26:40+01:00",
+      "deadline": "2026-11-11T12:00:00Z",
+      "summary": "NHS Greater Glasgow & Clyde (NHS GGC) require suitably qualified, experienced and licensed contractors to undertake the provision of Dental Implants, Digital Services and Associated Products, in order to procure a high quality solution across the Board. The tender opportunity con…",
+      "cpv": [
+        "33133000",
+        "33141800",
+        "33141800",
+        "33130000",
+        "33130000",
+        "33141800",
+        "33130000",
+        "33141800"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-095302-2026",
+      "title": "Microbiology Services Managed Service Contract",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d162",
+      "buyer": "Lothian Health Board",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 3,000,000",
+      "published": "2026-10-08T15:04:26+01:00",
+      "deadline": "2026-10-23T12:00:00+01:00",
+      "summary": "NHS Lothian seeks next-generation automated laboratory solution delivered on a managed services basis for diagnostic and laboratory services at Royal Infirmary of Edinburgh. The scope of the contract is an integrated Microbiology laboratory managed Services contract (“MSC”) provi…",
+      "cpv": [
+        "71900000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-093954-2026",
+      "title": "Asset Tracking System",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-078109",
+      "buyer": "NHS Borders",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "GBP 116,000",
+      "published": "2026-10-05T15:58:32+01:00",
+      "deadline": "2026-11-16T12:00:00Z",
+      "summary": "NHS Borders is seeking competitive tenders from suitably experienced suppliers for an asset tracking system. The requirement supports a programme to improve the control, traceability and efficient management of clinical and selected non-clinical equipment, replacing fragmented ma…",
+      "cpv": [
+        "48422000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-093514-2026",
+      "title": "Insourced Breast USC One-Stop Triple Assessment and Symptomatic Breast Radiology",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-078017",
+      "buyer": "Hull University Teaching Hospitals NHS Trust",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 765,000",
+      "published": "2026-10-02T16:18:43+01:00",
+      "deadline": "2026-10-21T12:00:00+01:00",
+      "summary": "Hull University Hospitals NHS Trust (HUTH) on behalf of the Humber Health Partnership (HHP) plan to work in partnership with an Independent Sector (IS) Provider to facilitate provision of additional “one-stop” outpatient clinic capacity within the Breast Urgent Suspected Cancer (…",
+      "cpv": [
+        "85150000",
+        "85121200",
+        "85148000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    }
+  ]
 }
