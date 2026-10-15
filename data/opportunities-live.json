@@ -1,7 +1,28 @@
 {
-  "updated": "2026-10-14T14:27:32.852108Z",
-  "count": 6,
+  "updated": "2026-10-15T10:45:01.307813Z",
+  "count": 7,
   "opportunities": [
+    {
+      "id": "fts-097150-2026",
+      "title": "Neighbourhood Mental Health Services (Crisis Alternatives)",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-0787d8",
+      "buyer": "NHS NORFOLK AND SUFFOLK INTEGRATED CARE BOARD",
+      "type": "Tender",
+      "category": "Infrastructure & cloud",
+      "value": "GBP 21,500,000",
+      "published": "2026-10-14T15:45:10+01:00",
+      "deadline": "2026-11-27T12:00:00Z",
+      "summary": "The Norfolk and Suffolk Integrated Care Board is looking to commission the Neighbourhood Mental Health Services (Crisis Alternatives). This procurement is formed of two lots: Neighbourhood Mental Health partnership service - will provide the people of Norfolk and Suffolk with a n…",
+      "cpv": [
+        "85100000",
+        "85100000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-096480-2026",
       "title": "Targeted Prostate Cancer Screening Programme – PSA Laboratory Processing Service",
