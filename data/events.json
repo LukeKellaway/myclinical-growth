@@ -1,51 +1,7 @@
 {
-  "updated": "2026-10-11T12:00:00.000000Z",
-  "count": 33,
+  "updated": "2026-10-18T12:00:00.000000Z",
+  "count": 36,
   "events": [
-    {
-      "id": "event-hpn-south-2026-2026",
-      "title": "HPN South 2026",
-      "organiser": "Healthcare Partnership Network (HPN)",
-      "source_url": "https://hpn-uk.com/rta-south",
-      "type": "Conference",
-      "category": "Digital health",
-      "location": "Radisson Blu Edwardian Hotel, Heathrow, London",
-      "format": "In person",
-      "start_date": "2026-10-15",
-      "end_date": "2026-10-16",
-      "cost": "Free for senior NHS leaders (invitation and approval required); commercial sponsor packages available",
-      "summary": "An invitation-only, two-day hosted forum connecting senior NHS and ICS digital leaders across southern England with solution providers. Peer-led sessions cover digital transformation, AI, data strategy, financial sustainability, and the NHS 10-Year Plan.",
-      "means": "Another genuinely senior buyer crowd with guaranteed pre-booked supplier meetings baked into the format. This is not a trade show floor. Founders sponsoring get structured access to senior NHS decision-makers in the South, which makes it high-value if that geography is a target.",
-      "tags": [
-        "NHS buyers",
-        "Digital transformation",
-        "Hosted meetings"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-health-social-care-and-life-sciences-policy-review-q3-2026-2026",
-      "title": "Health, social care and life sciences policy review: Q3 2026",
-      "organiser": "techUK",
-      "source_url": "https://www.techuk.org/what-we-deliver/events/health-social-care-and-life-sciences-policy-review-q3-2026.html",
-      "type": "Webinar",
-      "category": "Procurement & policy",
-      "location": "Online",
-      "format": "Online",
-      "start_date": "2026-10-15",
-      "end_date": "2026-10-15",
-      "cost": "Free",
-      "summary": "A quarterly online briefing on key digital health policy developments across NHS England, DHSC, the MHRA and NICE, and what they mean for suppliers.",
-      "means": "A high-value, low-cost way to stay current on policy if you sell into the NHS. Genuinely useful for commercial teams tracking what is changing.",
-      "tags": [
-        "Policy",
-        "Regulation",
-        "Online"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-health-innovation-north-2026-2026",
       "title": "Health Innovation North 2026",
@@ -553,6 +509,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-advanced-therapies-congress-2027-2027",
+      "title": "Advanced Therapies Congress 2027",
+      "organiser": "Terrapinn",
+      "source_url": "https://www.terrapinn.com/congress/advanced-therapies/index.stm",
+      "type": "Conference & expo",
+      "category": "MedTech",
+      "location": "ExCeL London, London",
+      "format": "In person",
+      "start_date": "2027-03-09",
+      "end_date": "2027-03-10",
+      "cost": "Paid (approx. £1,015 to £2,200 estimated)",
+      "summary": "Europe's largest commercial cell and gene therapy conference and exhibition, bringing together pharma, biotech and startup executives across the full ATMP value chain, with 300 speakers and 75 startups over two days.",
+      "means": "This is a pharma and biotech industry event, not an NHS buyer crowd. Worth it for founders building in cell and gene therapy or regenerative medicine seeking partners, investors or payers; less relevant for broader digital health or NHS-facing SaaS plays.",
+      "tags": [
+        "Cell and gene therapy",
+        "Biotech",
+        "ATMP"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-igpp-ai-in-healthcare-conference-2027-london-2027",
       "title": "IGPP AI in Healthcare Conference 2027 (London)",
       "organiser": "Institute of Government and Public Policy (IGPP)",
@@ -641,6 +619,50 @@
       "confidence": "medium"
     },
     {
+      "id": "event-health-ai-tech-show-2027-2027",
+      "title": "Health + AI Tech Show 2027",
+      "organiser": "Health AI Insiders Intelligence Group",
+      "source_url": "https://healthaiinsiders.com/event/health-ai-tech-show/",
+      "type": "Conference & expo",
+      "category": "AI in healthcare",
+      "location": "London (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-04-28",
+      "end_date": "2027-04-28",
+      "cost": "Paid (pricing TBC)",
+      "summary": "A UK national platform focused on applied AI technology in healthcare, aiming to bridge the gap between AI pilots and real-world NHS deployment, bringing together NHS leaders, pharma, biotech and AI startups.",
+      "means": "Positioned as clinically led and procurement ready, targeting the deployment gap rather than research hype. Relevant for AI health founders seeking NHS access routes, though as a relatively new show the audience size and buyer quality is still unproven.",
+      "tags": [
+        "AI deployment",
+        "NHS",
+        "Health AI"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
+      "id": "event-p4h-scotland-2027-2027",
+      "title": "P4H Scotland 2027",
+      "organiser": "BiP Solutions",
+      "source_url": "https://p4hscot27-oz1f6.projectbeta.co.uk/",
+      "type": "Conference & expo",
+      "category": "Procurement & policy",
+      "location": "Murrayfield, Edinburgh",
+      "format": "In person",
+      "start_date": "2027-04-29",
+      "end_date": "2027-04-29",
+      "cost": "Free for public sector buyers; commercial rates for suppliers (TBC)",
+      "summary": "Scotland's dedicated healthcare procurement event connecting buyers and suppliers across Scotland's healthcare procurement community, worth more than 3.6 billion pounds annually, with skills development, networking and product showcase opportunities.",
+      "means": "The audience is NHS Scotland procurement buyers and supply chain professionals. Essential if you are selling into Scottish health boards and want face time with the people who run frameworks and tenders; less value if your market is England-only.",
+      "tags": [
+        "NHS Scotland",
+        "Procurement",
+        "Supply chain"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
       "id": "event-nhs-confedexpo-2027-2027",
       "title": "NHS ConfedExpo 2027",
       "organiser": "NHS Confederation and NHS England",
@@ -658,6 +680,28 @@
         "NHS leadership",
         "digital transformation",
         "ICS"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-digital-health-summer-schools-2027-2027",
+      "title": "Digital Health Summer Schools 2027",
+      "organiser": "Digital Health (CloserStill Media)",
+      "source_url": "https://www.digitalhealth.net/event/",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "University of Reading, Reading",
+      "format": "In person",
+      "start_date": "2027-07-15",
+      "end_date": "2027-07-16",
+      "cost": "Paid (pricing TBC)",
+      "summary": "Two-day education and networking event dedicated to NHS CCIOs, CIOs, CNIOs and current and aspiring digital health leaders, run by the team behind Digital Health Rewired.",
+      "means": "This is an NHS leadership development event, not a sales floor. Founders will find limited commercial opportunity here; it is better suited to understanding what NHS digital leaders are actually thinking and building relationships at a senior level.",
+      "tags": [
+        "NHS digital leaders",
+        "Education",
+        "Networking"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -683,6 +727,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-healthx-innovation-and-technology-show-2027-2027",
+      "title": "HealthX Innovation and Technology Show 2027",
+      "organiser": "Corvus Global Events",
+      "source_url": "https://corvusglobalevents.com/conference/healthx-intelligence",
+      "type": "Conference & expo",
+      "category": "Digital health",
+      "location": "Holiday Inn London Kensington, London",
+      "format": "In person",
+      "start_date": "2027-09-08",
+      "end_date": "2027-09-09",
+      "cost": "Paid (pricing TBC)",
+      "summary": "A two-day London summit and expo where healthcare, pharma, MedTech, diagnostics and AI leaders convene to discuss digital transformation, with listed participants from NHS, Pfizer, AstraZeneca, Microsoft and Google Health.",
+      "means": "The speaker list features large pharma and tech giants more than NHS buyers, giving this more of an industry and strategy flavour than a direct procurement opportunity. Worth evaluating for partnership conversations but founders should verify the NHS buyer presence before committing budget.",
+      "tags": [
+        "Health AI",
+        "Digital transformation",
+        "MedTech"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-med-tech-expo-2027-2027",
