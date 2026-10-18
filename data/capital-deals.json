@@ -1,8 +1,166 @@
 {
-  "updated": "2026-10-11",
+  "updated": "2026-10-18",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 75,
+  "count": 80,
   "deals": [
+    {
+      "key": "microbiotica-equity-2026-10",
+      "company": "Microbiotica",
+      "what": "First close of \u00a336M ($48M) Series C to advance precision microbiome medicine MB310 into Phase 2 clinical development for ulcerative colitis",
+      "type": "equity",
+      "round": "Series C",
+      "amount_gbp": 36000000,
+      "date": "2026-10-16",
+      "investors": [
+        "British Business Bank",
+        "Tencent",
+        "IP Group",
+        "Cambridge Innovation Capital",
+        "Flerie Invest",
+        "Seventure Partners"
+      ],
+      "directory_matches": [
+        "British Business Bank (equity programmes)",
+        "British Business Bank \u2013 ENABLE Guarantees",
+        "British Business Bank \u2013 Growth Guarantee Scheme (GGS)",
+        "Cambridge Innovation Capital (CIC)"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.eu-startups.com/2026/10/new-treatment-for-inflammatory-bowel-disease-lands-microbiotica-e42-million",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "omass-therapeutics-equity-2026-10",
+      "company": "OMass Therapeutics",
+      "what": "Oversubscribed $310M (\u00a3230M) Series C to advance small molecule therapeutics pipeline in endocrinology and immunology into Phase 2 clinical development",
+      "type": "equity",
+      "round": "Series C",
+      "amount_gbp": 230000000,
+      "date": "2026-10-15",
+      "investors": [
+        "Bain Capital Life Sciences",
+        "Forbion",
+        "Novo Holdings",
+        "Janus Henderson Investors",
+        "SV Health Investors",
+        "Jefferson Life Sciences",
+        "Syncona",
+        "Oxford Science Enterprises",
+        "GV",
+        "Northpond Ventures",
+        "Sanofi Ventures",
+        "British Business Bank",
+        "University of Oxford"
+      ],
+      "directory_matches": [
+        "British Business Bank (equity programmes)",
+        "British Business Bank \u2013 ENABLE Guarantees",
+        "British Business Bank \u2013 Growth Guarantee Scheme (GGS)",
+        "Novo Holdings",
+        "Oxford Science Enterprises (OSE)",
+        "SV Health Investors",
+        "Syncona"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.finsmes.com/2026/10/omass-therapeutics-raises-310m-in-series-c-funding.html",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "silvia-bio-equity-2026-10",
+      "company": "Silvia Bio",
+      "what": "\u00a33M seed round for University of Sheffield spinout commercialising a cell-profiling platform to improve biologic drug manufacturing yields",
+      "type": "equity",
+      "round": "Seed",
+      "amount_gbp": 3000000,
+      "date": "2026-10-15",
+      "investors": [
+        "Northern Gritstone",
+        "Parkwalk Northern Universities Venture Fund",
+        "UK Innovation & Science Seed Fund (Future Planet Capital)",
+        "Wren Capital",
+        "angels"
+      ],
+      "directory_matches": [
+        "Angels Invest Wales / Wales Co-Investment Fund",
+        "Archangels",
+        "Cambridge Angels",
+        "Crowd for Angels",
+        "Healthcare Angels",
+        "Minerva Business Angels",
+        "Northern Gritstone",
+        "Northern Universities Venture Fund",
+        "UK Business Angels Association (UKBAA)",
+        "Wren Capital"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://www.northern-gritstone.com/news/northern-gritstone-invests-in-silviabio",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "stride-equity-2026-10",
+      "company": "Stride",
+      "what": "\u00a34.6M seed round for diagnostics-driven preventative health membership; Innovate UK co-funded two R&D projects within the round",
+      "type": "equity",
+      "round": "Seed",
+      "amount_gbp": 4600000,
+      "date": "2026-10-14",
+      "investors": [
+        "Ar\u0101ya Ventures",
+        "Better Ventures",
+        "Morgan Stanley Inclusive & Sustainable Ventures",
+        "Innovate UK",
+        "a16z Scout Fund investor",
+        "angels"
+      ],
+      "directory_matches": [
+        "Angels Invest Wales / Wales Co-Investment Fund",
+        "Archangels",
+        "Cambridge Angels",
+        "Crowd for Angels",
+        "Healthcare Angels",
+        "Innovate UK (UKRI)",
+        "Innovate UK Business Growth (ex-EDGE)",
+        "Innovate UK Growth Catalyst \u2013 Investor Partnerships",
+        "Innovate UK Innovation Loans",
+        "Innovate UK Women in Innovation Awards",
+        "Minerva Business Angels",
+        "UK Business Angels Association (UKBAA)"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://businesscloud.co.uk/news/olympic-medallist-raises-4-6m-for-healthtech-stride/",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "nami-surgical-equity-2026-10",
+      "company": "Nami Surgical",
+      "what": "\u00a33.4M funding round extension to develop and commercialise ultrasonic technology for robotic-assisted surgery, creating five new R&D jobs in Glasgow",
+      "type": "equity",
+      "round": "Growth",
+      "amount_gbp": 3400000,
+      "date": "2026-10-14",
+      "investors": [
+        "Scottish National Investment Bank",
+        "Eos Advisory",
+        "Scottish Enterprise",
+        "Investment Fund for Scotland (Maven Capital Partners / British Business Bank)"
+      ],
+      "directory_matches": [
+        "British Business Bank (equity programmes)",
+        "Eos Advisory",
+        "Investment Fund for Scotland (BBB)",
+        "Maven Capital Partners",
+        "Scottish Enterprise \u2013 SMART: SCOTLAND",
+        "Scottish National Investment Bank"
+      ],
+      "acquirer_origin": null,
+      "source_url": "https://dailybusinessgroup.co.uk/2026/10/nami-raises-funds-to-advance-robotic-surgery-tool/",
+      "confidence": "high",
+      "status": "published"
+    },
     {
       "key": "cori-clinical-equity-2026-10",
       "company": "Cori Clinical",
