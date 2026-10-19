@@ -1,7 +1,26 @@
 {
-  "updated": "2026-10-19T11:53:01.100984Z",
-  "count": 8,
+  "updated": "2026-10-19T16:23:47.541925Z",
+  "count": 9,
   "opportunities": [
+    {
+      "id": "cf-fa4e7e3d-8560-45e2-bef5-6de16a496fb4-918215",
+      "title": "RRE-01284 - For the provision of a Digitally Enabled Children & Young People's Mental Health Service (South Staffordshire)",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/fa4e7e3d-8560-45e2-bef5-6de16a496fb4",
+      "buyer": "Midlands Partnership Foundation Trust",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-10-18T18:33:21+01:00",
+      "deadline": "2026-11-03T09:30:00Z",
+      "summary": "We are seeking a Provider to work in partnership with, who will provide therapeutic interventions and a resource library via patient facing digital tools and platforms for Children, Young People and/or their parents or carers. The tools will provide NICE recommended evidence-base…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-098226-2026",
       "title": "RRE-01284 - For the provision of a Digitally Enabled Children & Young People’s Mental Health Service (South Staffordshire)",
@@ -60,7 +79,8 @@
         "85145000"
       ],
       "tags": [
-        "Tender"
+        "Tender",
+        "Closes soon"
       ],
       "means": ""
     },
@@ -78,7 +98,8 @@
       "summary": "The Contracting Authority is procuring a targeted prostate cancer screening pathway with a focus on men at increased risk due to an inherited BRCA2 variant utilising the competitive provider selection process under the Health Care Services (Provider Selection Regime) Regulations …",
       "cpv": [],
       "tags": [
-        "Tender"
+        "Tender",
+        "Closes soon"
       ],
       "means": ""
     },
