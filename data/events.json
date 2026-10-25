@@ -1,51 +1,7 @@
 {
-  "updated": "2026-10-18T12:00:00.000000Z",
-  "count": 36,
+  "updated": "2026-10-25T12:00:00.000000Z",
+  "count": 37,
   "events": [
-    {
-      "id": "event-health-innovation-north-2026-2026",
-      "title": "Health Innovation North 2026",
-      "organiser": "Health Innovation North East and North Cumbria",
-      "source_url": "https://healthinnovationnenc.org.uk/event/health-innovation-north-2026/",
-      "type": "Conference",
-      "category": "Innovation & startups",
-      "location": "Hilton Newcastle Gateshead, Gateshead",
-      "format": "In person",
-      "start_date": "2026-10-22",
-      "end_date": "2026-10-22",
-      "cost": "Paid; some free NHS places",
-      "summary": "A regional health innovation conference showcasing innovations being adopted across the NHS in the North East and North Cumbria.",
-      "means": "Strong if you want a route into the North East and North Cumbria health system or to meet the local innovation team who can help spread a proven product.",
-      "tags": [
-        "Health innovation",
-        "North East",
-        "Regional"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-nhs-movement-2026-2026",
-      "title": "NHS Movement 2026",
-      "organiser": "GovConnect",
-      "source_url": "https://govconnectevents.co.uk/nhsmovement/",
-      "type": "Conference",
-      "category": "Procurement & policy",
-      "location": "The Royal Horseguards Hotel, London",
-      "format": "In person",
-      "start_date": "2026-10-22",
-      "end_date": "2026-10-22",
-      "cost": "Suppliers paid",
-      "summary": "A national conference on how NHS national priorities move from plans to delivery, including digital and joined-up services.",
-      "means": "Useful for understanding NHS reform direction and meeting system leaders. Policy and delivery focused rather than a place for a hard product pitch.",
-      "tags": [
-        "NHS reform",
-        "Policy",
-        "Delivery"
-      ],
-      "status": "Upcoming",
-      "confidence": "medium"
-    },
     {
       "id": "event-building-better-healthcare-awards-2026-2026",
       "title": "Building Better Healthcare Awards 2026",
@@ -509,6 +465,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-cybersecure-2027-the-nhs-cyber-security-conference-2027",
+      "title": "CyberSecure 2027: The NHS Cyber Security Conference",
+      "organiser": "Convenzis",
+      "source_url": "https://convenzis.co.uk/events/cybersecure-2027",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "etc.venues Prospero House, 241 Borough High St, London",
+      "format": "In person",
+      "start_date": "2027-02-25",
+      "end_date": "2027-02-25",
+      "cost": "Free for NHS; commercial paid",
+      "summary": "A one-day Convenzis summit addressing NHS cyber security challenges including ransomware, identity and access management, AI threat detection, and digital resilience. Designed for NHS senior managers and technology suppliers operating in the NHS security space.",
+      "means": "The room is predominantly NHS IT, cyber and operations managers; it is a buyer-heavy crowd for a very specific niche. Worth it if your product touches NHS cyber resilience, data protection or secure digital infrastructure; less useful for general digital health or AI founders.",
+      "tags": [
+        "NHS cyber",
+        "Digital health",
+        "Resilience"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-advanced-therapies-congress-2027-2027",
       "title": "Advanced Therapies Congress 2027",
       "organiser": "Terrapinn",
@@ -685,6 +663,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-procurex-england-2027-2027",
+      "title": "Procurex England 2027",
+      "organiser": "BiP Solutions",
+      "source_url": "https://procurexengland.co.uk/",
+      "type": "Conference & expo",
+      "category": "Procurement & policy",
+      "location": "England (venue TBC; 2026 edition held in Liverpool)",
+      "format": "In person",
+      "start_date": "2027-06-17",
+      "end_date": "2027-06-17",
+      "cost": "Free to attend",
+      "summary": "England's leading public procurement event, bringing together public sector buyers, procurement leaders and suppliers for a full day of insight, networking and market engagement. NHS organisations are a major buyer segment.",
+      "means": "The audience is public sector procurement professionals across all sectors, not exclusively NHS digital buyers. Useful for founders at an early commercial stage wanting to understand public procurement pathways and meet NHS supply chain contacts, but expect a broad mix rather than a digital health crowd.",
+      "tags": [
+        "Public procurement",
+        "NHS supply chain",
+        "Commercial"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
       "id": "event-digital-health-summer-schools-2027-2027",
       "title": "Digital Health Summer Schools 2027",
       "organiser": "Digital Health (CloserStill Media)",
@@ -793,6 +793,28 @@
       ],
       "status": "Upcoming",
       "confidence": "medium"
+    },
+    {
+      "id": "event-hdr-uk-conference-2027-2027",
+      "title": "HDR UK Conference 2027",
+      "organiser": "Health Data Research UK (HDR UK)",
+      "source_url": "https://www.hdruk.ac.uk/about/hdr-uk-conference/",
+      "type": "Conference",
+      "category": "Digital health",
+      "location": "ICC Belfast, Belfast, Northern Ireland",
+      "format": "In person and online",
+      "start_date": "2027-10-06",
+      "end_date": "2027-10-07",
+      "cost": "Paid (pricing TBC)",
+      "summary": "The UK's flagship annual health data science conference, covering AI in healthcare, data-driven NHS solutions, data infrastructure, information governance, and real-world evidence. Attracts researchers, data scientists, NHS analysts, industry and patient advocates.",
+      "means": "Primarily an academic and research crowd, with strong NHS data and informatics representation. Valuable for founders building on NHS data pipelines, real-world evidence platforms, or health AI with a clinical research angle; less suited to pure commercial sales.",
+      "tags": [
+        "Health data",
+        "AI in healthcare",
+        "Real-world evidence"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
     }
   ]
 }
