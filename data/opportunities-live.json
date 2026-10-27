@@ -1,7 +1,27 @@
 {
-  "updated": "2026-10-27T11:28:27.698935Z",
-  "count": 9,
+  "updated": "2026-10-27T15:16:51.975364Z",
+  "count": 10,
   "opportunities": [
+    {
+      "id": "fts-101509-2026",
+      "title": "Ophthalmology Equipment",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06679f",
+      "buyer": "The Common Services Agency (more commonly known as NHS National Services Scotland) (NSS)",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 18,000,000",
+      "published": "2026-10-27T12:33:23Z",
+      "deadline": "2026-11-27T10:00:00Z",
+      "summary": "Hospital ophthalmology diagnostic equipment used for comprehensive eye examination, including visual field analysers, slit lamps and OCT imaging systems. Broken to 7 categories Imaging, Diagnostics, Measurement, Surgical, Therapeutic, Digital, Accessories",
+      "cpv": [
+        "33122000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-fa4e7e3d-8560-45e2-bef5-6de16a496fb4-918215",
       "title": "RRE-01284 - For the provision of a Digitally Enabled Children & Young People's Mental Health Service (South Staffordshire)",
