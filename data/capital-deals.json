@@ -1,8 +1,42 @@
 {
-  "updated": "2026-10-18",
+  "updated": "2026-11-01",
   "note": "Single source of truth for UK healthtech capital deals. Powers capital/tracker.html and the email capital-news section. Each deal: company, what, type (equity/debt/grant/exit), round, amount_gbp, date (YYYY-MM-DD), investors, directory_matches, acquirer_origin, source_url, confidence, status.",
-  "count": 80,
+  "count": 82,
   "deals": [
+    {
+      "key": "alcyomics-exit-2026-10",
+      "company": "Alcyomics",
+      "what": "Newcastle-based provider of non-animal immunotoxicology solutions for drug development acquired by Swedish diagnostics firm SenzaGen AB",
+      "type": "exit",
+      "round": "Acquisition",
+      "amount_gbp": 2120000,
+      "date": "2026-10-28",
+      "investors": [
+        "SenzaGen AB"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": "overseas:Sweden",
+      "source_url": "https://www.tradingview.com/news/modular_finance:6a629d260c247:0-senzagen-acquires-alcyomics-a-leading-uk-based-provider-of-non-animal-immunotoxicology-solutions-for-drug-development/",
+      "confidence": "high",
+      "status": "published"
+    },
+    {
+      "key": "cornerstone-healthcare-holdings-exit-2026-10",
+      "company": "Cornerstone Healthcare Holdings",
+      "what": "UK specialist complex-care provider (NHS-funded) acquired by Dubai-listed Amanat Holdings via its subsidiary Cambridge Health Group in an all-equity deal",
+      "type": "exit",
+      "round": "Acquisition",
+      "amount_gbp": 76000000,
+      "date": "2026-10-28",
+      "investors": [
+        "Cambridge Health Group (Amanat Holdings)"
+      ],
+      "directory_matches": [],
+      "acquirer_origin": "overseas:UAE",
+      "source_url": "https://www.carehomeprofessional.com/cornerstone-healthcare-acquired-chg/",
+      "confidence": "medium",
+      "status": "published"
+    },
     {
       "key": "microbiotica-equity-2026-10",
       "company": "Microbiotica",
