@@ -1,6 +1,6 @@
 {
-  "updated": "2026-10-25T12:00:00.000000Z",
-  "count": 37,
+  "updated": "2026-11-01T12:00:00.000000Z",
+  "count": 41,
   "events": [
     {
       "id": "event-building-better-healthcare-awards-2026-2026",
@@ -113,6 +113,28 @@
       "confidence": "high"
     },
     {
+      "id": "event-lsx-investival-showcase-2026-2026",
+      "title": "LSX Investival Showcase 2026",
+      "organiser": "LSX",
+      "source_url": "https://www.lsx.com/events/lsx-investival-showcase-2026/",
+      "type": "Conference",
+      "category": "Investment",
+      "location": "London",
+      "format": "In person",
+      "start_date": "2026-11-16",
+      "end_date": "2026-11-16",
+      "cost": "Paid",
+      "summary": "LSX's annual investor showcase for biotech, medtech and healthtech companies seeking growth capital, bringing together founders, investors and corporate development leads in a pitch and networking format.",
+      "means": "Pure investor crowd. If you are fundraising or want to meet VCs and corporate investors active in UK healthtech and medtech, this is a focused one-day opportunity. It is not an NHS buyer event.",
+      "tags": [
+        "investment",
+        "medtech",
+        "biotech"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
       "id": "event-the-king-s-fund-annual-conference-2026-good-health-for-all-2026",
       "title": "The King's Fund Annual Conference 2026: Good Health for All",
       "organiser": "The King's Fund",
@@ -130,6 +152,28 @@
         "NHS policy",
         "System leadership",
         "Digital strategy"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-london-biotechnology-show-2026-2026",
+      "title": "London Biotechnology Show 2026",
+      "organiser": "London Biotechnology Show (Interphex UK Ltd)",
+      "source_url": "https://londonbiotechshow.com/",
+      "type": "Conference & expo",
+      "category": "Innovation & startups",
+      "location": "ExCeL London, London",
+      "format": "In person",
+      "start_date": "2026-11-18",
+      "end_date": "2026-11-19",
+      "cost": "Paid (exhibitor and delegate tickets)",
+      "summary": "Europe's flagship red-biotechnology exhibition and conference, bringing together biotech companies, pharma manufacturers, researchers, investors, healthcare providers and startups to showcase innovations and build partnerships across the life-sciences value chain.",
+      "means": "Primarily a life-sciences and pharma crowd rather than a pure NHS buyer audience. Worth it for healthtech founders who want investor and partnership introductions in biotech and advanced therapies, less so if your goal is direct NHS commercial conversations.",
+      "tags": [
+        "biotech",
+        "life sciences",
+        "investment"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -306,6 +350,28 @@
         "Genomics",
         "Biodata",
         "Precision medicine"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-ai-britain-summit-2027-2027",
+      "title": "AI Britain Summit 2027",
+      "organiser": "AI Britain",
+      "source_url": "https://ai-britain.co.uk/",
+      "type": "Conference",
+      "category": "AI in healthcare",
+      "location": "London",
+      "format": "In person",
+      "start_date": "2027-01-28",
+      "end_date": "2027-01-28",
+      "cost": "Paid",
+      "summary": "A one-day summit examining how AI is reshaping UK public services, procurement and government, with NHS clinical documentation, procurement frameworks and AI adoption in public services featuring prominently on the agenda.",
+      "means": "Audience spans central government, NHS, local authorities and UK AI firms rather than being a pure digital-health trade show. Founders selling AI into the NHS will find useful policy context and procurement-focused sessions, but it is a policy and government day more than a commercial sales environment.",
+      "tags": [
+        "AI",
+        "procurement",
+        "public sector"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -573,6 +639,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-holyrood-public-sector-data-and-ai-summit-2027-2027",
+      "title": "Holyrood Public Sector Data and AI Summit 2027",
+      "organiser": "Holyrood Events",
+      "source_url": "https://www.holyrood.com/events",
+      "type": "Conference",
+      "category": "AI in healthcare",
+      "location": "Edinburgh",
+      "format": "In person",
+      "start_date": "2027-03-17",
+      "end_date": "2027-03-17",
+      "cost": "Paid",
+      "summary": "A Scottish public-sector summit covering data strategy, AI adoption and digital transformation across devolved government, NHS Scotland and public services, aimed at senior public-sector leaders and their technology partners.",
+      "means": "Primarily a Scottish public-sector policy and leadership day. Worth attending if you are targeting NHS Scotland or Scottish Government contracts, but the crowd is predominantly NHS and public-sector delegates rather than a strong commercial buyer or investor audience.",
+      "tags": [
+        "AI",
+        "NHS Scotland",
+        "data"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-hfma-delivering-value-with-digital-technologies-2027-2027",
