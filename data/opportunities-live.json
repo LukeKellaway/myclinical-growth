@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-01T15:56:05.479711Z",
-  "count": 10,
+  "updated": "2026-11-02T14:34:35.613697Z",
+  "count": 9,
   "opportunities": [
     {
       "id": "fts-101509-2026",
@@ -189,28 +189,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-093514-2026",
-      "title": "Insourced Breast USC One-Stop Triple Assessment and Symptomatic Breast Radiology",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-078017",
-      "buyer": "Hull University Teaching Hospitals NHS Trust",
-      "type": "Tender",
-      "category": "Imaging & diagnostics",
-      "value": "GBP 765,000",
-      "published": "2026-10-02T16:18:43+01:00",
-      "deadline": "2026-10-21T12:00:00+01:00",
-      "summary": "Hull University Hospitals NHS Trust (HUTH) on behalf of the Humber Health Partnership (HHP) plan to work in partnership with an Independent Sector (IS) Provider to facilitate provision of additional “one-stop” outpatient clinic capacity within the Breast Urgent Suspected Cancer (…",
-      "cpv": [
-        "85150000",
-        "85121200",
-        "85148000"
-      ],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
