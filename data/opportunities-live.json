@@ -1,6 +1,6 @@
 {
-  "updated": "2026-11-07T12:18:45.652005Z",
-  "count": 7,
+  "updated": "2026-11-07T15:35:44.273622Z",
+  "count": 6,
   "opportunities": [
     {
       "id": "fts-101509-2026",
@@ -130,26 +130,6 @@
       "tags": [
         "Tender",
         "Closes soon"
-      ],
-      "means": ""
-    },
-    {
-      "id": "fts-095302-2026",
-      "title": "Microbiology Services Managed Service Contract",
-      "source": "Find a Tender",
-      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06d162",
-      "buyer": "Lothian Health Board",
-      "type": "Tender",
-      "category": "Imaging & diagnostics",
-      "value": "GBP 3,000,000",
-      "published": "2026-10-08T15:04:26+01:00",
-      "deadline": "2026-10-23T12:00:00+01:00",
-      "summary": "NHS Lothian seeks next-generation automated laboratory solution delivered on a managed services basis for diagnostic and laboratory services at Royal Infirmary of Edinburgh. The scope of the contract is an integrated Microbiology laboratory managed Services contract (“MSC”) provi…",
-      "cpv": [
-        "71900000"
-      ],
-      "tags": [
-        "Tender"
       ],
       "means": ""
     }
