@@ -1,7 +1,79 @@
 {
-  "updated": "2026-11-08T15:54:05.955343Z",
-  "count": 6,
+  "updated": "2026-11-09T14:57:45.508629Z",
+  "count": 9,
   "opportunities": [
+    {
+      "id": "fts-106307-2026",
+      "title": "Computerised Maintenance Management System (CMMS) / Computer-Aided Facility Management System (CAFM)",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-07b7c3",
+      "buyer": "NHS Grampian",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-09T14:54:52Z",
+      "deadline": "2026-12-09T12:00:00Z",
+      "summary": "The NHS Grampian Maintenance & Technical Services (MaTS) Department is responsible for the management and maintenance of a diverse estate throughout Aberdeen City, Aberdeenshire and Moray, ranging from small healthcare facilities to large acute hospital sites. The Authority requi…",
+      "cpv": [
+        "72000000",
+        "48420000",
+        "48421000",
+        "72212420",
+        "72212421",
+        "72514000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-106281-2026",
+      "title": "Computerised Maintenance Management System (CMMS) / Computer-Aided Facility Management System (CAFM)",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-07b7b3",
+      "buyer": "NHS Grampian",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-09T14:23:27Z",
+      "deadline": "2026-12-09T12:00:00Z",
+      "summary": "The NHS Grampian Maintenance & Technical Services (MaTS) Department is responsible for the management and maintenance of a diverse estate throughout Aberdeen City, Aberdeenshire and Moray, ranging from small healthcare facilities to large acute hospital sites. The Authority requi…",
+      "cpv": [
+        "72000000",
+        "48420000",
+        "48421000",
+        "72212420",
+        "72212421",
+        "72514000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-106021-2026",
+      "title": "The Provision of a Mental Health Crisis Text Support Service on behalf of NHS Cheshire and Merseyside Integrated Care Board",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06df9f",
+      "buyer": "NHS CHESHIRE AND MERSEYSIDE INTEGRATED CARE BOARD",
+      "type": "Tender",
+      "category": "Infrastructure & cloud",
+      "value": "GBP 1,400,000",
+      "published": "2026-11-09T09:51:24Z",
+      "deadline": "2026-12-04T12:00:00Z",
+      "summary": "NHS Cheshire and Merseyside is seeking to engage with the market regarding the provision of an all-age, 24-hour, 7 days a week/ 365 days a year Mental Health Crisis Text Service across Cheshire and Merseyside. The service will provide immediate, accessible and inclusive text-base…",
+      "cpv": [
+        "79430000",
+        "85121270",
+        "85323000"
+      ],
+      "tags": [
+        "Tender"
+      ],
+      "means": ""
+    },
     {
       "id": "fts-101509-2026",
       "title": "Ophthalmology Equipment",
