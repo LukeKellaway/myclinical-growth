@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-14T14:24:45.989950",
+  "generated_at": "2026-11-14T15:37:57.951753",
   "targets": {
     "RTT_18wk": {
       "target": 92.0,
@@ -8494,11 +8494,11 @@
     "Breastfeeding_Initiation": {
       "indicator_name": "Breastfeeding prevalence at 6 to 8 weeks",
       "indicator_id": "92517",
-      "england_latest": 57.311221,
-      "latest_period": "2024/25",
-      "trend": "increasing",
+      "england_latest": 59.768106,
+      "latest_period": "2025/26",
+      "trend": "stable",
       "polarity": "good",
-      "trend_quality": "good",
+      "trend_quality": "neutral",
       "time_series": [
         {
           "period": "2015/16",
@@ -8539,156 +8539,160 @@
         {
           "period": "2024/25",
           "value": 57.31
+        },
+        {
+          "period": "2025/26",
+          "value": 59.77
         }
       ],
-      "area_count": 87,
+      "area_count": 84,
       "top_10": [
         {
-          "name": "Windsor and Maidenhead",
-          "code": "E06000040",
-          "value": 82.61,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Lewisham",
-          "code": "E09000023",
-          "value": 82.41,
-          "trend": "No significant change",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Kingston upon Thames",
-          "code": "E09000021",
-          "value": 76.4,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Brighton and Hove",
-          "code": "E06000043",
-          "value": 76.16,
+          "name": "Haringey",
+          "code": "E09000014",
+          "value": 83.4,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
           "name": "Sutton",
           "code": "E09000029",
-          "value": 72.73,
+          "value": 76.65,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
-          "name": "Reading",
-          "code": "E06000038",
-          "value": 71.79,
+          "name": "Kingston upon Thames",
+          "code": "E09000021",
+          "value": 75.62,
           "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Brighton and Hove",
+          "code": "E06000043",
+          "value": 74.77,
+          "trend": "No significant change",
           "vs_england": "Better"
         },
         {
           "name": "Bath and North East Somerset",
           "code": "E06000022",
-          "value": 68.64,
-          "trend": "No significant change",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Leicester",
-          "code": "E06000016",
-          "value": 67.73,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Luton",
-          "code": "E06000032",
-          "value": 66.79,
+          "value": 70.35,
           "trend": "Increasing and getting better",
           "vs_england": "Better"
         },
         {
           "name": "Trafford",
           "code": "E08000009",
-          "value": 66.7,
+          "value": 69.66,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Slough",
+          "code": "E06000039",
+          "value": 69.06,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Luton",
+          "code": "E06000032",
+          "value": 68.86,
+          "trend": "Increasing and getting better",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Hertfordshire",
+          "code": "E10000015",
+          "value": 68.24,
+          "trend": "Increasing and getting better",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Wokingham",
+          "code": "E06000041",
+          "value": 67.97,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         }
       ],
       "bottom_10": [
         {
-          "name": "Wakefield",
-          "code": "E08000036",
-          "value": 38.51,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
           "name": "Barnsley",
           "code": "E08000016",
-          "value": 38.32,
+          "value": 41.56,
           "trend": "Increasing and getting better",
           "vs_england": "Worse"
         },
         {
-          "name": "North East Lincolnshire",
-          "code": "E06000012",
-          "value": 38.03,
+          "name": "Doncaster",
+          "code": "E08000017",
+          "value": 41.34,
+          "trend": "Increasing and getting better",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Wakefield",
+          "code": "E08000036",
+          "value": 40.17,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "Sunderland",
-          "code": "E08000024",
-          "value": 37.3,
+          "name": "St. Helens",
+          "code": "E08000013",
+          "value": 39.96,
           "trend": "Increasing and getting better",
           "vs_england": "Worse"
         },
         {
           "name": "Redcar and Cleveland",
           "code": "E06000003",
-          "value": 36.75,
-          "trend": "Increasing and getting better",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "St. Helens",
-          "code": "E08000013",
-          "value": 35.64,
-          "trend": "Increasing and getting better",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Halton",
-          "code": "E06000006",
-          "value": 35.41,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "South Tyneside",
-          "code": "E08000023",
-          "value": 35.33,
+          "value": 38.76,
           "trend": "Increasing and getting better",
           "vs_england": "Worse"
         },
         {
           "name": "Knowsley",
           "code": "E08000011",
-          "value": 34.26,
+          "value": 37.42,
+          "trend": "Cannot be calculated",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "South Tyneside",
+          "code": "E08000023",
+          "value": 37.39,
+          "trend": "Increasing and getting better",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Halton",
+          "code": "E06000006",
+          "value": 36.97,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
           "name": "County Durham",
           "code": "E06000047",
-          "value": 33.23,
-          "trend": "No significant change",
+          "value": 34.81,
+          "trend": "Increasing and getting better",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Hartlepool",
+          "code": "E06000001",
+          "value": 33.6,
+          "trend": "Cannot be calculated",
           "vs_england": "Worse"
         }
       ],
       "distribution": {
         "higher_than_england": 0,
-        "similar_to_england": 9,
+        "similar_to_england": 12,
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
@@ -9427,6 +9431,10 @@
         {
           "period": "Aug 2025",
           "value": 30.79
+        },
+        {
+          "period": "Aug 2026",
+          "value": 30.44
         },
         {
           "period": "Dec 2014",
@@ -12541,8 +12549,8 @@
     "Employment_Rate": {
       "indicator_name": "Percentage of people in employment",
       "indicator_id": "92313",
-      "england_latest": 87.4,
-      "latest_period": "2024/25",
+      "england_latest": 86.3,
+      "latest_period": "2025/26",
       "trend": "stable",
       "polarity": "good",
       "trend_quality": "neutral",
@@ -12602,156 +12610,160 @@
         {
           "period": "2024/25",
           "value": 87.4
+        },
+        {
+          "period": "2025/26",
+          "value": 86.3
         }
       ],
-      "area_count": 1304,
+      "area_count": 1286,
       "top_10": [
         {
-          "name": "City of London",
-          "code": "E09000001",
+          "name": "Castle Point",
+          "code": "E07000069",
           "value": 100.0,
           "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         },
         {
-          "name": "Torridge",
-          "code": "E07000046",
-          "value": 100.0,
-          "trend": "Cannot be calculated",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Broxtowe",
-          "code": "E07000172",
-          "value": 100.0,
-          "trend": "Cannot be calculated",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Ribble Valley",
-          "code": "E07000124",
-          "value": 97.6,
-          "trend": "Cannot be calculated",
+          "name": "Dover",
+          "code": "E07000108",
+          "value": 98.0,
+          "trend": "No significant change",
           "vs_england": "Better"
         },
         {
-          "name": "Rushmoor",
-          "code": "E07000092",
-          "value": 97.5,
+          "name": "West Oxfordshire",
+          "code": "E07000181",
+          "value": 97.2,
           "trend": "Increasing and getting better",
           "vs_england": "Better"
         },
         {
-          "name": "Epsom and Ewell",
-          "code": "E07000208",
-          "value": 96.7,
+          "name": "Cotswold",
+          "code": "E07000079",
+          "value": 97.0,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Fareham",
+          "code": "E07000087",
+          "value": 96.9,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Derbyshire Dales",
+          "code": "E07000035",
+          "value": 96.3,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
-          "name": "North West Leicestershire",
-          "code": "E07000134",
-          "value": 96.5,
+          "name": "Oadby and Wigston",
+          "code": "E07000135",
+          "value": 96.2,
           "trend": "Increasing and getting better",
           "vs_england": "Better"
         },
         {
-          "name": "Three Rivers",
-          "code": "E07000102",
-          "value": 96.4,
-          "trend": "Increasing and getting better",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Cannock Chase",
-          "code": "E07000192",
-          "value": 96.4,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "South Oxfordshire",
-          "code": "E07000179",
+          "name": "Horsham",
+          "code": "E07000227",
           "value": 96.0,
+          "trend": "Increasing and getting better",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Adur",
+          "code": "E07000223",
+          "value": 95.9,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Chichester",
+          "code": "E07000225",
+          "value": 95.8,
           "trend": "Increasing and getting better",
           "vs_england": "Better"
         }
       ],
       "bottom_10": [
         {
-          "name": "Slough",
-          "code": "E06000039",
-          "value": 28.7,
+          "name": "Brent",
+          "code": "E09000005",
+          "value": 30.8,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "Lambeth",
-          "code": "E09000022",
-          "value": 28.4,
-          "trend": "No significant change",
+          "name": "Croydon",
+          "code": "E09000008",
+          "value": 30.0,
+          "trend": "Increasing and getting better",
           "vs_england": "Not compared"
         },
         {
-          "name": "Canterbury",
-          "code": "E07000106",
-          "value": 28.3,
+          "name": "Ealing",
+          "code": "E09000009",
+          "value": 28.9,
           "trend": "Cannot be calculated",
-          "vs_england": "Worse"
+          "vs_england": "Not compared"
         },
         {
-          "name": "Newham",
-          "code": "E09000025",
+          "name": "North Warwickshire",
+          "code": "E07000218",
           "value": 27.5,
           "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "North Devon",
-          "code": "E07000043",
-          "value": 27.4,
-          "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         },
         {
-          "name": "Greenwich",
-          "code": "E09000011",
+          "name": "Waverley",
+          "code": "E07000216",
           "value": 26.0,
-          "trend": "No significant change",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Wealden",
-          "code": "E07000065",
-          "value": 25.5,
-          "trend": "Decreasing and getting worse",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Hammersmith and Fulham",
-          "code": "E09000013",
-          "value": 21.0,
           "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         },
         {
-          "name": "Southwark",
-          "code": "E09000028",
-          "value": 20.6,
-          "trend": "Decreasing and getting worse",
+          "name": "Kensington and Chelsea",
+          "code": "E09000020",
+          "value": 25.1,
+          "trend": "Increasing and getting better",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Oadby and Wigston",
+          "code": "E07000135",
+          "value": 24.2,
+          "trend": "Cannot be calculated",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Rossendale",
+          "code": "E07000125",
+          "value": 23.5,
+          "trend": "Cannot be calculated",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Rutland",
+          "code": "E06000017",
+          "value": 22.3,
+          "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         },
         {
           "name": "Harrow",
           "code": "E09000015",
-          "value": 20.1,
+          "value": 14.9,
           "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         }
       ],
       "distribution": {
         "higher_than_england": 0,
-        "similar_to_england": 867,
+        "similar_to_england": 873,
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
@@ -13158,8 +13170,8 @@
     "Excess_Weight_Children_Reception": {
       "indicator_name": "Reception prevalence of underweight",
       "indicator_id": "90316",
-      "england_latest": 0.95775,
-      "latest_period": "2024/25",
+      "england_latest": 0.83195,
+      "latest_period": "2025/26",
       "trend": "decreasing",
       "polarity": "bad",
       "trend_quality": "good",
@@ -13239,156 +13251,160 @@
         {
           "period": "2024/25",
           "value": 0.96
+        },
+        {
+          "period": "2025/26",
+          "value": 0.83
         }
       ],
-      "area_count": 458,
+      "area_count": 460,
       "top_10": [
         {
           "name": "Slough",
           "code": "E06000039",
-          "value": 3.57,
-          "trend": "Cannot be calculated",
+          "value": 3.52,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "Redbridge",
           "code": "E09000026",
-          "value": 3.42,
-          "trend": "Cannot be calculated",
+          "value": 3.51,
+          "trend": "No significant change",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Spelthorne",
+          "code": "E07000213",
+          "value": 3.38,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "Harrow",
           "code": "E09000015",
-          "value": 3.23,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Brent",
-          "code": "E09000005",
-          "value": 3.15,
-          "trend": "Cannot be calculated",
+          "value": 3.33,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "Leicester",
           "code": "E06000016",
-          "value": 3.08,
-          "trend": "Cannot be calculated",
+          "value": 3.23,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "Leicester, Leicestershire and Rutland ICB - 04C ",
           "code": "E38000097",
-          "value": 3.08,
-          "trend": "Cannot be calculated",
+          "value": 3.23,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
-          "name": "Tower Hamlets",
-          "code": "E09000030",
-          "value": 3.06,
-          "trend": "Cannot be calculated",
+          "name": "Hounslow",
+          "code": "E09000018",
+          "value": 3.17,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
-          "name": "Watford",
-          "code": "E07000103",
-          "value": 2.88,
-          "trend": "Cannot be calculated",
+          "name": "Hillingdon",
+          "code": "E09000017",
+          "value": 2.81,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "Newham",
           "code": "E09000025",
-          "value": 2.8,
+          "value": 2.76,
           "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
-          "name": "Oadby and Wigston",
-          "code": "E07000135",
-          "value": 2.61,
-          "trend": "Cannot be calculated",
+          "name": "Tower Hamlets",
+          "code": "E09000030",
+          "value": 2.62,
+          "trend": "No significant change",
           "vs_england": "Worse"
         }
       ],
       "bottom_10": [
         {
-          "name": "Lincolnshire",
-          "code": "E10000019",
-          "value": 0.38,
+          "name": "Sefton",
+          "code": "E08000014",
+          "value": 0.4,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
           "name": "Humber and North Yorkshire ICB - 02Y ",
           "code": "E38000052",
+          "value": 0.4,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Lancashire and South Cumbria ICB - 01K ",
+          "code": "E38000228",
           "value": 0.38,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
-          "name": "Lincolnshire ICB - 71E ",
-          "code": "E38000238",
-          "value": 0.38,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "NHS Lincolnshire Integrated Care Board - QJM",
-          "code": "E54000013",
-          "value": 0.38,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "East Riding of Yorkshire",
-          "code": "E06000011",
-          "value": 0.35,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Cornwall",
-          "code": "E06000052",
+          "name": "Wirral",
+          "code": "E08000015",
           "value": 0.34,
-          "trend": "Cannot be calculated",
+          "trend": "No significant change",
           "vs_england": "Better"
         },
         {
-          "name": "Cornwall and The Isles Of Scilly ICB - 11N ",
-          "code": "E38000089",
+          "name": "Cheshire and Merseyside ICB - 12F ",
+          "code": "E38000208",
           "value": 0.34,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "NHS Cornwall and the Isles of Scilly Integrated Care Board - QT6",
-          "code": "E54000036",
-          "value": 0.34,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "North Yorkshire UA",
-          "code": "E06000065",
-          "value": 0.31,
-          "trend": "Cannot be calculated",
+          "trend": "No significant change",
           "vs_england": "Better"
         },
         {
           "name": "Humber and North Yorkshire ICB - 42D ",
           "code": "E38000241",
-          "value": 0.3,
-          "trend": "Cannot be calculated",
+          "value": 0.34,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Cornwall",
+          "code": "E06000052",
+          "value": 0.33,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "North Yorkshire UA",
+          "code": "E06000065",
+          "value": 0.33,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Cornwall and The Isles Of Scilly ICB - 11N ",
+          "code": "E38000089",
+          "value": 0.33,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "NHS Cornwall and the Isles of Scilly Integrated Care Board - QT6",
+          "code": "E54000036",
+          "value": 0.33,
+          "trend": "No significant change",
           "vs_england": "Better"
         }
       ],
       "distribution": {
         "higher_than_england": 0,
-        "similar_to_england": 228,
+        "similar_to_england": 230,
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
@@ -13397,11 +13413,11 @@
     "Excess_Weight_Children_Yr6": {
       "indicator_name": "Year 6 prevalence of obesity (including severe obesity)",
       "indicator_id": "90323",
-      "england_latest": 19.13415,
-      "latest_period": "2024/25",
-      "trend": "decreasing",
+      "england_latest": 19.36508,
+      "latest_period": "2025/26",
+      "trend": "increasing",
       "polarity": "bad",
-      "trend_quality": "good",
+      "trend_quality": "bad",
       "time_series": [
         {
           "period": "2006/07",
@@ -13478,156 +13494,160 @@
         {
           "period": "2024/25",
           "value": 19.13
+        },
+        {
+          "period": "2025/26",
+          "value": 19.37
         }
       ],
       "area_count": 566,
       "top_10": [
         {
-          "name": "Sandwell",
-          "code": "E08000028",
-          "value": 30.68,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
           "name": "North East region (statistical)",
           "code": "E12000001",
-          "value": 30.25,
-          "trend": "Cannot be calculated",
+          "value": 32.21,
+          "trend": "Decreasing and getting better",
           "vs_england": "Worse"
         },
         {
-          "name": "West Midlands region (statistical)",
-          "code": "E12000005",
-          "value": 30.15,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Knowsley",
-          "code": "E08000011",
-          "value": 30.06,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Cheshire and Merseyside ICB - 01J ",
-          "code": "E38000091",
-          "value": 30.06,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Wolverhampton",
-          "code": "E08000031",
-          "value": 29.99,
-          "trend": "Cannot be calculated",
+          "name": "Sandwell",
+          "code": "E08000028",
+          "value": 32.1,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "Yorkshire and the Humber region (statistical)",
           "code": "E12000003",
-          "value": 29.89,
-          "trend": "Cannot be calculated",
+          "value": 31.1,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "West Midlands region (statistical)",
           "code": "E12000005",
-          "value": 29.77,
-          "trend": "Cannot be calculated",
+          "value": 30.92,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
-          "name": "Southwark",
-          "code": "E09000028",
-          "value": 29.67,
-          "trend": "Cannot be calculated",
+          "name": "Boston",
+          "code": "E07000136",
+          "value": 30.67,
+          "trend": "No significant change",
           "vs_england": "Worse"
         },
         {
           "name": "North West region (statistical)",
           "code": "E12000002",
-          "value": 29.64,
-          "trend": "Cannot be calculated",
+          "value": 30.66,
+          "trend": "No significant change",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "West Midlands region (statistical)",
+          "code": "E12000005",
+          "value": 30.65,
+          "trend": "No significant change",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "West Midlands region (statistical)",
+          "code": "E12000005",
+          "value": 30.46,
+          "trend": "Decreasing and getting better",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "North East region (statistical)",
+          "code": "E12000001",
+          "value": 30.36,
+          "trend": "No significant change",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Knowsley",
+          "code": "E08000011",
+          "value": 30.33,
+          "trend": "No significant change",
           "vs_england": "Worse"
         }
       ],
       "bottom_10": [
         {
-          "name": "London region (statistical)",
-          "code": "E12000007",
-          "value": 13.11,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "South Hams",
-          "code": "E07000044",
-          "value": 13.1,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Elmbridge",
-          "code": "E07000207",
-          "value": 13.08,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Waverley",
-          "code": "E07000216",
-          "value": 13.08,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Epsom and Ewell",
-          "code": "E07000208",
-          "value": 12.79,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Cambridge",
-          "code": "E07000008",
-          "value": 12.68,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Richmond upon Thames",
-          "code": "E09000027",
-          "value": 12.08,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "St Albans",
-          "code": "E07000240",
-          "value": 12.02,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "South East region (statistical)",
-          "code": "E12000008",
-          "value": 11.85,
-          "trend": "Cannot be calculated",
+          "name": "Guildford",
+          "code": "E07000209",
+          "value": 14.05,
+          "trend": "No significant change",
           "vs_england": "Better"
         },
         {
           "name": "Mole Valley",
           "code": "E07000210",
-          "value": 9.7,
-          "trend": "Cannot be calculated",
+          "value": 13.61,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Epsom and Ewell",
+          "code": "E07000208",
+          "value": 13.59,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "London region (statistical)",
+          "code": "E12000007",
+          "value": 13.15,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Brentwood",
+          "code": "E07000068",
+          "value": 12.43,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Richmond upon Thames",
+          "code": "E09000027",
+          "value": 12.37,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "South East region (statistical)",
+          "code": "E12000008",
+          "value": 12.15,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "St Albans",
+          "code": "E07000240",
+          "value": 11.67,
+          "trend": "No significant change",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Elmbridge",
+          "code": "E07000207",
+          "value": 11.43,
+          "trend": "Increasing and getting worse",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Waverley",
+          "code": "E07000216",
+          "value": 10.13,
+          "trend": "No significant change",
           "vs_england": "Better"
         }
       ],
       "distribution": {
         "higher_than_england": 0,
-        "similar_to_england": 149,
+        "similar_to_england": 156,
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
@@ -17875,6 +17895,10 @@
           "value": 5.07
         },
         {
+          "period": "Aug 2026",
+          "value": 5.54
+        },
+        {
           "period": "Dec 2017",
           "value": 3.84
         },
@@ -18601,6 +18625,233 @@
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
+      }
+    },
+    "Palliative_Care_Prevalence": {
+      "indicator_name": "Number of other (non-emergency) presentations",
+      "indicator_id": "91357",
+      "england_latest": 448.406118213013,
+      "latest_period": "2024/25",
+      "trend": "increasing",
+      "polarity": "bad",
+      "trend_quality": "bad",
+      "time_series": [
+        {
+          "period": "2009/10",
+          "value": 334.0
+        },
+        {
+          "period": "2010/11",
+          "value": 345.68
+        },
+        {
+          "period": "2011/12",
+          "value": 352.17
+        },
+        {
+          "period": "2012/13",
+          "value": 348.65
+        },
+        {
+          "period": "2013/14",
+          "value": 368.05
+        },
+        {
+          "period": "2014/15",
+          "value": 371.05
+        },
+        {
+          "period": "2015/16",
+          "value": 377.07
+        },
+        {
+          "period": "2016/17",
+          "value": 390.2
+        },
+        {
+          "period": "2017/18",
+          "value": 387.93
+        },
+        {
+          "period": "2018/19",
+          "value": 400.19
+        },
+        {
+          "period": "2019/20",
+          "value": 418.85
+        },
+        {
+          "period": "2020/21",
+          "value": 304.95
+        },
+        {
+          "period": "2021/22",
+          "value": 418.33
+        },
+        {
+          "period": "2022/23",
+          "value": 421.36
+        },
+        {
+          "period": "2023/24",
+          "value": 430.07
+        },
+        {
+          "period": "2024/25",
+          "value": 448.41
+        }
+      ],
+      "area_count": 7619,
+      "top_10": [
+        {
+          "name": "Bromleag Care Practice",
+          "code": "Y06345",
+          "value": 1796.82,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Burnbrae Medical Practice",
+          "code": "B81085",
+          "value": 1540.44,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Haxby Hull Group PCN",
+          "code": "U37411",
+          "value": 1540.44,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Ashover Medical Centre",
+          "code": "C81611",
+          "value": 1370.42,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Spring Terrace Health Centre",
+          "code": "A87002",
+          "value": 1316.23,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Nursing Home Services",
+          "code": "Y04225",
+          "value": 1263.69,
+          "trend": "Cannot be calculated",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Reeth Medical Centre",
+          "code": "B82622",
+          "value": 1245.9,
+          "trend": "No significant change",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Clacton Community Practices",
+          "code": "F81681",
+          "value": 1097.45,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Fleggburgh Surgery",
+          "code": "D82600",
+          "value": 1082.47,
+          "trend": "No significant change",
+          "vs_england": "Higher 99.8"
+        },
+        {
+          "name": "Sid Valley Practice",
+          "code": "L83067",
+          "value": 1079.09,
+          "trend": "Increasing",
+          "vs_england": "Higher 99.8"
+        }
+      ],
+      "bottom_10": [
+        {
+          "name": "Kings College Health Centre",
+          "code": "E87768",
+          "value": 17.84,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "Campus View Medical Centre",
+          "code": "C82111",
+          "value": 17.35,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "University Of Sussex Health Centre",
+          "code": "G81071",
+          "value": 15.97,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "Imperial College Health Centre",
+          "code": "E87677",
+          "value": 14.94,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "University Health Service Health Centre",
+          "code": "C88627",
+          "value": 13.38,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "UoS Student PCN",
+          "code": "U39345",
+          "value": 13.38,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "Leeds Student Medical Practice",
+          "code": "B86110",
+          "value": 9.31,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "Limefield Road Medical Practice",
+          "code": "P87651",
+          "value": 0.0,
+          "trend": "Decreasing",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "Ambar Medical Centre",
+          "code": "Y00228",
+          "value": 0.0,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        },
+        {
+          "name": "Leicester City Assist Practice",
+          "code": "Y00344",
+          "value": 0.0,
+          "trend": "No significant change",
+          "vs_england": "Lower 99.8"
+        }
+      ],
+      "distribution": {
+        "higher_than_england": 1027,
+        "similar_to_england": 5465,
+        "lower_than_england": 1127,
+        "trend_increasing": 1520,
+        "trend_decreasing": 12
       }
     },
     "Perinatal_MH_Rate": {
@@ -20102,7 +20353,7 @@
     "Smoking_Prevalence": {
       "indicator_name": "Smoking Prevalence in adults (aged 18 and over) - current smokers (APS)",
       "indicator_id": "92443",
-      "england_latest": 11.95711,
+      "england_latest": 10.20307,
       "latest_period": "2025",
       "trend": "increasing",
       "polarity": "bad",
@@ -20186,145 +20437,145 @@
         },
         {
           "period": "2025",
-          "value": 11.96
+          "value": 10.2
         }
       ],
-      "area_count": 3441,
+      "area_count": 519,
       "top_10": [
         {
+          "name": "Yorkshire and the Humber region (statistical)",
+          "code": "E12000003",
+          "value": 26.77,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "East Midlands region (statistical)",
+          "code": "E12000004",
+          "value": 26.11,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "North West region (statistical)",
+          "code": "E12000002",
+          "value": 24.72,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "West Midlands region (statistical)",
+          "code": "E12000005",
+          "value": 24.55,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "South West region (statistical)",
+          "code": "E12000009",
+          "value": 24.42,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "South East region (statistical)",
+          "code": "E12000008",
+          "value": 23.44,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "North East region (statistical)",
+          "code": "E12000001",
+          "value": 21.79,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Kingston upon Hull",
+          "code": "E06000010",
+          "value": 19.49,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Humber and North Yorkshire ICB - 03F ",
+          "code": "E38000085",
+          "value": 19.49,
+          "trend": "",
+          "vs_england": "Worse"
+        },
+        {
           "name": "Wyre",
           "code": "E07000128",
-          "value": 47.72,
-          "trend": "",
-          "vs_england": "Similar"
-        },
-        {
-          "name": "Wyre",
-          "code": "E07000128",
-          "value": 47.72,
-          "trend": "",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Winchester",
-          "code": "E07000094",
-          "value": 42.8,
+          "value": 18.29,
           "trend": "",
           "vs_england": "Worse"
-        },
-        {
-          "name": "Winchester",
-          "code": "E07000094",
-          "value": 42.8,
-          "trend": "",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Three Rivers",
-          "code": "E07000102",
-          "value": 38.44,
-          "trend": "",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Three Rivers",
-          "code": "E07000102",
-          "value": 38.44,
-          "trend": "",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Torridge",
-          "code": "E07000046",
-          "value": 38.28,
-          "trend": "",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Torridge",
-          "code": "E07000046",
-          "value": 38.28,
-          "trend": "",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Adur",
-          "code": "E07000223",
-          "value": 36.48,
-          "trend": "",
-          "vs_england": "Similar"
-        },
-        {
-          "name": "Adur",
-          "code": "E07000223",
-          "value": 36.48,
-          "trend": "",
-          "vs_england": "Not compared"
         }
       ],
       "bottom_10": [
         {
-          "name": "Crawley",
-          "code": "E07000226",
-          "value": 0.0,
+          "name": "Wokingham",
+          "code": "E06000041",
+          "value": 4.32,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
           "name": "Horsham",
           "code": "E07000227",
-          "value": 0.0,
+          "value": 3.85,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "Worthing",
-          "code": "E07000229",
-          "value": 0.0,
+          "name": "Hinckley and Bosworth",
+          "code": "E07000132",
+          "value": 3.78,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "Worcester",
-          "code": "E07000237",
-          "value": 0.0,
+          "name": "Rochford",
+          "code": "E07000075",
+          "value": 3.75,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "Worcester",
-          "code": "E07000237",
-          "value": 0.0,
+          "name": "Derbyshire Dales",
+          "code": "E07000035",
+          "value": 3.34,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "Wyre Forest",
-          "code": "E07000239",
-          "value": 0.0,
+          "name": "Harlow",
+          "code": "E07000073",
+          "value": 3.06,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "Welwyn Hatfield",
-          "code": "E07000241",
-          "value": 0.0,
+          "name": "Broadland",
+          "code": "E07000144",
+          "value": 2.76,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "Welwyn Hatfield",
-          "code": "E07000241",
-          "value": 0.0,
+          "name": "Mole Valley",
+          "code": "E07000210",
+          "value": 1.28,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
-          "name": "East Hertfordshire",
-          "code": "E07000242",
-          "value": 0.0,
+          "name": "Brentwood",
+          "code": "E07000068",
+          "value": 0.74,
           "trend": "",
-          "vs_england": "Not compared"
+          "vs_england": "Better"
         },
         {
           "name": "City of London",
@@ -20336,7 +20587,7 @@
       ],
       "distribution": {
         "higher_than_england": 0,
-        "similar_to_england": 1333,
+        "similar_to_england": 361,
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
@@ -20345,8 +20596,8 @@
     "Suicide_Rate": {
       "indicator_name": "Suicide rate",
       "indicator_id": "41001",
-      "england_latest": 9.94980424376534,
-      "latest_period": "2022 - 24",
+      "england_latest": 10.1,
+      "latest_period": "2023 - 25",
       "trend": "increasing",
       "polarity": "bad",
       "trend_quality": "bad",
@@ -20438,41 +20689,59 @@
         {
           "period": "2022 - 24",
           "value": 9.95
+        },
+        {
+          "period": "2023 - 25",
+          "value": 10.1
         }
       ],
-      "area_count": 371,
+      "area_count": 322,
       "top_10": [
         {
-          "name": "Lincoln",
-          "code": "E07000138",
-          "value": 20.55,
+          "name": "North East Lincolnshire",
+          "code": "E06000012",
+          "value": 22.8,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
           "name": "Redcar and Cleveland",
           "code": "E06000003",
-          "value": 20.25,
+          "value": 21.0,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "Middlesbrough",
-          "code": "E06000002",
-          "value": 20.21,
+          "name": "Darlington",
+          "code": "E06000005",
+          "value": 18.9,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "Cumberland",
-          "code": "E06000063",
-          "value": 19.43,
+          "name": "Lewes",
+          "code": "E07000063",
+          "value": 18.9,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "North East Lincolnshire",
-          "code": "E06000012",
+          "name": "Blackpool",
+          "code": "E06000009",
+          "value": 18.4,
+          "trend": "Cannot be calculated",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "North Lincolnshire",
+          "code": "E06000013",
+          "value": 18.3,
+          "trend": "Cannot be calculated",
+          "vs_england": "Worse"
+        },
+        {
+          "name": "Lancaster",
+          "code": "E07000121",
           "value": 18.3,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
@@ -20480,114 +20749,100 @@
         {
           "name": "Pendle",
           "code": "E07000122",
-          "value": 18.26,
+          "value": 18.0,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "Exeter",
-          "code": "E07000041",
-          "value": 18.21,
+          "name": "Middlesbrough",
+          "code": "E06000002",
+          "value": 17.9,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         },
         {
-          "name": "Mid Devon",
-          "code": "E07000042",
-          "value": 18.19,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Hastings",
-          "code": "E07000062",
-          "value": 18.19,
-          "trend": "Cannot be calculated",
-          "vs_england": "Worse"
-        },
-        {
-          "name": "Wigan",
-          "code": "E08000010",
-          "value": 18.17,
+          "name": "Cumberland",
+          "code": "E06000063",
+          "value": 17.9,
           "trend": "Cannot be calculated",
           "vs_england": "Worse"
         }
       ],
       "bottom_10": [
         {
-          "name": "Harlow",
-          "code": "E07000073",
-          "value": 6.16,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Broxtowe",
-          "code": "E07000172",
-          "value": 6.05,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Thurrock",
-          "code": "E06000034",
-          "value": 5.9,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Haringey",
-          "code": "E09000014",
-          "value": 5.78,
+          "name": "Eastleigh",
+          "code": "E07000086",
+          "value": 6.3,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
           "name": "Enfield",
           "code": "E09000010",
-          "value": 5.73,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Wandsworth",
-          "code": "E09000032",
-          "value": 5.73,
-          "trend": "Cannot be calculated",
-          "vs_england": "Better"
-        },
-        {
-          "name": "Harrow",
-          "code": "E09000015",
-          "value": 5.69,
+          "value": 6.2,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
           "name": "Brent",
           "code": "E09000005",
-          "value": 5.51,
+          "value": 5.9,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
-          "name": "Barking and Dagenham",
-          "code": "E09000002",
-          "value": 4.92,
+          "name": "Babergh",
+          "code": "E07000200",
+          "value": 5.8,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Wandsworth",
+          "code": "E09000032",
+          "value": 5.8,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Harrow",
+          "code": "E09000015",
+          "value": 5.6,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         },
         {
           "name": "Newham",
           "code": "E09000025",
-          "value": 4.6,
+          "value": 5.6,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Thurrock",
+          "code": "E06000034",
+          "value": 5.4,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Barking and Dagenham",
+          "code": "E09000002",
+          "value": 5.4,
+          "trend": "Cannot be calculated",
+          "vs_england": "Better"
+        },
+        {
+          "name": "Redbridge",
+          "code": "E09000026",
+          "value": 4.7,
           "trend": "Cannot be calculated",
           "vs_england": "Better"
         }
       ],
       "distribution": {
         "higher_than_england": 0,
-        "similar_to_england": 238,
+        "similar_to_england": 232,
         "lower_than_england": 0,
         "trend_increasing": 0,
         "trend_decreasing": 0
@@ -21099,11 +21354,11 @@
     "Violent_Crime": {
       "indicator_name": "Violent crime - violence offences per 1,000 population",
       "indicator_id": "11202",
-      "england_latest": 26.75204,
-      "latest_period": "2024/25",
-      "trend": "decreasing",
+      "england_latest": 27.42596,
+      "latest_period": "2025/26",
+      "trend": "stable",
       "polarity": "bad",
-      "trend_quality": "good",
+      "trend_quality": "neutral",
       "time_series": [
         {
           "period": "2015/16",
@@ -21139,11 +21394,15 @@
         },
         {
           "period": "2023/24",
-          "value": 27.4
+          "value": 27.39
         },
         {
           "period": "2024/25",
-          "value": 26.75
+          "value": 26.68
+        },
+        {
+          "period": "2025/26",
+          "value": 27.43
         }
       ],
       "area_count": 325,
@@ -21151,143 +21410,143 @@
         {
           "name": "City of London",
           "code": "E09000001",
-          "value": 105.51,
-          "trend": "No significant change",
+          "value": 87.42,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Blackpool",
           "code": "E06000009",
-          "value": 67.94,
-          "trend": "No significant change",
+          "value": 69.38,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Middlesbrough",
           "code": "E06000002",
-          "value": 54.84,
-          "trend": "No significant change",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Bradford",
-          "code": "E08000032",
-          "value": 54.2,
-          "trend": "No significant change",
+          "value": 53.88,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Manchester",
           "code": "E08000003",
-          "value": 53.33,
-          "trend": "No significant change",
+          "value": 52.0,
+          "trend": "Decreasing",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Bradford",
+          "code": "E08000032",
+          "value": 51.96,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Westminster",
           "code": "E09000033",
-          "value": 51.02,
-          "trend": "No significant change",
+          "value": 51.48,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Kingston upon Hull",
           "code": "E06000010",
-          "value": 50.15,
+          "value": 50.01,
           "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Thanet",
           "code": "E07000114",
-          "value": 50.07,
+          "value": 48.18,
           "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
-          "name": "Hartlepool",
-          "code": "E06000001",
-          "value": 49.08,
-          "trend": "No significant change",
+          "name": "Oldham",
+          "code": "E08000004",
+          "value": 47.81,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Wakefield",
           "code": "E08000036",
-          "value": 49.04,
-          "trend": "No significant change",
+          "value": 47.79,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         }
       ],
       "bottom_10": [
         {
-          "name": "Harborough",
-          "code": "E07000131",
-          "value": 16.27,
-          "trend": "No significant change",
+          "name": "Dartford",
+          "code": "E07000107",
+          "value": 15.72,
+          "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         },
         {
-          "name": "Broadland",
-          "code": "E07000144",
-          "value": 16.13,
-          "trend": "Decreasing",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Ribble Valley",
-          "code": "E07000124",
-          "value": 15.84,
-          "trend": "No significant change",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "South Cambridgeshire",
-          "code": "E07000012",
-          "value": 15.78,
-          "trend": "No significant change",
+          "name": "Gravesham",
+          "code": "E07000109",
+          "value": 15.72,
+          "trend": "Cannot be calculated",
           "vs_england": "Not compared"
         },
         {
           "name": "Richmond upon Thames",
           "code": "E09000027",
-          "value": 15.06,
-          "trend": "No significant change",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Wealden",
-          "code": "E07000065",
-          "value": 15.05,
-          "trend": "No significant change",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Rutland",
-          "code": "E06000017",
-          "value": 14.73,
-          "trend": "No significant change",
-          "vs_england": "Not compared"
-        },
-        {
-          "name": "Wokingham",
-          "code": "E06000041",
-          "value": 14.5,
+          "value": 15.07,
           "trend": "No significant change",
           "vs_england": "Not compared"
         },
         {
           "name": "Waverley",
           "code": "E07000216",
-          "value": 14.14,
-          "trend": "No significant change",
+          "value": 14.87,
+          "trend": "Decreasing",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Wokingham",
+          "code": "E06000041",
+          "value": 14.86,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         },
         {
           "name": "Isles of Scilly",
           "code": "E06000053",
-          "value": 9.17,
-          "trend": "Increasing",
+          "value": 14.17,
+          "trend": "No significant change",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Medway",
+          "code": "E06000035",
+          "value": 0.11,
+          "trend": "Decreasing",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Maidstone",
+          "code": "E07000110",
+          "value": 0.08,
+          "trend": "Decreasing",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Tunbridge Wells",
+          "code": "E07000116",
+          "value": 0.06,
+          "trend": "Decreasing",
+          "vs_england": "Not compared"
+        },
+        {
+          "name": "Tonbridge and Malling",
+          "code": "E07000115",
+          "value": 0.04,
+          "trend": "Decreasing",
           "vs_england": "Not compared"
         }
       ],
@@ -21295,8 +21554,8 @@
         "higher_than_england": 0,
         "similar_to_england": 0,
         "lower_than_england": 0,
-        "trend_increasing": 52,
-        "trend_decreasing": 59
+        "trend_increasing": 22,
+        "trend_decreasing": 196
       }
     }
   },
@@ -24738,11 +24997,10 @@
         "dm01_13wk_breaches": 8144,
         "dm01_13wk_pct": 8.5,
         "Obesity_Prevalence": 67.53,
-        "Smoking_Prevalence": 16.88,
+        "Smoking_Prevalence": 11.49,
         "Diabetes_Prevalence": 8.24,
         "Depression_Prevalence": 18.31,
         "Child_Poverty": 25.8,
-        "Suicide_Rate": 14.51,
         "Deprivation_Score_IMD2019": 26.0
       },
       "E54000061": {
@@ -24755,11 +25013,10 @@
         "dm01_13wk_breaches": 10722,
         "dm01_13wk_pct": 9.4,
         "Obesity_Prevalence": 71.02,
-        "Smoking_Prevalence": 15.56,
+        "Smoking_Prevalence": 11.27,
         "Diabetes_Prevalence": 8.25,
         "Depression_Prevalence": 15.36,
-        "Child_Poverty": 28.8,
-        "Suicide_Rate": 11.79
+        "Child_Poverty": 28.8
       },
       "E54000019": {
         "name": "NHS HEREFORDSHIRE AND WORCESTERSHIRE INTEGRATED CARE BOARD",
@@ -24771,11 +25028,10 @@
         "dm01_13wk_breaches": 1048,
         "dm01_13wk_pct": 2.8,
         "Obesity_Prevalence": 63.25,
-        "Smoking_Prevalence": 20.23,
+        "Smoking_Prevalence": 8.95,
         "Diabetes_Prevalence": 8.06,
         "Depression_Prevalence": 16.05,
         "Child_Poverty": 18.4,
-        "Suicide_Rate": 12.01,
         "Deprivation_Score_IMD2019": 18.29
       },
       "E54000026": {
@@ -24788,11 +25044,10 @@
         "dm01_13wk_breaches": 10320,
         "dm01_13wk_pct": 14.3,
         "Obesity_Prevalence": 67.89,
-        "Smoking_Prevalence": 7.11,
+        "Smoking_Prevalence": 7.81,
         "Diabetes_Prevalence": 7.9,
         "Depression_Prevalence": 12.38,
         "Child_Poverty": 15.2,
-        "Suicide_Rate": 7.98,
         "Deprivation_Score_IMD2019": 17.26
       },
       "E54000024": {
@@ -24805,11 +25060,10 @@
         "dm01_13wk_breaches": 4668,
         "dm01_13wk_pct": 8.2,
         "Obesity_Prevalence": 67.91,
-        "Smoking_Prevalence": 13.62,
+        "Smoking_Prevalence": 9.57,
         "Diabetes_Prevalence": 8.75,
         "Depression_Prevalence": 11.4,
         "Child_Poverty": 18.7,
-        "Suicide_Rate": 10.17,
         "Deprivation_Score_IMD2019": 18.2
       },
       "E54000055": {
@@ -24822,11 +25076,10 @@
         "dm01_13wk_breaches": 18216,
         "dm01_13wk_pct": 16.7,
         "Obesity_Prevalence": 66.13,
-        "Smoking_Prevalence": 12.79,
+        "Smoking_Prevalence": 10.71,
         "Diabetes_Prevalence": 9.32,
         "Depression_Prevalence": 12.77,
-        "Child_Poverty": 36.1,
-        "Suicide_Rate": 9.91
+        "Child_Poverty": 36.1
       },
       "E54000050": {
         "name": "NHS NORTH EAST AND NORTH CUMBRIA INTEGRATED CARE BOARD",
@@ -24838,11 +25091,10 @@
         "dm01_13wk_breaches": 8872,
         "dm01_13wk_pct": 4.8,
         "Obesity_Prevalence": 69.89,
-        "Smoking_Prevalence": 16.12,
+        "Smoking_Prevalence": 9.8,
         "Diabetes_Prevalence": 8.88,
         "Depression_Prevalence": 16.32,
-        "Child_Poverty": 24.5,
-        "Suicide_Rate": 14.62
+        "Child_Poverty": 24.5
       },
       "E54000058": {
         "name": "NHS DERBY AND DERBYSHIRE INTEGRATED CARE BOARD",
@@ -24854,11 +25106,10 @@
         "dm01_13wk_breaches": 4722,
         "dm01_13wk_pct": 6.9,
         "Obesity_Prevalence": 67.57,
-        "Smoking_Prevalence": 16.99,
+        "Smoking_Prevalence": 9.92,
         "Diabetes_Prevalence": 8.53,
         "Depression_Prevalence": 15.89,
-        "Child_Poverty": 21.2,
-        "Suicide_Rate": 12.3
+        "Child_Poverty": 21.2
       },
       "E54000023": {
         "name": "NHS SUFFOLK AND NORTH EAST ESSEX INTEGRATED CARE BOARD",
@@ -24870,11 +25121,10 @@
         "dm01_13wk_breaches": 2904,
         "dm01_13wk_pct": 4.9,
         "Obesity_Prevalence": 66.07,
-        "Smoking_Prevalence": 9.34,
+        "Smoking_Prevalence": 7.53,
         "Diabetes_Prevalence": 8.11,
         "Depression_Prevalence": 14.44,
         "Child_Poverty": 17.6,
-        "Suicide_Rate": 10.29,
         "Deprivation_Score_IMD2019": 19.02
       },
       "E54000037": {
@@ -24887,11 +25137,10 @@
         "dm01_13wk_breaches": 8014,
         "dm01_13wk_pct": 10.1,
         "Obesity_Prevalence": 64.34,
-        "Smoking_Prevalence": 18.58,
+        "Smoking_Prevalence": 9.79,
         "Diabetes_Prevalence": 7.58,
         "Depression_Prevalence": 14.79,
         "Child_Poverty": 18.2,
-        "Suicide_Rate": 11.59,
         "Deprivation_Score_IMD2019": 20.17
       },
       "E54000013": {
@@ -24904,11 +25153,10 @@
         "dm01_13wk_breaches": 8894,
         "dm01_13wk_pct": 15.6,
         "Obesity_Prevalence": 69.08,
-        "Smoking_Prevalence": 15.41,
+        "Smoking_Prevalence": 11.57,
         "Diabetes_Prevalence": 8.8,
         "Depression_Prevalence": 15.77,
         "Child_Poverty": 22.0,
-        "Suicide_Rate": 14.88,
         "Deprivation_Score_IMD2019": 20.29
       },
       "E54000015": {
@@ -24921,11 +25169,10 @@
         "dm01_13wk_breaches": 3276,
         "dm01_13wk_pct": 5.9,
         "Obesity_Prevalence": 64.96,
-        "Smoking_Prevalence": 3.66,
+        "Smoking_Prevalence": 7.46,
         "Diabetes_Prevalence": 9.0,
         "Depression_Prevalence": 14.34,
         "Child_Poverty": 22.2,
-        "Suicide_Rate": 10.45,
         "Deprivation_Score_IMD2019": 18.24
       },
       "E54000030": {
@@ -24938,11 +25185,10 @@
         "dm01_13wk_breaches": 16556,
         "dm01_13wk_pct": 11.9,
         "Obesity_Prevalence": 58.34,
-        "Smoking_Prevalence": 10.17,
+        "Smoking_Prevalence": 7.97,
         "Diabetes_Prevalence": 7.0,
         "Depression_Prevalence": 12.02,
         "Child_Poverty": 14.3,
-        "Suicide_Rate": 8.12,
         "Deprivation_Score_IMD2019": 22.22
       },
       "E54000032": {
@@ -24955,11 +25201,10 @@
         "dm01_13wk_breaches": 12698,
         "dm01_13wk_pct": 6.7,
         "Obesity_Prevalence": 66.63,
-        "Smoking_Prevalence": 20.07,
+        "Smoking_Prevalence": 9.86,
         "Diabetes_Prevalence": 8.18,
         "Depression_Prevalence": 17.28,
         "Child_Poverty": 15.7,
-        "Suicide_Rate": 11.18,
         "Deprivation_Score_IMD2019": 20.21
       },
       "E54000025": {
@@ -24972,11 +25217,10 @@
         "dm01_13wk_breaches": 19038,
         "dm01_13wk_pct": 17.3,
         "Obesity_Prevalence": 63.38,
-        "Smoking_Prevalence": 15.3,
+        "Smoking_Prevalence": 8.61,
         "Diabetes_Prevalence": 6.96,
         "Depression_Prevalence": 12.55,
         "Child_Poverty": 11.3,
-        "Suicide_Rate": 9.21,
         "Deprivation_Score_IMD2019": 13.31
       },
       "E54000029": {
@@ -24989,11 +25233,10 @@
         "dm01_13wk_breaches": 9828,
         "dm01_13wk_pct": 11.6,
         "Obesity_Prevalence": 61.25,
-        "Smoking_Prevalence": 9.46,
+        "Smoking_Prevalence": 9.1,
         "Diabetes_Prevalence": 8.45,
         "Depression_Prevalence": 10.14,
         "Child_Poverty": 20.2,
-        "Suicide_Rate": 6.7,
         "Deprivation_Score_IMD2019": 25.84
       },
       "E54000028": {
@@ -25006,11 +25249,10 @@
         "dm01_13wk_breaches": 3878,
         "dm01_13wk_pct": 3.2,
         "Obesity_Prevalence": 54.36,
-        "Smoking_Prevalence": 10.39,
+        "Smoking_Prevalence": 8.95,
         "Diabetes_Prevalence": 6.3,
         "Depression_Prevalence": 11.55,
         "Child_Poverty": 14.8,
-        "Suicide_Rate": 7.43,
         "Deprivation_Score_IMD2019": 22.98
       },
       "E54000022": {
@@ -25023,11 +25265,10 @@
         "dm01_13wk_breaches": 6458,
         "dm01_13wk_pct": 10.9,
         "Obesity_Prevalence": 65.63,
-        "Smoking_Prevalence": 18.3,
+        "Smoking_Prevalence": 10.95,
         "Diabetes_Prevalence": 9.03,
         "Depression_Prevalence": 14.39,
         "Child_Poverty": 19.8,
-        "Suicide_Rate": 12.04,
         "Deprivation_Score_IMD2019": 21.73
       },
       "E54000010": {
@@ -25040,11 +25281,10 @@
         "dm01_13wk_breaches": 1956,
         "dm01_13wk_pct": 4.7,
         "Obesity_Prevalence": 69.81,
-        "Smoking_Prevalence": 20.08,
+        "Smoking_Prevalence": 11.23,
         "Diabetes_Prevalence": 8.65,
         "Depression_Prevalence": 16.77,
         "Child_Poverty": 23.3,
-        "Suicide_Rate": 10.78,
         "Deprivation_Score_IMD2019": 20.64
       },
       "E54000034": {
@@ -25057,11 +25297,10 @@
         "dm01_13wk_breaches": 222,
         "dm01_13wk_pct": 0.5,
         "Obesity_Prevalence": 62.26,
-        "Smoking_Prevalence": 9.75,
+        "Smoking_Prevalence": 7.26,
         "Diabetes_Prevalence": 7.92,
         "Depression_Prevalence": 13.39,
         "Child_Poverty": 11.3,
-        "Suicide_Rate": 9.89,
         "Deprivation_Score_IMD2019": 12.32
       },
       "E54000064": {
@@ -25087,11 +25326,10 @@
         "dm01_13wk_breaches": 334,
         "dm01_13wk_pct": 0.7,
         "Obesity_Prevalence": 66.98,
-        "Smoking_Prevalence": 8.13,
+        "Smoking_Prevalence": 7.66,
         "Diabetes_Prevalence": 8.1,
         "Depression_Prevalence": 17.08,
         "Child_Poverty": 21.4,
-        "Suicide_Rate": 12.65,
         "Deprivation_Score_IMD2019": 19.94
       },
       "E54000057": {
@@ -25104,11 +25342,10 @@
         "dm01_13wk_breaches": 8260,
         "dm01_13wk_pct": 4.5,
         "Obesity_Prevalence": 66.31,
-        "Smoking_Prevalence": 20.01,
+        "Smoking_Prevalence": 10.56,
         "Diabetes_Prevalence": 8.17,
         "Depression_Prevalence": 17.18,
-        "Child_Poverty": 27.7,
-        "Suicide_Rate": 12.6
+        "Child_Poverty": 27.7
       },
       "E54000051": {
         "name": "NHS HUMBER AND NORTH YORKSHIRE INTEGRATED CARE BOARD",
@@ -25120,11 +25357,10 @@
         "dm01_13wk_breaches": 21054,
         "dm01_13wk_pct": 15.0,
         "Obesity_Prevalence": 67.96,
-        "Smoking_Prevalence": 15.49,
+        "Smoking_Prevalence": 10.72,
         "Diabetes_Prevalence": 8.22,
         "Depression_Prevalence": 13.98,
-        "Child_Poverty": 21.5,
-        "Suicide_Rate": 13.65
+        "Child_Poverty": 21.5
       },
       "E54000040": {
         "name": "NHS BATH AND NORTH EAST SOMERSET, SWINDON AND WILTSHIRE INTEGRATED CARE BOARD",
@@ -25136,11 +25372,10 @@
         "dm01_13wk_breaches": 2282,
         "dm01_13wk_pct": 5.1,
         "Obesity_Prevalence": 62.29,
-        "Smoking_Prevalence": 9.71,
+        "Smoking_Prevalence": 7.91,
         "Diabetes_Prevalence": 7.59,
         "Depression_Prevalence": 12.31,
         "Child_Poverty": 13.4,
-        "Suicide_Rate": 9.23,
         "Deprivation_Score_IMD2019": 14.3
       },
       "E54000059": {
@@ -25153,11 +25388,10 @@
         "dm01_13wk_breaches": 10236,
         "dm01_13wk_pct": 16.5,
         "Obesity_Prevalence": 68.02,
-        "Smoking_Prevalence": 9.5,
+        "Smoking_Prevalence": 8.27,
         "Diabetes_Prevalence": 8.04,
         "Depression_Prevalence": 15.37,
-        "Child_Poverty": 17.8,
-        "Suicide_Rate": 11.02
+        "Child_Poverty": 17.8
       },
       "E54000043": {
         "name": "NHS GLOUCESTERSHIRE INTEGRATED CARE BOARD",
@@ -25169,11 +25403,10 @@
         "dm01_13wk_breaches": 3308,
         "dm01_13wk_pct": 11.0,
         "Obesity_Prevalence": 66.24,
-        "Smoking_Prevalence": 10.62,
+        "Smoking_Prevalence": 8.33,
         "Diabetes_Prevalence": 8.14,
         "Depression_Prevalence": 12.92,
         "Child_Poverty": 15.1,
-        "Suicide_Rate": 9.86,
         "Deprivation_Score_IMD2019": 14.93
       },
       "E54000042": {
@@ -25186,11 +25419,10 @@
         "dm01_13wk_breaches": 15954,
         "dm01_13wk_pct": 16.5,
         "Obesity_Prevalence": 63.89,
-        "Smoking_Prevalence": 10.55,
+        "Smoking_Prevalence": 8.97,
         "Diabetes_Prevalence": 7.53,
         "Depression_Prevalence": 15.48,
         "Child_Poverty": 14.8,
-        "Suicide_Rate": 9.17,
         "Deprivation_Score_IMD2019": 17.28
       },
       "E54000027": {
@@ -25203,11 +25435,10 @@
         "dm01_13wk_breaches": 11648,
         "dm01_13wk_pct": 8.0,
         "Obesity_Prevalence": 56.03,
-        "Smoking_Prevalence": 10.79,
+        "Smoking_Prevalence": 8.85,
         "Diabetes_Prevalence": 7.44,
         "Depression_Prevalence": 8.23,
         "Child_Poverty": 15.1,
-        "Suicide_Rate": 7.5,
         "Deprivation_Score_IMD2019": 21.03
       },
       "E54000038": {
@@ -25220,11 +25451,10 @@
         "dm01_13wk_breaches": 1436,
         "dm01_13wk_pct": 5.6,
         "Obesity_Prevalence": 68.43,
-        "Smoking_Prevalence": 15.97,
+        "Smoking_Prevalence": 9.76,
         "Diabetes_Prevalence": 8.17,
         "Depression_Prevalence": 17.89,
         "Child_Poverty": 17.3,
-        "Suicide_Rate": 11.43,
         "Deprivation_Score_IMD2019": 18.55
       },
       "E54000060": {
@@ -25237,11 +25467,10 @@
         "dm01_13wk_breaches": 4054,
         "dm01_13wk_pct": 5.4,
         "Obesity_Prevalence": 68.48,
-        "Smoking_Prevalence": 19.87,
+        "Smoking_Prevalence": 12.34,
         "Diabetes_Prevalence": 7.58,
         "Depression_Prevalence": 13.08,
-        "Child_Poverty": 23.6,
-        "Suicide_Rate": 11.15
+        "Child_Poverty": 23.6
       },
       "E54000036": {
         "name": "NHS CORNWALL AND THE ISLES OF SCILLY INTEGRATED CARE BOARD",
@@ -25253,11 +25482,10 @@
         "dm01_13wk_breaches": 712,
         "dm01_13wk_pct": 2.7,
         "Obesity_Prevalence": 69.0,
-        "Smoking_Prevalence": 14.11,
+        "Smoking_Prevalence": 8.85,
         "Diabetes_Prevalence": 7.61,
         "Depression_Prevalence": 14.6,
         "Child_Poverty": 21.4,
-        "Suicide_Rate": 14.97,
         "Deprivation_Score_IMD2019": 23.02
       },
       "E54000044": {
@@ -25270,11 +25498,10 @@
         "dm01_13wk_breaches": 9806,
         "dm01_13wk_pct": 7.8,
         "Obesity_Prevalence": 60.62,
-        "Smoking_Prevalence": 9.97,
+        "Smoking_Prevalence": 7.66,
         "Diabetes_Prevalence": 6.4,
         "Depression_Prevalence": 13.85,
         "Child_Poverty": 10.5,
-        "Suicide_Rate": 9.4,
         "Deprivation_Score_IMD2019": 11.23
       },
       "E54000062": {
@@ -25287,11 +25514,10 @@
         "dm01_13wk_breaches": 5808,
         "dm01_13wk_pct": 5.3,
         "Obesity_Prevalence": 71.16,
-        "Smoking_Prevalence": 18.21,
+        "Smoking_Prevalence": 12.97,
         "Diabetes_Prevalence": 10.0,
         "Depression_Prevalence": 14.8,
-        "Child_Poverty": 32.5,
-        "Suicide_Rate": 9.22
+        "Child_Poverty": 32.5
       },
       "E54000056": {
         "name": "NHS CAMBRIDGESHIRE AND PETERBOROUGH INTEGRATED CARE BOARD",
@@ -25303,11 +25529,10 @@
         "dm01_13wk_breaches": 6228,
         "dm01_13wk_pct": 7.4,
         "Obesity_Prevalence": 60.66,
-        "Smoking_Prevalence": 7.42,
+        "Smoking_Prevalence": 9.53,
         "Diabetes_Prevalence": 6.98,
         "Depression_Prevalence": 12.37,
-        "Child_Poverty": 16.8,
-        "Suicide_Rate": 10.96
+        "Child_Poverty": 16.8
       },
       "E54000039": {
         "name": "NHS BRISTOL, NORTH SOMERSET AND SOUTH GLOUCESTERSHIRE INTEGRATED CARE BOARD",
@@ -25319,11 +25544,10 @@
         "dm01_13wk_breaches": 640,
         "dm01_13wk_pct": 1.2,
         "Obesity_Prevalence": 61.36,
-        "Smoking_Prevalence": 11.46,
+        "Smoking_Prevalence": 10.44,
         "Diabetes_Prevalence": 6.73,
         "Depression_Prevalence": 15.75,
         "Child_Poverty": 15.4,
-        "Suicide_Rate": 12.3,
         "Deprivation_Score_IMD2019": 19.69
       },
       "E54000041": {
@@ -25336,11 +25560,10 @@
         "dm01_13wk_breaches": 1894,
         "dm01_13wk_pct": 4.8,
         "Obesity_Prevalence": 65.47,
-        "Smoking_Prevalence": 14.85,
+        "Smoking_Prevalence": 9.13,
         "Diabetes_Prevalence": 7.55,
         "Depression_Prevalence": 13.5,
         "Child_Poverty": 15.0,
-        "Suicide_Rate": 14.19,
         "Deprivation_Score_IMD2019": 16.99
       },
       "E54000031": {
@@ -25353,11 +25576,10 @@
         "dm01_13wk_breaches": 3482,
         "dm01_13wk_pct": 3.3,
         "Obesity_Prevalence": 56.46,
-        "Smoking_Prevalence": 12.13,
+        "Smoking_Prevalence": 6.87,
         "Diabetes_Prevalence": 6.37,
         "Depression_Prevalence": 10.91,
         "Child_Poverty": 11.7,
-        "Suicide_Rate": 7.99,
         "Deprivation_Score_IMD2019": 15.94
       },
       "E54000054": {
@@ -25370,11 +25592,10 @@
         "dm01_13wk_breaches": 2586,
         "dm01_13wk_pct": 2.2,
         "Obesity_Prevalence": 66.81,
-        "Smoking_Prevalence": 18.7,
+        "Smoking_Prevalence": 11.88,
         "Diabetes_Prevalence": 8.67,
         "Depression_Prevalence": 14.59,
-        "Child_Poverty": 29.3,
-        "Suicide_Rate": 12.58
+        "Child_Poverty": 29.3
       },
       "E54000018": {
         "name": "NHS COVENTRY AND WARWICKSHIRE INTEGRATED CARE BOARD",
@@ -25386,11 +25607,10 @@
         "dm01_13wk_breaches": 1562,
         "dm01_13wk_pct": 2.6,
         "Obesity_Prevalence": 66.46,
-        "Smoking_Prevalence": 11.97,
+        "Smoking_Prevalence": 8.37,
         "Diabetes_Prevalence": 7.58,
         "Depression_Prevalence": 15.3,
         "Child_Poverty": 18.7,
-        "Suicide_Rate": 10.44,
         "Deprivation_Score_IMD2019": 19.46
       },
       "E54000063": {
@@ -25416,30 +25636,27 @@
         "dm01_13wk_breaches": 1894,
         "dm01_13wk_pct": 1.3,
         "Obesity_Prevalence": 67.52,
-        "Smoking_Prevalence": 17.59,
+        "Smoking_Prevalence": 9.04,
         "Diabetes_Prevalence": 7.69,
         "Depression_Prevalence": 18.4,
         "Child_Poverty": 20.2,
-        "Suicide_Rate": 13.71,
         "Deprivation_Score_IMD2019": 28.12
       },
       "E54000052": {
         "name": "",
         "Obesity_Prevalence": 59.42,
-        "Smoking_Prevalence": 13.3,
+        "Smoking_Prevalence": 7.2,
         "Diabetes_Prevalence": 6.29,
         "Depression_Prevalence": 12.95,
-        "Child_Poverty": 8.4,
-        "Suicide_Rate": 10.56
+        "Child_Poverty": 8.4
       },
       "E54000053": {
         "name": "",
         "Obesity_Prevalence": 63.12,
-        "Smoking_Prevalence": 18.2,
+        "Smoking_Prevalence": 9.28,
         "Diabetes_Prevalence": 7.37,
         "Depression_Prevalence": 15.35,
-        "Child_Poverty": 14.2,
-        "Suicide_Rate": 12.58
+        "Child_Poverty": 14.2
       }
     },
     "la": {
@@ -25447,11 +25664,11 @@
         "Life_Expectancy_Male": 77.8,
         "Life_Expectancy_Female": 77.8,
         "Obesity_Prevalence": 72.77,
-        "Smoking_Prevalence": 26.96,
+        "Smoking_Prevalence": 12.01,
         "Diabetes_Prevalence": 9.05,
         "Depression_Prevalence": 15.69,
         "Child_Poverty": 27.2,
-        "Suicide_Rate": 17.63,
+        "Suicide_Rate": 17.5,
         "Deprivation_Score_IMD2019": 35.04,
         "Under75_CVD_Mortality": 33.18,
         "Physical_Inactivity": 61.3,
@@ -25462,11 +25679,11 @@
         "Life_Expectancy_Male": 76.9,
         "Life_Expectancy_Female": 76.9,
         "Obesity_Prevalence": 69.7,
-        "Smoking_Prevalence": 15.54,
+        "Smoking_Prevalence": 13.42,
         "Diabetes_Prevalence": 9.08,
         "Depression_Prevalence": 13.63,
         "Child_Poverty": 34.4,
-        "Suicide_Rate": 20.21,
+        "Suicide_Rate": 17.9,
         "Deprivation_Score_IMD2019": 40.46,
         "Under75_CVD_Mortality": 40.22,
         "Physical_Inactivity": 54.94,
@@ -25477,11 +25694,11 @@
         "Life_Expectancy_Male": 79.2,
         "Life_Expectancy_Female": 79.2,
         "Obesity_Prevalence": 67.43,
-        "Smoking_Prevalence": 18.33,
+        "Smoking_Prevalence": 8.93,
         "Diabetes_Prevalence": 10.45,
         "Depression_Prevalence": 19.6,
         "Child_Poverty": 26.2,
-        "Suicide_Rate": 20.25,
+        "Suicide_Rate": 21.0,
         "Deprivation_Score_IMD2019": 29.79,
         "Under75_CVD_Mortality": 28.57,
         "Physical_Inactivity": 62.05,
@@ -25492,11 +25709,11 @@
         "Life_Expectancy_Male": 78.7,
         "Life_Expectancy_Female": 78.7,
         "Obesity_Prevalence": 73.52,
-        "Smoking_Prevalence": 11.12,
+        "Smoking_Prevalence": 8.53,
         "Diabetes_Prevalence": 8.17,
         "Depression_Prevalence": 18.7,
         "Child_Poverty": 22.3,
-        "Suicide_Rate": 14.56,
+        "Suicide_Rate": 13.2,
         "Deprivation_Score_IMD2019": 25.79,
         "Under75_CVD_Mortality": 24.62,
         "Physical_Inactivity": 66.94,
@@ -25507,11 +25724,11 @@
         "Life_Expectancy_Male": 78.6,
         "Life_Expectancy_Female": 78.6,
         "Obesity_Prevalence": 66.99,
-        "Smoking_Prevalence": 17.59,
+        "Smoking_Prevalence": 11.27,
         "Diabetes_Prevalence": 9.53,
         "Depression_Prevalence": 16.66,
         "Child_Poverty": 24.8,
-        "Suicide_Rate": 18.03,
+        "Suicide_Rate": 18.9,
         "Deprivation_Score_IMD2019": 25.66,
         "Under75_CVD_Mortality": 23.64,
         "Physical_Inactivity": 64.4,
@@ -25522,11 +25739,11 @@
         "Life_Expectancy_Male": 76.9,
         "Life_Expectancy_Female": 76.9,
         "Obesity_Prevalence": 73.08,
-        "Smoking_Prevalence": 11.37,
+        "Smoking_Prevalence": 9.46,
         "Diabetes_Prevalence": 8.9,
         "Depression_Prevalence": 20.94,
         "Child_Poverty": 23.0,
-        "Suicide_Rate": 15.45,
+        "Suicide_Rate": 16.4,
         "Deprivation_Score_IMD2019": 32.33,
         "Under75_CVD_Mortality": 31.94,
         "Physical_Inactivity": 61.67,
@@ -25537,11 +25754,11 @@
         "Life_Expectancy_Male": 79.5,
         "Life_Expectancy_Female": 79.5,
         "Obesity_Prevalence": 61.39,
-        "Smoking_Prevalence": 20.75,
+        "Smoking_Prevalence": 8.77,
         "Diabetes_Prevalence": 7.29,
         "Depression_Prevalence": 14.87,
         "Child_Poverty": 15.1,
-        "Suicide_Rate": 15.56,
+        "Suicide_Rate": 17.2,
         "Deprivation_Score_IMD2019": 18.94,
         "Under75_CVD_Mortality": 19.31,
         "Physical_Inactivity": 68.67,
@@ -25552,11 +25769,11 @@
         "Life_Expectancy_Male": 76.4,
         "Life_Expectancy_Female": 76.4,
         "Obesity_Prevalence": 67.04,
-        "Smoking_Prevalence": 11.54,
+        "Smoking_Prevalence": 10.32,
         "Diabetes_Prevalence": 9.78,
         "Depression_Prevalence": 18.65,
         "Child_Poverty": 36.2,
-        "Suicide_Rate": 13.29,
+        "Suicide_Rate": 12.2,
         "Deprivation_Score_IMD2019": 36.01,
         "Under75_CVD_Mortality": 34.19,
         "Physical_Inactivity": 56.43,
@@ -25567,11 +25784,11 @@
         "Life_Expectancy_Male": 75.3,
         "Life_Expectancy_Female": 75.3,
         "Obesity_Prevalence": 67.81,
-        "Smoking_Prevalence": 32.7,
+        "Smoking_Prevalence": 15.89,
         "Diabetes_Prevalence": 9.55,
         "Depression_Prevalence": 23.46,
         "Child_Poverty": 30.5,
-        "Suicide_Rate": 17.07,
+        "Suicide_Rate": 18.4,
         "Deprivation_Score_IMD2019": 45.04,
         "Under75_CVD_Mortality": 42.0,
         "Physical_Inactivity": 58.51,
@@ -25582,11 +25799,11 @@
         "Life_Expectancy_Male": 75.7,
         "Life_Expectancy_Female": 75.7,
         "Obesity_Prevalence": 69.61,
-        "Smoking_Prevalence": 21.28,
+        "Smoking_Prevalence": 19.49,
         "Diabetes_Prevalence": 9.08,
         "Depression_Prevalence": 14.1,
         "Child_Poverty": 33.2,
-        "Suicide_Rate": 14.72,
+        "Suicide_Rate": 15.0,
         "Deprivation_Score_IMD2019": 40.56,
         "Under75_CVD_Mortality": 41.23,
         "Physical_Inactivity": 60.05,
@@ -25597,11 +25814,11 @@
         "Life_Expectancy_Male": 80.8,
         "Life_Expectancy_Female": 80.8,
         "Obesity_Prevalence": 68.27,
-        "Smoking_Prevalence": 7.02,
+        "Smoking_Prevalence": 7.74,
         "Diabetes_Prevalence": 9.18,
         "Depression_Prevalence": 13.44,
         "Child_Poverty": 18.0,
-        "Suicide_Rate": 13.49,
+        "Suicide_Rate": 14.8,
         "Deprivation_Score_IMD2019": 15.61,
         "Under75_CVD_Mortality": 15.79,
         "Physical_Inactivity": 70.14,
@@ -25612,11 +25829,11 @@
         "Life_Expectancy_Male": 75.3,
         "Life_Expectancy_Female": 75.3,
         "Obesity_Prevalence": 70.21,
-        "Smoking_Prevalence": 28.62,
+        "Smoking_Prevalence": 15.21,
         "Diabetes_Prevalence": 8.78,
         "Depression_Prevalence": 14.99,
         "Child_Poverty": 30.8,
-        "Suicide_Rate": 18.3,
+        "Suicide_Rate": 22.8,
         "Deprivation_Score_IMD2019": 31.34,
         "Under75_CVD_Mortality": 30.9,
         "Physical_Inactivity": 62.52,
@@ -25627,11 +25844,11 @@
         "Life_Expectancy_Male": 77.4,
         "Life_Expectancy_Female": 77.4,
         "Obesity_Prevalence": 74.21,
-        "Smoking_Prevalence": 20.23,
+        "Smoking_Prevalence": 12.39,
         "Diabetes_Prevalence": 9.03,
         "Depression_Prevalence": 16.76,
         "Child_Poverty": 25.5,
-        "Suicide_Rate": 13.06,
+        "Suicide_Rate": 18.3,
         "Deprivation_Score_IMD2019": 22.1,
         "Under75_CVD_Mortality": 21.36,
         "Physical_Inactivity": 60.96,
@@ -25642,11 +25859,11 @@
         "Life_Expectancy_Male": 80.4,
         "Life_Expectancy_Female": 80.4,
         "Obesity_Prevalence": 60.69,
-        "Smoking_Prevalence": 9.65,
+        "Smoking_Prevalence": 6.88,
         "Diabetes_Prevalence": 5.69,
         "Depression_Prevalence": 13.17,
         "Child_Poverty": 13.9,
-        "Suicide_Rate": 8.72,
+        "Suicide_Rate": 9.5,
         "Deprivation_Score_IMD2019": 11.73,
         "Under75_CVD_Mortality": 12.22,
         "Physical_Inactivity": 76.24,
@@ -25657,11 +25874,11 @@
         "Life_Expectancy_Male": 77.9,
         "Life_Expectancy_Female": 77.9,
         "Obesity_Prevalence": 70.94,
-        "Smoking_Prevalence": 12.76,
+        "Smoking_Prevalence": 12.27,
         "Diabetes_Prevalence": 7.83,
         "Depression_Prevalence": 13.61,
         "Child_Poverty": 27.9,
-        "Suicide_Rate": 12.23,
+        "Suicide_Rate": 9.7,
         "Deprivation_Score_IMD2019": 26.32,
         "Under75_CVD_Mortality": 27.79,
         "Physical_Inactivity": 62.21,
@@ -25672,11 +25889,11 @@
         "Life_Expectancy_Male": 78.1,
         "Life_Expectancy_Female": 78.1,
         "Obesity_Prevalence": 61.79,
-        "Smoking_Prevalence": 3.17,
+        "Smoking_Prevalence": 8.28,
         "Diabetes_Prevalence": 10.71,
         "Depression_Prevalence": 11.34,
         "Child_Poverty": 34.5,
-        "Suicide_Rate": 11.21,
+        "Suicide_Rate": 11.4,
         "Deprivation_Score_IMD2019": 30.88,
         "Under75_CVD_Mortality": 33.06,
         "Physical_Inactivity": 59.43,
@@ -25687,11 +25904,10 @@
         "Life_Expectancy_Male": 83.2,
         "Life_Expectancy_Female": 83.2,
         "Obesity_Prevalence": 65.0,
-        "Smoking_Prevalence": 0.0,
+        "Smoking_Prevalence": 4.62,
         "Diabetes_Prevalence": 6.99,
         "Depression_Prevalence": 13.02,
         "Child_Poverty": 11.5,
-        "Suicide_Rate": 10.02,
         "Deprivation_Score_IMD2019": 8.38,
         "Under75_CVD_Mortality": 9.62,
         "Physical_Inactivity": 74.88,
@@ -25702,11 +25918,11 @@
         "Life_Expectancy_Male": 77.4,
         "Life_Expectancy_Female": 77.4,
         "Obesity_Prevalence": 71.78,
-        "Smoking_Prevalence": 19.83,
+        "Smoking_Prevalence": 15.11,
         "Diabetes_Prevalence": 6.56,
         "Depression_Prevalence": 12.55,
         "Child_Poverty": 33.7,
-        "Suicide_Rate": 13.26,
+        "Suicide_Rate": 13.2,
         "Deprivation_Score_IMD2019": 34.89,
         "Under75_CVD_Mortality": 36.93,
         "Physical_Inactivity": 65.37,
@@ -25717,11 +25933,11 @@
         "Life_Expectancy_Male": 80.4,
         "Life_Expectancy_Female": 80.4,
         "Obesity_Prevalence": 64.61,
-        "Smoking_Prevalence": 9.7,
+        "Smoking_Prevalence": 7.49,
         "Diabetes_Prevalence": 7.74,
         "Depression_Prevalence": 13.9,
         "Child_Poverty": 19.8,
-        "Suicide_Rate": 10.57,
+        "Suicide_Rate": 12.4,
         "Deprivation_Score_IMD2019": 18.89,
         "Under75_CVD_Mortality": 19.74,
         "Physical_Inactivity": 68.93,
@@ -25732,11 +25948,11 @@
         "Life_Expectancy_Male": 78.8,
         "Life_Expectancy_Female": 78.8,
         "Obesity_Prevalence": 70.35,
-        "Smoking_Prevalence": 5.6,
+        "Smoking_Prevalence": 6.27,
         "Diabetes_Prevalence": 8.67,
         "Depression_Prevalence": 17.67,
         "Child_Poverty": 24.8,
-        "Suicide_Rate": 10.99,
+        "Suicide_Rate": 11.3,
         "Deprivation_Score_IMD2019": 24.99,
         "Under75_CVD_Mortality": 24.85,
         "Physical_Inactivity": 68.98,
@@ -25747,11 +25963,11 @@
         "Life_Expectancy_Male": 77.0,
         "Life_Expectancy_Female": 77.0,
         "Obesity_Prevalence": 73.66,
-        "Smoking_Prevalence": 22.07,
+        "Smoking_Prevalence": 14.56,
         "Diabetes_Prevalence": 9.4,
         "Depression_Prevalence": 20.21,
         "Child_Poverty": 35.0,
-        "Suicide_Rate": 13.1,
+        "Suicide_Rate": 13.3,
         "Deprivation_Score_IMD2019": 34.5,
         "Under75_CVD_Mortality": 34.36,
         "Physical_Inactivity": 60.37,
@@ -25762,11 +25978,11 @@
         "Life_Expectancy_Male": 82.0,
         "Life_Expectancy_Female": 82.0,
         "Obesity_Prevalence": 51.87,
-        "Smoking_Prevalence": 5.15,
+        "Smoking_Prevalence": 6.86,
         "Diabetes_Prevalence": 5.7,
         "Depression_Prevalence": 11.83,
         "Child_Poverty": 10.2,
-        "Suicide_Rate": 9.64,
+        "Suicide_Rate": 11.6,
         "Deprivation_Score_IMD2019": 11.74,
         "Under75_CVD_Mortality": 12.09,
         "Physical_Inactivity": 78.09,
@@ -25777,11 +25993,11 @@
         "Life_Expectancy_Male": 79.1,
         "Life_Expectancy_Female": 79.1,
         "Obesity_Prevalence": 59.44,
-        "Smoking_Prevalence": 13.08,
+        "Smoking_Prevalence": 12.63,
         "Diabetes_Prevalence": 6.02,
         "Depression_Prevalence": 15.59,
         "Child_Poverty": 19.7,
-        "Suicide_Rate": 13.1,
+        "Suicide_Rate": 11.8,
         "Deprivation_Score_IMD2019": 26.36,
         "Under75_CVD_Mortality": 27.16,
         "Physical_Inactivity": 76.28,
@@ -25792,11 +26008,11 @@
         "Life_Expectancy_Male": 80.4,
         "Life_Expectancy_Female": 80.4,
         "Obesity_Prevalence": 57.22,
-        "Smoking_Prevalence": 9.72,
+        "Smoking_Prevalence": 8.24,
         "Diabetes_Prevalence": 8.08,
         "Depression_Prevalence": 16.93,
         "Child_Poverty": 12.3,
-        "Suicide_Rate": 12.99,
+        "Suicide_Rate": 13.6,
         "Deprivation_Score_IMD2019": 15.82,
         "Under75_CVD_Mortality": 15.78,
         "Physical_Inactivity": 68.77,
@@ -25807,11 +26023,11 @@
         "Life_Expectancy_Male": 81.8,
         "Life_Expectancy_Female": 81.8,
         "Obesity_Prevalence": 67.21,
-        "Smoking_Prevalence": 8.52,
+        "Smoking_Prevalence": 8.55,
         "Diabetes_Prevalence": 7.12,
         "Depression_Prevalence": 15.08,
         "Child_Poverty": 11.2,
-        "Suicide_Rate": 10.18,
+        "Suicide_Rate": 10.7,
         "Deprivation_Score_IMD2019": 11.66,
         "Under75_CVD_Mortality": 11.36,
         "Physical_Inactivity": 71.77,
@@ -25822,11 +26038,11 @@
         "Life_Expectancy_Male": 78.0,
         "Life_Expectancy_Female": 78.0,
         "Obesity_Prevalence": 70.33,
-        "Smoking_Prevalence": 18.81,
+        "Smoking_Prevalence": 11.86,
         "Diabetes_Prevalence": 7.85,
         "Depression_Prevalence": 16.66,
         "Child_Poverty": 20.7,
-        "Suicide_Rate": 6.83,
+        "Suicide_Rate": 10.8,
         "Deprivation_Score_IMD2019": 26.62,
         "Under75_CVD_Mortality": 26.64,
         "Physical_Inactivity": 71.48,
@@ -25837,11 +26053,11 @@
         "Life_Expectancy_Male": 77.9,
         "Life_Expectancy_Female": 77.9,
         "Obesity_Prevalence": 67.52,
-        "Smoking_Prevalence": 19.66,
+        "Smoking_Prevalence": 11.92,
         "Diabetes_Prevalence": 8.39,
         "Depression_Prevalence": 16.11,
         "Child_Poverty": 21.0,
-        "Suicide_Rate": 9.46,
+        "Suicide_Rate": 10.4,
         "Deprivation_Score_IMD2019": 28.1,
         "Under75_CVD_Mortality": 28.79,
         "Physical_Inactivity": 68.45,
@@ -25852,11 +26068,11 @@
         "Life_Expectancy_Male": 79.8,
         "Life_Expectancy_Female": 79.8,
         "Obesity_Prevalence": 67.96,
-        "Smoking_Prevalence": 15.31,
+        "Smoking_Prevalence": 13.48,
         "Diabetes_Prevalence": 8.99,
         "Depression_Prevalence": 12.79,
         "Child_Poverty": 16.0,
-        "Suicide_Rate": 7.58,
+        "Suicide_Rate": 9.8,
         "Deprivation_Score_IMD2019": 18.62,
         "Under75_CVD_Mortality": 17.86,
         "Physical_Inactivity": 67.12,
@@ -25867,11 +26083,11 @@
         "Life_Expectancy_Male": 77.3,
         "Life_Expectancy_Female": 77.3,
         "Obesity_Prevalence": 73.86,
-        "Smoking_Prevalence": 13.68,
+        "Smoking_Prevalence": 12.02,
         "Diabetes_Prevalence": 8.33,
         "Depression_Prevalence": 11.99,
         "Child_Poverty": 27.6,
-        "Suicide_Rate": 12.26,
+        "Suicide_Rate": 11.4,
         "Deprivation_Score_IMD2019": 27.82,
         "Under75_CVD_Mortality": 27.66,
         "Physical_Inactivity": 62.58,
@@ -25882,11 +26098,11 @@
         "Life_Expectancy_Male": 78.4,
         "Life_Expectancy_Female": 78.4,
         "Obesity_Prevalence": 69.17,
-        "Smoking_Prevalence": 10.6,
+        "Smoking_Prevalence": 11.18,
         "Diabetes_Prevalence": 10.66,
         "Depression_Prevalence": 8.69,
         "Child_Poverty": 31.7,
-        "Suicide_Rate": 9.35,
+        "Suicide_Rate": 9.3,
         "Deprivation_Score_IMD2019": 25.91,
         "Under75_CVD_Mortality": 27.58,
         "Physical_Inactivity": 57.54,
@@ -25897,11 +26113,11 @@
         "Life_Expectancy_Male": 79.4,
         "Life_Expectancy_Female": 79.4,
         "Obesity_Prevalence": 58.23,
-        "Smoking_Prevalence": 10.49,
+        "Smoking_Prevalence": 8.5,
         "Diabetes_Prevalence": 7.6,
         "Depression_Prevalence": 14.0,
         "Child_Poverty": 17.7,
-        "Suicide_Rate": 7.37,
+        "Suicide_Rate": 8.5,
         "Deprivation_Score_IMD2019": 22.38,
         "Under75_CVD_Mortality": 24.52,
         "Physical_Inactivity": 64.5,
@@ -25912,11 +26128,11 @@
         "Life_Expectancy_Male": 79.4,
         "Life_Expectancy_Female": 79.4,
         "Obesity_Prevalence": 71.31,
-        "Smoking_Prevalence": 17.51,
+        "Smoking_Prevalence": 12.38,
         "Diabetes_Prevalence": 8.03,
         "Depression_Prevalence": 11.91,
         "Child_Poverty": 18.4,
-        "Suicide_Rate": 5.9,
+        "Suicide_Rate": 5.4,
         "Deprivation_Score_IMD2019": 20.93,
         "Under75_CVD_Mortality": 21.6,
         "Physical_Inactivity": 60.74,
@@ -25927,11 +26143,11 @@
         "Life_Expectancy_Male": 78.5,
         "Life_Expectancy_Female": 78.5,
         "Obesity_Prevalence": 67.96,
-        "Smoking_Prevalence": 16.09,
+        "Smoking_Prevalence": 8.62,
         "Diabetes_Prevalence": 8.74,
         "Depression_Prevalence": 18.11,
         "Child_Poverty": 17.4,
-        "Suicide_Rate": 10.31,
+        "Suicide_Rate": 11.0,
         "Deprivation_Score_IMD2019": 23.94,
         "Under75_CVD_Mortality": 22.33,
         "Physical_Inactivity": 62.16,
@@ -25942,11 +26158,11 @@
         "Life_Expectancy_Male": 82.1,
         "Life_Expectancy_Female": 82.1,
         "Obesity_Prevalence": 67.3,
-        "Smoking_Prevalence": 12.38,
+        "Smoking_Prevalence": 8.78,
         "Diabetes_Prevalence": 7.16,
         "Depression_Prevalence": 16.2,
         "Child_Poverty": 8.5,
-        "Suicide_Rate": 9.68,
+        "Suicide_Rate": 9.6,
         "Deprivation_Score_IMD2019": 10.24,
         "Under75_CVD_Mortality": 10.46,
         "Physical_Inactivity": 73.11,
@@ -25957,11 +26173,11 @@
         "Life_Expectancy_Male": 82.0,
         "Life_Expectancy_Female": 82.0,
         "Obesity_Prevalence": 58.66,
-        "Smoking_Prevalence": 3.24,
+        "Smoking_Prevalence": 9.93,
         "Diabetes_Prevalence": 6.86,
         "Depression_Prevalence": 15.28,
         "Child_Poverty": 9.6,
-        "Suicide_Rate": 7.75,
+        "Suicide_Rate": 9.7,
         "Deprivation_Score_IMD2019": 9.95,
         "Under75_CVD_Mortality": 10.24,
         "Physical_Inactivity": 73.18,
@@ -25972,11 +26188,11 @@
         "Life_Expectancy_Male": 78.9,
         "Life_Expectancy_Female": 78.9,
         "Obesity_Prevalence": 62.76,
-        "Smoking_Prevalence": 10.66,
+        "Smoking_Prevalence": 8.59,
         "Diabetes_Prevalence": 7.03,
         "Depression_Prevalence": 12.82,
         "Child_Poverty": 14.9,
-        "Suicide_Rate": 10.39,
+        "Suicide_Rate": 10.6,
         "Deprivation_Score_IMD2019": 19.62,
         "Under75_CVD_Mortality": 19.32,
         "Physical_Inactivity": 70.42,
@@ -25987,11 +26203,11 @@
         "Life_Expectancy_Male": 78.5,
         "Life_Expectancy_Female": 78.5,
         "Obesity_Prevalence": 65.29,
-        "Smoking_Prevalence": 16.84,
+        "Smoking_Prevalence": 9.12,
         "Diabetes_Prevalence": 10.98,
         "Depression_Prevalence": 10.31,
         "Child_Poverty": 19.3,
-        "Suicide_Rate": 9.42,
+        "Suicide_Rate": 9.1,
         "Deprivation_Score_IMD2019": 22.96,
         "Under75_CVD_Mortality": 22.87,
         "Physical_Inactivity": 56.57,
@@ -26002,11 +26218,11 @@
         "Life_Expectancy_Male": 81.2,
         "Life_Expectancy_Female": 81.2,
         "Obesity_Prevalence": 59.34,
-        "Smoking_Prevalence": 10.71,
+        "Smoking_Prevalence": 6.63,
         "Diabetes_Prevalence": 6.44,
         "Depression_Prevalence": 12.73,
         "Child_Poverty": 7.7,
-        "Suicide_Rate": 10.19,
+        "Suicide_Rate": 12.4,
         "Deprivation_Score_IMD2019": 8.38,
         "Under75_CVD_Mortality": 8.86,
         "Physical_Inactivity": 72.93,
@@ -26017,11 +26233,11 @@
         "Life_Expectancy_Male": 82.7,
         "Life_Expectancy_Female": 82.7,
         "Obesity_Prevalence": 57.52,
-        "Smoking_Prevalence": 3.33,
+        "Smoking_Prevalence": 4.32,
         "Diabetes_Prevalence": 6.53,
         "Depression_Prevalence": 13.04,
         "Child_Poverty": 6.4,
-        "Suicide_Rate": 8.52,
+        "Suicide_Rate": 8.1,
         "Deprivation_Score_IMD2019": 5.85,
         "Under75_CVD_Mortality": 5.65,
         "Physical_Inactivity": 75.28,
@@ -26032,11 +26248,11 @@
         "Life_Expectancy_Male": 79.6,
         "Life_Expectancy_Female": 79.6,
         "Obesity_Prevalence": 68.04,
-        "Smoking_Prevalence": 15.62,
+        "Smoking_Prevalence": 10.55,
         "Diabetes_Prevalence": 7.66,
         "Depression_Prevalence": 11.27,
         "Child_Poverty": 15.3,
-        "Suicide_Rate": 8.13,
+        "Suicide_Rate": 8.4,
         "Deprivation_Score_IMD2019": 17.98,
         "Under75_CVD_Mortality": 18.03,
         "Physical_Inactivity": 65.11,
@@ -26047,11 +26263,11 @@
         "Life_Expectancy_Male": 79.7,
         "Life_Expectancy_Female": 79.7,
         "Obesity_Prevalence": 55.19,
-        "Smoking_Prevalence": 18.43,
+        "Smoking_Prevalence": 10.46,
         "Diabetes_Prevalence": 4.97,
         "Depression_Prevalence": 14.13,
         "Child_Poverty": 13.8,
-        "Suicide_Rate": 16.27,
+        "Suicide_Rate": 15.3,
         "Deprivation_Score_IMD2019": 20.76,
         "Under75_CVD_Mortality": 23.44,
         "Physical_Inactivity": 75.49,
@@ -26062,11 +26278,11 @@
         "Life_Expectancy_Male": 77.8,
         "Life_Expectancy_Female": 77.8,
         "Obesity_Prevalence": 65.48,
-        "Smoking_Prevalence": 24.48,
+        "Smoking_Prevalence": 12.7,
         "Diabetes_Prevalence": 7.57,
         "Depression_Prevalence": 13.98,
         "Child_Poverty": 20.7,
-        "Suicide_Rate": 11.67,
+        "Suicide_Rate": 13.0,
         "Deprivation_Score_IMD2019": 26.9,
         "Under75_CVD_Mortality": 27.05,
         "Physical_Inactivity": 66.8,
@@ -26077,11 +26293,11 @@
         "Life_Expectancy_Male": 78.0,
         "Life_Expectancy_Female": 78.0,
         "Obesity_Prevalence": 65.83,
-        "Smoking_Prevalence": 7.38,
+        "Smoking_Prevalence": 11.25,
         "Diabetes_Prevalence": 6.5,
         "Depression_Prevalence": 13.3,
         "Child_Poverty": 21.8,
-        "Suicide_Rate": 11.32,
+        "Suicide_Rate": 12.9,
         "Deprivation_Score_IMD2019": 26.88,
         "Under75_CVD_Mortality": 26.88,
         "Physical_Inactivity": 68.66,
@@ -26092,11 +26308,11 @@
         "Life_Expectancy_Male": 77.2,
         "Life_Expectancy_Female": 77.2,
         "Obesity_Prevalence": 58.89,
-        "Smoking_Prevalence": 10.81,
+        "Smoking_Prevalence": 7.51,
         "Diabetes_Prevalence": 8.74,
         "Depression_Prevalence": 13.24,
         "Child_Poverty": 23.5,
-        "Suicide_Rate": 6.28,
+        "Suicide_Rate": 10.0,
         "Deprivation_Score_IMD2019": 23.29,
         "Under75_CVD_Mortality": 23.09,
         "Physical_Inactivity": 74.82,
@@ -26107,11 +26323,11 @@
         "Life_Expectancy_Male": 78.3,
         "Life_Expectancy_Female": 78.3,
         "Obesity_Prevalence": 69.34,
-        "Smoking_Prevalence": 16.03,
+        "Smoking_Prevalence": 9.82,
         "Diabetes_Prevalence": 9.66,
         "Depression_Prevalence": 16.71,
         "Child_Poverty": 26.0,
-        "Suicide_Rate": 16.03,
+        "Suicide_Rate": 16.9,
         "Deprivation_Score_IMD2019": 26.79,
         "Under75_CVD_Mortality": 25.74,
         "Physical_Inactivity": 65.6,
@@ -26122,11 +26338,11 @@
         "Life_Expectancy_Male": 80.6,
         "Life_Expectancy_Female": 80.6,
         "Obesity_Prevalence": 61.09,
-        "Smoking_Prevalence": 8.71,
+        "Smoking_Prevalence": 5.1,
         "Diabetes_Prevalence": 7.24,
         "Depression_Prevalence": 16.56,
         "Child_Poverty": 13.0,
-        "Suicide_Rate": 13.73,
+        "Suicide_Rate": 15.9,
         "Deprivation_Score_IMD2019": 14.47,
         "Under75_CVD_Mortality": 14.13,
         "Physical_Inactivity": 69.95,
@@ -26137,11 +26353,11 @@
         "Life_Expectancy_Male": 80.6,
         "Life_Expectancy_Female": 80.6,
         "Obesity_Prevalence": 66.94,
-        "Smoking_Prevalence": 2.44,
+        "Smoking_Prevalence": 7.26,
         "Diabetes_Prevalence": 7.57,
         "Depression_Prevalence": 16.93,
         "Child_Poverty": 15.1,
-        "Suicide_Rate": 14.29,
+        "Suicide_Rate": 14.2,
         "Deprivation_Score_IMD2019": 18.08,
         "Under75_CVD_Mortality": 18.09,
         "Physical_Inactivity": 69.07,
@@ -26152,11 +26368,11 @@
         "Life_Expectancy_Male": 81.0,
         "Life_Expectancy_Female": 81.0,
         "Obesity_Prevalence": 64.0,
-        "Smoking_Prevalence": 10.3,
+        "Smoking_Prevalence": 8.43,
         "Diabetes_Prevalence": 7.76,
         "Depression_Prevalence": 16.68,
         "Child_Poverty": 18.8,
-        "Suicide_Rate": 13.54,
+        "Suicide_Rate": 13.5,
         "Deprivation_Score_IMD2019": 17.15,
         "Under75_CVD_Mortality": 16.69,
         "Physical_Inactivity": 68.66,
@@ -26167,11 +26383,11 @@
         "Life_Expectancy_Male": 80.1,
         "Life_Expectancy_Female": 80.1,
         "Obesity_Prevalence": 69.01,
-        "Smoking_Prevalence": 14.11,
+        "Smoking_Prevalence": 8.85,
         "Diabetes_Prevalence": 7.61,
         "Depression_Prevalence": 14.6,
         "Child_Poverty": 21.4,
-        "Suicide_Rate": 15.04,
+        "Suicide_Rate": 13.9,
         "Deprivation_Score_IMD2019": 23.07,
         "Under75_CVD_Mortality": 23.83,
         "Physical_Inactivity": 74.35,
@@ -26182,11 +26398,11 @@
         "Life_Expectancy_Male": 82.0,
         "Life_Expectancy_Female": 82.0,
         "Obesity_Prevalence": 64.32,
-        "Smoking_Prevalence": 10.39,
+        "Smoking_Prevalence": 5.89,
         "Diabetes_Prevalence": 7.79,
         "Depression_Prevalence": 12.45,
         "Child_Poverty": 13.1,
-        "Suicide_Rate": 9.98,
+        "Suicide_Rate": 12.1,
         "Deprivation_Score_IMD2019": 13.45,
         "Under75_CVD_Mortality": 13.47,
         "Physical_Inactivity": 72.81,
@@ -26197,11 +26413,11 @@
         "Life_Expectancy_Male": 80.2,
         "Life_Expectancy_Female": 80.2,
         "Obesity_Prevalence": 72.86,
-        "Smoking_Prevalence": 15.9,
+        "Smoking_Prevalence": 8.52,
         "Diabetes_Prevalence": 9.15,
         "Depression_Prevalence": 13.94,
         "Child_Poverty": 17.8,
-        "Suicide_Rate": 12.98,
+        "Suicide_Rate": 12.2,
         "Deprivation_Score_IMD2019": 18.93,
         "Under75_CVD_Mortality": 19.24,
         "Physical_Inactivity": 71.82,
@@ -26212,11 +26428,11 @@
         "Life_Expectancy_Male": 82.0,
         "Life_Expectancy_Female": 82.0,
         "Obesity_Prevalence": 65.22,
-        "Smoking_Prevalence": 16.49,
+        "Smoking_Prevalence": 8.23,
         "Diabetes_Prevalence": 7.94,
         "Depression_Prevalence": 12.39,
         "Child_Poverty": 11.7,
-        "Suicide_Rate": 10.9,
+        "Suicide_Rate": 9.8,
         "Deprivation_Score_IMD2019": 12.15,
         "Under75_CVD_Mortality": 12.2,
         "Physical_Inactivity": 71.37,
@@ -26227,11 +26443,11 @@
         "Life_Expectancy_Male": 79.6,
         "Life_Expectancy_Female": 79.6,
         "Obesity_Prevalence": 73.32,
-        "Smoking_Prevalence": 22.29,
+        "Smoking_Prevalence": 9.64,
         "Diabetes_Prevalence": 9.16,
         "Depression_Prevalence": 15.36,
         "Child_Poverty": 21.1,
-        "Suicide_Rate": 14.04,
+        "Suicide_Rate": 15.8,
         "Deprivation_Score_IMD2019": 22.08,
         "Under75_CVD_Mortality": 20.52,
         "Physical_Inactivity": 71.2,
@@ -26242,11 +26458,11 @@
         "Life_Expectancy_Male": 81.0,
         "Life_Expectancy_Female": 81.0,
         "Obesity_Prevalence": 64.76,
-        "Smoking_Prevalence": 18.17,
+        "Smoking_Prevalence": 9.82,
         "Diabetes_Prevalence": 7.02,
         "Depression_Prevalence": 13.27,
         "Child_Poverty": 14.5,
-        "Suicide_Rate": 15.62,
+        "Suicide_Rate": 14.8,
         "Deprivation_Score_IMD2019": 18.17,
         "Physical_Inactivity": 68.18
       },
@@ -26254,11 +26470,11 @@
         "Life_Expectancy_Male": 82.1,
         "Life_Expectancy_Female": 82.1,
         "Obesity_Prevalence": 66.28,
-        "Smoking_Prevalence": 9.6,
+        "Smoking_Prevalence": 8.39,
         "Diabetes_Prevalence": 8.19,
         "Depression_Prevalence": 13.66,
         "Child_Poverty": 15.5,
-        "Suicide_Rate": 12.79,
+        "Suicide_Rate": 14.4,
         "Deprivation_Score_IMD2019": 15.73,
         "Physical_Inactivity": 75.67
       },
@@ -26266,11 +26482,11 @@
         "Life_Expectancy_Male": 82.2,
         "Life_Expectancy_Female": 82.2,
         "Obesity_Prevalence": 63.15,
-        "Smoking_Prevalence": 13.61,
+        "Smoking_Prevalence": 6.89,
         "Diabetes_Prevalence": 6.96,
         "Depression_Prevalence": 13.54,
         "Child_Poverty": 11.0,
-        "Suicide_Rate": 9.69,
+        "Suicide_Rate": 9.3,
         "Deprivation_Score_IMD2019": 10.05,
         "Under75_CVD_Mortality": 9.76,
         "Physical_Inactivity": 71.26
@@ -26279,11 +26495,11 @@
         "Life_Expectancy_Male": 79.0,
         "Life_Expectancy_Female": 79.0,
         "Obesity_Prevalence": 73.58,
-        "Smoking_Prevalence": 17.41,
+        "Smoking_Prevalence": 10.83,
         "Diabetes_Prevalence": 8.22,
         "Depression_Prevalence": 16.52,
         "Child_Poverty": 18.9,
-        "Suicide_Rate": 12.38,
+        "Suicide_Rate": 12.8,
         "Deprivation_Score_IMD2019": 19.66,
         "Physical_Inactivity": 67.91
       },
@@ -26291,11 +26507,11 @@
         "Life_Expectancy_Male": 80.2,
         "Life_Expectancy_Female": 80.2,
         "Obesity_Prevalence": 63.04,
-        "Smoking_Prevalence": 4.55,
+        "Smoking_Prevalence": 6.25,
         "Diabetes_Prevalence": 7.85,
         "Depression_Prevalence": 14.25,
         "Child_Poverty": 16.8,
-        "Suicide_Rate": 9.93,
+        "Suicide_Rate": 10.2,
         "Deprivation_Score_IMD2019": 17.71,
         "Physical_Inactivity": 66.51
       },
@@ -26303,11 +26519,11 @@
         "Life_Expectancy_Male": 78.8,
         "Life_Expectancy_Female": 78.8,
         "Obesity_Prevalence": 67.37,
-        "Smoking_Prevalence": 21.02,
+        "Smoking_Prevalence": 11.41,
         "Diabetes_Prevalence": 9.05,
         "Depression_Prevalence": 19.18,
         "Child_Poverty": 19.1,
-        "Suicide_Rate": 19.43,
+        "Suicide_Rate": 17.9,
         "Deprivation_Score_IMD2019": 23.09,
         "Physical_Inactivity": 70.42
       },
@@ -26315,11 +26531,11 @@
         "Life_Expectancy_Male": 80.7,
         "Life_Expectancy_Female": 80.7,
         "Obesity_Prevalence": 58.56,
-        "Smoking_Prevalence": 9.13,
+        "Smoking_Prevalence": 5.82,
         "Diabetes_Prevalence": 7.46,
         "Depression_Prevalence": 14.38,
         "Child_Poverty": 15.7,
-        "Suicide_Rate": 14.77,
+        "Suicide_Rate": 16.4,
         "Deprivation_Score_IMD2019": 19.02,
         "Physical_Inactivity": 75.46
       },
@@ -26327,11 +26543,11 @@
         "Life_Expectancy_Male": 81.3,
         "Life_Expectancy_Female": 81.3,
         "Obesity_Prevalence": 66.24,
-        "Smoking_Prevalence": 8.42,
+        "Smoking_Prevalence": 8.02,
         "Diabetes_Prevalence": 7.83,
         "Depression_Prevalence": 13.35,
         "Child_Poverty": 14.7,
-        "Suicide_Rate": 14.07,
+        "Suicide_Rate": 14.4,
         "Deprivation_Score_IMD2019": 14.76,
         "Under75_CVD_Mortality": 14.65,
         "Physical_Inactivity": 71.82
@@ -26340,11 +26556,11 @@
         "Life_Expectancy_Male": 80.6,
         "Life_Expectancy_Female": 80.6,
         "Obesity_Prevalence": 68.43,
-        "Smoking_Prevalence": 15.97,
+        "Smoking_Prevalence": 9.76,
         "Diabetes_Prevalence": 8.17,
         "Depression_Prevalence": 17.89,
         "Child_Poverty": 17.3,
-        "Suicide_Rate": 11.43,
+        "Suicide_Rate": 14.3,
         "Deprivation_Score_IMD2019": 18.55,
         "Under75_CVD_Mortality": 17.78,
         "Physical_Inactivity": 71.91
@@ -26353,11 +26569,11 @@
         "Life_Expectancy_Male": 78.5,
         "Life_Expectancy_Female": 78.5,
         "Obesity_Prevalence": 67.91,
-        "Smoking_Prevalence": 13.98,
+        "Smoking_Prevalence": 10.15,
         "Diabetes_Prevalence": 9.54,
         "Depression_Prevalence": 15.2,
         "Child_Poverty": 33.2,
-        "Suicide_Rate": 14.35,
+        "Suicide_Rate": 11.8,
         "Deprivation_Score_IMD2019": 30.69,
         "Under75_CVD_Mortality": 28.42,
         "Physical_Inactivity": 59.85
@@ -26366,11 +26582,11 @@
         "Life_Expectancy_Male": 78.7,
         "Life_Expectancy_Female": 78.7,
         "Obesity_Prevalence": 65.44,
-        "Smoking_Prevalence": 17.56,
+        "Smoking_Prevalence": 8.97,
         "Diabetes_Prevalence": 8.11,
         "Depression_Prevalence": 17.81,
         "Child_Poverty": 25.5,
-        "Suicide_Rate": 11.1,
+        "Suicide_Rate": 11.2,
         "Deprivation_Score_IMD2019": 23.68,
         "Under75_CVD_Mortality": 21.77,
         "Physical_Inactivity": 65.78
@@ -26379,11 +26595,11 @@
         "Life_Expectancy_Male": 77.2,
         "Life_Expectancy_Female": 77.2,
         "Obesity_Prevalence": 60.92,
-        "Smoking_Prevalence": 26.88,
+        "Smoking_Prevalence": 13.05,
         "Diabetes_Prevalence": 6.7,
         "Depression_Prevalence": 14.83,
         "Child_Poverty": 35.5,
-        "Suicide_Rate": 13.41,
+        "Suicide_Rate": 13.3,
         "Deprivation_Score_IMD2019": 40.01,
         "Under75_CVD_Mortality": 40.51,
         "Physical_Inactivity": 69.04
@@ -26392,11 +26608,11 @@
         "Life_Expectancy_Male": 78.4,
         "Life_Expectancy_Female": 78.4,
         "Obesity_Prevalence": 68.11,
-        "Smoking_Prevalence": 23.04,
+        "Smoking_Prevalence": 12.48,
         "Diabetes_Prevalence": 9.71,
         "Depression_Prevalence": 16.42,
         "Child_Poverty": 38.2,
-        "Suicide_Rate": 8.5,
+        "Suicide_Rate": 9.1,
         "Deprivation_Score_IMD2019": 33.16,
         "Under75_CVD_Mortality": 30.29,
         "Physical_Inactivity": 59.58
@@ -26405,11 +26621,11 @@
         "Life_Expectancy_Male": 76.7,
         "Life_Expectancy_Female": 76.7,
         "Obesity_Prevalence": 68.07,
-        "Smoking_Prevalence": 16.88,
+        "Smoking_Prevalence": 11.53,
         "Diabetes_Prevalence": 9.54,
         "Depression_Prevalence": 21.13,
         "Child_Poverty": 32.0,
-        "Suicide_Rate": 11.42,
+        "Suicide_Rate": 10.7,
         "Deprivation_Score_IMD2019": 34.41,
         "Under75_CVD_Mortality": 33.68,
         "Physical_Inactivity": 58.9
@@ -26418,11 +26634,11 @@
         "Life_Expectancy_Male": 77.4,
         "Life_Expectancy_Female": 77.4,
         "Obesity_Prevalence": 67.89,
-        "Smoking_Prevalence": 26.17,
+        "Smoking_Prevalence": 14.36,
         "Diabetes_Prevalence": 7.28,
         "Depression_Prevalence": 18.2,
         "Child_Poverty": 25.4,
-        "Suicide_Rate": 15.17,
+        "Suicide_Rate": 15.0,
         "Deprivation_Score_IMD2019": 34.21,
         "Under75_CVD_Mortality": 32.96,
         "Physical_Inactivity": 69.32
@@ -26431,11 +26647,11 @@
         "Life_Expectancy_Male": 79.6,
         "Life_Expectancy_Female": 79.6,
         "Obesity_Prevalence": 61.77,
-        "Smoking_Prevalence": 12.94,
+        "Smoking_Prevalence": 6.46,
         "Diabetes_Prevalence": 8.13,
         "Depression_Prevalence": 18.04,
         "Child_Poverty": 15.5,
-        "Suicide_Rate": 9.57,
+        "Suicide_Rate": 10.3,
         "Deprivation_Score_IMD2019": 20.83,
         "Under75_CVD_Mortality": 19.11,
         "Physical_Inactivity": 70.21
@@ -26444,11 +26660,11 @@
         "Life_Expectancy_Male": 77.5,
         "Life_Expectancy_Female": 77.5,
         "Obesity_Prevalence": 68.84,
-        "Smoking_Prevalence": 14.8,
+        "Smoking_Prevalence": 10.06,
         "Diabetes_Prevalence": 8.98,
         "Depression_Prevalence": 19.55,
         "Child_Poverty": 27.0,
-        "Suicide_Rate": 11.92,
+        "Suicide_Rate": 10.8,
         "Deprivation_Score_IMD2019": 31.37,
         "Under75_CVD_Mortality": 29.38,
         "Physical_Inactivity": 58.76
@@ -26457,11 +26673,11 @@
         "Life_Expectancy_Male": 80.7,
         "Life_Expectancy_Female": 80.7,
         "Obesity_Prevalence": 63.15,
-        "Smoking_Prevalence": 3.75,
+        "Smoking_Prevalence": 6.7,
         "Diabetes_Prevalence": 7.0,
         "Depression_Prevalence": 17.02,
         "Child_Poverty": 12.3,
-        "Suicide_Rate": 8.84,
+        "Suicide_Rate": 8.6,
         "Deprivation_Score_IMD2019": 16.09,
         "Under75_CVD_Mortality": 15.39,
         "Physical_Inactivity": 70.23
@@ -26470,11 +26686,11 @@
         "Life_Expectancy_Male": 77.9,
         "Life_Expectancy_Female": 77.9,
         "Obesity_Prevalence": 73.73,
-        "Smoking_Prevalence": 25.77,
+        "Smoking_Prevalence": 9.65,
         "Diabetes_Prevalence": 9.19,
         "Depression_Prevalence": 18.22,
         "Child_Poverty": 21.4,
-        "Suicide_Rate": 18.17,
+        "Suicide_Rate": 17.5,
         "Deprivation_Score_IMD2019": 25.71,
         "Under75_CVD_Mortality": 24.86,
         "Physical_Inactivity": 58.71
@@ -26483,11 +26699,11 @@
         "Life_Expectancy_Male": 77.7,
         "Life_Expectancy_Female": 77.7,
         "Obesity_Prevalence": 74.58,
-        "Smoking_Prevalence": 19.62,
+        "Smoking_Prevalence": 11.04,
         "Diabetes_Prevalence": 8.61,
         "Depression_Prevalence": 22.54,
         "Child_Poverty": 24.5,
-        "Suicide_Rate": 12.27,
+        "Suicide_Rate": 11.7,
         "Deprivation_Score_IMD2019": 43.01,
         "Under75_CVD_Mortality": 41.39,
         "Physical_Inactivity": 60.35
@@ -26496,11 +26712,11 @@
         "Life_Expectancy_Male": 77.5,
         "Life_Expectancy_Female": 77.5,
         "Obesity_Prevalence": 67.94,
-        "Smoking_Prevalence": 21.95,
+        "Smoking_Prevalence": 12.54,
         "Diabetes_Prevalence": 6.99,
         "Depression_Prevalence": 17.37,
         "Child_Poverty": 29.6,
-        "Suicide_Rate": 15.17,
+        "Suicide_Rate": 14.8,
         "Deprivation_Score_IMD2019": 42.41,
         "Under75_CVD_Mortality": 41.13,
         "Physical_Inactivity": 65.92
@@ -26509,11 +26725,11 @@
         "Life_Expectancy_Male": 77.0,
         "Life_Expectancy_Female": 77.0,
         "Obesity_Prevalence": 68.57,
-        "Smoking_Prevalence": 16.51,
+        "Smoking_Prevalence": 8.93,
         "Diabetes_Prevalence": 8.54,
         "Depression_Prevalence": 20.52,
         "Child_Poverty": 21.5,
-        "Suicide_Rate": 15.12,
+        "Suicide_Rate": 15.5,
         "Deprivation_Score_IMD2019": 31.52,
         "Under75_CVD_Mortality": 29.81,
         "Physical_Inactivity": 62.08
@@ -26522,11 +26738,11 @@
         "Life_Expectancy_Male": 78.7,
         "Life_Expectancy_Female": 78.7,
         "Obesity_Prevalence": 70.27,
-        "Smoking_Prevalence": 18.11,
+        "Smoking_Prevalence": 7.9,
         "Diabetes_Prevalence": 8.02,
         "Depression_Prevalence": 17.66,
         "Child_Poverty": 19.8,
-        "Suicide_Rate": 12.26,
+        "Suicide_Rate": 11.5,
         "Deprivation_Score_IMD2019": 27.04,
         "Under75_CVD_Mortality": 25.73,
         "Physical_Inactivity": 67.8
@@ -26535,11 +26751,11 @@
         "Life_Expectancy_Male": 78.5,
         "Life_Expectancy_Female": 78.5,
         "Obesity_Prevalence": 71.79,
-        "Smoking_Prevalence": 24.73,
+        "Smoking_Prevalence": 10.17,
         "Diabetes_Prevalence": 8.2,
         "Depression_Prevalence": 22.92,
         "Child_Poverty": 20.0,
-        "Suicide_Rate": 11.2,
+        "Suicide_Rate": 9.6,
         "Deprivation_Score_IMD2019": 29.59,
         "Under75_CVD_Mortality": 26.89,
         "Physical_Inactivity": 65.07
@@ -26548,11 +26764,11 @@
         "Life_Expectancy_Male": 78.0,
         "Life_Expectancy_Female": 78.0,
         "Obesity_Prevalence": 74.36,
-        "Smoking_Prevalence": 19.29,
+        "Smoking_Prevalence": 8.93,
         "Diabetes_Prevalence": 8.96,
         "Depression_Prevalence": 16.03,
         "Child_Poverty": 28.2,
-        "Suicide_Rate": 13.12,
+        "Suicide_Rate": 12.5,
         "Deprivation_Score_IMD2019": 29.93,
         "Under75_CVD_Mortality": 29.57,
         "Physical_Inactivity": 67.38
@@ -26561,11 +26777,11 @@
         "Life_Expectancy_Male": 77.7,
         "Life_Expectancy_Female": 77.7,
         "Obesity_Prevalence": 71.47,
-        "Smoking_Prevalence": 21.24,
+        "Smoking_Prevalence": 14.64,
         "Diabetes_Prevalence": 9.19,
         "Depression_Prevalence": 14.7,
         "Child_Poverty": 31.0,
-        "Suicide_Rate": 14.12,
+        "Suicide_Rate": 13.0,
         "Deprivation_Score_IMD2019": 30.29,
         "Under75_CVD_Mortality": 29.05,
         "Physical_Inactivity": 60.84
@@ -26574,11 +26790,11 @@
         "Life_Expectancy_Male": 77.8,
         "Life_Expectancy_Female": 77.8,
         "Obesity_Prevalence": 72.55,
-        "Smoking_Prevalence": 21.14,
+        "Smoking_Prevalence": 11.17,
         "Diabetes_Prevalence": 9.14,
         "Depression_Prevalence": 18.18,
         "Child_Poverty": 27.3,
-        "Suicide_Rate": 13.27,
+        "Suicide_Rate": 12.4,
         "Deprivation_Score_IMD2019": 29.55,
         "Under75_CVD_Mortality": 28.28,
         "Physical_Inactivity": 64.48
@@ -26587,11 +26803,11 @@
         "Life_Expectancy_Male": 79.2,
         "Life_Expectancy_Female": 79.2,
         "Obesity_Prevalence": 67.42,
-        "Smoking_Prevalence": 11.62,
+        "Smoking_Prevalence": 10.52,
         "Diabetes_Prevalence": 7.08,
         "Depression_Prevalence": 14.2,
         "Child_Poverty": 28.5,
-        "Suicide_Rate": 9.03,
+        "Suicide_Rate": 10.1,
         "Deprivation_Score_IMD2019": 27.06,
         "Under75_CVD_Mortality": 27.57,
         "Physical_Inactivity": 69.8
@@ -26600,11 +26816,11 @@
         "Life_Expectancy_Male": 78.3,
         "Life_Expectancy_Female": 78.3,
         "Obesity_Prevalence": 64.81,
-        "Smoking_Prevalence": 8.85,
+        "Smoking_Prevalence": 7.9,
         "Diabetes_Prevalence": 7.0,
         "Depression_Prevalence": 11.96,
         "Child_Poverty": 26.7,
-        "Suicide_Rate": 10.33,
+        "Suicide_Rate": 12.3,
         "Deprivation_Score_IMD2019": 29.79,
         "Under75_CVD_Mortality": 28.26,
         "Physical_Inactivity": 69.41
@@ -26613,11 +26829,11 @@
         "Life_Expectancy_Male": 79.0,
         "Life_Expectancy_Female": 79.0,
         "Obesity_Prevalence": 61.08,
-        "Smoking_Prevalence": 16.6,
+        "Smoking_Prevalence": 7.98,
         "Diabetes_Prevalence": 8.42,
         "Depression_Prevalence": 16.19,
         "Child_Poverty": 19.2,
-        "Suicide_Rate": 12.85,
+        "Suicide_Rate": 12.4,
         "Deprivation_Score_IMD2019": 22.28,
         "Under75_CVD_Mortality": 21.28,
         "Physical_Inactivity": 59.86
@@ -26626,11 +26842,11 @@
         "Life_Expectancy_Male": 77.5,
         "Life_Expectancy_Female": 77.5,
         "Obesity_Prevalence": 74.38,
-        "Smoking_Prevalence": 20.62,
+        "Smoking_Prevalence": 10.75,
         "Diabetes_Prevalence": 9.19,
         "Depression_Prevalence": 17.44,
         "Child_Poverty": 26.5,
-        "Suicide_Rate": 8.7,
+        "Suicide_Rate": 8.0,
         "Deprivation_Score_IMD2019": 31.51,
         "Under75_CVD_Mortality": 30.61,
         "Physical_Inactivity": 65.42
@@ -26639,11 +26855,11 @@
         "Life_Expectancy_Male": 77.3,
         "Life_Expectancy_Female": 77.3,
         "Obesity_Prevalence": 77.0,
-        "Smoking_Prevalence": 17.57,
+        "Smoking_Prevalence": 11.59,
         "Diabetes_Prevalence": 9.13,
         "Depression_Prevalence": 17.04,
         "Child_Poverty": 25.7,
-        "Suicide_Rate": 14.32,
+        "Suicide_Rate": 15.8,
         "Deprivation_Score_IMD2019": 30.59,
         "Under75_CVD_Mortality": 29.73,
         "Physical_Inactivity": 59.27
@@ -26652,11 +26868,11 @@
         "Life_Expectancy_Male": 77.1,
         "Life_Expectancy_Female": 77.1,
         "Obesity_Prevalence": 67.55,
-        "Smoking_Prevalence": 12.61,
+        "Smoking_Prevalence": 10.56,
         "Diabetes_Prevalence": 9.54,
         "Depression_Prevalence": 12.72,
         "Child_Poverty": 39.5,
-        "Suicide_Rate": 9.89,
+        "Suicide_Rate": 10.6,
         "Deprivation_Score_IMD2019": 38.07,
         "Under75_CVD_Mortality": 37.77,
         "Physical_Inactivity": 63.33
@@ -26665,11 +26881,11 @@
         "Life_Expectancy_Male": 78.4,
         "Life_Expectancy_Female": 78.4,
         "Obesity_Prevalence": 66.82,
-        "Smoking_Prevalence": 15.15,
+        "Smoking_Prevalence": 10.44,
         "Diabetes_Prevalence": 7.56,
         "Depression_Prevalence": 13.3,
         "Child_Poverty": 25.5,
-        "Suicide_Rate": 11.77,
+        "Suicide_Rate": 13.2,
         "Deprivation_Score_IMD2019": 25.61,
         "Under75_CVD_Mortality": 28.11,
         "Physical_Inactivity": 61.3
@@ -26678,11 +26894,11 @@
         "Life_Expectancy_Male": 79.1,
         "Life_Expectancy_Female": 79.1,
         "Obesity_Prevalence": 72.21,
-        "Smoking_Prevalence": 19.23,
+        "Smoking_Prevalence": 11.7,
         "Diabetes_Prevalence": 9.03,
         "Depression_Prevalence": 17.21,
         "Child_Poverty": 28.0,
-        "Suicide_Rate": 9.25,
+        "Suicide_Rate": 10.8,
         "Deprivation_Score_IMD2019": 24.1,
         "Under75_CVD_Mortality": 22.96,
         "Physical_Inactivity": 64.15
@@ -26691,11 +26907,11 @@
         "Life_Expectancy_Male": 76.8,
         "Life_Expectancy_Female": 76.8,
         "Obesity_Prevalence": 75.1,
-        "Smoking_Prevalence": 7.66,
+        "Smoking_Prevalence": 13.32,
         "Diabetes_Prevalence": 10.67,
         "Depression_Prevalence": 11.29,
         "Child_Poverty": 35.5,
-        "Suicide_Rate": 9.75,
+        "Suicide_Rate": 8.8,
         "Deprivation_Score_IMD2019": 34.88,
         "Under75_CVD_Mortality": 34.61,
         "Physical_Inactivity": 51.41
@@ -26704,11 +26920,11 @@
         "Life_Expectancy_Male": 80.3,
         "Life_Expectancy_Female": 80.3,
         "Obesity_Prevalence": 61.09,
-        "Smoking_Prevalence": 14.57,
+        "Smoking_Prevalence": 11.47,
         "Diabetes_Prevalence": 7.99,
         "Depression_Prevalence": 12.92,
         "Child_Poverty": 15.2,
-        "Suicide_Rate": 11.04,
+        "Suicide_Rate": 11.4,
         "Deprivation_Score_IMD2019": 17.37,
         "Under75_CVD_Mortality": 17.24,
         "Physical_Inactivity": 65.12
@@ -26717,11 +26933,11 @@
         "Life_Expectancy_Male": 78.1,
         "Life_Expectancy_Female": 78.1,
         "Obesity_Prevalence": 69.58,
-        "Smoking_Prevalence": 22.73,
+        "Smoking_Prevalence": 15.26,
         "Diabetes_Prevalence": 10.58,
         "Depression_Prevalence": 16.57,
         "Child_Poverty": 32.8,
-        "Suicide_Rate": 8.24,
+        "Suicide_Rate": 6.8,
         "Deprivation_Score_IMD2019": 31.55,
         "Under75_CVD_Mortality": 30.37,
         "Physical_Inactivity": 56.85
@@ -26730,11 +26946,11 @@
         "Life_Expectancy_Male": 77.2,
         "Life_Expectancy_Female": 77.2,
         "Obesity_Prevalence": 65.26,
-        "Smoking_Prevalence": 26.12,
+        "Smoking_Prevalence": 11.42,
         "Diabetes_Prevalence": 9.79,
         "Depression_Prevalence": 14.38,
         "Child_Poverty": 32.9,
-        "Suicide_Rate": 9.63,
+        "Suicide_Rate": 9.5,
         "Deprivation_Score_IMD2019": 32.1,
         "Under75_CVD_Mortality": 33.18,
         "Physical_Inactivity": 56.96
@@ -26743,11 +26959,11 @@
         "Life_Expectancy_Male": 78.0,
         "Life_Expectancy_Female": 78.0,
         "Obesity_Prevalence": 64.48,
-        "Smoking_Prevalence": 23.11,
+        "Smoking_Prevalence": 14.76,
         "Diabetes_Prevalence": 10.41,
         "Depression_Prevalence": 14.52,
         "Child_Poverty": 39.3,
-        "Suicide_Rate": 11.36,
+        "Suicide_Rate": 10.4,
         "Deprivation_Score_IMD2019": 34.67,
         "Under75_CVD_Mortality": 33.17,
         "Physical_Inactivity": 62.06
@@ -26756,11 +26972,11 @@
         "Life_Expectancy_Male": 78.4,
         "Life_Expectancy_Female": 78.4,
         "Obesity_Prevalence": 70.42,
-        "Smoking_Prevalence": 16.1,
+        "Smoking_Prevalence": 11.64,
         "Diabetes_Prevalence": 9.12,
         "Depression_Prevalence": 18.0,
         "Child_Poverty": 27.1,
-        "Suicide_Rate": 16.3,
+        "Suicide_Rate": 16.5,
         "Deprivation_Score_IMD2019": 26.35,
         "Under75_CVD_Mortality": 24.61,
         "Physical_Inactivity": 68.06
@@ -26769,11 +26985,11 @@
         "Life_Expectancy_Male": 79.0,
         "Life_Expectancy_Female": 79.0,
         "Obesity_Prevalence": 68.11,
-        "Smoking_Prevalence": 12.24,
+        "Smoking_Prevalence": 8.6,
         "Diabetes_Prevalence": 9.49,
         "Depression_Prevalence": 15.63,
         "Child_Poverty": 30.3,
-        "Suicide_Rate": 11.65,
+        "Suicide_Rate": 11.8,
         "Deprivation_Score_IMD2019": 25.15,
         "Under75_CVD_Mortality": 23.96,
         "Physical_Inactivity": 62.4
@@ -26782,11 +26998,11 @@
         "Life_Expectancy_Male": 79.1,
         "Life_Expectancy_Female": 79.1,
         "Obesity_Prevalence": 65.05,
-        "Smoking_Prevalence": 18.01,
+        "Smoking_Prevalence": 11.83,
         "Diabetes_Prevalence": 7.07,
         "Depression_Prevalence": 12.98,
         "Child_Poverty": 25.0,
-        "Suicide_Rate": 11.73,
+        "Suicide_Rate": 11.7,
         "Deprivation_Score_IMD2019": 27.3,
         "Under75_CVD_Mortality": 26.62,
         "Physical_Inactivity": 70.4
@@ -26795,11 +27011,11 @@
         "Life_Expectancy_Male": 77.7,
         "Life_Expectancy_Female": 77.7,
         "Obesity_Prevalence": 73.21,
-        "Smoking_Prevalence": 25.69,
+        "Smoking_Prevalence": 12.5,
         "Diabetes_Prevalence": 8.75,
         "Depression_Prevalence": 15.61,
         "Child_Poverty": 23.0,
-        "Suicide_Rate": 15.67,
+        "Suicide_Rate": 15.9,
         "Deprivation_Score_IMD2019": 27.31,
         "Under75_CVD_Mortality": 26.89,
         "Physical_Inactivity": 65.66
@@ -26808,11 +27024,11 @@
         "Life_Expectancy_Male": 77.8,
         "Life_Expectancy_Female": 77.8,
         "Obesity_Prevalence": 70.46,
-        "Smoking_Prevalence": 9.75,
+        "Smoking_Prevalence": 7.81,
         "Diabetes_Prevalence": 8.62,
         "Depression_Prevalence": 17.13,
         "Child_Poverty": 24.0,
-        "Suicide_Rate": 9.27,
+        "Suicide_Rate": 8.2,
         "Deprivation_Score_IMD2019": 28.22,
         "Under75_CVD_Mortality": 25.93,
         "Physical_Inactivity": 64.76
@@ -26821,11 +27037,11 @@
         "Life_Expectancy_Male": 77.8,
         "Life_Expectancy_Female": 77.8,
         "Obesity_Prevalence": 71.66,
-        "Smoking_Prevalence": 5.32,
+        "Smoking_Prevalence": 9.82,
         "Diabetes_Prevalence": 10.7,
         "Depression_Prevalence": 9.44,
         "Child_Poverty": 23.0,
-        "Suicide_Rate": 4.92,
+        "Suicide_Rate": 5.4,
         "Deprivation_Score_IMD2019": 32.77,
         "Under75_CVD_Mortality": 34.63,
         "Physical_Inactivity": 58.67
@@ -26834,11 +27050,11 @@
         "Life_Expectancy_Male": 82.9,
         "Life_Expectancy_Female": 82.9,
         "Obesity_Prevalence": 53.34,
-        "Smoking_Prevalence": 11.94,
+        "Smoking_Prevalence": 8.06,
         "Diabetes_Prevalence": 7.22,
         "Depression_Prevalence": 10.76,
         "Child_Poverty": 11.2,
-        "Suicide_Rate": 6.95,
+        "Suicide_Rate": 7.2,
         "Deprivation_Score_IMD2019": 16.15,
         "Under75_CVD_Mortality": 17.81,
         "Physical_Inactivity": 63.46
@@ -26847,11 +27063,11 @@
         "Life_Expectancy_Male": 80.3,
         "Life_Expectancy_Female": 80.3,
         "Obesity_Prevalence": 70.55,
-        "Smoking_Prevalence": 16.12,
+        "Smoking_Prevalence": 10.01,
         "Diabetes_Prevalence": 8.51,
         "Depression_Prevalence": 12.4,
         "Child_Poverty": 11.4,
-        "Suicide_Rate": 7.48,
+        "Suicide_Rate": 8.9,
         "Deprivation_Score_IMD2019": 16.27,
         "Under75_CVD_Mortality": 16.17,
         "Physical_Inactivity": 59.85
@@ -26860,11 +27076,11 @@
         "Life_Expectancy_Male": 80.6,
         "Life_Expectancy_Female": 80.6,
         "Obesity_Prevalence": 58.15,
-        "Smoking_Prevalence": 8.98,
+        "Smoking_Prevalence": 9.17,
         "Diabetes_Prevalence": 8.07,
         "Depression_Prevalence": 8.64,
         "Child_Poverty": 18.5,
-        "Suicide_Rate": 5.51,
+        "Suicide_Rate": 5.9,
         "Deprivation_Score_IMD2019": 25.56,
         "Under75_CVD_Mortality": 26.66,
         "Physical_Inactivity": 60.96
@@ -26873,11 +27089,11 @@
         "Life_Expectancy_Male": 82.4,
         "Life_Expectancy_Female": 82.4,
         "Obesity_Prevalence": 60.0,
-        "Smoking_Prevalence": 6.12,
+        "Smoking_Prevalence": 5.26,
         "Diabetes_Prevalence": 6.73,
         "Depression_Prevalence": 12.82,
         "Child_Poverty": 8.2,
-        "Suicide_Rate": 7.9,
+        "Suicide_Rate": 6.9,
         "Deprivation_Score_IMD2019": 14.16,
         "Under75_CVD_Mortality": 15.16,
         "Physical_Inactivity": 70.07
@@ -26886,11 +27102,11 @@
         "Life_Expectancy_Male": 80.8,
         "Life_Expectancy_Female": 80.8,
         "Obesity_Prevalence": 48.9,
-        "Smoking_Prevalence": 6.28,
+        "Smoking_Prevalence": 8.06,
         "Diabetes_Prevalence": 4.06,
         "Depression_Prevalence": 11.59,
         "Child_Poverty": 16.4,
-        "Suicide_Rate": 8.44,
+        "Suicide_Rate": 9.7,
         "Deprivation_Score_IMD2019": 20.13,
         "Under75_CVD_Mortality": 24.96,
         "Physical_Inactivity": 73.11
@@ -26899,11 +27115,11 @@
         "Life_Expectancy_Male": 80.4,
         "Life_Expectancy_Female": 80.4,
         "Obesity_Prevalence": 61.35,
-        "Smoking_Prevalence": 16.88,
+        "Smoking_Prevalence": 8.64,
         "Diabetes_Prevalence": 8.15,
         "Depression_Prevalence": 10.55,
         "Child_Poverty": 16.4,
-        "Suicide_Rate": 7.81,
+        "Suicide_Rate": 7.5,
         "Deprivation_Score_IMD2019": 22.48,
         "Under75_CVD_Mortality": 23.64,
         "Physical_Inactivity": 63.87
@@ -26912,11 +27128,11 @@
         "Life_Expectancy_Male": 81.6,
         "Life_Expectancy_Female": 81.6,
         "Obesity_Prevalence": 59.03,
-        "Smoking_Prevalence": 7.54,
+        "Smoking_Prevalence": 8.29,
         "Diabetes_Prevalence": 9.13,
         "Depression_Prevalence": 7.42,
         "Child_Poverty": 15.7,
-        "Suicide_Rate": 8.44,
+        "Suicide_Rate": 7.6,
         "Deprivation_Score_IMD2019": 22.71,
         "Under75_CVD_Mortality": 23.59,
         "Physical_Inactivity": 69.11
@@ -26925,11 +27141,11 @@
         "Life_Expectancy_Male": 80.7,
         "Life_Expectancy_Female": 80.7,
         "Obesity_Prevalence": 62.97,
-        "Smoking_Prevalence": 3.66,
+        "Smoking_Prevalence": 6.08,
         "Diabetes_Prevalence": 9.02,
         "Depression_Prevalence": 11.14,
         "Child_Poverty": 15.2,
-        "Suicide_Rate": 5.73,
+        "Suicide_Rate": 6.2,
         "Deprivation_Score_IMD2019": 25.78,
         "Under75_CVD_Mortality": 26.99,
         "Physical_Inactivity": 64.01
@@ -26938,11 +27154,11 @@
         "Life_Expectancy_Male": 80.0,
         "Life_Expectancy_Female": 80.0,
         "Obesity_Prevalence": 59.15,
-        "Smoking_Prevalence": 5.72,
+        "Smoking_Prevalence": 7.77,
         "Diabetes_Prevalence": 7.86,
         "Depression_Prevalence": 11.61,
         "Child_Poverty": 17.2,
-        "Suicide_Rate": 9.29,
+        "Suicide_Rate": 9.2,
         "Deprivation_Score_IMD2019": 24.46,
         "Under75_CVD_Mortality": 25.54,
         "Physical_Inactivity": 67.91
@@ -26951,11 +27167,11 @@
         "Life_Expectancy_Male": 79.5,
         "Life_Expectancy_Female": 79.5,
         "Obesity_Prevalence": 56.09,
-        "Smoking_Prevalence": 19.35,
+        "Smoking_Prevalence": 10.99,
         "Diabetes_Prevalence": 6.01,
         "Depression_Prevalence": 13.36,
         "Child_Poverty": 21.2,
-        "Suicide_Rate": 9.09,
+        "Suicide_Rate": 8.4,
         "Deprivation_Score_IMD2019": 32.53,
         "Under75_CVD_Mortality": 35.28,
         "Physical_Inactivity": 72.53
@@ -26964,11 +27180,11 @@
         "Life_Expectancy_Male": 81.0,
         "Life_Expectancy_Female": 81.0,
         "Obesity_Prevalence": 45.58,
-        "Smoking_Prevalence": 15.17,
+        "Smoking_Prevalence": 11.61,
         "Diabetes_Prevalence": 3.77,
         "Depression_Prevalence": 7.43,
         "Child_Poverty": 12.9,
-        "Suicide_Rate": 7.84,
+        "Suicide_Rate": 9.8,
         "Deprivation_Score_IMD2019": 22.27,
         "Under75_CVD_Mortality": 24.36,
         "Physical_Inactivity": 78.37
@@ -26977,11 +27193,11 @@
         "Life_Expectancy_Male": 80.3,
         "Life_Expectancy_Female": 80.3,
         "Obesity_Prevalence": 56.04,
-        "Smoking_Prevalence": 12.25,
+        "Smoking_Prevalence": 13.78,
         "Diabetes_Prevalence": 6.76,
         "Depression_Prevalence": 11.08,
         "Child_Poverty": 16.5,
-        "Suicide_Rate": 5.78,
+        "Suicide_Rate": 7.0,
         "Deprivation_Score_IMD2019": 27.96,
         "Under75_CVD_Mortality": 31.04,
         "Physical_Inactivity": 69.95
@@ -26990,11 +27206,11 @@
         "Life_Expectancy_Male": 83.1,
         "Life_Expectancy_Female": 83.1,
         "Obesity_Prevalence": 53.61,
-        "Smoking_Prevalence": 6.06,
+        "Smoking_Prevalence": 6.51,
         "Diabetes_Prevalence": 10.59,
         "Depression_Prevalence": 9.32,
         "Child_Poverty": 14.0,
-        "Suicide_Rate": 5.69,
+        "Suicide_Rate": 5.6,
         "Deprivation_Score_IMD2019": 15.03,
         "Under75_CVD_Mortality": 14.3,
         "Physical_Inactivity": 66.19
@@ -27003,11 +27219,11 @@
         "Life_Expectancy_Male": 80.5,
         "Life_Expectancy_Female": 80.5,
         "Obesity_Prevalence": 61.89,
-        "Smoking_Prevalence": 11.93,
+        "Smoking_Prevalence": 7.64,
         "Diabetes_Prevalence": 9.1,
         "Depression_Prevalence": 12.64,
         "Child_Poverty": 13.2,
-        "Suicide_Rate": 7.61,
+        "Suicide_Rate": 8.2,
         "Deprivation_Score_IMD2019": 16.79,
         "Under75_CVD_Mortality": 17.88,
         "Physical_Inactivity": 62.0
@@ -27016,11 +27232,11 @@
         "Life_Expectancy_Male": 81.2,
         "Life_Expectancy_Female": 81.2,
         "Obesity_Prevalence": 62.65,
-        "Smoking_Prevalence": 9.17,
+        "Smoking_Prevalence": 10.37,
         "Diabetes_Prevalence": 8.51,
         "Depression_Prevalence": 10.56,
         "Child_Poverty": 15.1,
-        "Suicide_Rate": 7.77,
+        "Suicide_Rate": 7.7,
         "Deprivation_Score_IMD2019": 18.22,
         "Under75_CVD_Mortality": 18.11,
         "Physical_Inactivity": 59.32
@@ -27029,11 +27245,11 @@
         "Life_Expectancy_Male": 81.2,
         "Life_Expectancy_Female": 81.2,
         "Obesity_Prevalence": 60.98,
-        "Smoking_Prevalence": 9.59,
+        "Smoking_Prevalence": 6.66,
         "Diabetes_Prevalence": 9.45,
         "Depression_Prevalence": 7.42,
         "Child_Poverty": 16.5,
-        "Suicide_Rate": 7.21,
+        "Suicide_Rate": 6.4,
         "Deprivation_Score_IMD2019": 21.49,
         "Under75_CVD_Mortality": 22.47,
         "Physical_Inactivity": 61.54
@@ -27042,11 +27258,11 @@
         "Life_Expectancy_Male": 80.2,
         "Life_Expectancy_Female": 80.2,
         "Obesity_Prevalence": 49.84,
-        "Smoking_Prevalence": 22.58,
+        "Smoking_Prevalence": 9.54,
         "Diabetes_Prevalence": 4.47,
         "Depression_Prevalence": 13.13,
         "Child_Poverty": 19.4,
-        "Suicide_Rate": 12.17,
+        "Suicide_Rate": 11.8,
         "Deprivation_Score_IMD2019": 27.54,
         "Under75_CVD_Mortality": 32.53,
         "Physical_Inactivity": 68.3
@@ -27055,11 +27271,11 @@
         "Life_Expectancy_Male": 84.6,
         "Life_Expectancy_Female": 84.6,
         "Obesity_Prevalence": 39.97,
-        "Smoking_Prevalence": 22.84,
+        "Smoking_Prevalence": 12.36,
         "Diabetes_Prevalence": 4.54,
         "Depression_Prevalence": 9.21,
         "Child_Poverty": 8.0,
-        "Suicide_Rate": 9.39,
+        "Suicide_Rate": 9.2,
         "Deprivation_Score_IMD2019": 21.53,
         "Under75_CVD_Mortality": 23.38,
         "Physical_Inactivity": 68.31
@@ -27068,11 +27284,11 @@
         "Life_Expectancy_Male": 82.6,
         "Life_Expectancy_Female": 82.6,
         "Obesity_Prevalence": 55.14,
-        "Smoking_Prevalence": 12.07,
+        "Smoking_Prevalence": 7.12,
         "Diabetes_Prevalence": 5.92,
         "Depression_Prevalence": 10.42,
         "Child_Poverty": 8.0,
-        "Suicide_Rate": 8.78,
+        "Suicide_Rate": 9.8,
         "Deprivation_Score_IMD2019": 11.38,
         "Under75_CVD_Mortality": 11.12,
         "Physical_Inactivity": 77.21
@@ -27081,11 +27297,11 @@
         "Life_Expectancy_Male": 79.8,
         "Life_Expectancy_Female": 79.8,
         "Obesity_Prevalence": 51.4,
-        "Smoking_Prevalence": 8.19,
+        "Smoking_Prevalence": 8.3,
         "Diabetes_Prevalence": 5.85,
         "Depression_Prevalence": 12.02,
         "Child_Poverty": 17.0,
-        "Suicide_Rate": 9.32,
+        "Suicide_Rate": 9.2,
         "Deprivation_Score_IMD2019": 25.42,
         "Under75_CVD_Mortality": 28.91,
         "Physical_Inactivity": 77.58
@@ -27094,11 +27310,11 @@
         "Life_Expectancy_Male": 79.5,
         "Life_Expectancy_Female": 79.5,
         "Obesity_Prevalence": 58.64,
-        "Smoking_Prevalence": 10.29,
+        "Smoking_Prevalence": 8.07,
         "Diabetes_Prevalence": 7.22,
         "Depression_Prevalence": 12.08,
         "Child_Poverty": 15.5,
-        "Suicide_Rate": 7.34,
+        "Suicide_Rate": 6.9,
         "Deprivation_Score_IMD2019": 26.66,
         "Under75_CVD_Mortality": 28.59,
         "Physical_Inactivity": 70.26
@@ -27107,11 +27323,11 @@
         "Life_Expectancy_Male": 81.6,
         "Life_Expectancy_Female": 81.6,
         "Obesity_Prevalence": 60.18,
-        "Smoking_Prevalence": 15.37,
+        "Smoking_Prevalence": 5.75,
         "Diabetes_Prevalence": 6.99,
         "Depression_Prevalence": 10.75,
         "Child_Poverty": 11.6,
-        "Suicide_Rate": 9.61,
+        "Suicide_Rate": 9.6,
         "Deprivation_Score_IMD2019": 14.65,
         "Under75_CVD_Mortality": 14.93,
         "Physical_Inactivity": 71.97
@@ -27120,11 +27336,11 @@
         "Life_Expectancy_Male": 80.1,
         "Life_Expectancy_Female": 80.1,
         "Obesity_Prevalence": 61.91,
-        "Smoking_Prevalence": 12.43,
+        "Smoking_Prevalence": 10.83,
         "Diabetes_Prevalence": 9.13,
         "Depression_Prevalence": 8.05,
         "Child_Poverty": 23.0,
-        "Suicide_Rate": 4.6,
+        "Suicide_Rate": 5.6,
         "Deprivation_Score_IMD2019": 29.58,
         "Under75_CVD_Mortality": 32.94,
         "Physical_Inactivity": 58.61
@@ -27133,11 +27349,11 @@
         "Life_Expectancy_Male": 81.9,
         "Life_Expectancy_Female": 81.9,
         "Obesity_Prevalence": 60.76,
-        "Smoking_Prevalence": 4.61,
+        "Smoking_Prevalence": 7.34,
         "Diabetes_Prevalence": 10.24,
         "Depression_Prevalence": 7.55,
         "Child_Poverty": 16.6,
-        "Suicide_Rate": 6.35,
+        "Suicide_Rate": 4.7,
         "Deprivation_Score_IMD2019": 17.2,
         "Under75_CVD_Mortality": 20.24,
         "Physical_Inactivity": 64.73
@@ -27146,11 +27362,11 @@
         "Life_Expectancy_Male": 83.6,
         "Life_Expectancy_Female": 83.6,
         "Obesity_Prevalence": 43.11,
-        "Smoking_Prevalence": 7.87,
+        "Smoking_Prevalence": 5.5,
         "Diabetes_Prevalence": 4.56,
         "Depression_Prevalence": 11.6,
         "Child_Poverty": 5.2,
-        "Suicide_Rate": 9.56,
+        "Suicide_Rate": 8.8,
         "Deprivation_Score_IMD2019": 9.43,
         "Under75_CVD_Mortality": 10.04,
         "Physical_Inactivity": 77.78
@@ -27159,11 +27375,11 @@
         "Life_Expectancy_Male": 79.9,
         "Life_Expectancy_Female": 79.9,
         "Obesity_Prevalence": 52.12,
-        "Smoking_Prevalence": 14.28,
+        "Smoking_Prevalence": 8.93,
         "Diabetes_Prevalence": 6.72,
         "Depression_Prevalence": 11.35,
         "Child_Poverty": 18.4,
-        "Suicide_Rate": 8.3,
+        "Suicide_Rate": 8.1,
         "Deprivation_Score_IMD2019": 25.81,
         "Under75_CVD_Mortality": 29.49,
         "Physical_Inactivity": 76.08
@@ -27172,11 +27388,11 @@
         "Life_Expectancy_Male": 81.3,
         "Life_Expectancy_Female": 81.3,
         "Obesity_Prevalence": 65.64,
-        "Smoking_Prevalence": 10.68,
+        "Smoking_Prevalence": 9.48,
         "Diabetes_Prevalence": 7.91,
         "Depression_Prevalence": 12.45,
         "Child_Poverty": 10.4,
-        "Suicide_Rate": 8.05,
+        "Suicide_Rate": 9.7,
         "Deprivation_Score_IMD2019": 13.99,
         "Under75_CVD_Mortality": 14.58,
         "Physical_Inactivity": 63.17
@@ -27185,11 +27401,11 @@
         "Life_Expectancy_Male": 79.6,
         "Life_Expectancy_Female": 79.6,
         "Obesity_Prevalence": 55.57,
-        "Smoking_Prevalence": 5.36,
+        "Smoking_Prevalence": 7.89,
         "Diabetes_Prevalence": 7.2,
         "Depression_Prevalence": 10.63,
         "Child_Poverty": 26.7,
-        "Suicide_Rate": 7.45,
+        "Suicide_Rate": 6.4,
         "Deprivation_Score_IMD2019": 27.91,
         "Under75_CVD_Mortality": 35.66,
         "Physical_Inactivity": 69.11
@@ -27198,11 +27414,11 @@
         "Life_Expectancy_Male": 80.4,
         "Life_Expectancy_Female": 80.4,
         "Obesity_Prevalence": 59.35,
-        "Smoking_Prevalence": 7.18,
+        "Smoking_Prevalence": 9.52,
         "Diabetes_Prevalence": 7.48,
         "Depression_Prevalence": 10.35,
         "Child_Poverty": 18.2,
-        "Suicide_Rate": 7.39,
+        "Suicide_Rate": 8.2,
         "Deprivation_Score_IMD2019": 25.21,
         "Under75_CVD_Mortality": 30.19,
         "Physical_Inactivity": 68.27
@@ -27211,11 +27427,11 @@
         "Life_Expectancy_Male": 80.8,
         "Life_Expectancy_Female": 80.8,
         "Obesity_Prevalence": 51.26,
-        "Smoking_Prevalence": 6.4,
+        "Smoking_Prevalence": 4.71,
         "Diabetes_Prevalence": 4.76,
         "Depression_Prevalence": 10.43,
         "Child_Poverty": 12.6,
-        "Suicide_Rate": 5.73,
+        "Suicide_Rate": 5.8,
         "Deprivation_Score_IMD2019": 16.61,
         "Under75_CVD_Mortality": 18.3,
         "Physical_Inactivity": 78.4
@@ -27224,11 +27440,11 @@
         "Life_Expectancy_Male": 83.2,
         "Life_Expectancy_Female": 83.2,
         "Obesity_Prevalence": 56.17,
-        "Smoking_Prevalence": 5.26,
+        "Smoking_Prevalence": 7.47,
         "Diabetes_Prevalence": 4.22,
         "Depression_Prevalence": 7.06,
         "Child_Poverty": 12.7,
-        "Suicide_Rate": 9.03,
+        "Suicide_Rate": 9.4,
         "Deprivation_Score_IMD2019": 20.34,
         "Under75_CVD_Mortality": 27.69,
         "Physical_Inactivity": 68.33
@@ -27237,11 +27453,11 @@
         "Life_Expectancy_Male": 81.5,
         "Life_Expectancy_Female": 81.5,
         "Obesity_Prevalence": 56.77,
-        "Smoking_Prevalence": 5.89,
+        "Smoking_Prevalence": 8.78,
         "Diabetes_Prevalence": 6.58,
         "Depression_Prevalence": 12.5,
         "Child_Poverty": 12.6,
-        "Suicide_Rate": 10.54,
+        "Suicide_Rate": 10.3,
         "Deprivation_Score_IMD2019": 13.86,
         "Under75_CVD_Mortality": 13.39,
         "Physical_Inactivity": 69.24
@@ -27250,11 +27466,11 @@
         "Life_Expectancy_Male": 79.7,
         "Life_Expectancy_Female": 79.7,
         "Obesity_Prevalence": 66.32,
-        "Smoking_Prevalence": 19.45,
+        "Smoking_Prevalence": 9.15,
         "Diabetes_Prevalence": 8.79,
         "Depression_Prevalence": 16.69,
         "Child_Poverty": 18.5,
-        "Suicide_Rate": 12.48,
+        "Suicide_Rate": 12.0,
         "Deprivation_Score_IMD2019": 18.39,
         "Under75_CVD_Mortality": 18.52,
         "Physical_Inactivity": 71.49
@@ -27263,11 +27479,11 @@
         "Life_Expectancy_Male": 81.6,
         "Life_Expectancy_Female": 81.6,
         "Obesity_Prevalence": 61.31,
-        "Smoking_Prevalence": 18.18,
+        "Smoking_Prevalence": 8.66,
         "Diabetes_Prevalence": 7.34,
         "Depression_Prevalence": 13.89,
         "Child_Poverty": 16.8,
-        "Suicide_Rate": 13.5,
+        "Suicide_Rate": 11.7,
         "Deprivation_Score_IMD2019": 16.61,
         "Under75_CVD_Mortality": 17.09,
         "Physical_Inactivity": 73.68
@@ -27276,11 +27492,11 @@
         "Life_Expectancy_Male": 80.3,
         "Life_Expectancy_Female": 80.3,
         "Obesity_Prevalence": 63.33,
-        "Smoking_Prevalence": 18.7,
+        "Smoking_Prevalence": 9.5,
         "Diabetes_Prevalence": 7.88,
         "Depression_Prevalence": 17.42,
         "Child_Poverty": 16.7,
-        "Suicide_Rate": 12.64,
+        "Suicide_Rate": 13.7,
         "Deprivation_Score_IMD2019": 19.77,
         "Under75_CVD_Mortality": 18.82,
         "Physical_Inactivity": 69.36
@@ -27289,11 +27505,11 @@
         "Life_Expectancy_Male": 80.5,
         "Life_Expectancy_Female": 80.5,
         "Obesity_Prevalence": 67.53,
-        "Smoking_Prevalence": 3.15,
+        "Smoking_Prevalence": 6.47,
         "Diabetes_Prevalence": 7.87,
         "Depression_Prevalence": 12.85,
         "Child_Poverty": 14.4,
-        "Suicide_Rate": 9.12,
+        "Suicide_Rate": 10.0,
         "Deprivation_Score_IMD2019": 17.02,
         "Under75_CVD_Mortality": 17.16,
         "Physical_Inactivity": 68.02
@@ -27302,11 +27518,11 @@
         "Life_Expectancy_Male": 81.1,
         "Life_Expectancy_Female": 81.1,
         "Obesity_Prevalence": 66.24,
-        "Smoking_Prevalence": 10.62,
+        "Smoking_Prevalence": 8.33,
         "Diabetes_Prevalence": 8.14,
         "Depression_Prevalence": 12.92,
         "Child_Poverty": 15.1,
-        "Suicide_Rate": 9.86,
+        "Suicide_Rate": 11.1,
         "Deprivation_Score_IMD2019": 14.93,
         "Under75_CVD_Mortality": 15.01,
         "Physical_Inactivity": 71.33
@@ -27315,11 +27531,11 @@
         "Life_Expectancy_Male": 81.7,
         "Life_Expectancy_Female": 81.7,
         "Obesity_Prevalence": 63.65,
-        "Smoking_Prevalence": 7.58,
+        "Smoking_Prevalence": 7.77,
         "Diabetes_Prevalence": 7.71,
         "Depression_Prevalence": 16.4,
         "Child_Poverty": 11.3,
-        "Suicide_Rate": 8.93,
+        "Suicide_Rate": 9.6,
         "Deprivation_Score_IMD2019": 12.69,
         "Under75_CVD_Mortality": 11.92,
         "Physical_Inactivity": 72.26
@@ -27328,11 +27544,11 @@
         "Life_Expectancy_Male": 81.0,
         "Life_Expectancy_Female": 81.0,
         "Obesity_Prevalence": 63.09,
-        "Smoking_Prevalence": 18.45,
+        "Smoking_Prevalence": 9.47,
         "Diabetes_Prevalence": 6.9,
         "Depression_Prevalence": 12.64,
         "Child_Poverty": 10.9,
-        "Suicide_Rate": 9.17,
+        "Suicide_Rate": 10.3,
         "Deprivation_Score_IMD2019": 12.73,
         "Under75_CVD_Mortality": 12.19,
         "Physical_Inactivity": 70.09
@@ -27341,11 +27557,11 @@
         "Life_Expectancy_Male": 80.3,
         "Life_Expectancy_Female": 80.3,
         "Obesity_Prevalence": 66.53,
-        "Smoking_Prevalence": 20.52,
+        "Smoking_Prevalence": 10.09,
         "Diabetes_Prevalence": 8.07,
         "Depression_Prevalence": 17.13,
         "Child_Poverty": 15.3,
-        "Suicide_Rate": 11.35,
+        "Suicide_Rate": 10.9,
         "Deprivation_Score_IMD2019": 19.54,
         "Under75_CVD_Mortality": 18.8,
         "Physical_Inactivity": 68.66
@@ -27354,11 +27570,11 @@
         "Life_Expectancy_Male": 79.0,
         "Life_Expectancy_Female": 79.0,
         "Obesity_Prevalence": 68.59,
-        "Smoking_Prevalence": 16.25,
+        "Smoking_Prevalence": 12.0,
         "Diabetes_Prevalence": 7.97,
         "Depression_Prevalence": 18.11,
         "Child_Poverty": 24.9,
-        "Suicide_Rate": 14.33,
+        "Suicide_Rate": 14.9,
         "Deprivation_Score_IMD2019": 23.44,
         "Under75_CVD_Mortality": 22.5,
         "Physical_Inactivity": 66.91
@@ -27367,11 +27583,11 @@
         "Life_Expectancy_Male": 81.0,
         "Life_Expectancy_Female": 81.0,
         "Obesity_Prevalence": 67.33,
-        "Smoking_Prevalence": 4.41,
+        "Smoking_Prevalence": 7.2,
         "Diabetes_Prevalence": 8.07,
         "Depression_Prevalence": 16.12,
         "Child_Poverty": 15.2,
-        "Suicide_Rate": 10.08,
+        "Suicide_Rate": 10.5,
         "Deprivation_Score_IMD2019": 12.33,
         "Under75_CVD_Mortality": 12.46,
         "Physical_Inactivity": 68.46
@@ -27380,11 +27596,11 @@
         "Life_Expectancy_Male": 80.0,
         "Life_Expectancy_Female": 80.0,
         "Obesity_Prevalence": 69.08,
-        "Smoking_Prevalence": 15.41,
+        "Smoking_Prevalence": 11.57,
         "Diabetes_Prevalence": 8.81,
         "Depression_Prevalence": 15.81,
         "Child_Poverty": 22.0,
-        "Suicide_Rate": 14.88,
+        "Suicide_Rate": 12.8,
         "Deprivation_Score_IMD2019": 20.29,
         "Under75_CVD_Mortality": 20.61,
         "Physical_Inactivity": 65.06
@@ -27393,11 +27609,11 @@
         "Life_Expectancy_Male": 80.5,
         "Life_Expectancy_Female": 80.5,
         "Obesity_Prevalence": 65.14,
-        "Smoking_Prevalence": 17.99,
+        "Smoking_Prevalence": 10.84,
         "Diabetes_Prevalence": 8.88,
         "Depression_Prevalence": 13.93,
         "Child_Poverty": 19.8,
-        "Suicide_Rate": 11.89,
+        "Suicide_Rate": 11.6,
         "Deprivation_Score_IMD2019": 21.18,
         "Under75_CVD_Mortality": 21.16,
         "Physical_Inactivity": 69.41
@@ -27406,11 +27622,11 @@
         "Life_Expectancy_Male": 79.9,
         "Life_Expectancy_Female": 79.9,
         "Obesity_Prevalence": 68.51,
-        "Smoking_Prevalence": 19.9,
+        "Smoking_Prevalence": 11.2,
         "Diabetes_Prevalence": 8.06,
         "Depression_Prevalence": 13.36,
         "Child_Poverty": 19.5,
-        "Suicide_Rate": 10.55,
+        "Suicide_Rate": 10.7,
         "Deprivation_Score_IMD2019": 19.0,
         "Under75_CVD_Mortality": 18.85,
         "Physical_Inactivity": 68.76
@@ -27419,11 +27635,11 @@
         "Life_Expectancy_Male": 82.1,
         "Life_Expectancy_Female": 82.1,
         "Obesity_Prevalence": 59.15,
-        "Smoking_Prevalence": 10.93,
+        "Smoking_Prevalence": 8.18,
         "Diabetes_Prevalence": 5.71,
         "Depression_Prevalence": 14.23,
         "Child_Poverty": 10.4,
-        "Suicide_Rate": 9.42,
+        "Suicide_Rate": 10.4,
         "Deprivation_Score_IMD2019": 11.66,
         "Under75_CVD_Mortality": 11.51,
         "Physical_Inactivity": 72.93
@@ -27432,11 +27648,11 @@
         "Life_Expectancy_Male": 80.2,
         "Life_Expectancy_Female": 80.2,
         "Obesity_Prevalence": 68.65,
-        "Smoking_Prevalence": 19.17,
+        "Smoking_Prevalence": 10.2,
         "Diabetes_Prevalence": 8.41,
         "Depression_Prevalence": 15.71,
         "Child_Poverty": 19.1,
-        "Suicide_Rate": 10.07,
+        "Suicide_Rate": 10.0,
         "Deprivation_Score_IMD2019": 16.57,
         "Under75_CVD_Mortality": 16.38,
         "Physical_Inactivity": 67.87
@@ -27445,11 +27661,11 @@
         "Life_Expectancy_Male": 81.6,
         "Life_Expectancy_Female": 81.6,
         "Obesity_Prevalence": 66.35,
-        "Smoking_Prevalence": 12.72,
+        "Smoking_Prevalence": 8.52,
         "Diabetes_Prevalence": 8.33,
         "Depression_Prevalence": 14.77,
         "Child_Poverty": 18.0,
-        "Suicide_Rate": 10.74,
+        "Suicide_Rate": 9.5,
         "Deprivation_Score_IMD2019": 18.46,
         "Under75_CVD_Mortality": 18.31,
         "Physical_Inactivity": 68.24
@@ -27458,11 +27674,11 @@
         "Life_Expectancy_Male": 82.5,
         "Life_Expectancy_Female": 82.5,
         "Obesity_Prevalence": 59.08,
-        "Smoking_Prevalence": 12.26,
+        "Smoking_Prevalence": 7.0,
         "Diabetes_Prevalence": 6.33,
         "Depression_Prevalence": 12.99,
         "Child_Poverty": 8.3,
-        "Suicide_Rate": 10.49,
+        "Suicide_Rate": 10.8,
         "Deprivation_Score_IMD2019": 10.09,
         "Under75_CVD_Mortality": 9.39,
         "Physical_Inactivity": 74.8
@@ -27471,11 +27687,11 @@
         "Life_Expectancy_Male": 80.3,
         "Life_Expectancy_Female": 80.3,
         "Obesity_Prevalence": 65.93,
-        "Smoking_Prevalence": 8.59,
+        "Smoking_Prevalence": 6.95,
         "Diabetes_Prevalence": 7.59,
         "Depression_Prevalence": 16.71,
         "Child_Poverty": 14.2,
-        "Suicide_Rate": 9.71,
+        "Suicide_Rate": 10.6,
         "Deprivation_Score_IMD2019": 15.64,
         "Under75_CVD_Mortality": 15.01,
         "Physical_Inactivity": 69.59
@@ -27484,11 +27700,11 @@
         "Life_Expectancy_Male": 80.9,
         "Life_Expectancy_Female": 80.9,
         "Obesity_Prevalence": 65.61,
-        "Smoking_Prevalence": 17.49,
+        "Smoking_Prevalence": 8.74,
         "Diabetes_Prevalence": 7.94,
         "Depression_Prevalence": 14.53,
         "Child_Poverty": 12.8,
-        "Suicide_Rate": 11.49,
+        "Suicide_Rate": 11.5,
         "Deprivation_Score_IMD2019": 14.43,
         "Under75_CVD_Mortality": 14.03,
         "Physical_Inactivity": 70.59
@@ -27497,11 +27713,11 @@
         "Life_Expectancy_Male": 80.5,
         "Life_Expectancy_Female": 80.5,
         "Obesity_Prevalence": 63.0,
-        "Smoking_Prevalence": 22.85,
+        "Smoking_Prevalence": 9.47,
         "Diabetes_Prevalence": 8.16,
         "Depression_Prevalence": 16.71,
         "Child_Poverty": 18.0,
-        "Suicide_Rate": 12.45,
+        "Suicide_Rate": 11.3,
         "Deprivation_Score_IMD2019": 18.09,
         "Under75_CVD_Mortality": 17.7,
         "Physical_Inactivity": 68.36
@@ -27613,12 +27829,6 @@
           "colorScale": "red_green_below",
           "polarity": "bad"
         },
-        "Suicide_Rate": {
-          "label": "Suicide Rate",
-          "unit": "per 100k",
-          "colorScale": "red_green_below",
-          "polarity": "bad"
-        },
         "Deprivation_Score_IMD2019": {
           "label": "Deprivation (IMD 2019)",
           "unit": "score",
@@ -27715,10 +27925,10 @@
     }
   },
   "summary": {
-    "total_indicators": 68,
-    "indicators_worsening": 29,
-    "indicators_improving": 26,
-    "indicators_stable": 13,
+    "total_indicators": 69,
+    "indicators_worsening": 31,
+    "indicators_improving": 23,
+    "indicators_stable": 15,
     "performance_rag": {
       "rtt": "red",
       "dm01_6wk": "red",
