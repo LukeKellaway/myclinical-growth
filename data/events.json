@@ -1,95 +1,7 @@
 {
-  "updated": "2026-11-01T12:00:00.000000Z",
-  "count": 41,
+  "updated": "2026-11-15T12:00:00.000000Z",
+  "count": 44,
   "events": [
-    {
-      "id": "event-building-better-healthcare-awards-2026-2026",
-      "title": "Building Better Healthcare Awards 2026",
-      "organiser": "Building Better Healthcare (Cognitive Publishing)",
-      "source_url": "https://buildingbetterhealthcare.com/events",
-      "type": "Awards & exhibition",
-      "category": "MedTech",
-      "location": "London, UK",
-      "format": "In person",
-      "start_date": "2026-11-04",
-      "end_date": "2026-11-04",
-      "cost": "Paid (entry and table packages)",
-      "summary": "Annual awards evening and exhibition recognising innovation across medtech, healthtech, and NHS procurement. Covers devices, digital, and clinical services. Attended by medtech suppliers, NHS procurement teams, and clinical decision-makers.",
-      "means": "Primarily a supplier and medtech manufacturer crowd, with NHS procurement and clinical engineering buyers present. Worth it for relationship-building and brand visibility in the device and equipment market, less so for pure software or AI founders.",
-      "tags": [
-        "MedTech",
-        "NHS procurement",
-        "Awards"
-      ],
-      "status": "Upcoming",
-      "confidence": "medium"
-    },
-    {
-      "id": "event-ai-in-health-summit-2026-2026",
-      "title": "AI in Health Summit 2026",
-      "organiser": "Economist Enterprise (The Economist Group)",
-      "source_url": "https://events.economistenterprise.com/ai-health-summit/",
-      "type": "Conference",
-      "category": "AI in healthcare",
-      "location": "Royal College of Physicians, London",
-      "format": "In person",
-      "start_date": "2026-11-04",
-      "end_date": "2026-11-04",
-      "cost": "Paid (commercial rates apply; one-day passes available per summit)",
-      "summary": "The second annual Economist AI in Health Summit co-locates with the Future of Health Europe and Cardiovascular Health summits at the Royal College of Physicians. It convenes policymakers, clinicians, pharma and medtech leaders, technology companies, and investors focused on turning AI into real-world health system impact.",
-      "means": "This is a senior, cross-sector crowd spanning policy, industry, and investment rather than NHS IT buyers specifically. Good for founders who want exposure to health system influencers and investors at a prestigious venue, but less useful if your goal is direct NHS trust procurement conversations.",
-      "tags": [
-        "AI in health",
-        "Investors",
-        "Policy"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-uk-healthcare-innovation-summit-2026-2026",
-      "title": "UK Healthcare Innovation Summit 2026",
-      "organiser": "Bamberg Health",
-      "source_url": "https://bamberghealth.com/event/uk-healthcare-innovation-summit-2026",
-      "type": "Summit",
-      "category": "Innovation & startups",
-      "location": "Hilton London Canary Wharf, London",
-      "format": "In person",
-      "start_date": "2026-11-05",
-      "end_date": "2026-11-05",
-      "cost": "Check site",
-      "summary": "Single-day summit covering system strategy, workforce transformation, AI governance, funding reform, pathway innovation, and public-private partnerships across the UK health and care system.",
-      "means": "A policy and leadership forum aimed at senior NHS and government stakeholders. Useful for founders who want to hear where system priorities are heading and do light-touch networking with ICS and DHSC-level contacts, but not a primary commercial selling floor.",
-      "tags": [
-        "NHS policy",
-        "AI governance",
-        "innovation"
-      ],
-      "status": "Upcoming",
-      "confidence": "medium"
-    },
-    {
-      "id": "event-abhi-uk-healthtech-conference-2026-2026",
-      "title": "ABHI UK HealthTech Conference 2026",
-      "organiser": "Association of British HealthTech Industries",
-      "source_url": "https://www.abhi.org.uk/events/abhi-events/the-abhi-uk-healthtech-conference-2026/",
-      "type": "Conference",
-      "category": "MedTech",
-      "location": "London",
-      "format": "In person",
-      "start_date": "2026-11-09",
-      "end_date": "2026-11-10",
-      "cost": "Paid; ABHI member rates",
-      "summary": "ABHI's flagship two-day conference bringing together industry, government, NHS and regulators for market intelligence and policy updates on UK healthtech.",
-      "means": "The trade body's headline event, valuable for the regulatory and commercial landscape and senior industry networking. Best for context and connections rather than buyer leads.",
-      "tags": [
-        "HealthTech",
-        "Policy",
-        "Regulation"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-london-life-sciences-week-2026-2026",
       "title": "London Life Sciences Week 2026",
@@ -372,6 +284,28 @@
         "AI",
         "procurement",
         "public sector"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-european-healthcare-real-assets-conference-2027-2027",
+      "title": "European Healthcare Real Assets Conference 2027",
+      "organiser": "European Healthcare Investor Association (EHIA)",
+      "source_url": "https://www.ehia.org/event-calendar/",
+      "type": "Conference",
+      "category": "Investment",
+      "location": "London (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-02-03",
+      "end_date": "2027-02-03",
+      "cost": "Members and invited guests; ticketed",
+      "summary": "Second edition of a high-level forum for investors and industry leaders focused on healthcare real assets, infrastructure, and capital allocation across the European healthcare sector.",
+      "means": "This is a pure investor and institutional capital event, not a buyer or NHS procurement crowd. Useful if you are actively raising a round or seeking strategic real-assets partners, but limited direct NHS commercial value.",
+      "tags": [
+        "Investment",
+        "Healthcare real assets",
+        "Private capital"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -685,6 +619,72 @@
       "confidence": "medium"
     },
     {
+      "id": "event-biotrinity-2027-2027",
+      "title": "BioTrinity 2027",
+      "organiser": "BioUK (OBN)",
+      "source_url": "https://biotrinity.com/",
+      "type": "Conference",
+      "category": "Investment",
+      "location": "London (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-04-13",
+      "end_date": "2027-04-14",
+      "cost": "Paid; tiered by delegate type",
+      "summary": "Now in its 21st year, BioTrinity is the UK's leading life sciences partnering and investment conference, connecting R&D companies and startups with investors, pharmaceutical leaders, and industry partners through one-to-one meetings, showcase presentations, and networking.",
+      "means": "Primarily an investor and pharma BD crowd. Healthtech and medtech founders at pre-Series A to Series A stage will find genuine investor access. Less relevant if your product is already deployed in the NHS and you are chasing procurement rather than fundraising.",
+      "tags": [
+        "Investment",
+        "Life sciences",
+        "Partnering"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-anglonordic-europe-life-science-conference-2027-2027",
+      "title": "Anglonordic Europe Life Science Conference 2027",
+      "organiser": "Anglonordic / Optimum Strategic Communications",
+      "source_url": "https://www.anglonordiclifescience.com/",
+      "type": "Conference",
+      "category": "Investment",
+      "location": "London (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-04-20",
+      "end_date": "2027-04-20",
+      "cost": "Paid; application-based for pitching companies",
+      "summary": "A curated partnering conference bringing together innovative biotech, health technology, and drug discovery companies with active investors and pharma leaders in a highly structured one-to-one meeting format, now in its 23rd year.",
+      "means": "A focused investor-to-company partnering event with 94 investment firms registered. Ideal for founders actively fundraising. Very limited NHS buyer or procurement presence, so of little value for commercial sales teams.",
+      "tags": [
+        "Investment",
+        "Partnering",
+        "Health technology"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-revive-uk-2027-2027",
+      "title": "Revive UK 2027",
+      "organiser": "Revive Events",
+      "source_url": "https://reviveukexpo.com/",
+      "type": "Conference & expo",
+      "category": "Innovation & startups",
+      "location": "ExCeL London, London",
+      "format": "In person",
+      "start_date": "2027-04-27",
+      "end_date": "2027-04-28",
+      "cost": "Paid; tiered passes",
+      "summary": "A longevity and health technology exhibition and conference covering preventive health, diagnostics, AI, regenerative medicine, and digital healthcare, drawing innovators, clinicians, investors, and policymakers.",
+      "means": "A broad consumer-facing and industry event rather than a focused NHS procurement gathering. Useful for founders building consumer healthtech or longevity products seeking investor visibility, but NHS buyer presence is unproven for this newer event.",
+      "tags": [
+        "Longevity",
+        "Health technology",
+        "Innovation"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
+    },
+    {
       "id": "event-health-ai-tech-show-2027-2027",
       "title": "Health + AI Tech Show 2027",
       "organiser": "Health AI Insiders Intelligence Group",
@@ -727,6 +727,50 @@
       ],
       "status": "Upcoming",
       "confidence": "medium"
+    },
+    {
+      "id": "event-uk-biotech-day-2027-2027",
+      "title": "UK Biotech Day 2027",
+      "organiser": "UK Biotech Day",
+      "source_url": "https://ukbiotechday.org/",
+      "type": "Conference",
+      "category": "Innovation & startups",
+      "location": "London (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-05-19",
+      "end_date": "2027-05-20",
+      "cost": "Paid; registration required",
+      "summary": "An international premier event for life science leaders, innovators, investors, and service providers, showcasing UK life sciences innovation and catalysing partnerships between national and global players.",
+      "means": "An outward-facing showcase and partnering event aimed at connecting UK founders with international investors and pharma. NHS commercial teams will find limited direct buyer access here; it is better suited to founders raising capital or seeking global partnerships.",
+      "tags": [
+        "Life sciences",
+        "Partnering",
+        "Innovation"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-investors-in-healthcare-private-capital-conference-2027-2027",
+      "title": "Investors in Healthcare Private Capital Conference 2027",
+      "organiser": "European Healthcare Investor Association (EHIA) and Rothschild and Co",
+      "source_url": "https://www.ehia.org/event-calendar/",
+      "type": "Conference",
+      "category": "Investment",
+      "location": "London (venue TBC)",
+      "format": "In person",
+      "start_date": "2027-05-25",
+      "end_date": "2027-05-25",
+      "cost": "Invitation-based; ticketed",
+      "summary": "Third edition of a focused private capital conference bringing together corporate leaders and investors to facilitate transactions and promote investment across European healthcare, life sciences, and pharma sectors.",
+      "means": "A deal-focused investor and corporate M&A event. Highly relevant for founders at growth or exit stage seeking PE or strategic acquirers. Not useful for early-stage commercial teams targeting NHS procurement.",
+      "tags": [
+        "Private capital",
+        "Investment",
+        "Healthcare transactions"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
     },
     {
       "id": "event-nhs-confedexpo-2027-2027",
@@ -859,6 +903,28 @@
       ],
       "status": "Upcoming",
       "confidence": "high"
+    },
+    {
+      "id": "event-life-sciences-week-2027-2027",
+      "title": "Life Sciences Week 2027",
+      "organiser": "Life Sciences Week",
+      "source_url": "https://lifesciencesweek.co.uk/",
+      "type": "Festival & expo",
+      "category": "Innovation & startups",
+      "location": "UK (city and venue TBC)",
+      "format": "In person",
+      "start_date": "2027-09-20",
+      "end_date": "2027-09-24",
+      "cost": "Free to register; individual events may be ticketed",
+      "summary": "A week-long programme of conferences, roundtables, showcases, and networking events bringing together life sciences professionals, researchers, and businesses to explore innovation, investment, AI in biotech, and medtech across the UK.",
+      "means": "A broad community and ecosystem event rather than a focused NHS sales opportunity. Good for visibility, networking, and meeting investors or partners, but founders should check the specific sub-events within the week to identify which sessions match their goals.",
+      "tags": [
+        "Life sciences",
+        "Innovation",
+        "AI in biotech"
+      ],
+      "status": "Upcoming",
+      "confidence": "medium"
     },
     {
       "id": "event-hett-show-2027-2027",
