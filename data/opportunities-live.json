@@ -1,5 +1,159 @@
 {
-  "updated": "2026-11-18T14:59:00.316433Z",
-  "count": 0,
-  "opportunities": []
+  "updated": "2026-11-18T17:56:00.825274Z",
+  "count": 7,
+  "opportunities": [
+    {
+      "id": "cf-9989a74e-e23d-4ffd-9ee2-85f92134ec71-921968",
+      "title": "RA361454 - REPAIR TO ICT COMPUTER ROOMS",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/9989a74e-e23d-4ffd-9ee2-85f92134ec71",
+      "buyer": "Aneurin Bevan Health Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-18T15:30:50Z",
+      "deadline": "2026-11-19T14:30:00Z",
+      "summary": "To carry out a full service on all air conditioning equipment to include the following: Filters Fan motors Compressors Condensate pumps and lines Electrical checks Operation of refrigerant circuits Updating of all logs F Gas certification for every unit - To access this competiti…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "cf-65e34c2e-0f1a-43f6-9632-fb38daaa2d13-921967",
+      "title": "RA361455 - REMEDIAL WORKS AND MAINTENENCE",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/65e34c2e-0f1a-43f6-9632-fb38daaa2d13",
+      "buyer": "Aneurin Bevan Health Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-18T15:25:14Z",
+      "deadline": "2026-11-19T14:30:00Z",
+      "summary": "Carry out remedial repairs and maintenance visits to air conditioning systems in ICT Computer tooms - To access this competition: login to https://suppliers.multiquote.com and view the opportunity RA361455. Not registered on MultiQuote - visit https://suppliers.multiquote.com the…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-107744-2026",
+      "title": "Provision - Senior GP Clinical Leadership to support delivery - East Kent Virtual Wards",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-07bb07",
+      "buyer": "KENT COMMUNITY HEALTH NHS FOUNDATION TRUST",
+      "type": "Tender",
+      "category": "Remote monitoring",
+      "value": "GBP 2,100,000",
+      "published": "2026-11-12T16:40:12Z",
+      "deadline": "2026-12-09T17:00:00Z",
+      "summary": "Kent Community Health NHS Foundation Trust (KCHFT) seeks to commission the provision of Senior GP Clinical Leadership to support the delivery of the East Kent Urgent Care services, including Urgent Community Response (UCR) and Virtual wards for Kent Community Health NHS Foundatio…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-106307-2026",
+      "title": "Computerised Maintenance Management System (CMMS) / Computer-Aided Facility Management System (CAFM)",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-07b7c3",
+      "buyer": "NHS Grampian",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-09T14:54:52Z",
+      "deadline": "2026-12-09T12:00:00Z",
+      "summary": "The NHS Grampian Maintenance & Technical Services (MaTS) Department is responsible for the management and maintenance of a diverse estate throughout Aberdeen City, Aberdeenshire and Moray, ranging from small healthcare facilities to large acute hospital sites. The Authority requi…",
+      "cpv": [
+        "72000000",
+        "48420000",
+        "48421000",
+        "72212420",
+        "72212421",
+        "72514000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-106281-2026",
+      "title": "Computerised Maintenance Management System (CMMS) / Computer-Aided Facility Management System (CAFM)",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-07b7b3",
+      "buyer": "NHS Grampian",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-09T14:23:27Z",
+      "deadline": "2026-12-09T12:00:00Z",
+      "summary": "The NHS Grampian Maintenance & Technical Services (MaTS) Department is responsible for the management and maintenance of a diverse estate throughout Aberdeen City, Aberdeenshire and Moray, ranging from small healthcare facilities to large acute hospital sites. The Authority requi…",
+      "cpv": [
+        "72000000",
+        "48420000",
+        "48421000",
+        "72212420",
+        "72212421",
+        "72514000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-106021-2026",
+      "title": "The Provision of a Mental Health Crisis Text Support Service on behalf of NHS Cheshire and Merseyside Integrated Care Board",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06df9f",
+      "buyer": "NHS CHESHIRE AND MERSEYSIDE INTEGRATED CARE BOARD",
+      "type": "Tender",
+      "category": "Infrastructure & cloud",
+      "value": "GBP 1,400,000",
+      "published": "2026-11-09T09:51:24Z",
+      "deadline": "2026-12-04T12:00:00Z",
+      "summary": "NHS Cheshire and Merseyside is seeking to engage with the market regarding the provision of an all-age, 24-hour, 7 days a week/ 365 days a year Mental Health Crisis Text Service across Cheshire and Merseyside. The service will provide immediate, accessible and inclusive text-base…",
+      "cpv": [
+        "79430000",
+        "85121270",
+        "85323000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
+    {
+      "id": "fts-101509-2026",
+      "title": "Ophthalmology Equipment",
+      "source": "Find a Tender",
+      "source_url": "https://www.find-tender.service.gov.uk/Notice/ocds-h6vhtk-06679f",
+      "buyer": "The Common Services Agency (more commonly known as NHS National Services Scotland) (NSS)",
+      "type": "Tender",
+      "category": "Imaging & diagnostics",
+      "value": "GBP 18,000,000",
+      "published": "2026-10-27T12:33:23Z",
+      "deadline": "2026-11-27T10:00:00Z",
+      "summary": "Hospital ophthalmology diagnostic equipment used for comprehensive eye examination, including visual field analysers, slit lamps and OCT imaging systems. Broken to 7 categories Imaging, Diagnostics, Measurement, Surgical, Therapeutic, Digital, Accessories",
+      "cpv": [
+        "33122000"
+      ],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    }
+  ]
 }
