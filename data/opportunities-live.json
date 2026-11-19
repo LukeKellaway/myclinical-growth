@@ -1,7 +1,26 @@
 {
-  "updated": "2026-11-18T17:56:00.825274Z",
-  "count": 7,
+  "updated": "2026-11-19T15:06:14.073907Z",
+  "count": 8,
   "opportunities": [
+    {
+      "id": "cf-9989a74e-e23d-4ffd-9ee2-85f92134ec71-922018",
+      "title": "RA361454 - REPAIR TO ICT COMPUTER ROOMS",
+      "source": "Contracts Finder",
+      "source_url": "https://www.contractsfinder.service.gov.uk/Notice/9989a74e-e23d-4ffd-9ee2-85f92134ec71",
+      "buyer": "Aneurin Bevan Health Board",
+      "type": "Tender",
+      "category": "Other digital health",
+      "value": "",
+      "published": "2026-11-19T09:46:49Z",
+      "deadline": "2026-11-23T12:00:00Z",
+      "summary": "To carry out a full service on all air conditioning equipment to include the following: Filters Fan motors Compressors Condensate pumps and lines Electrical checks Operation of refrigerant circuits Updating of all logs F Gas certification for every unit - To access this competiti…",
+      "cpv": [],
+      "tags": [
+        "Tender",
+        "Closes soon"
+      ],
+      "means": ""
+    },
     {
       "id": "cf-9989a74e-e23d-4ffd-9ee2-85f92134ec71-921968",
       "title": "RA361454 - REPAIR TO ICT COMPUTER ROOMS",
@@ -16,8 +35,7 @@
       "summary": "To carry out a full service on all air conditioning equipment to include the following: Filters Fan motors Compressors Condensate pumps and lines Electrical checks Operation of refrigerant circuits Updating of all logs F Gas certification for every unit - To access this competiti…",
       "cpv": [],
       "tags": [
-        "Tender",
-        "Closes soon"
+        "Tender"
       ],
       "means": ""
     },
@@ -35,8 +53,7 @@
       "summary": "Carry out remedial repairs and maintenance visits to air conditioning systems in ICT Computer tooms - To access this competition: login to https://suppliers.multiquote.com and view the opportunity RA361455. Not registered on MultiQuote - visit https://suppliers.multiquote.com the…",
       "cpv": [],
       "tags": [
-        "Tender",
-        "Closes soon"
+        "Tender"
       ],
       "means": ""
     },
