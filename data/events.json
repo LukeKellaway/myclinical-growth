@@ -1,139 +1,7 @@
 {
-  "updated": "2026-11-15T12:00:00.000000Z",
-  "count": 44,
+  "updated": "2026-11-22T12:00:00.000000Z",
+  "count": 42,
   "events": [
-    {
-      "id": "event-london-life-sciences-week-2026-2026",
-      "title": "London Life Sciences Week 2026",
-      "organiser": "MedCity, London & Partners and the BioIndustry Association",
-      "source_url": "https://lifesciencesweek.london/",
-      "type": "Festival & expo",
-      "category": "Investment",
-      "location": "Various venues, central London",
-      "format": "In person",
-      "start_date": "2026-11-15",
-      "end_date": "2026-11-20",
-      "cost": "Varies by event; networking platform free",
-      "summary": "A week of 50-plus events spanning life sciences networking, dealmaking and innovation across central London, anchored by the Jefferies European Healthcare Conference and the LSX Investival Showcase, drawing over 1,300 senior decision-makers from international life sciences companies and investor firms.",
-      "means": "This is primarily an investor and business development week for biotech, medtech and pharma rather than an NHS digital-transformation event. It is worth attending if you are raising a Series A or B or need to meet global investors and strategic partners, but it will not put you in a room with NHS procurement leads.",
-      "tags": [
-        "life sciences",
-        "investment",
-        "dealmaking"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-lsx-investival-showcase-2026-2026",
-      "title": "LSX Investival Showcase 2026",
-      "organiser": "LSX",
-      "source_url": "https://www.lsx.com/events/lsx-investival-showcase-2026/",
-      "type": "Conference",
-      "category": "Investment",
-      "location": "London",
-      "format": "In person",
-      "start_date": "2026-11-16",
-      "end_date": "2026-11-16",
-      "cost": "Paid",
-      "summary": "LSX's annual investor showcase for biotech, medtech and healthtech companies seeking growth capital, bringing together founders, investors and corporate development leads in a pitch and networking format.",
-      "means": "Pure investor crowd. If you are fundraising or want to meet VCs and corporate investors active in UK healthtech and medtech, this is a focused one-day opportunity. It is not an NHS buyer event.",
-      "tags": [
-        "investment",
-        "medtech",
-        "biotech"
-      ],
-      "status": "Upcoming",
-      "confidence": "medium"
-    },
-    {
-      "id": "event-the-king-s-fund-annual-conference-2026-good-health-for-all-2026",
-      "title": "The King's Fund Annual Conference 2026: Good Health for All",
-      "organiser": "The King's Fund",
-      "source_url": "https://www.kingsfund.org.uk/events/annual-conference",
-      "type": "Conference",
-      "category": "Procurement & policy",
-      "location": "The King's Fund, 11-13 Cavendish Square, London",
-      "format": "In person",
-      "start_date": "2026-11-17",
-      "end_date": "2026-11-18",
-      "cost": "Paid (tiered pricing; NHS and charity rates lower than commercial)",
-      "summary": "The King's Fund flagship annual conference explores the future of health and care through a system-leadership lens, with 2026 themes including AI adoption, digital transformation, workforce, and financial pressures shaping the NHS up to 2040.",
-      "means": "The audience is predominantly NHS leaders, senior clinicians, policymakers, and think-tank types rather than procurement teams or investors. Useful for founders wanting to understand NHS system priorities and build relationships with senior NHS decision-makers, but not a sales or deal-flow environment.",
-      "tags": [
-        "NHS policy",
-        "System leadership",
-        "Digital strategy"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-london-biotechnology-show-2026-2026",
-      "title": "London Biotechnology Show 2026",
-      "organiser": "London Biotechnology Show (Interphex UK Ltd)",
-      "source_url": "https://londonbiotechshow.com/",
-      "type": "Conference & expo",
-      "category": "Innovation & startups",
-      "location": "ExCeL London, London",
-      "format": "In person",
-      "start_date": "2026-11-18",
-      "end_date": "2026-11-19",
-      "cost": "Paid (exhibitor and delegate tickets)",
-      "summary": "Europe's flagship red-biotechnology exhibition and conference, bringing together biotech companies, pharma manufacturers, researchers, investors, healthcare providers and startups to showcase innovations and build partnerships across the life-sciences value chain.",
-      "means": "Primarily a life-sciences and pharma crowd rather than a pure NHS buyer audience. Worth it for healthtech founders who want investor and partnership introductions in biotech and advanced therapies, less so if your goal is direct NHS commercial conversations.",
-      "tags": [
-        "biotech",
-        "life sciences",
-        "investment"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-hcsa-annual-conference-exhibition-2026-2026",
-      "title": "HCSA Annual Conference & Exhibition 2026",
-      "organiser": "Health Care Supply Association (HCSA)",
-      "source_url": "https://www.hcsaconference.co.uk/hcsa-2026/",
-      "type": "Conference & expo",
-      "category": "Procurement & policy",
-      "location": "Telford International Centre, Telford",
-      "format": "In person",
-      "start_date": "2026-11-18",
-      "end_date": "2026-11-19",
-      "cost": "Paid; gala dinner included",
-      "summary": "The UK's leading two-day event for NHS procurement and supply chain professionals, featuring 55+ speakers, 90+ exhibitors, workshops, and the HCSA Gala Dinner and Awards. The 2026 theme is 'Setting the Agenda', focusing on NHS procurement reform, digital developments, and AI in commercial decision-making.",
-      "means": "The room is NHS procurement leads, supply chain managers, and their commercial suppliers. If your product needs to land on an NHS framework or you sell into procurement teams, this is one of the highest-density buyer crowds of the year.",
-      "tags": [
-        "NHS procurement",
-        "supply chain",
-        "commercial"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
-    {
-      "id": "event-ehr-wales-reflection-resilience-and-the-road-ahead-2026",
-      "title": "EHR Wales: Reflection, Resilience and the Road Ahead",
-      "organiser": "Convenzis",
-      "source_url": "https://www.convenzis.co.uk/events/ehr-wales-adapting-nhs-insights-2026",
-      "type": "Conference",
-      "category": "Digital health",
-      "location": "The Parkgate Hotel, Cardiff",
-      "format": "In person",
-      "start_date": "2026-11-18",
-      "end_date": "2026-11-18",
-      "cost": "Free for NHS; suppliers paid",
-      "summary": "A Convenzis electronic health record conference for Wales, reflecting on progress and the road ahead for digital records.",
-      "means": "Useful for EHR and integration vendors targeting NHS Wales. A focused regional room rather than a broad audience.",
-      "tags": [
-        "EHR",
-        "Wales",
-        "Convenzis"
-      ],
-      "status": "Upcoming",
-      "confidence": "high"
-    },
     {
       "id": "event-digital-healthcare-world-congress-2026-2026",
       "title": "Digital Healthcare World Congress 2026",
@@ -240,6 +108,28 @@
         "Policy",
         "Year in review",
         "Online"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-hfma-procurement-forum-2027-2027",
+      "title": "HFMA Procurement Forum 2027",
+      "organiser": "Healthcare Financial Management Association (HFMA)",
+      "source_url": "https://www.hfma.org.uk/events/procurement-forum-2027",
+      "type": "Conference",
+      "category": "Procurement & policy",
+      "location": "In-person, UK (venue TBC at time of search)",
+      "format": "In person",
+      "start_date": "2027-01-21",
+      "end_date": "2027-01-21",
+      "cost": "HFMA member rates apply; check site",
+      "summary": "A one-day forum bringing together NHS finance and procurement colleagues to explore joint working, best practice and the priorities for NHS commercial teams in 2027.",
+      "means": "Squarely aimed at NHS finance and procurement directors. Useful for founders if understanding buyer-side commercial pressures and frameworks is on the agenda, but expect few direct sales conversations.",
+      "tags": [
+        "NHS procurement",
+        "finance",
+        "policy"
       ],
       "status": "Upcoming",
       "confidence": "high"
@@ -729,6 +619,28 @@
       "confidence": "medium"
     },
     {
+      "id": "event-digi-tech-pharma-ai-2027-conference-2027",
+      "title": "Digi-Tech Pharma & AI 2027 Conference",
+      "organiser": "Royal Society of Chemistry (RSC)",
+      "source_url": "https://www.rsc.org/events/find-an-event/digi-tech-pharma-ai-2027-conference",
+      "type": "Conference",
+      "category": "AI in healthcare",
+      "location": "London, UK",
+      "format": "In person",
+      "start_date": "2027-05-11",
+      "end_date": "2027-05-12",
+      "cost": "Paid; RSC member discounts apply",
+      "summary": "A two-day RSC conference uniting pharma and technology leaders to explore AI, machine learning, digital health ecosystems, clinical trials data science, and real-world evidence in drug development.",
+      "means": "Pharma R&D and health data science focused, not an NHS procurement crowd. Worth it for founders selling AI or data tools into life sciences and pharma pipelines rather than directly into NHS trusts.",
+      "tags": [
+        "health AI",
+        "pharma",
+        "data science"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-uk-biotech-day-2027-2027",
       "title": "UK Biotech Day 2027",
       "organiser": "UK Biotech Day",
@@ -927,6 +839,28 @@
       "confidence": "medium"
     },
     {
+      "id": "event-world-health-ai-london-2027-2027",
+      "title": "World Health AI London 2027",
+      "organiser": "World Health AI",
+      "source_url": "https://www.worldhealth.ai/events/health-london-2027",
+      "type": "Conference",
+      "category": "AI in healthcare",
+      "location": "Central London",
+      "format": "In person",
+      "start_date": "2027-09-22",
+      "end_date": "2027-09-22",
+      "cost": "Paid; check site",
+      "summary": "A focused one-day annual summit for NHS C-suite, clinical leaders and health AI researchers exploring how machine intelligence and large language models reach clinical practice safely and at scale.",
+      "means": "A curated, senior-only room of NHS AI decision-makers and clinical leaders. Good for founders who want peer-level conversations with the people who set and fund AI strategy, not a mass-market expo.",
+      "tags": [
+        "health AI",
+        "NHS leaders",
+        "clinical AI"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
       "id": "event-hett-show-2027-2027",
       "title": "HETT Show 2027",
       "organiser": "GovNet Communications",
@@ -966,6 +900,28 @@
         "Health data",
         "AI in healthcare",
         "Real-world evidence"
+      ],
+      "status": "Upcoming",
+      "confidence": "high"
+    },
+    {
+      "id": "event-hcsa-annual-conference-2027-2027",
+      "title": "HCSA Annual Conference 2027",
+      "organiser": "Health Care Supply Association (HCSA)",
+      "source_url": "https://registration.crowdcomms.com/hcsaac27",
+      "type": "Conference & expo",
+      "category": "Procurement & policy",
+      "location": "Arena MK, Milton Keynes",
+      "format": "In person",
+      "start_date": "2027-11-23",
+      "end_date": "2027-11-24",
+      "cost": "HCSA member rates; check site",
+      "summary": "The flagship annual event for NHS procurement and supply chain professionals, drawing over 800 delegates for peer networking, expert presentations and direct engagement with NHS commercial decision-makers.",
+      "means": "The best single event in the UK for reaching NHS procurement leads in one room. If your product needs to navigate NHS commercial frameworks or supply chain, this is where the buyers and decision-makers actually are.",
+      "tags": [
+        "NHS procurement",
+        "supply chain",
+        "commercial frameworks"
       ],
       "status": "Upcoming",
       "confidence": "high"
